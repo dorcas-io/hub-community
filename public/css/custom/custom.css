@@ -1,0 +1,27 @@
+#login-page .login-form {
+    width: 400px;
+}
+#register-page .login-form {
+    width: auto;
+}
+.summary-collection .collection-header h4 {
+    font-size: 1.2rem;
+    line-height: 10%;
+}
+.summary-collection .collection-item span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+.fixed-table-container .bs-checkbox {
+    text-align: center;
+    width: 36px;
+}
+.th-inner > [type="checkbox"] + label,
+.th-inner > div > [type="checkbox"] + label,
+.bs-checkbox > [type="checkbox"] + label{
+    padding-left: 15px;
+}
+
+.btn-small {
+    padding: 0 0.5rem !important;
+}
