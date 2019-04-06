@@ -40,6 +40,14 @@
         .combodate .form-control {
             display: inline-block;
         }
+        /*.dropdown>.dropdown-menu {
+            transition: 0s !important;
+            transition-delay: 1s !important;
+        }
+        .dropdown:hover>.dropdown-menu {
+            display: block !important;
+            transition-delay: 0s !important;
+        }*/
     </style>
     @yield('head_css')
     @yield('head_js')
@@ -121,6 +129,8 @@
 <script src="{{ cdn('apps/tabler/js/lib/moment.min.js') }}"></script>
 <script src="{{ cdn('apps/tabler/js/lib/combodate.js') }}"></script>
 <script src="{{ cdn('apps/tabler/js/app.js') }}"></script>
+<!--custom-script.js - Add your own theme custom JS-->
+<script src="{{ cdn('apps/tabler/js/custom-vue.js') }}"></script>
 <!-- Production JS code -->
 @if (app()->environment() === 'production')
     @include('layouts.blocks.production-js')

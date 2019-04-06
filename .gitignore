@@ -20,3 +20,15 @@ Homestead.json
 .rocketeer/
 
 /.DS_Store
+
+/app/.DS_Store
+
+/app/Dorcas/.DS_Store
+
+/public/.DS_Store
+
+/resources/.DS_Store
+
+/resources/views/.DS_Store
+
+/resources/views/layouts/.DS_Store

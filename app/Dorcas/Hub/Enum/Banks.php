@@ -39,7 +39,7 @@ class Banks
         self::ACCESS_MOBILE           => 'Access Mobile',
         self::AFRIBANK                => 'Afribank Nigeria Plc',
         self::ASO_SAVINGS_AND_LOANS   => 'Aso Savings And Loans',
-        self::DIAMOND_BANK            => 'Diamond Bank Plc',
+        self::DIAMOND_BANK            => 'Diamond Bank Plc (Access Bank)',
         self::ECOBANK                 => 'Ecobank Nigeria Plc',
         self::ENTERPRISE_BANK         => 'Enterprise Bank Limited',
         self::ECOBANK_MOBILE          => 'Ecobank Mobile',

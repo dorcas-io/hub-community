@@ -231,3 +231,13 @@ function toast(string $message, int $durationSecs = 10, array $config = []): Toa
 {
     return new ToastNotification($message, $durationSecs * 1000, $config);
 }
+
+
+function safe_href_route($route) {
+    if (\Route::has($route)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+

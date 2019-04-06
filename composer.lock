@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbd52efd4175332cf0c86f3de728f94b",
+    "content-hash": "c7a20fd7549040d6e344b2d34f675a6e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -534,18 +534,13 @@
             "time": "2019-03-29T11:49:34+00:00"
         },
         {
-            "name": "dorcas/modules-sales",
-            "version": "dev-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-sales.git",
-                "reference": "aee51b9c1f86aaeda93218e52f992b860348880f"
-            },
+            "name": "dorcas/modules-customers",
+            "version": "dev-develop",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-sales/zipball/aee51b9c1f86aaeda93218e52f992b860348880f",
-                "reference": "aee51b9c1f86aaeda93218e52f992b860348880f",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-customers",
+                "reference": "026699be7dc1f51e9c54cde359187e6876bf96f4",
+                "shasum": null
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -560,16 +555,15 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Dorcas\\ModulesSales\\ModulesSalesServiceProvider"
+                        "Dorcas\\ModulesCustomers\\ModulesCustomersServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Dorcas\\ModulesSales\\": "src/"
+                    "Dorcas\\ModulesCustomers\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -579,8 +573,7 @@
                     "email": "dev@hostvillenigeria.org"
                 }
             ],
-            "description": "Dorcas Hub Sales Module",
-            "time": "2019-03-29T13:48:38+00:00"
+            "description": "Dorcas Hub Customers Module"
         },
         {
             "name": "dorcas/resellerclub-php",
@@ -5273,7 +5266,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "dorcas/laravel-compat": 20,
-        "dorcas/modules-sales": 20,
+        "dorcas/modules-customers": 20,
         "dorcas/resellerclub-php": 20,
         "dorcas/sdk-php-laravel": 20
     },

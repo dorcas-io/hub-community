@@ -1,48 +1,67 @@
 <?php
 return [
-    'dashboard' => [
+    'modules-dashboard-business' => [
+        'dashboard' => 'business',
         'title' => 'Dashboard',
         'url' => 'dashboard',
-        'menu' => []
+        'clickable' => true,
+        'navbar' => true,
+        'sub-menu' => []
     ],
-    'customers' => [
+    'modules-customers' => [
+        'dashboard' => 'business',
         'title' => 'Customers',
         'url' => 'customers',
-        'menu' => []
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
     ],
-    'e-commerce' => [
+    'modules-ecommerce' => [
+        'dashboard' => 'business',
         'title' => 'eCommerce',
         'url' => 'e-commerce',
-        'menu' => []
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
     ],
-    'people' => [
+    'modules-people' => [
+        'dashboard' => 'business',
         'title' => 'People',
         'url' => 'people',
-        'menu' => []
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
     ],
-    'finance' => [
+    'modules-finance' => [
+        'dashboard' => 'business',
         'title' => 'Finance',
         'url' => 'finance',
-        'menu' => []
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
     ],
-    'sales' => [
+    'modules-sales' => [
+        'dashboard' => 'business',
         'title' => 'Sales',
         'url' => 'sales',
-        'menu' => []
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
     ],
-    'marketplace' => [
+    'modules-marketplace' => [
+        'dashboard' => 'business',
         'title' => 'Marketplace',
         'url' => 'marketplace',
-        'menu' => []
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
     ],
-    'access-grants' => [
-        'title' => 'Access Grants',
-        'url' => 'access-grants',
-        'menu' => []
-    ],
-    'settings' => [
+    'modules-settings' => [
+        'dashboard' => 'all',
         'title' => 'Settings',
         'url' => 'settings',
-        'menu' => []
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
     ]
 ];

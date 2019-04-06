@@ -4,7 +4,11 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories": [
+    "repositories":[
+        {
+            "type": "path",
+            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-customers"
+        }
     ],
     "require": {
         "php": ">=7.0.0",
@@ -12,7 +16,7 @@
         "aws/aws-sdk-php": "^3.52",
         "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "dev-master",
-        "dorcas/modules-sales": "dev-dev",
+        "dorcas/modules-customers": "dev-develop",
         "dorcas/resellerclub-php": "dev-master",
         "dorcas/sdk-php-laravel": "dev-master",
         "fedeisas/laravel-mail-css-inliner": "^2.2",
