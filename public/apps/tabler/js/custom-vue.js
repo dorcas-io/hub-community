@@ -12,7 +12,7 @@ Vue.component('group-card', {
 			'{{ group.description }}' +
 		'</div>' +
 		'<div class="card-footer">' +
-			'<a v-bind:href="\'/apps/crm/customers?groups=\' + group.id" class="btn btn-primary btn-sm">View Customers</a>' +
+			'<a v-bind:href="\'/mcu/customers-customers?groups=\' + group.id" class="btn btn-primary btn-sm">View Customers</a>' +
 			'<a href="#" class="btn btn-secondary btn-sm" v-on:click.prevent="editGroup">Edit</a>' +
 			'<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteGroup">Delete</a>' +
 		'</div>' +
@@ -38,6 +38,234 @@ Vue.component('group-card', {
     }
 });
 
+
+Vue.component('contact-field', {
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h3 class="card-title">{{ field_name }}</h3>' +
+            '<div class="card-options">' +
+            '</div>' +
+        '</div>' +
+        //'<div class="card-body" style="min-height:75px;">' +
+        //    '{{ group.description }}' +
+        //'</div>' +
+        '<div class="card-footer">' +
+            '<a href="#" class="btn btn-secondary btn-sm" v-bind:data-id="record_id" v-on:click.prevent="edit">Edit</a>' +
+            '<a href="#" class="btn btn-danger btn-sm" v-bind:data-id="record_id" v-on:click.prevent="deleteField" v-if="showDelete">Delete</a>' +
+        '</div>' +
+    '</div>' +
+    '</div>',
+
+
+    props: {
+        title: {
+            type: String,
+            default: 'Custom Field'
+        },
+        content_class: {
+            type: String,
+            default: 'flow-text'
+        },
+        field_name: {
+            type: String,
+            required: true
+        },
+        record_id: {
+            type: [String, Number],
+            required: true
+        },
+        seen: {
+            type: Boolean,
+            default: true
+        },
+        showDelete: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data: function () {
+        return {
+            visible: this.seen
+        }
+    },
+    methods: {
+        edit: function () {
+            var context = this;
+            Swal.fire({
+                    title: "Update Field",
+                    text: "Enter new name ["+context.field_name+"]:",
+                    input: "text",
+                    showCancelButton: true,
+                    animation: "slide-from-top",
+                    showLoaderOnConfirm: true,
+                    inputPlaceholder: "Custom Field Name",
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'You need to write something OR Cancel!'
+                        }
+                    },
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Update Field",
+                    showLoaderOnConfirm: true,
+                    preConfirm: (result) => {
+                    return axios.put("/mcu/customers-custom-fields/"+context.record_id, {
+                        name: result
+                    }).then(function (response) {
+                        console.log(response);
+                        context.field_name = result;
+                        return swal("Success", "The custom field was successfully updated.", "success");
+                    })
+                        .catch(function (error) {
+                            var message = '';
+                            if (error.response) {
+                                // The request was made and the server responded with a status code
+                                // that falls out of the range of 2xx
+                                var e = error.response.data.errors[0];
+                                message = e.title;
+                            } else if (error.request) {
+                                // The request was made but no response was received
+                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                                // http.ClientRequest in node.js
+                                message = 'The request was made but no response was received';
+                            } else {
+                                // Something happened in setting up the request that triggered an Error
+                                message = error.message;
+                            }
+                            return swal("Oops!", message, "warning");
+                        });
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                });
+        },
+        deleteField: function (event) {
+            var attrs = app.utilities.getElementAttributes(event.target);
+            var id = attrs['data-id'] || null;
+            if (id === null) {
+                return false;
+            }
+            var context = this;
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You are about to delete the custom field (" + this.field_name + ").",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                showLoaderOnConfirm: true,
+                preConfirm: (delete_custom) => {
+                return axios.delete("/mcu/customers-custom-fields/" + id)
+                    .then(function (response) {
+                        console.log(response);
+                        context.visible = false;
+                        context.$emit('remove', id);
+                        return swal("Deleted!", "The contact field was successfully deleted.", "success");
+                    })
+                    .catch(function (error) {
+                        var message = '';
+                        if (error.response) {
+                            // The request was made and the server responded with a status code
+                            // that falls out of the range of 2xx
+                            var e = error.response.data.errors[0];
+                            message = e.title;
+                        } else if (error.request) {
+                            // The request was made but no response was received
+                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                            // http.ClientRequest in node.js
+                            message = 'The request was made but no response was received';
+                        } else {
+                            // Something happened in setting up the request that triggered an Error
+                            message = error.message;
+                        }
+                        return swal("Delete Failed", message, "warning");
+                    });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            });
+        }
+    }
+});
+
+
+Vue.component('department-card', {
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h3 class="card-title">{{ department.name + (typeof department.counts.employees !== \'undefined\' ? " (" + department.counts.employees + ")" : "") }}</h3>' +
+            '<div class="card-options">' +
+            '</div>' +
+        '</div>' +
+        '<div class="card-body">' +
+            '{{ department.description }}' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a v-bind:href="\'/mpe/people-departments/\' + department.id" class="btn btn-primary btn-sm">View Employees</a>' +
+            '<a href="#" class="btn btn-secondary btn-sm" v-on:click.prevent="editDepartment">Edit</a>' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteDepartment">Delete</a>' +
+        '</div>' +
+    '</div>' +
+    '</div>',
+    props: {
+        department: {
+            type: Object,
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        }
+    },
+    methods: {
+        editDepartment: function () {
+            this.$emit('edit-department', this.index);
+        },
+        deleteDepartment: function () {
+            this.$emit('delete-department', this.index);
+        }
+    }
+});
+
+
+Vue.component('team-card', {
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h3 class="card-title">{{ team.name + (typeof team.counts.employees !== \'undefined\' ? " (" + team.counts.employees + ")" : "") }}</h3>' +
+            '<div class="card-options">' +
+            '</div>' +
+        '</div>' +
+        '<div class="card-body">' +
+            '{{ team.description }}' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a v-bind:href="\'/mpe/people-teams/\' + team.id" class="btn btn-primary btn-sm">View Employees</a>' +
+            '<a href="#" class="btn btn-secondary btn-sm" v-on:click.prevent="editTeam">Edit</a>' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteTeam">Delete</a>' +
+        '</div>' +
+    '</div>' +
+    '</div>',
+    props: {
+        team: {
+            type: Object,
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        }
+    },
+    methods: {
+        editTeam: function () {
+            this.$emit('edit-team', this.index);
+        },
+        deleteTeam: function () {
+            this.$emit('delete-team', this.index);
+        }
+    }
+});
 
 
 
@@ -98,143 +326,6 @@ Vue.component('access-grant-card', {
         requestModules: function () {
             this.$emit('request-modules', this.index);
         },
-    }
-});
-
-Vue.component('contact-field', {
-    template: '<div class="col s12">' +
-    '<div class="card">' +
-    '<div class="card-content">' +
-    '<span class="card-title"><h4>{{ title }}</h4></span>' +
-    '<p v-bind:class="content_class">{{ field_name }}</p>' +
-    '</div>' +
-    '<div class="card-action">' +
-    '<a href="#" class="grey-text text-darken-3" v-bind:data-id="record_id" v-on:click.prevent="edit">Edit</a>' +
-    '<a href="#" class="red-text" v-bind:data-id="record_id" v-on:click.prevent="deleteField" v-if="showDelete">REMOVE</a>' +
-    '</div>' +
-    '</div>' +
-    '</div>',
-    props: {
-        title: {
-            type: String,
-            default: 'Custom Field'
-        },
-        content_class: {
-            type: String,
-            default: 'flow-text'
-        },
-        field_name: {
-            type: String,
-            required: true
-        },
-        record_id: {
-            type: [String, Number],
-            required: true
-        },
-        seen: {
-            type: Boolean,
-            default: true
-        },
-        showDelete: {
-            type: Boolean,
-            default: false
-        }
-    },
-    data: function () {
-        return {
-            visible: this.seen
-        }
-    },
-    methods: {
-        edit: function () {
-            var context = this;
-            swal({
-                    title: "Update Field",
-                    text: "Enter new name ["+context.field_name+"]:",
-                    type: "input",
-                    showCancelButton: true,
-                    closeOnConfirm: false,
-                    animation: "slide-from-top",
-                    showLoaderOnConfirm: true,
-                    inputPlaceholder: "Custom Field Name"
-                },
-                function(inputValue){
-                    if (inputValue === false) return false;
-                    if (inputValue === "") {
-                        swal.showInputError("You need to write something!");
-                        return false
-                    }
-                    axios.put("/xhr/crm/custom-fields/"+context.record_id, {
-                        name: inputValue
-                    }).then(function (response) {
-                        console.log(response);
-                        context.field_name = inputValue;
-                        return swal("Success", "The custom field was successfully updated.", "success");
-                    })
-                        .catch(function (error) {
-                            var message = '';
-                            if (error.response) {
-                                // The request was made and the server responded with a status code
-                                // that falls out of the range of 2xx
-                                var e = error.response.data.errors[0];
-                                message = e.title;
-                            } else if (error.request) {
-                                // The request was made but no response was received
-                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                                // http.ClientRequest in node.js
-                                message = 'The request was made but no response was received';
-                            } else {
-                                // Something happened in setting up the request that triggered an Error
-                                message = error.message;
-                            }
-                            return swal("Oops!", message, "warning");
-                        });
-                });
-        },
-        deleteField: function (event) {
-            var attrs = Hub.utilities.getElementAttributes(event.target);
-            var id = attrs['data-id'] || null;
-            if (id === null) {
-                return false;
-            }
-            var context = this;
-            swal({
-                title: "Are you sure?",
-                text: "You are about to delete the custom field (" + this.field_name + ").",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.delete("/xhr/crm/custom-fields/" + id)
-                    .then(function (response) {
-                        console.log(response);
-                        context.visible = false;
-                        context.$emit('remove', id);
-                        return swal("Deleted!", "The contact field was successfully deleted.", "success");
-                    })
-                    .catch(function (error) {
-                        var message = '';
-                        if (error.response) {
-                            // The request was made and the server responded with a status code
-                            // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
-                        } else if (error.request) {
-                            // The request was made but no response was received
-                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                            // http.ClientRequest in node.js
-                            message = 'The request was made but no response was received';
-                        } else {
-                            // Something happened in setting up the request that triggered an Error
-                            message = error.message;
-                        }
-                        return swal("Delete Failed", message, "warning");
-                    });
-            });
-        }
     }
 });
 

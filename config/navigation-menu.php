@@ -1,65 +1,82 @@
 <?php
 return [
     'modules-dashboard-business' => [
+        'icon' => 'fa fa-home',
         'dashboard' => 'business',
-        'title' => 'Dashboard',
-        'url' => 'dashboard',
+        'title' => 'Home',
+        'route' => 'dashboard',
         'clickable' => true,
         'navbar' => true,
         'sub-menu' => []
     ],
     'modules-customers' => [
+        'icon' => 'fa fa-group',
         'dashboard' => 'business',
         'title' => 'Customers',
-        'url' => 'customers',
+        'route' => 'customers',
         'clickable' => false,
         'navbar' => true,
         'sub-menu' => []
     ],
     'modules-ecommerce' => [
+        'icon' => 'fa fa-desktop',
         'dashboard' => 'business',
         'title' => 'eCommerce',
-        'url' => 'e-commerce',
+        'route' => 'e-commerce',
         'clickable' => false,
         'navbar' => true,
         'sub-menu' => []
     ],
     'modules-people' => [
+        'icon' => 'fa fa-briefcase',
         'dashboard' => 'business',
         'title' => 'People',
-        'url' => 'people',
+        'route' => 'people',
         'clickable' => false,
         'navbar' => true,
         'sub-menu' => []
     ],
     'modules-finance' => [
+        'icon' => 'fa fa-money',
         'dashboard' => 'business',
         'title' => 'Finance',
-        'url' => 'finance',
+        'route' => 'finance',
         'clickable' => false,
         'navbar' => true,
         'sub-menu' => []
     ],
     'modules-sales' => [
+        'icon' => 'fa fa-bar-chart',
         'dashboard' => 'business',
         'title' => 'Sales',
-        'url' => 'sales',
+        'route' => 'sales',
         'clickable' => false,
         'navbar' => true,
         'sub-menu' => []
     ],
     'modules-marketplace' => [
+        'icon' => 'fa fa-handshake-o',
         'dashboard' => 'business',
         'title' => 'Marketplace',
-        'url' => 'marketplace',
+        'route' => 'marketplace',
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
+    ],
+    'modules-library' => [
+        'icon' => 'fa fa-book',
+        'dashboard' => 'business',
+        'title' => 'Library',
+        'route' => 'library',
         'clickable' => false,
         'navbar' => true,
         'sub-menu' => []
     ],
     'modules-settings' => [
+        'icon' => 'fa fa-gears',
         'dashboard' => 'all',
         'title' => 'Settings',
-        'url' => 'settings',
+        'route' => 'settings',
         'clickable' => false,
         'navbar' => true,
         'sub-menu' => []

@@ -74,8 +74,8 @@
                         </div>
                         <div class="row mt-5">
                             <div class="col s12">
-                                <div class="progress" v-if="saving">
-                                    <div class="indeterminate"></div>
+                                <div class="progress" v-if="saving" style="height: 2px;">>
+                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <button type="submit" class="btn waves-effect waves-teal"
                                         v-if="!saving">Add Employee</button>
@@ -101,7 +101,7 @@
         new Vue({
             el: '#employee-new',
             data: {
-                saving: false,
+                //saving: false,
                 employee: {
                     firstname: "{{ old('firstname') }}",
                     lastname: "{{ old('lastname') }}",

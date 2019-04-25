@@ -216,7 +216,7 @@ class Controller extends BaseController
         $sdk = $sdk ?: app(Sdk::class);
         $company = auth()->user()->company(true, true);
         # get the company
-        $departments = Cache::remember('business.departments.'.$company->id, 3, function () use ($sdk) {
+        $departments = Cache::remember('business.departments.'.$company->id, 30, function () use ($sdk) {
             $query =  $sdk->createDepartmentResource()->addQueryArgument('limit', 10000)->send('get');
             # send the request
             if (!$query->isSuccessful()) {

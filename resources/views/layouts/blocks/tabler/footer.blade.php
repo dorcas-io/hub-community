@@ -9,7 +9,7 @@
                         </ul>
                     </div>
                     <div class="col-auto">
-                        <a href="" class="btn btn-outline-primary btn-sm">Support</a>
+                        <a href="" class="btn btn-outline-primary btn-sm">Assistant</a>
                     </div>
                 </div>
             </div>

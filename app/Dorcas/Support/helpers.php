@@ -189,6 +189,35 @@ function suggest_contact_field_icon_name(string $name, string $default = null): 
 }
 
 /**
+ * Suggests an icon name to use for a custom contact field based on its name.
+ *
+ * @param string      $name
+ * @param string|null $default
+ *
+ * @return string
+ */
+function suggest_contact_field_icon_name_tabler(string $name, string $default = null): string
+{
+    $name = strtolower($name);
+    # adjust the case
+    if (str_contains($name, ['email', 'mail'])) {
+        return 'fa-cogs';
+    } elseif (str_contains($name, ['date', 'birth'])) {
+        return 'fa-cogs';
+    } elseif (str_contains($name, ['mobile', 'phone'])) {
+        return 'fa-cogs';
+    } elseif (str_contains($name, ['address'])) {
+        return 'fa-institution';
+    } elseif (str_contains($name, ['pay', 'payment', 'card'])) {
+        return 'fa-cogs';
+    } elseif (str_contains($name, ['company', 'business'])) {
+        return 'fa-cogs';
+    } elseif (str_contains($name, ['twitter', 'facebook', 'google', 'youtube', 'pinterest', 'instagram'])) {
+        return 'fa-cogs';
+    }
+    return $default ?: 'fa-cogs';
+}
+/**
  * Returns the base URL for custom subdomains.
  *
  * @return string

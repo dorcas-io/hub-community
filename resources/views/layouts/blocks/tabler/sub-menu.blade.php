@@ -8,12 +8,12 @@
               {!! $submenuAction !!}
             @endslot
           @endcomponent
-            <div style="margin-top: 10px !important;" class="list-group list-group-transparent mb-0">
+            <div style="margin-top: 10px !important;" class="list-group list-group-transparent mb-0" id="sub-menu-menu">
 
             @if (count(config($submenuConfig))>0)
                 @foreach(config($submenuConfig) as $key => $value)
-                  <a href="{{ safe_href_route($value['route']) ? route($value['route']) : 'javascript:void(0)' }}" class="list-group-item list-group-item-action d-flex align-items-center">
-                      <span class="icon mr-3"><i class="fe {{ isset($value['icon']) ? $value['icon'] : 'fe-file' }}"></i></span>{{ $value['title'] }}
+                  <a href="{{ safe_href_route($value['route']) ? route($value['route']) : 'javascript:void(0)' }}" class="list-group-item list-group-item-action d-flex align-items-center" v-bind:class="{'active': selectedSubMenu === '{{ $key }}'}">
+                      <span class="icon mr-3"><i class="{{ isset($value['icon']) ? $value['icon'] : 'fe fe-file' }}"></i></span>{{ $value['title'] }}
                   </a>
                 @endforeach
             @endif

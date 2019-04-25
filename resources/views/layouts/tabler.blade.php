@@ -65,7 +65,7 @@
                             </a>
                             <div class="d-flex order-lg-2 ml-auto">
                                 <div class="nav-item d-none d-md-flex">
-                                    <a href="" class="btn btn-sm btn-outline-primary" target="_blank">Support</a>
+                                    <a href="" class="btn btn-sm btn-outline-primary" target="_blank">Assistant</a>
                                 </div>
                                 @section('body_header_notification')
                                     @include('layouts.blocks.tabler.notification')
@@ -131,6 +131,7 @@
 <script src="{{ cdn('apps/tabler/js/app.js') }}"></script>
 <!--custom-script.js - Add your own theme custom JS-->
 <script src="{{ cdn('apps/tabler/js/custom-vue.js') }}"></script>
+<script src="{{ cdn('apps/tabler/js/custom_script.js') }}"></script>
 <!-- Production JS code -->
 @if (app()->environment() === 'production')
     @include('layouts.blocks.production-js')
@@ -164,6 +165,13 @@
         data: {
             selectedMenu: '{{ !empty($selectedMenu) ? $selectedMenu : '' }}',
             loggedInUser: {!! json_encode(!empty($loggedInUser) ? $loggedInUser : []) !!}
+        }
+    });
+
+    new Vue({
+        el: '#sub-menu-menu',
+        data: {
+            selectedSubMenu: '{{ !empty($selectedSubMenu) ? $selectedSubMenu : '' }}',
         }
     });
 </script>

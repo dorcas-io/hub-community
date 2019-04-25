@@ -8,6 +8,10 @@
         {
             "type": "path",
             "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-customers"
+        },
+        {
+            "type": "path",
+            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-people"
         }
     ],
     "require": {
@@ -17,6 +21,7 @@
         "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "dev-master",
         "dorcas/modules-customers": "dev-develop",
+        "dorcas/modules-people": "dev-develop",
         "dorcas/resellerclub-php": "dev-master",
         "dorcas/sdk-php-laravel": "dev-master",
         "fedeisas/laravel-mail-css-inliner": "^2.2",
