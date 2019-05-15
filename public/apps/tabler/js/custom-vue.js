@@ -268,6 +268,43 @@ Vue.component('team-card', {
 });
 
 
+Vue.component('library-video-card', {
+    template: '<div class=" col-sm-9 col-md-9 col-lg-6 col-xl-6">' +
+    '<div class="card p-3">' +
+        '<a href="javascript:void(0)" class="mb-3">' +
+            '<img v-bind:src="video.resource_thumb" v-bind:alt="video.resource_title" class="rounded" data-resource-id="" v-bind:data-resource-source="video.resource_source" v-on:click.prevent="watchVideo">' +
+        '</a>' +
+        '<div class="d-flex align-items-center px-2">' +
+            '<div class="avatar avatar-md mr-3" v-bind:style="{\'background-image\': \'url(\'\+video.resource_thumb\+\')\'}"></div>' +
+            '<div>' +
+                '<!--<div>{{ video.resource_title }}</div>-->' +
+                '<small class="d-block text-muted">{{ video.resource_title }}</small>' +
+            '</div>' +
+            '<div class="ml-auto text-muted">' +
+                '<a href="#" v-on:click.prevent="watchVideo" data-resource-id="" v-bind:data-resource-source="video.resource_source" class="icon"><i class="fe fe-eye mr-1"></i></a>' +
+                '<a href="#" data-resource-id="" data-resource-source="" class="icon d-none d-md-inline-block ml-3"><i class="fe fe-heart mr-1"></i></a>' +
+            '</div>' +
+        '</div>' +
+    '</div>' +
+    '</div>',
+    props: {
+        video: {
+            type: Object,
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        }
+    },
+    methods: {
+        watchVideo: function () {
+            this.$emit('watch-video', this.index);
+        }
+    }
+});
+
+
 
 Vue.component('access-grant-company-card', {
     template: '<div class="col s12">' +

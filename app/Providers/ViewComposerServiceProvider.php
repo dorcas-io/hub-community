@@ -31,6 +31,9 @@ class ViewComposerServiceProvider extends ServiceProvider
             # get the authenticated user, if any
             $usingGrant = !empty($dorcasUser->meta);
             # probably using grants
+
+//Try and factor in USer Role for $dorcasUserRole being currently used in tabler layout
+
             if (!empty($dorcasUser)) {
                 if (!empty($dorcasUser->partner) && !empty($dorcasUser->partner['data'])) {
                     $isPartnerAdmin = false;

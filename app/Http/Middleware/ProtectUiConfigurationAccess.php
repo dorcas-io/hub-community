@@ -25,7 +25,7 @@ class ProtectUiConfigurationAccess
             return $next($request);
         }
         $dorcasUser = $request->user();
-        $skipPaths = ['directory', 'home', 'xhr', 'logout', 'login', 'register', 'password', 'store', 'blog', 'subscription','access-grants','mcu','mpe'];
+        $skipPaths = ['directory', 'home', 'xhr', 'logout', 'login', 'register', 'password', 'store', 'blog', 'subscription','access-grants','mcu','mpe','mli','mas','dashboard-business'];
         $allModules = collect(HomeController::SETUP_UI_COMPONENTS)->map(function ($module) {
             return $module['id'];
         })->all();

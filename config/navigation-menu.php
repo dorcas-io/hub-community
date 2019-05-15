@@ -9,6 +9,15 @@ return [
         'navbar' => true,
         'sub-menu' => []
     ],
+    'modules-assistant' => [
+        'icon' => 'fa fa-bar-chart',
+        'dashboard' => 'business',
+        'title' => 'Assistant',
+        'route' => 'assistant',
+        'clickable' => false,
+        'navbar' => false,
+        'sub-menu' => []
+    ],
     'modules-customers' => [
         'icon' => 'fa fa-group',
         'dashboard' => 'business',
@@ -54,26 +63,42 @@ return [
         'navbar' => true,
         'sub-menu' => []
     ],
-    'modules-marketplace' => [
-        'icon' => 'fa fa-handshake-o',
+    'addons' => [
+        'icon' => 'fa fa-laptop',
         'dashboard' => 'business',
-        'title' => 'Marketplace',
-        'route' => 'marketplace',
+        'title' => 'Addons',
+        'route' => 'addons',
         'clickable' => false,
         'navbar' => true,
-        'sub-menu' => []
-    ],
-    'modules-library' => [
-        'icon' => 'fa fa-book',
-        'dashboard' => 'business',
-        'title' => 'Library',
-        'route' => 'library',
-        'clickable' => false,
-        'navbar' => true,
-        'sub-menu' => []
+        'sub-menu' => [
+            'modules-marketplace' => [
+                'title' => 'Marketplace',
+                'route' => 'marketplace-main',
+                'icon' => 'fa fa-handshake-o',
+                'sub-menu' => []
+            ],
+            'modules-library' => [
+                'title' => 'Library',
+                'route' => 'library-main',
+                'icon' => 'fa fa-book',
+                'sub-menu' => []
+            ],
+            'modules-app-store' => [
+                'title' => 'Apps Store',
+                'route' => 'app-store-main',
+                'icon' => 'fa fa-gift',
+                'sub-menu' => []
+            ],
+            'modules-integration' => [
+                'title' => 'Integrations',
+                'route' => 'integrations-main',
+                'icon' => 'fa fa-gears',
+                'sub-menu' => []
+            ]
+        ]
     ],
     'modules-settings' => [
-        'icon' => 'fa fa-gears',
+        'icon' => 'fe fe-settings',
         'dashboard' => 'all',
         'title' => 'Settings',
         'route' => 'settings',

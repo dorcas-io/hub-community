@@ -51,8 +51,10 @@ class LoginController extends Controller
      */
     public function showLoginForm(Request $request)
     {
+        $this->data['header']['title'] = 'Login';
+
         $this->setViewUiResponse($request);
-        return view('auth.login', $this->data);
+        return view('auth.login-v2', $this->data);
     }
 
     /**

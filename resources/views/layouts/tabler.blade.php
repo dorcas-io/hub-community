@@ -60,17 +60,13 @@
                 <div class="header py-4" id="tabler-header">
                     <div class="container">
                         <div class="d-flex">
-                            <a class="header-brand" href="{{ url('/') }}">
-                                <img src="{{ cdn('images/dorcas.jpeg') }}" class="header-brand-img" alt="logo">
-                            </a>
-                            <div class="d-flex order-lg-2 ml-auto">
-                                <div class="nav-item d-none d-md-flex">
-                                    <a href="" class="btn btn-sm btn-outline-primary" target="_blank">Assistant</a>
-                                </div>
+                            @include('layouts.blocks.tabler.header-logo')
+                            <div class="d-flex order-lg-2 ml-auto" id="header-options">
+                                @include('layouts.blocks.tabler.header-assistant')
                                 @section('body_header_notification')
                                     @include('layouts.blocks.tabler.notification')
                                 @show
-                                @if (\Illuminate\Support\Facades\Auth::check() && !empty($loggedInUser))
+                                @if (\Illuminate\Support\Facades\Auth::check() && !empty($dorcasUser))
                                     @include('layouts.blocks.tabler.auth-options')
                                 @endif
                             </div>
@@ -153,8 +149,11 @@
             }
         });
     });
+@if (!in_array(\Route::getFacadeRoot()->current()->uri(),array("login","register","forgot-password","reset-password")))
+
     new Vue({
-        el: '#tabler-header',
+        //el: '#tabler-header',
+        el: '#notification-container',
         data: {
             notificationMessages: {!! json_encode(!empty($notificationMessages) ? $notificationMessages : []) !!},
         }
@@ -163,17 +162,112 @@
     new Vue({
         el: '#headerMenuCollapse',
         data: {
-            selectedMenu: '{{ !empty($selectedMenu) ? $selectedMenu : '' }}',
-            loggedInUser: {!! json_encode(!empty($loggedInUser) ? $loggedInUser : []) !!}
+            selectedMenu: '{{ !empty($selectedMenu) ? $selectedMenu : '' }}'
         }
     });
 
+    new Vue({
+        el: '#dorcas-auth-options',
+        data: {
+            loggedInUser: {!! json_encode(!empty($dorcasUser) ? $dorcasUser : []) !!},
+            loggedInUserCompany: {!! json_encode(!empty($business) ? $business : []) !!},
+            loggedInUserRole: {!! json_encode(!empty($dorcasUserRole) ? $dorcasUserRole : 'Business') !!}
+        }
+    });
+@if (!in_array(\Route::getFacadeRoot()->current()->uri(),array("dashboard-business")))
     new Vue({
         el: '#sub-menu-menu',
         data: {
             selectedSubMenu: '{{ !empty($selectedSubMenu) ? $selectedSubMenu : '' }}',
         }
     });
+@endif
+/*
+* The Assistant Listener
+*/
+@if (\Route::has("assistant-main"))
+
+    var assistantVue = new Vue({
+        el: '#modules-assistant',
+        data: {
+            assistant: [],
+            a: {assistant: [], docs: [], help: []},
+            loadingAssistant: true,
+            showLessDocs: true,
+            showDocsCount: 2,
+            showDocsLabel: 'Show All'
+        },
+        methods: {
+            modulesAssistant: function () {
+                $('#modules-assistant-modal').modal('show');
+            },
+            generateAssistant: function (module, url) {
+                var context = this;
+                axios.get("/mas/assistant-generate/" + module + "/" + url)
+                    .then(function (response) {
+                        //console.log(response);
+                        context.loadingAssistant = false;
+                        context.assistant = response.data;
+                        context.a.assistant = context.assistant.assistant_assistant;
+                        context.a.docs = context.assistant.assistant_docs;
+                        context.a.help = context.assistant.assistant_help;
+                    })
+                    .catch(function (error) {
+                        var message = '';
+                        if (error.response) {
+                            //console.log(error.response)
+                            // The request was made and the server responded with a status code
+                            // that falls out of the range of 2xx
+                            //var e = error.response.data.errors[0];
+                            //message = e.title;
+                            message = error.response.data.message;
+                        } else if (error.request) {
+                            // The request was made but no response was received
+                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                            // http.ClientRequest in node.js
+                            message = 'The request was made but no response was received';
+                        } else {
+                            // Something happened in setting up the request that triggered an Error
+                            message = error.message;
+                        }
+                        context.savingNote = false;
+                    });
+
+            },
+            showDocsToggle: function () {
+                if (this.showLessDocs === true) {
+                    this.showLessDocs = false
+                    this.showDocsLabel = 'Show Less'
+                } else {
+                    this.showLessDocs = true
+                    this.showDocsLabel = 'Show All'
+                }
+            }
+        },
+        mounted: function () {
+            var context = this;
+            //console.log("Loading Assistant Module data...");
+            context.loadingAssistant = true;
+            let paths = window.location.pathname.split("/");
+            //console.log(paths);
+            context.generateAssistant(paths[1],paths[2]);
+        }
+    });
+
+
+    var assistantVueFooter = new Vue({
+        el: '#modules-assistant-footer',
+        methods: {
+            modulesAssistant: function () {
+                assistantVue.modulesAssistant();
+            }
+        }
+    });
+
+@endif
+
+@endif
+
 </script>
 @yield('body_js')
 </body>
