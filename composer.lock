@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e86b56950782024f87569db570fb613",
+    "content-hash": "c266224f19128332fd4d971428c81173",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -618,12 +618,12 @@
             "description": "Dorcas Hub Customers Module"
         },
         {
-            "name": "dorcas/modules-dashboard-business",
+            "name": "dorcas/modules-dashboard",
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-dashboard-business",
-                "reference": "db0ab5fecdf713c4ac852a1d0e3b09819cf4d7bf",
+                "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-dashboard",
+                "reference": "935f93841b581f0d3ee7cd8c8bc5498c71ea58fd",
                 "shasum": null
             },
             "require": {
@@ -639,13 +639,13 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Dorcas\\ModulesDashboardBusiness\\ModulesDashboardBusinessServiceProvider"
+                        "Dorcas\\ModulesDashboard\\ModulesDashboardServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Dorcas\\ModulesDashboardBusiness\\": "src/"
+                    "Dorcas\\ModulesDashboard\\": "src/"
                 }
             },
             "license": [
@@ -657,7 +657,7 @@
                     "email": "dev@hostvillenigeria.org"
                 }
             ],
-            "description": "Dorcas Business Dashboard Module"
+            "description": "Dorcas Dashboard Module"
         },
         {
             "name": "dorcas/modules-library",
@@ -5436,7 +5436,7 @@
         "dorcas/laravel-compat": 20,
         "dorcas/modules-assistant": 20,
         "dorcas/modules-customers": 20,
-        "dorcas/modules-dashboard-business": 20,
+        "dorcas/modules-dashboard": 20,
         "dorcas/modules-library": 20,
         "dorcas/modules-people": 20,
         "dorcas/resellerclub-php": 20,

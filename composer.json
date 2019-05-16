@@ -23,7 +23,7 @@
         },
         {
             "type": "path",
-            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-dashboard-business"
+            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-dashboard"
         }
     ],
     "require": {
@@ -34,7 +34,7 @@
         "dorcas/laravel-compat": "dev-master",
         "dorcas/modules-assistant": "dev-develop",
         "dorcas/modules-customers": "dev-develop",
-        "dorcas/modules-dashboard-business": "dev-develop",
+        "dorcas/modules-dashboard": "dev-develop",
         "dorcas/modules-library": "dev-develop",
         "dorcas/modules-people": "dev-develop",
         "dorcas/resellerclub-php": "dev-master",

@@ -1,6 +1,6 @@
 <?php
 return [
-    'modules-dashboard-business' => [
+    'modules-dashboard' => [
         'icon' => 'fa fa-home',
         'dashboard' => 'business',
         'title' => 'Home',
