@@ -4,51 +4,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories":[
-        {
-            //"type": "path",
-            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-customers",
-            "type": "vcs",
-            "url": "https://github.com/dorcas-io/modules-customers",
-
-        },
-        {
-            //"type": "path",
-            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-people",
-            "type": "vcs",
-            "url": "https://github.com/dorcas-io/modules-people",
-        },
-        {
-            //"type": "path",
-            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-library",
-            "type": "vcs",
-            "url": "https://github.com/dorcas-io/modules-library",
-        },
-        {
-            //"type": "path",
-            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-assistant",
-            "type": "vcs",
-            "url": "https://github.com/dorcas-io/modules-assistant",
-        },
-        {
-            //"type": "path",
-            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-dashboard",
-            "type": "vcs",
-            "url": "https://github.com/dorcas-io/modules-dashboard",
-        },
-        {
-            //"type": "path",
-            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-app-store",
-            "type": "vcs",
-            "url": "https://github.com/dorcas-io/modules-app-store",
-        },
-        {
-            //"type": "path",
-            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-integrations",
-            "type": "vcs",
-            "url": "https://github.com/dorcas-io/modules-integrations",
-        }
-    ],
+    "repositories":[],
     "require": {
         "php": ">=7.0.0",
         "ext-json": "*",
@@ -115,7 +71,8 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
+            "@php artisan package:discover",
+            "@php artisan vendor:publish --tag=config",
         ]
     },
     "config": {
