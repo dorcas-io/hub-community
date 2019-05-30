@@ -72,7 +72,7 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover",
-            "@php artisan vendor:publish --tag=config",
+            "@php artisan vendor:publish --tag=config"
         ]
     },
     "config": {
