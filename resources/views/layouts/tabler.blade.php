@@ -248,9 +248,20 @@
             var context = this;
             //console.log("Loading Assistant Module data...");
             context.loadingAssistant = true;
-            let paths = window.location.pathname.split("/");
+            let path_module = "";
+            let path_url = "";
+            let path_string = window.location.pathname;
+            //console.log(path_string)
+            let paths = path_string.split("/");
+            path_module = paths[1];
+            if (typeof paths[2] !== 'undefined') {
+                path_url = paths[2];
+            } else {
+                path_url = "default";
+            }
+            
             //console.log(paths);
-            context.generateAssistant(paths[1],paths[2]);
+            context.generateAssistant(path_module,path_url);
         }
     });
 

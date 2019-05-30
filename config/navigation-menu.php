@@ -4,7 +4,7 @@ return [
         'icon' => 'fa fa-home',
         'dashboard' => 'business',
         'title' => 'Home',
-        'route' => 'dashboard',
+        'route' => 'dashboard-business',
         'clickable' => true,
         'navbar' => true,
         'sub-menu' => []
@@ -89,7 +89,7 @@ return [
                 'icon' => 'fa fa-gift',
                 'sub-menu' => []
             ],
-            'modules-integration' => [
+            'modules-integrations' => [
                 'title' => 'Integrations',
                 'route' => 'integrations-main',
                 'icon' => 'fa fa-gears',

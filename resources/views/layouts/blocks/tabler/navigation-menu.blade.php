@@ -17,15 +17,13 @@
                             <a href="{{ route('settings.security') }}" class="dropdown-item ">Security Settings</a>
                         </div>
                     </li> -->
-
-
                     @foreach(config('navigation-menu') as $key => $value)
                         @if ($value['navbar'])
                             @php
                             if (count($value['sub-menu'])>0) { $dropdown=" dropdown"; $dropdownToggle = "dropdown"; } else { $dropdown=""; $dropdownToggle = ""; }
                             @endphp
                             <li class="nav-item{{ $dropdown }}">
-                                <a href="{{ $value['clickable'] && safe_href_route($key) ? route($key) : 'javascript:void(0)' }}" class="nav-link" v-bind:class="{'active': selectedMenu === '{{ $key }}'}" data-toggle="{{ $dropdownToggle }}"><i class="{{ isset($value['icon']) ? $value['icon'] : 'fe fe-settings' }}"></i> {{ $value['title'] }}</a>
+                                <a href="{{ $value['clickable'] && safe_href_route($value['route']) && (isset($selectedMenu) && $key !== $selectedMenu) ? route($value['route']) : 'javascript:void(0)' }}" class="nav-link" v-bind:class="{'active': selectedMenu === '{{ $key }}'}" data-toggle="{{ $dropdownToggle }}"><i class="{{ isset($value['icon']) ? $value['icon'] : 'fe fe-settings' }}"></i> {{ $value['title'] }}</a>
                                 @if (!empty($dropdown))
                                 <div class="dropdown-menu dropdown-menu-arrow">
                                     @foreach($value['sub-menu'] as $sk => $sv)

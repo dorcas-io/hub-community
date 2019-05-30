@@ -6,24 +6,47 @@
     "type": "project",
     "repositories":[
         {
-            "type": "path",
-            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-customers"
+            //"type": "path",
+            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-customers",
+            "type": "vcs",
+            "url": "https://github.com/dorcas-io/modules-customers",
+
         },
         {
-            "type": "path",
-            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-people"
+            //"type": "path",
+            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-people",
+            "type": "vcs",
+            "url": "https://github.com/dorcas-io/modules-people",
         },
         {
-            "type": "path",
-            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-library"
+            //"type": "path",
+            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-library",
+            "type": "vcs",
+            "url": "https://github.com/dorcas-io/modules-library",
         },
         {
-            "type": "path",
-            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-assistant"
+            //"type": "path",
+            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-assistant",
+            "type": "vcs",
+            "url": "https://github.com/dorcas-io/modules-assistant",
         },
         {
-            "type": "path",
-            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-dashboard"
+            //"type": "path",
+            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-dashboard",
+            "type": "vcs",
+            "url": "https://github.com/dorcas-io/modules-dashboard",
+        },
+        {
+            //"type": "path",
+            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-app-store",
+            "type": "vcs",
+            "url": "https://github.com/dorcas-io/modules-app-store",
+        },
+        {
+            //"type": "path",
+            //"url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/modules-integrations",
+            "type": "vcs",
+            "url": "https://github.com/dorcas-io/modules-integrations",
         }
     ],
     "require": {
@@ -32,9 +55,11 @@
         "aws/aws-sdk-php": "^3.52",
         "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "dev-master",
+        "dorcas/modules-app-store": "dev-develop",
         "dorcas/modules-assistant": "dev-develop",
         "dorcas/modules-customers": "dev-develop",
         "dorcas/modules-dashboard": "dev-develop",
+        "dorcas/modules-integrations": "dev-develop",
         "dorcas/modules-library": "dev-develop",
         "dorcas/modules-people": "dev-develop",
         "dorcas/resellerclub-php": "dev-master",

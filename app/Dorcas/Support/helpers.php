@@ -264,9 +264,9 @@ function toast(string $message, int $durationSecs = 10, array $config = []): Toa
 
 function safe_href_route($route) {
     if (\Route::has($route)) {
-        return true;
+        return "1";
     } else {
-        return false;
+        return "0";
     }
 }
 

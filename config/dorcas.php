@@ -12,7 +12,8 @@ return [
             'configurations' => [
                 ['name' => 'public_key', 'label' => 'Public Key', 'value' => ''],
                 ['name' => 'private_key', 'label' => 'Secret Key', 'value' => ''],
-            ]
+            ],
+            'type_integration' => 'keys'
         ],
         [
             'type' => 'payment',
@@ -23,7 +24,22 @@ return [
             'configurations' => [
                 ['name' => 'public_key', 'label' => 'Public Key', 'value' => ''],
                 ['name' => 'private_key', 'label' => 'Secret Key', 'value' => ''],
-            ]
+            ],
+            'type_integration' => 'keys'
+        ],
+        [
+            'type' => 'email',
+            'image_url' => cdn('/images/integrations/hubspot.png'),
+            'name' => 'hubspot',
+            'display_name' => 'Hubspot',
+            'description' => 'Integrate Hubspot to supercharge your Customer Operations',
+            'configurations' => [
+                ['name' => 'oauth_url', 'label' => 'OAuth URL', 'value' => config('modules-integrations.config.hubspot.oauth_url',"https://app.hubspot.com/oauth/authorize?scope=contacts%20oauth%20tickets&redirect_uri=".env('APP_URL', 'https://hub.dorcas.io')."/mit/integrations-oauth-callback/dorcas-hubspot&client_id=dfbc9611-be13-4dfb-8ec6-f981c4cf5710")],
+                ['name' => 'oauth_callback_key', 'label' => 'OAuth Call Back Key', 'value' => ''],
+                ['name' => 'oauth_refresh_token', 'label' => 'OAuth Refresh Token', 'value' => ''],
+                ['name' => 'portal_id', 'label' => 'Portal ID', 'value' => ''],
+            ],
+            'type_integration' => 'oauth2'
         ]
     ],
     'plans' => [
