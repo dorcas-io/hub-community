@@ -4,7 +4,9 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories":[],
+    "repositories":[
+
+    ],
     "require": {
         "php": ">=7.0.0",
         "ext-json": "*",
@@ -71,8 +73,7 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover",
-            "@php artisan vendor:publish --tag=config"
+            "@php artisan package:discover"
         ]
     },
     "config": {
