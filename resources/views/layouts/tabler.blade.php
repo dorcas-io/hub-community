@@ -151,7 +151,7 @@
     });
 @if (!in_array(\Route::getFacadeRoot()->current()->uri(),array("login","register","forgot-password","reset-password")))
 
-    new Vue({
+    var notificationVue = new Vue({
         //el: '#tabler-header',
         el: '#notification-container',
         data: {
@@ -159,23 +159,26 @@
         }
     });
 
-    new Vue({
+    var collapseVue = new Vue({
         el: '#headerMenuCollapse',
         data: {
             selectedMenu: '{{ !empty($selectedMenu) ? $selectedMenu : '' }}'
         }
     });
 
-    new Vue({
+    var headerAuthVue = new Vue({
         el: '#dorcas-auth-options',
         data: {
             loggedInUser: {!! json_encode(!empty($dorcasUser) ? $dorcasUser : []) !!},
             loggedInUserCompany: {!! json_encode(!empty($business) ? $business : []) !!},
-            loggedInUserRole: {!! json_encode(!empty($dorcasUserRole) ? $dorcasUserRole : 'Business') !!}
+            loggedInUserRole: {!! json_encode(!empty($dorcasUserRole) ? $dorcasUserRole : 'Business') !!},
+            pageMode: '{{ !empty($pageMode) ? $pageMode : 'default' }}',
+            viewMode: '{{ empty($viewMode) ? 'business' : $viewMode }}',
+            showUiModalAccessMenu: {!! json_encode(isset($showUiModalAccessMenu) ? $showUiModalAccessMenu : true) !!}
         }
     });
 @if (!in_array(\Route::getFacadeRoot()->current()->uri(),array("dashboard-business")))
-    new Vue({
+    var subMenuVue = new Vue({
         el: '#sub-menu-menu',
         data: {
             selectedSubMenu: '{{ !empty($selectedSubMenu) ? $selectedSubMenu : '' }}',

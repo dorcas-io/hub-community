@@ -19,8 +19,8 @@
                     {{ csrf_field() }}
                     <div class="card-body p-6">
                         <div class="card-title text-center">
-                            <!-- {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }} -->
-                            {{ $page['login_product_name'] }}
+                            {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}
+                            <!-- {{ $page['login_product_name'] }} -->
                         </div>
                         <div class="form-group">
                             <label class="form-label">Email address</label>
@@ -63,7 +63,7 @@
                     <div class="d-flex align-items-center px-2">
                         
                         <div>
-                          <div>All-In-One Business OS</div>
+                          <div>All-In-One Business Command Centre Software</div>
                           <small class="d-block text-muted">Learn More</small>
                       </div>
                   </div>

@@ -18,7 +18,7 @@
                     <form class="card" action="{{ route('register') }}" method="post">
                         {{ csrf_field() }}
                         <div class="card-body p-6">
-                            <div class="card-title">Get Started with the Dorcas Hub</div>
+                            <div class="card-title">Get Started with {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}</div>
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="form-label">Business Name</label>
@@ -97,7 +97,7 @@
                     <div class="d-flex align-items-center px-2">
                         
                         <div>
-                          <div>All-In-One Business OS</div>
+                          <div>All-In-One Business Command Centre Software</div>
                           <small class="d-block text-muted">Learn More</small>
                       </div>
                   </div>

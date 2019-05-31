@@ -8,6 +8,20 @@
         </span>
     </a>
     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+
+        @if (!empty($business) && $business->plan['data']['name'] === 'starter')
+        <a class="dropdown-item" href="{{ route('subscription') }}">
+            <i class="dropdown-icon fa fa-arrow-up"></i> Upgrade Plan
+        </a>
+        @endif
+
+        @if (!empty($vPanelUrl))
+        <a class="dropdown-item" href="{{ $vPanelUrl }}">
+            <i class="dropdown-icon fa fa-id-badge"></i> vPanel Dashboard
+        </a>
+        @endif
+
+
         <a class="dropdown-item" href="#">
             <i class="dropdown-icon fe fe-user"></i> Profile
         </a>
@@ -18,6 +32,18 @@
             <span class="float-right"><span class="badge badge-primary">6</span></span>
             <i class="dropdown-icon fe fe-mail"></i> Inbox
         </a>-->
+        <div class="dropdown-divider"></div>
+
+        <a v-if="viewMode !== 'business'" class="dropdown-item" href="{{ safe_href_route('dashboard-business') ? route('dashboard-business') : '#' }}">
+            <i class="dropdown-icon fa fa-address-card"></i> Business Dashboard
+        </a>
+        <a v-if="viewMode !== 'professional' && loggedInUser.is_professional" class="dropdown-item" href="{{ safe_href_route('dashboard-professional') ? route('dashboard-professional') : '#' }}">
+            <i class="dropdown-icon fa fa-id-card"></i> Service Dashboard
+        </a>
+        <a v-if="viewMode !== 'vendor' && loggedInUser.is_vendor" class="dropdown-item" href="{{ safe_href_route('dashboard-vendor') ? route('dashboard-vendor') : '#' }}">
+            <i class="dropdown-icon fa fa-id-card-o"></i> Vendor Dashboard
+        </a>
+
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ url('/logout') }}">
             <i class="dropdown-icon fe fe-log-out"></i> Sign out
