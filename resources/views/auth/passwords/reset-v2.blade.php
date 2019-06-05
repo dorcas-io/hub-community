@@ -15,42 +15,45 @@
           <div class="col-md-6 col-lg-4">
 
                 @include('layouts.blocks.tabler.alert')
-                <form class="card" action="{{ route('login') }}" method="post">
+                <form class="card" action="{{ url('/reset-password') }}/{{ $token }}" method="post">
                     {{ csrf_field() }}
+                    <input type="hidden" name="token" value="{{ $token }}">
                     <div class="card-body p-6">
                         <div class="card-title text-center">
-                            {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}
-                            <!-- {{ $page['login_product_name'] }} -->
+                            PASSWORD RESET
                         </div>
+                        <p class="text-muted text-center"><strong>Welcome back!</strong> Enter your new password and confirm to complete the reset.</p>
                         <div class="form-group">
                             <label class="form-label">Email address</label>
-                            <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                   id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <input type="email" autocomplete="off" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
+                                   id="email" name="email" value="{{ $email or old('email') }}" autofocus placeholder="Enter email" required>
                             @if ($errors->has('email'))
                                 <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                             @endif
                         </div>
                         <div class="form-group">
-                            <label class="form-label">
-                                Password
-                                <a href="{{ url('/forgot-password') }}" class="float-right small">Forgot Password?</a>
-                            </label>
+                            <label class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="Password" required>
+                                   placeholder="Enter Password" required>
+                            @if ($errors->has('password'))
+                                <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                            @endif
                         </div>
                         <div class="form-group">
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="remember" value="1" />
-                                <span class="custom-control-label">Remember me</span>
-                            </label>
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                                   placeholder="ConfirmPassword" required>
+                            @if ($errors->has('password_confirmation'))
+                                <div class="invalid-feedback">{{ $errors->first('password_confirmation') }}</div>
+                            @endif
                         </div>
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
                         </div>
                     </div>
                 </form>
                 <div class="text-center text-muted">
-                    Don't have account yet? <a href="{{ route('register') }}">Get Started with {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}</a>
+                    Want to login instead? <a href="{{ route('login') }}">Login</a>
                 </div>
                 </div>
 

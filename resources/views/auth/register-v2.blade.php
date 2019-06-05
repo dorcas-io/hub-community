@@ -97,7 +97,7 @@
                     <div class="d-flex align-items-center px-2">
                         
                         <div>
-                          <div>All-In-One Business Command Centre Software</div>
+                          <div>All-In-One Business Management Software Platform</div>
                           <small class="d-block text-muted">Learn More</small>
                       </div>
                   </div>

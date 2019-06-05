@@ -2,9 +2,9 @@
 return [
     'modules-dashboard' => [
         'icon' => 'fa fa-home',
-        'dashboard' => 'business',
+        'dashboard' => 'all',
         'title' => 'Home',
-        'route' => 'dashboard-business',
+        'route' => 'dashboard',
         'clickable' => true,
         'navbar' => true,
         'sub-menu' => []
@@ -96,6 +96,33 @@ return [
                 'sub-menu' => []
             ]
         ]
+    ],
+    'modules-service-requests' => [
+        'icon' => 'fa fa-bar-chart',
+        'dashboard' => 'professional',
+        'title' => 'Service Requests',
+        'route' => 'service-requests-main',
+        'clickable' => true,
+        'navbar' => true,
+        'sub-menu' => []
+    ],
+    'modules-service-profile' => [
+        'icon' => 'fa fa-group',
+        'dashboard' => 'professional',
+        'title' => 'Service Profile',
+        'route' => 'service-profile-main',
+        'clickable' => true,
+        'navbar' => true,
+        'sub-menu' => []
+    ],
+    'modules-access-requests' => [
+        'icon' => 'fa fa-desktop',
+        'dashboard' => 'professional',
+        'title' => 'Access Requests',
+        'route' => 'access-requests-main',
+        'clickable' => true,
+        'navbar' => true,
+        'sub-menu' => []
     ],
     'modules-settings' => [
         'icon' => 'fe fe-settings',

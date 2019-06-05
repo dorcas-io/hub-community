@@ -62,6 +62,7 @@
                         <div class="d-flex">
                             @include('layouts.blocks.tabler.header-logo')
                             <div class="d-flex order-lg-2 ml-auto" id="header-options">
+                                @include('layouts.blocks.tabler.header-dashboard-switch')
                                 @include('layouts.blocks.tabler.header-assistant')
                                 @section('body_header_notification')
                                     @include('layouts.blocks.tabler.notification')
@@ -156,6 +157,10 @@
         el: '#notification-container',
         data: {
             notificationMessages: {!! json_encode(!empty($notificationMessages) ? $notificationMessages : []) !!},
+            //uiResponse: {!! json_encode(!empty($uiResponse) ? $uiResponse : []) !!},
+        },
+        mounted: function() {
+            //console.log(this.uiResponse)
         }
     });
 
@@ -177,7 +182,16 @@
             showUiModalAccessMenu: {!! json_encode(isset($showUiModalAccessMenu) ? $showUiModalAccessMenu : true) !!}
         }
     });
-@if (!in_array(\Route::getFacadeRoot()->current()->uri(),array("dashboard-business")))
+
+    var switchDashboardVue = new Vue({
+        el: '#dashboard-switch',
+        data: {
+            viewMode: headerAuthVue.viewMode,
+            loggedInUser: headerAuthVue.loggedInUser,
+            
+        }
+    });
+@if (!in_array(\Route::getFacadeRoot()->current()->uri(),array("dashboard")))
     var subMenuVue = new Vue({
         el: '#sub-menu-menu',
         data: {

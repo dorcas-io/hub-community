@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use App\Dorcas\Hub\Utilities\UiResponse\UiResponse;
 
 class ResetPasswordController extends Controller
 {
@@ -33,7 +34,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -43,7 +44,8 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->data['page']['title'] = 'Forgot Password';
+        $this->data['page']['title'] = 'Reset Password';
+        $this->data['header']['title'] = 'Reset Password';
         $this->middleware('guest');
     }
 
@@ -56,7 +58,8 @@ class ResetPasswordController extends Controller
             $this->data['status'] = $request->session()->get('status');
         }
         $this->data = array_merge($this->data, ['token' => $token, 'email' => $request->email]);
-        return view('auth.passwords.reset', $this->data);
+        $this->setViewUiResponse($request);
+        return view('auth.passwords.reset-v2', $this->data);
     }
 
     /**
@@ -102,8 +105,15 @@ class ResetPasswordController extends Controller
         // If the password was successfully reset, we will redirect the user back to
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
-        return $response == Password::PASSWORD_RESET
-            ? $this->sendResetResponse($response)
-            : $this->sendResetFailedResponse($request, $response);
+        return $response == Password::PASSWORD_RESET ? $this->sendResetResponse($response) : $this->sendResetFailedResponse($request, $response);
+
+        /*if ($response == Password::PASSWORD_RESET) {
+            //$presponse = (tabler_ui_html_response(['Successfully reset your password. Try to login again']))->setType(UiResponse::TYPE_SUCCESS);
+            $this->sendResetResponse($response);
+        } else {
+            //$presponse = (tabler_ui_html_response(['Unable to reset your password']))->setType(UiResponse::TYPE_ERROR);
+           $this->sendResetFailedResponse($request, $response);
+        }
+        return redirect(url()->current())->with('UiResponse', $presponse);*/
     }
 }

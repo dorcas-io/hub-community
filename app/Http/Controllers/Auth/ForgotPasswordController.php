@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use App\Dorcas\Hub\Utilities\UiResponse\UiResponse;
 
 class ForgotPasswordController extends Controller
 {
@@ -32,6 +33,7 @@ class ForgotPasswordController extends Controller
         parent::__construct();
         $this->middleware('guest');
         $this->data['page']['title'] = 'Forgot Password';
+        $this->data['header']['title'] = 'Forgot Password';
     }
 
     /**
@@ -42,7 +44,9 @@ class ForgotPasswordController extends Controller
         if ($request->session()->has('status')) {
             $this->data['status'] = $request->session()->get('status');
         }
-        return view('auth.passwords.email', $this->data);
+        $this->data['header']['title'] = 'Password Reset';
+        $this->setViewUiResponse($request);
+        return view('auth.passwords.forgot-v2', $this->data);
     }
 
     /**
@@ -59,8 +63,12 @@ class ForgotPasswordController extends Controller
             $request->only('email')
         );
 
-        return $response == Password::RESET_LINK_SENT
-            ? $this->sendResetLinkResponse($response)
-            : $this->sendResetLinkFailedResponse($request, $response);
+        //return $response == Password::RESET_LINK_SENT ? $this->sendResetLinkResponse($response) : $this->sendResetLinkFailedResponse($request, $response);
+        if ($response == Password::RESET_LINK_SENT) {
+            $presponse = (tabler_ui_html_response(['Successfully initiated your password reset. Check <strong>'.$request->email.'</strong> for details.']))->setType(UiResponse::TYPE_SUCCESS);
+        } else {
+            $presponse = (tabler_ui_html_response(['Unable to initiate your password reset']))->setType(UiResponse::TYPE_ERROR);
+        }
+        return redirect(url()->current())->with('UiResponse', $presponse);
     }
 }

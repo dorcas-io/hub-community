@@ -304,51 +304,23 @@ Vue.component('library-video-card', {
     }
 });
 
-
-
-Vue.component('access-grant-company-card', {
-    template: '<div class="col s12">' +
-        '<div class="card">' +
-        '<div class="card-content">' +
-        '<span class="card-title"><h4>{{ company.name }}</h4></span>' +
-        '<p class="flow-text">Phone: {{ company.phone !== null ? company.phone : "-" }}</p>' +
-        '<p class="flow-text">Email: {{ company.email !== null ? company.email : "-" }}</p>' +
-        '</div>' +
-        '<div class="card-action">' +
-        '<a href="#" v-on:click.prevent="requestModules"">Request Access</a>' +
-        '</div>' +
-        '</div>' +
-        '</div>',
-    props: {
-        index: {
-            type: Number,
-            required: true
-        },
-        company: {
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-        requestModules: function () {
-            this.$emit('request-modules', this.index);
-        },
-    }
-});
-
 Vue.component('access-grant-card', {
-    template: '<div class="col s12">' +
-        '<div class="card" v-bind:class="{\'yellow lighten-5\': grant.status === \'pending\', \'green lighten-5\': grant.status === \'accepted\'}">' +
-        '<div class="card-content">' +
-        '<span class="card-title"><h4>{{ grant.company.data.name }}</h4></span>' +
-        '<p class="flow-text">Approved Modules: {{ grant.extra_json.modules.length }}</p>' +
-        '<p class="flow-text">Pending: {{ grant.extra_json.pending_modules.length }}</p>' +
+
+    template: '<div class="col-md-4 col-xl-3">' +
+    '<div class="card">' +
+        '<div class="card-status" v-bind:class="{\'bg-yellow\': grant.status === \'pending\', \'bg-green\': grant.status === \'accepted\'}"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{{ grant.company.data.name }}</h4>' +
         '</div>' +
-        '<div class="card-action">' +
-        '<a v-bind:href="grant.url" class="btn-flat" target="_blank" v-bind:class="{\'disabled\': grant.status !== \'accepted\'}">Gain Access</a>' +
+        '<div class="card-body">' +
+        '<p>Approved Modules: {{ grant.extra_json.modules.length }}</p>' +
+        '<p>Pending: {{ grant.extra_json.pending_modules.length }}</p>' +
         '</div>' +
+        '<div class="card-footer">' +
+            '<a v-bind:href="grant.url" class="btn btn-success btn-sm" target="_blank" v-bind:class="{\'disabled\': grant.status !== \'accepted\'}">Gain Access</a>' +
         '</div>' +
-        '</div>',
+    '</div>' +
+    '</div>',
     props: {
         index: {
             type: Number,
@@ -366,18 +338,57 @@ Vue.component('access-grant-card', {
     }
 });
 
-Vue.component('professional-social-connection', {
-    template: '<div class="col s12">' +
+Vue.component('access-grant-company-card', {
+
+    template: '<div class="col-md-4 col-xl-3">' +
     '<div class="card">' +
-    '<div class="card-content">' +
-    '<span class="card-title"><h4>{{ connection.channel.title_case() }}</h4></span>' +
-    '<p class="flow-text" v-if="connection.id !== null && connection.id.length > 0">{{ connection.id }}</p>' +
-    '<p><a v-bind:href="connection.url" target="_blank">{{ connection.url }}</a></p>' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{{ company.name }}</h4>' +
+        '</div>' +
+        '<div class="card-body">' +
+        '<p>Phone: {{ company.phone !== null ? company.phone : "-" }}</p>' +
+        '<p>Email: {{ company.email !== null ? company.email : "-" }}</p>' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a v-bind:href="grant.url" class="btn btn-success btn-sm" target="_blank" v-bind:class="{\'disabled\': grant.status !== \'accepted\'}">Gain Access</a>' +
+            '<a href="#" class="btn btn-secondary btn-sm" v-on:click.prevent="requestModules">Request Access</a>' +
+        '</div>' +
     '</div>' +
-    '<div class="card-action">' +
-    '<a v-bind:href="connection.url" class="black-text" target="_blank">OPEN</a>' +
-    '<a href="#" class="red-text" v-on:click.prevent="deleteField">REMOVE</a>' +
-    '</div>' +
+    '</div>',
+    props: {
+        index: {
+            type: Number,
+            required: true
+        },
+        company: {
+            type: Object,
+            required: true
+        }
+    },
+    methods: {
+        requestModules: function () {
+            this.$emit('request-modules', this.index);
+        },
+    }
+});
+
+Vue.component('professional-social-connection', {
+
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{{ connection.channel.title_case() }}</h4>' +
+        '</div>' +
+        '<div class="card-body">' +
+        '<p v-if="connection.id !== null && connection.id.length > 0">{{ connection.id }}</p>' +
+        '<p><a v-bind:href="connection.url" target="_blank">{{ connection.url }}</a></p>' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a v-bind:href="connection.url" target="_blank" class="btn btn-primary btn-sm">Open</a>' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteField">Remove</a>' +
+        '</div>' +
     '</div>' +
     '</div>',
     props: {
@@ -398,57 +409,64 @@ Vue.component('professional-social-connection', {
     methods: {
         deleteField: function (event) {
             var context = this;
-            swal({
+            Swal.fire({
                 title: "Are you sure?",
                 text: "You are about to delete the " + this.connection.channel.title_case() + " connection.",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.delete("/xhr/directory/social-connections", {
-                    params: {index: context.index}
-                }).then(function (response) {
-                        console.log(response);
-                        context.$emit('delete-connection', context.index);
-                        return swal("Deleted!", "The connection was successfully deleted.", "success");
-                    })
-                    .catch(function (error) {
-                        var message = '';
-                        if (error.response) {
-                            // The request was made and the server responded with a status code
-                            // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
-                        } else if (error.request) {
-                            // The request was made but no response was received
-                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                            // http.ClientRequest in node.js
-                            message = 'The request was made but no response was received';
-                        } else {
-                            // Something happened in setting up the request that triggered an Error
-                            message = error.message;
-                        }
-                        return swal("Delete Failed", message, "warning");
-                    });
-            });
+                  showLoaderOnConfirm: true,
+                    preConfirm: (delete_field_social) => {
+                    return axios.delete("/mpp/social-connections", {
+                        params: {index: context.index}
+                    }).then(function (response) {
+                            console.log(response);
+                            context.$emit('delete-connection', context.index);
+                            return swal("Deleted!", "The connection was successfully deleted.", "success");
+                        })
+                        .catch(function (error) {
+                            var message = '';
+                            if (error.response) {
+                                // The request was made and the server responded with a status code
+                                // that falls out of the range of 2xx
+                                //var e = error.response.data.errors[0];
+                                //message = e.title;
+                                var e = error.response;
+                                message = e.data.message;
+                            } else if (error.request) {
+                                // The request was made but no response was received
+                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                                // http.ClientRequest in node.js
+                                message = 'The request was made but no response was received';
+                            } else {
+                                // Something happened in setting up the request that triggered an Error
+                                message = error.message;
+                            }
+                            return swal("Delete Failed", message, "warning");
+                        });
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                });
         }
     }
 });
 
 Vue.component('professional-credential', {
-    template: '<div class="col s12">' +
+
+    template: '<div class="col-md-6 col-xl-4">' +
     '<div class="card">' +
-    '<div class="card-content">' +
-    '<span class="card-title"><h4>{{ credential.certification }} ({{ credential.year }})</h4></span>' +
-    '<p class="flow-text" v-if="credential.title !== null">{{ credential.title }} ({{ credential.type }})</p>' +
-    '<p>{{ credential.description }}</p>' +
-    '</div>' +
-    '<div class="card-action">' +
-    '<a href="#" class="red-text" v-on:click.prevent="deleteField">REMOVE</a>' +
-    '</div>' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{{ credential.certification }} ({{ credential.year }})</h4>' +
+        '</div>' +
+        '<div class="card-body">' +
+        '<p v-if="credential.title !== null">{{ credential.title }} ({{ credential.type }})</p>' +
+        '<p>{{ credential.description }}</p>' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteField">Remove</a>' +
+        '</div>' +
     '</div>' +
     '</div>',
     props: {
@@ -469,17 +487,16 @@ Vue.component('professional-credential', {
     methods: {
         deleteField: function () {
             var context = this;
-            swal({
+            Swal.fire({
                 title: "Are you sure?",
                 text: "You are about to delete the " + this.credential.certification+ " credential.",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.delete("/xhr/directory/credentials/" + context.credential.id)
+                showLoaderOnConfirm: true,
+                preConfirm: (delete_field_credential) => {
+                return axios.delete("/mpp/credentials/" + context.credential.id)
                     .then(function (response) {
                         console.log(response);
                         context.$emit('delete-credential', context.index);
@@ -490,8 +507,10 @@ Vue.component('professional-credential', {
                         if (error.response) {
                             // The request was made and the server responded with a status code
                             // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
+                                //var e = error.response.data.errors[0];
+                                //message = e.title;
+                                var e = error.response;
+                                message = e.data.message;
                         } else if (error.request) {
                             // The request was made but no response was received
                             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -503,22 +522,28 @@ Vue.component('professional-credential', {
                         }
                         return swal("Delete Failed", message, "warning");
                     });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
             });
         }
     }
 });
 
 Vue.component('professional-experience', {
-    template: '<div class="col s12">' +
+
+    template: '<div class="col-md-6 col-xl-4">' +
     '<div class="card">' +
-    '<div class="card-content">' +
-    '<span class="card-title"><h4>{{ experience.designation }}</h4></span>' +
-    '<p class="flow-text">{{ experience.company }}</p>' +
-    '<p>{{ experience.from_year }} - {{ experience.to_year === null ? "Present" : experience.to_year }}</p>' +
-    '</div>' +
-    '<div class="card-action">' +
-    '<a href="#" class="red-text" v-on:click.prevent="deleteField">REMOVE</a>' +
-    '</div>' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{{ experience.designation }}</h4>' +
+        '</div>' +
+        '<div class="card-body">' +
+        '<p>{{ experience.company }}</p>' +
+        '<p>{{ experience.from_year }} - {{ experience.to_year === null ? "Present" : experience.to_year }}</p>' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteField">Remove</a>' +
+        '</div>' +
     '</div>' +
     '</div>',
     props: {
@@ -539,17 +564,16 @@ Vue.component('professional-experience', {
     methods: {
         deleteField: function () {
             var context = this;
-            swal({
+            Swal.fire({
                 title: "Are you sure?",
                 text: "You are about to delete experience at " + this.experience.company+ " experience.",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.delete("/xhr/directory/experiences/" + context.experience.id)
+                showLoaderOnConfirm: true,
+                preConfirm: (delete_field_experience) => {
+                return axios.delete("/mpp/experiences/" + context.experience.id)
                     .then(function (response) {
                         console.log(response);
                         context.$emit('delete-experience', context.index);
@@ -560,8 +584,10 @@ Vue.component('professional-experience', {
                         if (error.response) {
                             // The request was made and the server responded with a status code
                             // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
+                            //var e = error.response.data.errors[0];
+                            //message = e.title;
+                                var e = error.response;
+                                message = e.data.message;
                         } else if (error.request) {
                             // The request was made but no response was received
                             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -573,25 +599,35 @@ Vue.component('professional-experience', {
                         }
                         return swal("Delete Failed", message, "warning");
                     });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
             });
+
         }
     }
 });
 
 Vue.component('professional-service', {
-    template: '<div class="col s12">' +
-        '<div class="card">' +
-        '<div class="card-content">' +
-        '<span class="card-title"><h4>{{ service.title }}</h4></span>' +
-        '<p class="flow-text">{{ service.cost_currency }}{{ service.cost_amount.formatted }} <small>{{ service.cost_frequency !== "standard" ? "per " + service.cost_frequency.title_case() : "" }}</small></p>' +
-        '<div class="chip" v-for="category in service.categories.data">{{ category.name }}</div>' +
+
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{{ service.title }}</h4>' +
         '</div>' +
-        '<div class="card-action">' +
-        '<a href="#" class="black-text" v-on:click.prevent="editField">EDIT</a>' +
-        '<a href="#" class="red-text" v-on:click.prevent="deleteField">REMOVE</a>' +
+        '<div class="card-body">' +
+        '<p>{{ service.cost_currency }}{{ service.cost_amount.formatted }} <small>{{ service.cost_frequency !== "standard" ? "per " + service.cost_frequency.title_case() : "" }}</small></p>' +
+        '<p>{{ experience.from_year }} - {{ experience.to_year === null ? "Present" : experience.to_year }}</p>' +
+        '<div class="tags">' +
+            '<span class="tag" v-for="category in service.categories.data">{{ category.name }}</span>' +
         '</div>' +
         '</div>' +
-        '</div>',
+        '<div class="card-footer">' +
+            '<a href="#" class="btn btn-warning btn-sm" v-on:click.prevent="editField">Edit</a>' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteField">Remove</a>' +
+        '</div>' +
+    '</div>' +
+    '</div>',
     props: {
         index: {
             type: Number,
@@ -608,17 +644,16 @@ Vue.component('professional-service', {
         },
         deleteField: function () {
             var context = this;
-            swal({
+            Swal.fire({
                 title: "Are you sure?",
                 text: "You are about to delete service " + this.service.title,
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.delete("/xhr/directory/services/" + context.service.id)
+                showLoaderOnConfirm: true,
+                preConfirm: (delete_field_service) => {
+                return axios.delete("/mpp/services/" + context.service.id)
                     .then(function (response) {
                         console.log(response);
                         context.$emit('delete-service', context.index);
@@ -629,8 +664,10 @@ Vue.component('professional-service', {
                         if (error.response) {
                             // The request was made and the server responded with a status code
                             // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
+                            //var e = error.response.data.errors[0];
+                            //message = e.title;
+                                var e = error.response;
+                                message = e.data.message;
                         } else if (error.request) {
                             // The request was made but no response was received
                             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -642,33 +679,36 @@ Vue.component('professional-service', {
                         }
                         return swal("Delete Failed", message, "warning");
                     });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
             });
         }
     }
 });
 
 Vue.component('professional-service-request', {
-    template: '<div class="col s12">' +
-    '<div class="card" v-bind:class="{\'grey lighten-3\': request.is_read}">' +
-    '<div class="card-content">' +
-    '<span class="card-title activator"><h4>{{ request.service.data.title }} <i class="material-icons right">info_outline</i></h4></span>' +
-    '<p class="flow-text">{{ request.company.data.name }}</p>' +
-    '<p>{{ request.message.substr(0, 50)  + (request.message.length > 50 ? "..." : "") }}</p>' +
-    '</div>' +
-    '<div class="card-action">' +
-    '<a href="#" class="red-text" v-on:click.prevent="reject" v-if="request.status === \'pending\'">REJECT</a>' +
-    '<a href="#" class="black-text" v-on:click.prevent="accept" v-if="request.status === \'pending\'">ACCEPT</a>' +
-    '<a v-bind:href="request.attachment_url" target="_blank" class="black-text" v-bind:class="{right: request.status === \'pending\'}" v-if="typeof request.attachment_url === \'string\'">Open Attachment</a>' +
-    '</div>' +
-    '<div class="card-reveal">' +
-    '    <span class="card-title grey-text text-darken-4">Request Details<i class="material-icons right">close</i></span>' +
-    '    <p><strong>Business</strong><br>{{ request.company.data.name }}</p>' +
-    '    <p><strong>Email</strong><br>{{ request.company.data.email }}</p>' +
-    '    <p><strong>Phone</strong><br>{{ request.company.data.phone }}</p>' +
-    '    <p><strong>Date</strong><br>{{ moment(request.created_at).format("ddd DD MMM, YYYY") }}</p>' +
-    '    <p><strong>Additional Message</strong><br>{{ request.message }}</p>' +
-    '    <p v-if="request.attachment_url !== null"><strong>Supporting Document</strong><br><a v-bind:href="request.attachment_url" target="_blank">Download Attachment</a></p>' +
-    '</div>'+
+
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+        '<div class="card-status bg-yellow" v-bind:class="{\'bg-green\': request.is_read}"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{ request.service.data.title }}</h4>' +
+        '</div>' +
+        '<div class="card-body">' +
+        '<p>{{ request.company.data.name }}</p>' +
+            '<p><strong>Business</strong><br>{{ request.company.data.name }}</p>' +
+            '<p><strong>Email</strong><br>{{ request.company.data.email }}</p>' +
+            '<p><strong>Phone</strong><br>{{ request.company.data.phone }}</p>' +
+            '<p><strong>Date</strong><br>{{ moment(request.created_at).format("ddd DD MMM, YYYY") }}</p>' +
+            '<p><strong>Message</strong>: {{ request.message.substr(0, 50)  + (request.message.length > 50 ? "..." : "") }}</p>' +
+            //'<p><strong>Additional Message</strong><br>{{ request.message }}</p>' +
+            //'<p v-if="request.attachment_url !== null"><strong>Supporting Document</strong><br><a v-bind:href="request.attachment_url" target="_blank">Download Attachment</a></p>' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a href="#" class="btn btn-success btn-sm" v-on:click.prevent="accept" v-if="request.status === \'pending\'">Accept</a>' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="reject" v-if="request.status === \'pending\'">Reject</a>' +
+            '<a class="btn btn-info btn-sm" v-bind:href="request.attachment_url" target="_blank" v-bind:class="{right: request.status === \'pending\'}" v-if="typeof request.attachment_url === \'string\'">Download Attachment</a>' +
+        '</div>' +
     '</div>' +
     '</div>',
     props: {
@@ -684,16 +724,15 @@ Vue.component('professional-service-request', {
     methods: {
         accept: function () {
             var context = this;
-            swal({
+            Swal.fire({
                 title: "Accept the request?",
                 text: "You are about to accept this service request. An invoice will be send to the customer as well.",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonText: "Continue",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.put("/xhr/directory/service-requests/" + context.request.id, {status: 'accepted'})
+                showLoaderOnConfirm: true,
+                preConfirm: (service_accept) => {
+                return axios.put("/xhr/directory/service-requests/" + context.request.id, {status: 'accepted'})
                     .then(function (response) {
                         console.log(response);
                         context.$emit('request-marked', context.index, response.data);
@@ -704,8 +743,10 @@ Vue.component('professional-service-request', {
                         if (error.response) {
                             // The request was made and the server responded with a status code
                             // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
+                            //var e = error.response.data.errors[0];
+                            //message = e.title;
+                            var e = error.response;
+                            message = e.data.message;
                         } else if (error.request) {
                             // The request was made but no response was received
                             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -717,6 +758,8 @@ Vue.component('professional-service-request', {
                         }
                         return swal("Acceptance Failed", message, "warning");
                     });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
             });
         },
         moment: function (dateString) {
@@ -731,10 +774,9 @@ Vue.component('professional-service-request', {
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Continue",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.put("/xhr/directory/service-requests/" + context.request.id, {status: 'rejected'})
+                showLoaderOnConfirm: true,
+                preConfirm: (service_reject) => {
+                return axios.put("/xhr/directory/service-requests/" + context.request.id, {status: 'rejected'})
                     .then(function (response) {
                         console.log(response);
                         context.$emit('request-marked', context.index, response.data);
@@ -745,8 +787,10 @@ Vue.component('professional-service-request', {
                         if (error.response) {
                             // The request was made and the server responded with a status code
                             // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
+                            //var e = error.response.data.errors[0];
+                            //message = e.title;
+                            var e = error.response;
+                            message = e.data.message;
                         } else if (error.request) {
                             // The request was made but no response was received
                             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -758,6 +802,8 @@ Vue.component('professional-service-request', {
                         }
                         return swal("Rejection Failed", message, "warning");
                     });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
             });
         }
     }

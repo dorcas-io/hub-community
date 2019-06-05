@@ -18,7 +18,7 @@
                         </div>
                     </li> -->
                     @foreach(config('navigation-menu') as $key => $value)
-                        @if ($value['navbar'])
+                        @if ($value['navbar'] && ($value['dashboard']==$viewMode || $value['dashboard']=='all') )
                             @php
                             if (count($value['sub-menu'])>0) { $dropdown=" dropdown"; $dropdownToggle = "dropdown"; } else { $dropdown=""; $dropdownToggle = ""; }
                             @endphp

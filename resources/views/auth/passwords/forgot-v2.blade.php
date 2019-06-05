@@ -12,16 +12,16 @@
 
             <div class="row justify-content-center">
 
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4" id="testF">
 
                 @include('layouts.blocks.tabler.alert')
-                <form class="card" action="{{ route('login') }}" method="post">
+                <form class="card" action="{{ route('forgot-password') }}" method="post">
                     {{ csrf_field() }}
                     <div class="card-body p-6">
                         <div class="card-title text-center">
-                            {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}
-                            <!-- {{ $page['login_product_name'] }} -->
+                            PASSWORD RESET
                         </div>
+                        <p class="text-muted text-center"><strong>Forgot your password?</strong> Enter your email address and reset instructions will be emailed to you.</p>
                         <div class="form-group">
                             <label class="form-label">Email address</label>
                             <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
@@ -30,27 +30,13 @@
                                 <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">
-                                Password
-                                <a href="{{ url('/forgot-password') }}" class="float-right small">Forgot Password?</a>
-                            </label>
-                            <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="remember" value="1" />
-                                <span class="custom-control-label">Remember me</span>
-                            </label>
-                        </div>
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-block">Continue</button>
                         </div>
                     </div>
                 </form>
                 <div class="text-center text-muted">
-                    Don't have account yet? <a href="{{ route('register') }}">Get Started with {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}</a>
+                    Alternatively, you can <a href="{{ route('login') }}">Login</a> OR <a href="{{ route('register') }}">Register</a>
                 </div>
                 </div>
 
@@ -72,4 +58,25 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+
+@section('body_js')
+    <script>
+
+    var fVuw = new Vue({
+        //el: '#tabler-header',
+        el: '#testF',
+        data: {
+            uiResponse: {!! json_encode(!empty($uiResponse) ? $uiResponse : []) !!},
+            UiResponse: {!! json_encode(!empty($UiResponse) ? $UiResponse : []) !!},
+        },
+        mounted: function() {
+            console.log(this.uiResponse)
+            console.log(this.UiResponse)
+        }
+    });
+    </script>
+
 @endsection
