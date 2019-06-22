@@ -317,7 +317,8 @@ Vue.component('access-grant-card', {
         '<p>Pending: {{ grant.extra_json.pending_modules.length }}</p>' +
         '</div>' +
         '<div class="card-footer">' +
-            '<a v-bind:href="grant.url" class="btn btn-success btn-sm" target="_blank" v-bind:class="{\'disabled\': grant.status !== \'accepted\'}">Gain Access</a>' +
+            '<a v-bind:href="grant.url" class="btn btn-success btn-sm" target="_blank"  v-if="grant.status === \'accepted\'" v-bind:class="{\'disabled btn-warning\': grant.status !== \'accepted\'}">Gain Access</a>' +
+            '<small style="font-style:italic" v-if="grant.status === \'pending\'">Awaiting Approval</small>' +
         '</div>' +
     '</div>' +
     '</div>',
@@ -340,7 +341,7 @@ Vue.component('access-grant-card', {
 
 Vue.component('access-grant-company-card', {
 
-    template: '<div class="col-md-4 col-xl-3">' +
+    template: '<div class="col-md-4">' +
     '<div class="card">' +
         '<div class="card-status bg-blue"></div>' +
         '<div class="card-header">' +
@@ -351,7 +352,6 @@ Vue.component('access-grant-company-card', {
         '<p>Email: {{ company.email !== null ? company.email : "-" }}</p>' +
         '</div>' +
         '<div class="card-footer">' +
-            '<a v-bind:href="grant.url" class="btn btn-success btn-sm" target="_blank" v-bind:class="{\'disabled\': grant.status !== \'accepted\'}">Gain Access</a>' +
             '<a href="#" class="btn btn-secondary btn-sm" v-on:click.prevent="requestModules">Request Access</a>' +
         '</div>' +
     '</div>' +
@@ -421,7 +421,7 @@ Vue.component('professional-social-connection', {
                     return axios.delete("/mpp/social-connections", {
                         params: {index: context.index}
                     }).then(function (response) {
-                            console.log(response);
+                            //console.log(response);
                             context.$emit('delete-connection', context.index);
                             return swal("Deleted!", "The connection was successfully deleted.", "success");
                         })
@@ -498,7 +498,7 @@ Vue.component('professional-credential', {
                 preConfirm: (delete_field_credential) => {
                 return axios.delete("/mpp/credentials/" + context.credential.id)
                     .then(function (response) {
-                        console.log(response);
+                        //console.log(response);
                         context.$emit('delete-credential', context.index);
                         return swal("Deleted!", "The credential was successfully deleted.", "success");
                     })
@@ -566,7 +566,7 @@ Vue.component('professional-experience', {
             var context = this;
             Swal.fire({
                 title: "Are you sure?",
-                text: "You are about to delete experience at " + this.experience.company+ " experience.",
+                text: "You are about to delete experience at " + this.experience.company+ ".",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
@@ -575,7 +575,7 @@ Vue.component('professional-experience', {
                 preConfirm: (delete_field_experience) => {
                 return axios.delete("/mpp/experiences/" + context.experience.id)
                     .then(function (response) {
-                        console.log(response);
+                        //console.log(response);
                         context.$emit('delete-experience', context.index);
                         return swal("Deleted!", "The experience was successfully deleted.", "success");
                     })
@@ -617,7 +617,6 @@ Vue.component('professional-service', {
         '</div>' +
         '<div class="card-body">' +
         '<p>{{ service.cost_currency }}{{ service.cost_amount.formatted }} <small>{{ service.cost_frequency !== "standard" ? "per " + service.cost_frequency.title_case() : "" }}</small></p>' +
-        '<p>{{ experience.from_year }} - {{ experience.to_year === null ? "Present" : experience.to_year }}</p>' +
         '<div class="tags">' +
             '<span class="tag" v-for="category in service.categories.data">{{ category.name }}</span>' +
         '</div>' +
@@ -655,7 +654,7 @@ Vue.component('professional-service', {
                 preConfirm: (delete_field_service) => {
                 return axios.delete("/mpp/services/" + context.service.id)
                     .then(function (response) {
-                        console.log(response);
+                        //console.log(response);
                         context.$emit('delete-service', context.index);
                         return swal("Deleted!", "The service was successfully deleted.", "success");
                     })
@@ -690,12 +689,12 @@ Vue.component('professional-service-request', {
 
     template: '<div class="col-md-6 col-xl-4">' +
     '<div class="card">' +
-        '<div class="card-status bg-yellow" v-bind:class="{\'bg-green\': request.is_read}"></div>' +
+        '<div class="card-status" v-bind:class="{\'bg-yellow\': !request.is_read, \'bg-green\': request.is_read && request.status==\'accepted\', \'bg-red\': request.is_read && request.status==\'rejected\'}"></div>' +
         '<div class="card-header">' +
-            '<h4 class="card-title">{ request.service.data.title }}</h4>' +
+            '<h4 class="card-title">{{ request.service.data.title }}</h4>' +
         '</div>' +
         '<div class="card-body">' +
-        '<p>{{ request.company.data.name }}</p>' +
+        //'<p>{{ request.company.data.name }}</p>' +
             '<p><strong>Business</strong><br>{{ request.company.data.name }}</p>' +
             '<p><strong>Email</strong><br>{{ request.company.data.email }}</p>' +
             '<p><strong>Phone</strong><br>{{ request.company.data.phone }}</p>' +
@@ -707,6 +706,9 @@ Vue.component('professional-service-request', {
         '<div class="card-footer">' +
             '<a href="#" class="btn btn-success btn-sm" v-on:click.prevent="accept" v-if="request.status === \'pending\'">Accept</a>' +
             '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="reject" v-if="request.status === \'pending\'">Reject</a>' +
+            '<small style="font-style:italic" v-if="request.status === \'rejected\'">Request Rejected</small>' +
+            '<small style="font-style:italic" v-if="request.status === \'accepted\'">Request Accepted</small>' +
+            '<small style="font-style:italic" v-if="request.status === \'pending\'">Request Pending</small>' +
             '<a class="btn btn-info btn-sm" v-bind:href="request.attachment_url" target="_blank" v-bind:class="{right: request.status === \'pending\'}" v-if="typeof request.attachment_url === \'string\'">Download Attachment</a>' +
         '</div>' +
     '</div>' +
@@ -732,7 +734,7 @@ Vue.component('professional-service-request', {
                 confirmButtonText: "Continue",
                 showLoaderOnConfirm: true,
                 preConfirm: (service_accept) => {
-                return axios.put("/xhr/directory/service-requests/" + context.request.id, {status: 'accepted'})
+                return axios.put("/mps/service-requests/" + context.request.id, {status: 'accepted'})
                     .then(function (response) {
                         console.log(response);
                         context.$emit('request-marked', context.index, response.data);
@@ -776,7 +778,7 @@ Vue.component('professional-service-request', {
                 confirmButtonText: "Continue",
                 showLoaderOnConfirm: true,
                 preConfirm: (service_reject) => {
-                return axios.put("/xhr/directory/service-requests/" + context.request.id, {status: 'rejected'})
+                return axios.put("/mps/service-requests/" + context.request.id, {status: 'rejected'})
                     .then(function (response) {
                         console.log(response);
                         context.$emit('request-marked', context.index, response.data);
@@ -808,6 +810,205 @@ Vue.component('professional-service-request', {
         }
     }
 });
+
+
+Vue.component('webmail-account', {
+
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h4 class="card-title">{{ email.user }}</h4>' +
+        '</div>' +
+        '<div class="card-body">' +
+        '<p>{{ email.login }}</p><hr>' +
+        '<p><strong>Storage Quota: </strong>{{ email.diskquota }}MB<br><strong>Used Storage: </strong>{{ email.diskusedpercent_float }}%</p>' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<a class="btn btn-warning btn-sm" target="_blank" :href="\'http://\' + email.domain + \'/webmail\'">WebMail</a>' +
+            '&nbsp;' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteEmail">Delete</a>' +
+        '</div>' +
+    '</div>' +
+    '</div>',
+    props: {
+        email: {
+            type: Object,
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        }
+    },
+    methods: {
+        deleteEmail: function () {
+            this.$emit('delete-email', this.index);
+        }
+    }
+});
+
+
+Vue.component('blog-category', {
+    template: '<div class="col s12">' +
+    '<div class="card">' +
+    '<div class="card-content">' +
+    '<span class="card-title"><h4>{{ category.name }} ({{ category.posts_count }})</h4></span>' +
+    '<p class="flow-text">{{ category.slug }}</p>' +
+    '</div>' +
+    '<div class="card-action">' +
+    '<a href="#" class="grey-text text-darken-3" v-on:click.prevent="edit">Edit</a>' +
+    '<a href="#" class="red-text" v-on:click.prevent="deleteField" v-if="showDelete">REMOVE</a>' +
+    '</div>' +
+    '</div>' +
+    '</div>',
+    props: {
+        category: {
+            type: Object,
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        },
+        showDelete: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data: function () {
+        return {
+            visible: this.seen
+        }
+    },
+    methods: {
+        edit: function () {
+            var context = this;
+            swal({
+                    title: "Update Category",
+                    text: "Enter new name [" + context.category.name + "]:",
+                    type: "input",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    animation: "slide-from-top",
+                    showLoaderOnConfirm: true,
+                    inputPlaceholder: "Custom Field Name"
+                },
+                function(inputValue){
+                    if (inputValue === false) return false;
+                    if (inputValue === "") {
+                        swal.showInputError("You need to write something!");
+                        return false
+                    }
+                    axios.put("/xhr/ecommerce/blog/categories/"+context.category.id, {
+                        name: inputValue,
+                        update_slug: true
+                    }).then(function (response) {
+                        console.log(response);
+                        context.$emit('update', context.index, response.data);
+                        return swal("Success", "The category name was successfully updated.", "success");
+                    })
+                        .catch(function (error) {
+                            var message = '';
+                            if (error.response) {
+                                // The request was made and the server responded with a status code
+                                // that falls out of the range of 2xx
+                                var e = error.response.data.errors[0];
+                                message = e.title;
+                            } else if (error.request) {
+                                // The request was made but no response was received
+                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                                // http.ClientRequest in node.js
+                                message = 'The request was made but no response was received';
+                            } else {
+                                // Something happened in setting up the request that triggered an Error
+                                message = error.message;
+                            }
+                            return swal("Oops!", message, "warning");
+                        });
+                });
+        },
+        deleteField: function () {
+            var context = this;
+            swal({
+                title: "Are you sure?",
+                text: "You are about to delete the category (" + context.category.name + ").",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true
+            }, function() {
+                axios.delete("/xhr/ecommerce/blog/categories/" + context.category.id)
+                    .then(function (response) {
+                        console.log(response);
+                        context.$emit('remove', context.index);
+                        return swal("Deleted!", "The category was successfully deleted.", "success");
+                    })
+                    .catch(function (error) {
+                        var message = '';
+                        if (error.response) {
+                            // The request was made and the server responded with a status code
+                            // that falls out of the range of 2xx
+                            var e = error.response.data.errors[0];
+                            message = e.title;
+                        } else if (error.request) {
+                            // The request was made but no response was received
+                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                            // http.ClientRequest in node.js
+                            message = 'The request was made but no response was received';
+                        } else {
+                            // Something happened in setting up the request that triggered an Error
+                            message = error.message;
+                        }
+                        return swal("Delete Failed", message, "warning");
+                    });
+            });
+        }
+    }
+});
+
+
+
+
+
+Vue.component('advert-card', {
+
+    template: '<div class="col-md-6 col-xl-4">' +
+    '<div class="card">' +
+    '<a href="#"><img class="card-img-top" style="display: block !important;" v-bind:src="advert.image_url" v-bind:alt="advert.title + \' image\'" /></a>' +
+    '<div class="card-body d-flex flex-column">' +
+    '<h4><a href="#">{{ advert.title }}</a></h4>' +
+    '</div>' +
+        '<div class="card-footer">' +
+            '<a v-if="typeof advert.redirect_url !== \'undefined\' && advert.redirect_url !== null" v-bind:href="advert.redirect_url" target="_blank" class="btn btn-primary btn-sm">Open Link</a>' +
+            '<a href="#" class="btn btn-secondary btn-sm" v-on:click.prevent="editAdvert">Edit</a>' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteAdvert">Delete</a>' +
+        '</div>' +
+    '</div>' +
+    '</div>',
+    props: {
+        advert: {
+            type: Object,
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        }
+    },
+    methods: {
+        editAdvert: function () {
+            this.$emit('edit-advert', this.index);
+        },
+        deleteAdvert: function () {
+            this.$emit('delete-advert', this.index);
+        }
+    }
+});
+
+
 
 /**
  * Settings Toggle component for the right-nav
@@ -1540,125 +1741,7 @@ Vue.component('plan-chooser', {
     }
 });
 
-Vue.component('blog-category', {
-    template: '<div class="col s12">' +
-    '<div class="card">' +
-    '<div class="card-content">' +
-    '<span class="card-title"><h4>{{ category.name }} ({{ category.posts_count }})</h4></span>' +
-    '<p class="flow-text">{{ category.slug }}</p>' +
-    '</div>' +
-    '<div class="card-action">' +
-    '<a href="#" class="grey-text text-darken-3" v-on:click.prevent="edit">Edit</a>' +
-    '<a href="#" class="red-text" v-on:click.prevent="deleteField" v-if="showDelete">REMOVE</a>' +
-    '</div>' +
-    '</div>' +
-    '</div>',
-    props: {
-        category: {
-            type: Object,
-            required: true
-        },
-        index: {
-            type: Number,
-            required: true
-        },
-        showDelete: {
-            type: Boolean,
-            default: false
-        }
-    },
-    data: function () {
-        return {
-            visible: this.seen
-        }
-    },
-    methods: {
-        edit: function () {
-            var context = this;
-            swal({
-                    title: "Update Category",
-                    text: "Enter new name [" + context.category.name + "]:",
-                    type: "input",
-                    showCancelButton: true,
-                    closeOnConfirm: false,
-                    animation: "slide-from-top",
-                    showLoaderOnConfirm: true,
-                    inputPlaceholder: "Custom Field Name"
-                },
-                function(inputValue){
-                    if (inputValue === false) return false;
-                    if (inputValue === "") {
-                        swal.showInputError("You need to write something!");
-                        return false
-                    }
-                    axios.put("/xhr/ecommerce/blog/categories/"+context.category.id, {
-                        name: inputValue,
-                        update_slug: true
-                    }).then(function (response) {
-                        console.log(response);
-                        context.$emit('update', context.index, response.data);
-                        return swal("Success", "The category name was successfully updated.", "success");
-                    })
-                        .catch(function (error) {
-                            var message = '';
-                            if (error.response) {
-                                // The request was made and the server responded with a status code
-                                // that falls out of the range of 2xx
-                                var e = error.response.data.errors[0];
-                                message = e.title;
-                            } else if (error.request) {
-                                // The request was made but no response was received
-                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                                // http.ClientRequest in node.js
-                                message = 'The request was made but no response was received';
-                            } else {
-                                // Something happened in setting up the request that triggered an Error
-                                message = error.message;
-                            }
-                            return swal("Oops!", message, "warning");
-                        });
-                });
-        },
-        deleteField: function () {
-            var context = this;
-            swal({
-                title: "Are you sure?",
-                text: "You are about to delete the category (" + context.category.name + ").",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.delete("/xhr/ecommerce/blog/categories/" + context.category.id)
-                    .then(function (response) {
-                        console.log(response);
-                        context.$emit('remove', context.index);
-                        return swal("Deleted!", "The category was successfully deleted.", "success");
-                    })
-                    .catch(function (error) {
-                        var message = '';
-                        if (error.response) {
-                            // The request was made and the server responded with a status code
-                            // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
-                        } else if (error.request) {
-                            // The request was made but no response was received
-                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                            // http.ClientRequest in node.js
-                            message = 'The request was made but no response was received';
-                        } else {
-                            // Something happened in setting up the request that triggered an Error
-                            message = error.message;
-                        }
-                        return swal("Delete Failed", message, "warning");
-                    });
-            });
-        }
-    }
-});
+
 
 Vue.component('advert-card', {
     template: '<div class="col s12 m4">' +
@@ -1695,36 +1778,6 @@ Vue.component('advert-card', {
     }
 });
 
-
-Vue.component('webmail-account', {
-    template: '<div class="col s12">' +
-    '                <div class="card">' +
-    '                    <div class="card-content">' +
-    '                        <span class="card-title">{{ email.login }}</span>' +
-    '                        <p><strong>Storage Quota: </strong>{{ email.diskquota }}MB<br><strong>Used Storage: </strong>{{ email.diskusedpercent_float }}%</p>' +
-    '                    </div>' +
-    '                    <div class="card-action">' +
-    '                        <a target="_blank" :href="\'http://\' + email.domain + \'/webmail\'">WebMail</a>' +
-    '                        <a class="red-text right" v-on:click.prevent="deleteEmail" href="#">Delete</a>' +
-    '                    </div>' +
-    '                </div>' +
-    '            </div>',
-    props: {
-        email: {
-            type: Object,
-            required: true
-        },
-        index: {
-            type: Number,
-            required: true
-        }
-    },
-    methods: {
-        deleteEmail: function () {
-            this.$emit('delete-email', this.index);
-        }
-    }
-});
 
 Vue.component('app-store-app', {
     template: '<div class="col s12">' +

@@ -129,6 +129,7 @@
 <!--custom-script.js - Add your own theme custom JS-->
 <script src="{{ cdn('apps/tabler/js/custom-vue.js') }}"></script>
 <script src="{{ cdn('apps/tabler/js/custom_script.js') }}"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <!-- Production JS code -->
 @if (app()->environment() === 'production')
     @include('layouts.blocks.production-js')
@@ -209,10 +210,13 @@
         data: {
             assistant: [],
             a: {assistant: [], docs: [], help: []},
+            helpMessage: { message : '', area: '', file: '' },
             loadingAssistant: true,
             showLessDocs: true,
             showDocsCount: 2,
-            showDocsLabel: 'Show All'
+            showDocsLabel: 'Show All',
+            paymentVerifying: false,
+            paymentReturn: ''
         },
         methods: {
             modulesAssistant: function () {
@@ -228,6 +232,10 @@
                         context.a.assistant = context.assistant.assistant_assistant;
                         context.a.docs = context.assistant.assistant_docs;
                         context.a.help = context.assistant.assistant_help;
+
+                        context.helpMessage.area = context.a.help.help_1_body;
+
+                        this.setupOverviewVideo(context.assistant.page_info.video);
                     })
                     .catch(function (error) {
                         var message = '';
@@ -259,7 +267,152 @@
                     this.showLessDocs = true
                     this.showDocsLabel = 'Show All'
                 }
+            },
+
+            setupOverviewVideo: function (video_url) {
+                $('#modules-assistant-modal').on('shown.bs.modal', function (e) {
+                  $("#assistant-overview-video").attr('src', video_url + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0&amp;rel=0" );
+                });
+                $('#modules-assistant-modal').on('hide.bs.modal', function (e) {
+                    console.log('close1')
+                  $("#assistant-overview-video").attr('src', video_url );
+                  console.log('close2')
+                });
+            },
+            helpAttachmentCheck: function() {
+                this.helpMessage.file = this.$refs.attachment.files[0];
+                console.log(this.helpMessage.file)
+            },
+            helpSendMessage: function () {
+                var context = this;
+                let help_file = context.helpMessage.file.files[0];
+                console.log(help_file);
+                Swal.fire({
+                    title: "Send Message?",
+                    text: "You are about to send us a help message",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonColor: "#1565C0",
+                    confirmButtonText: "Yes, continue!",
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true,
+                    preConfirm: (update) => {
+                        let formData = new FormData();
+                        //this.$refs.attachment.files[0]
+                        formData.append('attachment', this.$refs.attachment.files[0]);
+/*                        return axios.put("/mcu/customers-customers/" + context.customer.id, {
+                            firstname: context.customer.firstname,
+                            lastname: context.customer.lastname,
+                            email: context.customer.email,
+                            phone: context.customer.phone,
+                            message: context.customer.phone,
+                            phone: context.customer.phone,
+                            phone: context.customer.phone
+                        })*/
+                        return axios.put("/mcu/customers-customers/" + context.customer.id,
+                        formData,
+                        {
+                            headers: {
+                                'Content-Type': 'multipart/form-data'
+                            }
+                        }
+                        )
+                           .then(function (response) {
+                                console.log(response);
+                                //$('#edit-customer-modal').modal('hide');
+                                return swal("Saved!", "The changes were successfully saved!", "success");
+                            })
+                            .catch(function (error) {
+                                var message = '';
+                                if (error.response) {
+                                    // The request was made and the server responded with a status code
+                                    // that falls out of the range of 2xx
+                            //var e = error.response.data.errors[0];
+                            //message = e.title;
+                            var e = error.response;
+                            message = e.data.message;
+                                } else if (error.request) {
+                                    // The request was made but no response was received
+                                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                                    // http.ClientRequest in node.js
+                                    message = 'The request was made but no response was received';
+                                } else {
+                                    // Something happened in setting up the request that triggered an Error
+                                    message = error.message;
+                                }
+                                return swal("Save Failed", message, "warning");
+                            });
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()                        
+                })
+            },
+            showPaystackDialog: function (amount, purchase_item) {
+                var context = this;
+                var handler = PaystackPop.setup({
+                    key: '{{ config('services.paystack.public_key') }}',
+                    email: headerAuthVue.loggedInUser.email,
+                    amount: amount * 100,
+                    channels: ['card'],
+                    metadata: {
+                        custom_fields: [
+                            {
+                                display_name: "Mobile Number",
+                                variable_name: "mobile_number",
+                                value: headerAuthVue.loggedInUser.phone
+                            },
+                            {
+                                display_name: "Business",
+                                variable_name: "business",
+                                value: headerAuthVue.loggedInUserCompany.name
+                            },
+                            {
+                                display_name: purchase_item.display_name,
+                                variable_name: purchase_item.variable_name,
+                                value: purchase_item.value
+                            }
+                        ]
+                    },
+                    callback: context.verifyTransaction,
+                    onClose: function() {
+
+                    }
+                });
+                handler.openIframe();
+            },
+            verifyTransaction: function (response) {
+                console.log(response);
+                var context = this;
+                this.paymentVerifying = true;
+                axios.post("/xhr/billing/verify", {
+                    reference: response.reference,
+                    channel: 'paystack'
+                }).then(function (response) {
+                    console.log(response)
+                    context.paymentVerifying = false;
+                    window.location = paymentReturn;
+                }).catch(function (error) {
+                    var message = '';
+                    console.log(error);
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        var e = error.response.data.errors[0];
+                        message = e.title;
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                        // http.ClientRequest in node.js
+                        message = 'The request was made but no response was received';
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        message = error.message;
+                    }
+                    context.verifying = false;
+                    swal("Oops!", message, "danger");
+                });
             }
+
+
         },
         mounted: function () {
             var context = this;
@@ -279,6 +432,11 @@
             
             //console.log(paths);
             context.generateAssistant(path_module,path_url);
+        },
+        computed: {
+            wallet_balance: function() {
+                //return typeof headerAuthVue.loggedInUserCompany.extra_data.wallet !== undefined && headerAuthVue.loggedInUserCompany.extra_data.wallet.NGN.length > 0 ? headerAuthVue.loggedInUserCompany.extra_data.wallet.NGN.balance : 0
+            }
         }
     });
 

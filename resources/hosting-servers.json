@@ -4,9 +4,9 @@
     "name": "Box 1",
     "ns": ["ns1.hostville.website", "ns2.hostville.website"],
     "capacity": 100,
-    "api_endpoint": "https://host20.registrar-servers.com:2087",
+    "api_endpoint": "https://host67.registrar-servers.com:2087",
     "api_id": "hostdtxy",
-    "api_secret": "X0PPQFOLVEONG9SBO6ZWKMS1YGMD0EH9",
+    "api_secret": "01KVLXWB15SXOGSTWTYSN39VBLOY9T0O",
     "provider": "cpanel"
   }
 ]

@@ -81,6 +81,15 @@ class ViewComposerServiceProvider extends ServiceProvider
                     $extraConfig[$key] = $defaultValue;
                 }
                 $company->extra_data = $extraConfig;
+
+                // add wallet data
+                if (empty($extraConfig['wallet'])) {
+                    $extraConfig['wallet'] = ['NGN' => ['balance' => 0 ]];
+                }
+                $wallet = $extraConfig['wallet']['NGN'];
+                $company->extra_data = $extraConfig;
+
+
                 $view->with('business', $company);
                 
                 $defaultUiConfiguration = collect(HomeController::SETUP_UI_COMPONENTS)->map(function ($ui) {
@@ -109,7 +118,6 @@ class ViewComposerServiceProvider extends ServiceProvider
                 }
                 $view->with('UiConfiguration', $effectiveUiConfiguration);
                 # set the UI configuration
-                
                 $accessExpires = Carbon::parse($company->access_expires_at);
                 # the expiry date
                 $planPrice = (float) $company->plan['data']['price_monthly']['raw'];

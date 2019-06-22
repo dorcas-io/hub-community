@@ -2,7 +2,6 @@
 @section('body')
     <div class="page-single">
         <div class="container">
-
             <div class="row justify-content-center">
                 <div class="text-center mb-6">
                     <!-- <img src="{{ cdn('/images/dorcas.jpeg') }}" class="h-6" alt=""> -->

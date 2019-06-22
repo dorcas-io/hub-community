@@ -28,9 +28,9 @@ class Verify extends Controller
         }
         $query = $sdk->createUserResource($id)->send('PUT', ['verify-account']);
         if ($query->isSuccessful()) {
-            $response = (material_ui_html_response(['Successfully verified account.']))->setType(UiResponse::TYPE_SUCCESS);
+            $response = (tabler_ui_html_response(['Successfully verified account.']))->setType(UiResponse::TYPE_SUCCESS);
         } else {
-            $response = (material_ui_html_response([$query->errors[0]['title'] ?? 'Account verification failed.']))->setType(UiResponse::TYPE_ERROR);
+            $response = (tabler_ui_html_response([$query->errors[0]['title'] ?? 'Account verification failed.']))->setType(UiResponse::TYPE_ERROR);
         }
         return redirect()->route('login')->with('UiResponse', $response);
     }
