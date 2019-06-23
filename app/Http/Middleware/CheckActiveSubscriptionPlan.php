@@ -23,7 +23,7 @@ class CheckActiveSubscriptionPlan
             # not yet authenticated -- skip the check
             return $next($request);
         }
-        $allowEvenWhenExpired = ['plans', 'subscription'];
+        $allowEvenWhenExpired = ['plans', 'subscription','mse'];
         # paths to allow even when the account is in the expired state
         if (in_array($request->path(), $allowEvenWhenExpired)) {
             # allow people to view the pages even when their account has expired

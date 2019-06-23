@@ -274,19 +274,24 @@
                   $("#assistant-overview-video").attr('src', video_url + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0&amp;rel=0" );
                 });
                 $('#modules-assistant-modal').on('hide.bs.modal', function (e) {
-                    console.log('close1')
                   $("#assistant-overview-video").attr('src', video_url );
-                  console.log('close2')
                 });
             },
             helpAttachmentCheck: function() {
                 this.helpMessage.file = this.$refs.attachment.files[0];
-                console.log(this.helpMessage.file)
+                //console.log(this.helpMessage.file)
+                if (this.helpMessage.file.size > (1024 * 100)) {
+                    $("#assistant_help_submit").attr('disabled', true );
+                    $("#assistant_help_file_message").html('Selected file size > 100KB. Choose another');
+                    $("#assistant_help_file_message").css('color', 'red');
+                } else {
+                    $("#assistant_help_submit").attr('disabled', false );
+                    $("#assistant_help_file_message").html('Selected file OK');
+                    $("#assistant_help_file_message").css('color', 'green');
+                }
             },
             helpSendMessage: function () {
                 var context = this;
-                let help_file = context.helpMessage.file.files[0];
-                console.log(help_file);
                 Swal.fire({
                     title: "Send Message?",
                     text: "You are about to send us a help message",
@@ -298,8 +303,14 @@
                     showLoaderOnConfirm: true,
                     preConfirm: (update) => {
                         let formData = new FormData();
-                        //this.$refs.attachment.files[0]
-                        formData.append('attachment', this.$refs.attachment.files[0]);
+                        formData.append('help-message', context.helpMessage.message);
+                        if (context.helpMessage.file !== '') {
+                            formData.append('attachment', context.helpMessage.file);
+                        }
+                        formData.append('help-area', context.helpMessage.area);
+                        formData.append('customer-name', headerAuthVue.loggedInUser.firstname + ' ' + headerAuthVue.loggedInUser.lastname);
+                        formData.append('customer-email', headerAuthVue.loggedInUser.email);
+                        formData.append('customer-phone', headerAuthVue.loggedInUser.phone);
 /*                        return axios.put("/mcu/customers-customers/" + context.customer.id, {
                             firstname: context.customer.firstname,
                             lastname: context.customer.lastname,
@@ -309,7 +320,7 @@
                             phone: context.customer.phone,
                             phone: context.customer.phone
                         })*/
-                        return axios.put("/mcu/customers-customers/" + context.customer.id,
+                        return axios.post("/mas/message-send/",
                         formData,
                         {
                             headers: {
@@ -320,7 +331,7 @@
                            .then(function (response) {
                                 console.log(response);
                                 //$('#edit-customer-modal').modal('hide');
-                                return swal("Saved!", "The changes were successfully saved!", "success");
+                                return swal("Message Sent!", "Your help message was successfully sent! Expect our reply soon", "success");
                             })
                             .catch(function (error) {
                                 var message = '';
@@ -340,14 +351,15 @@
                                     // Something happened in setting up the request that triggered an Error
                                     message = error.message;
                                 }
-                                return swal("Save Failed", message, "warning");
+                                return swal("Message Failed", message, "warning");
                             });
                     },
                     allowOutsideClick: () => !Swal.isLoading()                        
                 })
             },
-            showPaystackDialog: function (amount, purchase_item) {
+            showPaystackDialog: function (amount, purchase_item, return_url) {
                 var context = this;
+                this.paymentReturn = return_url;
                 var handler = PaystackPop.setup({
                     key: '{{ config('services.paystack.public_key') }}',
                     email: headerAuthVue.loggedInUser.email,
@@ -380,24 +392,26 @@
                 handler.openIframe();
             },
             verifyTransaction: function (response) {
-                console.log(response);
+                //console.log(response);
                 var context = this;
                 this.paymentVerifying = true;
-                axios.post("/xhr/billing/verify", {
+                axios.post("/mec/payment-verify", {
                     reference: response.reference,
                     channel: 'paystack'
                 }).then(function (response) {
-                    console.log(response)
+                    //console.log(response)
                     context.paymentVerifying = false;
-                    window.location = paymentReturn;
+                    window.location = context.paymentReturn;
                 }).catch(function (error) {
                     var message = '';
                     console.log(error);
                     if (error.response) {
                         // The request was made and the server responded with a status code
                         // that falls out of the range of 2xx
-                        var e = error.response.data.errors[0];
-                        message = e.title;
+                        //var e = error.response.data.errors[0];
+                        //message = e.title;
+                        var e = error.response;
+                        message = e.data.message;
                     } else if (error.request) {
                         // The request was made but no response was received
                         // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -408,7 +422,7 @@
                         message = error.message;
                     }
                     context.verifying = false;
-                    swal("Oops!", message, "danger");
+                    swal("Payment Error!", message, "warning");
                 });
             }
 
@@ -429,7 +443,7 @@
             } else {
                 path_url = "default";
             }
-            
+
             //console.log(paths);
             context.generateAssistant(path_module,path_url);
         },

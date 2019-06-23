@@ -9,6 +9,7 @@ use Dorcas\ModulesLibrary\Models\ModulesLibraryResources;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use App\Exceptions\RecordNotFoundException;
 
 class HubController extends Controller
 {
@@ -61,6 +62,19 @@ class HubController extends Controller
         ];*/
 
         $config = $this->getCompany()->extra_data;
+
+        if (empty($config['wallet'])) {
+            $config['wallet']['NGN'] = [
+                'balance' => 0
+            ];
+        }
+        $sdk = app(Sdk::class);
+        $query = $sdk->createCompanyService()->addBodyParam('extra_data', $config)->send('PUT');
+        if (!$query->isSuccessful()) {
+            // do something here
+            throw new RecordNotFoundException($query->errors[0]['title'] ?? 'Something went wrong while setting up your wallet.');
+        }
+
         # get the company configuration data
         if (!empty($config) && !empty($config['wallet'])) {
             # we actually have some wallet data
@@ -72,30 +86,23 @@ class HubController extends Controller
 
     public function incrementWallet(Request $request, Sdk $sdk, $amount)
     {
-
-        $extraData = (array) $this->getCompany()->extra_data;
-        /*if (empty($extraData['wallet'])) {
-            $extraData['wallet'] = ['NGN' => ['balance' => 0 ]];
-        }*/
-        $old_wallet_balance = $extraData['wallet']['NGN']["balance"];
-        $extraData['wallet']['NGN'] = [
-            'balance' => $request->balance + $amount
-        ];
-        # add a hosting entry
-
         try {
-
-                $messages = ['Successfully added the domain.'];
-                $response = tabler_ui_html_response($messages)->setType(UiResponse::TYPE_SUCCESS);
+            $extraData = (array) $this->getCompany()->extra_data;
+            $old_wallet_balance = $extraData['wallet']['NGN']["balance"];
+            $extraData['wallet']['NGN'] = [
+                'balance' => $request->balance + $amount
+            ];
+            # add a wallet entry
+            $query = $sdk->createCompanyService()->addBodyParam('extra_data', $extraData)->send('PUT');
+            # set updates to the account
+            if (!$query->isSuccessful()) {
+                // do something here
+                throw new RecordNotFoundException($query->errors[0]['title'] ?? 'Something went wrong while adding to your wallet.');
+            }
         } catch (\Exception $e) {
-            $response = tabler_ui_html_response([$e->getMessage()])->setType(UiResponse::TYPE_ERROR);
+            throw new \Exception("Error Incrementing Wallet:  ". $e->getMessage());
         }
-        return redirect(url()->current())->with('UiResponse', $response);
-
-
-        $sdk->createCompanyService()->addBodyParam('extra_data', $extraData)->send('PUT');
-        # set updates to the account
-        $response = (tabler_ui_html_response(['Successfully setup web hosting on domain ' . $domain->domain]))->setType(UiResponse::TYPE_SUCCESS);
+        return response()->json($query->data);
 
     }
 
@@ -163,6 +170,8 @@ class HubController extends Controller
             throw new \RuntimeException($message);
         }
         # next up - we need to update the company information
+
+        //send email to payment admin
         
         return response()->json($billsQuery->getData());
     }

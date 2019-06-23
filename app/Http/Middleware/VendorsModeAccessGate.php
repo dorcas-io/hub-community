@@ -18,9 +18,9 @@ class VendorsModeAccessGate
     {
         if (!$request->user()->is_vendor) {
             # this person doesn't have a professional profile
-            $redirect = route('home') . '?view=business';
+            $redirect = route('dashboard') . '?view=business';
             $messages = ['You need to activate the vendor profile on your account to access this feature.'];
-            $response = (material_ui_html_response($messages))->setType(UiResponse::TYPE_ERROR);
+            $response = (tabler_ui_html_response($messages))->setType(UiResponse::TYPE_ERROR);
             return redirect($redirect)->with('UiResponse', $response);
         }
         return $next($request);

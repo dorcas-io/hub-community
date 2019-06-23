@@ -454,7 +454,7 @@
                                         </tr>
                                     </table>
                                     <p>Thanks!
-                                        <br>-The {{ !empty($partner) ? $partner->name: 'Dorcas' }} Hub Team
+                                        <br>-The {{ !empty($partner) ? $partner->name: 'Dorcas Hub' }} Team
                                         <br><a href="{{ !empty($subdomain) ? $subdomain : url('/') }}">{{ !empty($subdomain) ? $subdomain : url('/') }}</a>
                                     </p>
                                     <!-- Sub copy -->
