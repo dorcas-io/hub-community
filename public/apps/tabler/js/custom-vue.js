@@ -1008,6 +1008,119 @@ Vue.component('advert-card', {
     }
 });
 
+Vue.component('plan-chooser', {
+
+    template: '<div class="col-sm-6 col-lg-4">' +
+    '   <div class="card">' +
+    '       <div class="card-status bg-green" v-if="isCurrentPlan"></div>' +
+    '       <div class="card-body text-center">' +
+    '           <div class="card-category">{{ display_name }}</div>' +
+    '           <div class="display-4 my-4">' +
+    '                   <sup>NGN</sup>{{ profile.price_monthly.formatted.substring(0, profile.price_monthly.formatted.indexOf(".")) }}' +
+    '           </div>' +
+    '           <small v-if="short_description.length > 0">{{ short_description }}</small>' +
+    '           <ul class="list-unstyled leading-loose">' +
+    '               <li v-for="(text, index) in features" :key="index"><i class="fe fe-check text-success mr-2" aria-hidden="true"></i>{{ text }}</li>'+
+    '           </ul>' +
+    '           <small v-if="typeof footnote !== \'undefined\' && footnote.length > 0">{{ footnote }}</small>' +
+    '           <div class="text-center mt-6">' +
+    '               <a href="#!" class="btn btn-primary" v-bind:class="{\'disabled btn-green \': isCurrentPlan, \'btn-loading\': payment_processing }" v-on:click.prevent="subscribePlan()">{{isCurrentPlan ? \'Current Plan\' : \'Select Plan\'}}</a>' +
+    '           </div>'+
+    '       </div>' +
+    '   </div>' +
+    '</div>',
+
+    data: function () {
+        return {
+            business: this.$parent.business,
+            payment_processing: false
+        };
+    },
+    computed: {
+        isCurrentPlan: function () {
+            return this.business.plan.data.id === this.profile.id;
+        },
+        dropdownId: function () {
+            return 'dropdown' + this.profile.id;
+        }
+    },
+    props: {
+        name: {
+            type: String,
+            required: true
+        },
+        display_name: {
+            type: String,
+            required: false,
+            default: function () {
+                return this.name.title_case();
+            }
+        },
+        expiry_date: {
+            type: String,
+            required: false,
+            default: function () {
+                return this.expiry_date
+            }
+        },
+        features: {
+            type: Array,
+            required: false,
+            default: function () {
+                return [];
+            }
+        },
+        short_description: {
+            type: String,
+            required: false,
+            default: ''
+        },
+        description: {
+            type: String,
+            required: false,
+            default: ''
+        },
+        index: {
+            type: Number,
+            required: true
+        },
+        profile: {
+            type: Object,
+            required: true
+        },
+        footnote: {
+            type: String,
+            required: false,
+            default: ''
+        }
+    },
+    methods: {
+        subscribePlan: function () {
+            var context = this;
+            Swal.fire({
+                title: "Switch Plan",
+                text: "Would you like to subscribe to the " + this.display_name + " plan?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, subscribe me",
+                showLoaderOnConfirm: true,
+                preConfirm: (subscribe_plan) => {
+                    let purchase_amount = context.profile.price_monthly.raw;
+                    let item = { display_name : 'Hub Subscription', variable_name: 'hub_subscription', value: context.profile.name }
+                    //set pending payment
+                    //localStorage.dorcas_pending_subscription = { 'name': context.profile.name, 'index': context.index, 'amount': purchase_amount }
+                    setCookie("ps_name", context.profile.name, '1')
+                    setCookie("ps_index", context.index, '1')
+                    setCookie("ps_amount", purchase_amount, '1')
+                    this.payment_processing = true;
+                    assistantVue.showPaystackDialog(purchase_amount, item, '/mse/settings-subscription?subscription_successful__' + context.index);
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            });
+
+        }
+    }
+});
 
 
 /**
@@ -1620,127 +1733,6 @@ Vue.component('integration-manager', {
         }
     }
 });
-
-Vue.component('plan-chooser', {
-    template: '<article class="col s12">' +
-    '   <div class="card z-depth-1">' +
-    '       <div class="card-image teal waves-effect">' +
-    '           <div class="card-title">{{ display_name }}</div>' +
-    '               <div class="price">' +
-    '                   <sup>NGN</sup>{{ profile.price_monthly.formatted.substring(0, profile.price_monthly.formatted.indexOf(".")) }}' +
-    '                   <sub>/mo</sub>' +
-    '               </div>' +
-    '               <div v-if="short_description.length > 0" class="price-desc tooltipped" data-position="bottom" data-delay="50" v-bind:data-tooltip="description">{{ short_description }}</div>' +
-    '           </div>' +
-    '           <div class="card-content">' +
-    '               <ul class="collection">' +
-    '                   <li class="collection-item" v-for="(text, index) in features" :key="index">{{ text }}</li>'+
-    '               </ul>' +
-    '           </div>' +
-    '           <div class="card-action center-align">' +
-    '               <p v-if="typeof footnote !== \'undefined\' && footnote.length > 0">{{ footnote }}</p>' +
-    '               <a class="waves-effect waves-light light-blue btn" href="#!" v-bind:class="{disabled: isCurrentPlan}" v-on:click.prevent="setPlan">Select Plan</a>' +
-    '           </div>'+
-    '       </div>' +
-    '   </div>' +
-    '</article>',
-    data: function () {
-        return {
-            business: this.$parent.business
-        };
-    },
-    computed: {
-        isCurrentPlan: function () {
-            return this.business.plan.data.id === this.profile.id;
-        },
-        dropdownId: function () {
-            return 'dropdown' + this.profile.id;
-        }
-    },
-    props: {
-        name: {
-            type: String,
-            required: true
-        },
-        display_name: {
-            type: String,
-            required: false,
-            default: function () {
-                return this.name.title_case();
-            }
-        },
-        features: {
-            type: Array,
-            required: false,
-            default: function () {
-                return [];
-            }
-        },
-        short_description: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        description: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        index: {
-            type: Number,
-            required: true
-        },
-        profile: {
-            type: Object,
-            required: true
-        },
-        footnote: {
-            type: String,
-            required: false,
-            default: ''
-        }
-    },
-    methods: {
-        setPlan: function () {
-            var context = this;
-            swal({
-                title: "Switch Plan",
-                text: "Would you like to switch to the " + this.display_name + " plan?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Yes, subscribe.",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.post("/xhr/plans", {
-                    plan: context.name
-                }).then(function (response) {
-                        console.log(response);
-                        window.location = '/home';
-                    })
-                    .catch(function (error) {
-                        var message = '';
-                        if (error.response) {
-                            // The request was made and the server responded with a status code
-                            // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
-                        } else if (error.request) {
-                            // The request was made but no response was received
-                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                            // http.ClientRequest in node.js
-                            message = 'The request was made but no response was received';
-                        } else {
-                            // Something happened in setting up the request that triggered an Error
-                            message = error.message;
-                        }
-                        return swal("Action Failed", message, "warning");
-                    });
-            });
-        }
-    }
-});
-
 
 
 Vue.component('advert-card', {

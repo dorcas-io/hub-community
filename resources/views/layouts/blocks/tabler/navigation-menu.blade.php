@@ -1,24 +1,8 @@
-                    <!-- <li class="nav-item">
-                        <a href="{{ route('home') }}" class="nav-link" v-bind:class="{'active': selectedMenu === 'home'}">
-                            <i class="fe fe-home"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('access-grants') }}" class="nav-link" v-bind:class="{'active': selectedMenu === 'access-grants'}"><i class="fe fe-unlock"></i> Access Grants</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link" v-bind:class="{'active': selectedMenu === 'settings'}" data-toggle="dropdown">
-                            <i class="fe fe-settings"></i> Settings
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-arrow">
-                            <a href="{{ route('settings.billing') }}" class="dropdown-item ">Subscription &amp; Billing</a>
-                            <a href="{{ route('settings.business') }}" class="dropdown-item ">Business Profile Settings</a>
-                            <a href="{{ route('settings.personal') }}" class="dropdown-item ">Account &amp; Profile</a>
-                            <a href="{{ route('settings.security') }}" class="dropdown-item ">Security Settings</a>
-                        </div>
-                    </li> -->
+                    @php
+                        $acceptable_modules = array('modules-access-grants','modules-access-requests','modules-app-store','modules-assistant','modules-customers','modules-dashboard','modules-dashboard-vpanel','modules-ecommerce','modules-finance','modules-integrations','modules-library','modules-marketplace','modules-people','modules-sales','modules-service-profile','modules-service-requests','modules-settings','addons');
+                    @endphp
                     @foreach(config('navigation-menu') as $key => $value)
-                        @if ($value['navbar'] && ($value['dashboard']==$viewMode || $value['dashboard']=='all') )
+                        @if ( in_array($key,$acceptable_modules) && $value['navbar'] && ($value['dashboard']==$viewMode || $value['dashboard']=='all') )
                             @php
                             if (count($value['sub-menu'])>0) { $dropdown=" dropdown"; $dropdownToggle = "dropdown"; } else { $dropdown=""; $dropdownToggle = ""; }
                             @endphp

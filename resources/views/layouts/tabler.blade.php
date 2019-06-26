@@ -280,6 +280,7 @@
             helpAttachmentCheck: function() {
                 this.helpMessage.file = this.$refs.attachment.files[0];
                 //console.log(this.helpMessage.file)
+                $("#attachment_label").html(this.helpMessage.file.name);
                 if (this.helpMessage.file.size > (1024 * 100)) {
                     $("#assistant_help_submit").attr('disabled', true );
                     $("#assistant_help_file_message").html('Selected file size > 100KB. Choose another');

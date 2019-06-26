@@ -44,45 +44,61 @@ return [
     ],
     'plans' => [
         'starter' => [
+            'config' => [
+                'type' => 'free',
+                'partner' => '',
+                'cycle' => 'free',
+                'duration' => '1-months',
+                'title' => 'Starter'
+            ],
             'description' => [
-                'short' => '',
-                'long' => ''
+                'short' => 'FREE',
+                'long' => 'Get Started'
             ],
             'features' => [
-                'BASIC APPS',
-                'Dorcas Footer Branding',
-                'Chat & Email Support'
+                'Basic Apps',
+                'Dorcas Branding',
+                'Basic Support'
             ],
-            'footnote' => 'The Starter Package is suitable for small businesses with 1-5 employees, trying out the all-in-one business software suite either as a Business, Professional or Vendor'
+            'footnote' => 'The Starter Package is suitable for starting businesses just trying out the all-in-one business software suite either as a Business, Professional or Vendor'
         ],
         'classic' => [
+            'config' => [
+                'type' => 'standard',
+                'partner' => '',
+                'cycle' => 'monthly',
+                'duration' => '1-months',
+                'title' => 'Classic'
+            ],
             'description' => [
-                'short' => 'Get 17% off',
-                'long' => 'Get 2 months Off when you pay for 1 year'
+                'short' => 'per month',
+                'long' => 'Go Classic'
             ],
             'features' => [
                 'Full Apps',
-                'Modules',
-                'Messaging Pack',
                 'Custom Branding/URL',
                 'Phone, Chat & Email Support'
             ],
-            'footnote' => 'The Classic Package is suitable for small businesses with up to 25 employees. It will remove branding and unlock powerful tools and features. It will also allow you to switch between Business, Professional & Vendor Modes'
+            'footnote' => 'The Classic Package is suitable for small businesses. It will remove branding and unlock powerful tools and features. It will also allow you to publish your Professional Service & Online Store to the Marketplace'
         ],
-        'premium' => [
+        'access_advantage' => [
+            'config' => [
+                'type' => 'partner',
+                'partner' => '',
+                'cycle' => 'package',
+                'duration' => '6-months',
+                'title' => 'Access Advantage'
+            ],
             'description' => [
-                'short' => 'Get 17% off',
-                'long' => 'Get 2 months Off when you pay for 1 year'
+                'short' => 'for 6 months!',
+                'long' => 'The Access Bank Advantage'
             ],
             'features' => [
                 'Full Apps',
-                'Modules',
-                'Messaging Pack',
                 'Custom Branding/URL',
-                'Phone, Chat & Email Support',
-                'Unlimited Users Access'
+                'Phone, Chat & Email Support'
             ],
-            'footnote' => 'The Premium Package is suitable for more profitable businesses needing more power, features, designation, control and customization.'
+            'footnote' => 'Take advantage of the Access Bank offer and lock in the benefits and power of the Hub for 6 whole months at a give-away price'
         ]
     ],
     "path_messages" => [

@@ -162,6 +162,12 @@ class HubController extends Controller
         # set the transaction data
         $billsQuery = $sdk->createCompanyResource($company->id)->addBodyParam('transaction', $transaction)
                                                                 ->send('post');
+
+        //set some additional data
+        //if ()
+        //Cache::put('key', 'value');
+
+
         if (!$billsQuery->isSuccessful()) {
             $message = $billsQuery->getErrors()[0]['title'] ?? 'Failed while trying to save the billing record.';
             if ($transaction['is_successful'] === 1) {
