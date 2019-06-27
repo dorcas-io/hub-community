@@ -1113,7 +1113,39 @@ Vue.component('plan-chooser', {
                     setCookie("ps_index", context.index, '1')
                     setCookie("ps_amount", purchase_amount, '1')
                     this.payment_processing = true;
-                    assistantVue.showPaystackDialog(purchase_amount, item, '/mse/settings-subscription?subscription_successful__' + context.index);
+                    axios.post("/mse/settings-subscription-switch", {
+                        plan: context.profile.name,
+                        expiry_date: context.expiry_date
+                    }).then(function (response) {
+
+                        if (purchase_amount > 0) {
+                            assistantVue.showPaystackDialog(purchase_amount, item, '/mse/settings-subscription?subscription_successful__' + context.index);
+                        } else {
+                            window.location = '/mse/settings-subscription?subscription_successful__' + context.index;
+                        }
+                            
+                        })
+                        .catch(function (error) {
+                            var message = '';
+                            if (error.response) {
+                                // The request was made and the server responded with a status code
+                                // that falls out of the range of 2xx
+                                //var e = error.response.data.errors[0];
+                                //message = e.title;
+                                var e = error.response;
+                                message = e.data.message;
+                            } else if (error.request) {
+                                // The request was made but no response was received
+                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                                // http.ClientRequest in node.js
+                                message = 'The request was made but no response was received';
+                            } else {
+                                // Something happened in setting up the request that triggered an Error
+                                message = error.message;
+                            }
+                            return swal("Switch Failed", message, "warning");
+                        });
+                    
                 },
                 allowOutsideClick: () => !Swal.isLoading()
             });

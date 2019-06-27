@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use App\Exceptions\RecordNotFoundException;
+use Carbon\Carbon;
 
 class HubController extends Controller
 {
@@ -160,12 +161,25 @@ class HubController extends Controller
         $transaction['processor'] = $channel;
         $transaction['plan_id'] = $company->plan['data']['id'] ?? '';
         # set the transaction data
-        $billsQuery = $sdk->createCompanyResource($company->id)->addBodyParam('transaction', $transaction)
-                                                                ->send('post');
 
-        //set some additional data
-        //if ()
-        //Cache::put('key', 'value');
+        $transaction_purpose = $request->session()->get('dorcas_transaction_purpose', 'default');
+
+        if ($payment_purpose === "subscription") {
+
+            $transaction['access_expires_at'] = $request->session()->has('dorcas_subscription_expiry') ? Carbon::parse($request->session()->get('dorcas_subscription_expiry')) : Carbon::now();
+
+            $billsQuery = $sdk->createCompanyResource($company->id)
+            ->addBodyParam('transaction', $transaction)
+            ->send('post', ['extend-plan']);
+
+        } elseif($payment_purpose === "default") {
+
+            $billsQuery = $sdk->createCompanyResource($company->id)
+            ->addBodyParam('transaction', $transaction)
+            ->send('post');
+        }
+
+        
 
 
         if (!$billsQuery->isSuccessful()) {

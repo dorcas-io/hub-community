@@ -23,10 +23,13 @@ class CheckActiveSubscriptionPlan
             # not yet authenticated -- skip the check
             return $next($request);
         }
-        $allowEvenWhenExpired = ['plans', 'subscription','mse'];
+        $allowEvenWhenExpired = ['plans', 'subscription','mse','mas'];
         # paths to allow even when the account is in the expired state
-        if (in_array($request->path(), $allowEvenWhenExpired)) {
+        /*if (in_array($request->path(), $allowEvenWhenExpired)) {
             # allow people to view the pages even when their account has expired
+            return $next($request);
+        }*/
+        if (starts_with($request->path(), $allowEvenWhenExpired)) {
             return $next($request);
         }
         $dorcasUser = $request->user();
@@ -38,9 +41,9 @@ class CheckActiveSubscriptionPlan
         }
         $expiry = Carbon::parse($company->access_expires_at);
         # get the expiry
-        if ($expiry->lessThan(Carbon::now()) && $request->path() !== 'home' && !starts_with($request->path(), 'xhr')) {
+        if ($expiry->lessThan(Carbon::now()) && $request->path() !== 'home' && $request->path() !== 'dashboard' && !starts_with($request->path(), 'xhr')) {
             $message = 'Your account subscription expired on '.$expiry->format('D jS M, Y');
-            return redirect(route('home') . '?' . http_build_query(['message' => $message]));
+            return redirect(route('dashboard') . '?' . http_build_query(['message' => $message]));
         }
         return $next($request);
     }
