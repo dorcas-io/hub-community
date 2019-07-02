@@ -25,7 +25,7 @@
         "dorcas/modules-ecommerce": "@dev",
         "dorcas/modules-finance": "@dev",
         "dorcas/modules-integrations": "dev-develop",
-        "dorcas/modules-library": "dev-develop",
+        "dorcas/modules-library": "@dev",
         "dorcas/modules-marketplace": "@dev",
         "dorcas/modules-people": "dev-develop",
         "dorcas/modules-sales": "@dev",
