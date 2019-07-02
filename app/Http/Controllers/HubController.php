@@ -166,7 +166,28 @@ class HubController extends Controller
 
         if ($payment_purpose === "subscription") {
 
-            $transaction['access_expires_at'] = $request->session()->has('dorcas_subscription_expiry') ? Carbon::parse($request->session()->get('dorcas_subscription_expiry')) : Carbon::now();
+            /*$this->validate($request, [
+                'name' => 'required_if:action,update_business|string|max:100'
+            ]);*/
+
+            $accessExpiresAt = $request->session()->has('dorcas_subscription_expiry') ? Carbon::parse($request->session()->get('dorcas_subscription_expiry')) : Carbon::now();
+
+            # validate the request
+            try {
+                $company = $request->user()->company(true, true);
+                # get the company information
+                    $query = $sdk->createCompanyService()
+                                    ->addBodyParam('access_expires_at', $accessExpiresAt)
+                                    ->send('PUT');
+                    # send the request
+                    if (!$query->isSuccessful()) {
+                        throw new \RuntimeException('Failed while updating expiry. Please try again.');
+                    }
+            } catch (\Exception $e) {
+                throw new \RuntimeException('Error extending Plan: '.$e->getMessage());
+            }
+
+            $transaction['access_expires_at'] = $accessExpiresAt;
 
             $billsQuery = $sdk->createCompanyResource($company->id)
             ->addBodyParam('transaction', $transaction)

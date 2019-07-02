@@ -7,15 +7,23 @@ use Hostville\Dorcas\LaravelCompat\Auth\DorcasUserProvider;
 use Hostville\Dorcas\Sdk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Dorcas\Hub\Utilities\UiResponse\UiResponse;
 
 class Invites extends Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->data['page']['title'] = 'Invite';
+        /*$this->data['page']['title'] = 'Invite';
         $this->data['page']['header'] = ['title' => 'Respond to Invite'];
-        $this->data['currentPage'] = 'invite';
+        $this->data['currentPage'] = 'invite';*/
+        $this->data = [
+            'page' => ['title' => 'Invite'],
+            'header' => ['title' => 'Respond to Invite'],
+            'selectedMenu' => '',
+            'submenuConfig' => '',
+            'submenuAction' => ''
+        ];
     }
     
     /**
@@ -33,7 +41,7 @@ class Invites extends Controller
             return $this->rejectInvite($sdk, $id);
         }
         $this->data['invite'] = $invite = $this->getInvite($sdk, $id);
-        return view('invite', $this->data);
+        return view('invite-v2', $this->data);
     }
     
     /**
@@ -76,17 +84,21 @@ class Invites extends Controller
                 $user = $provider->retrieveByCredentials(['email' => $request->email, 'password' => $request->password]);
                 # get the authenticated user
                 Auth::guard()->login($user);
-                return redirect()->route('home');
+                return redirect()->route('dashboard');
                 
             }
-            $toast = toast('Successfully updated the invite status.');
+            //$toast = toast('Successfully updated the invite status.');
+            $response = (tabler_ui_html_response(['Successfully updated the invite status.']))->setType(UiResponse::TYPE_SUCCESS);
             
         } catch (GuzzleException $e) {
-            $toast = toast('Network error.');
+            //$toast = toast('Network error.');
+            $response = (tabler_ui_html_response(['Network error.']))->setType(UiResponse::TYPE_ERROR);
         } catch (\RuntimeException $e) {
-            $toast = toast($e->getMessage());
+            //$toast = toast($e->getMessage());
+            $response = (tabler_ui_html_response([$e->getMessage()]))->setType(UiResponse::TYPE_ERROR);
         }
-        return redirect(url()->current())->with('UiToast', $toast->json());
+        //return redirect(url()->current())->with('UiToast', $toast->json());
+        return redirect(url()->current())->with('UiResponse', $response);
     }
     
     /**
@@ -105,14 +117,18 @@ class Invites extends Controller
                     $response->getErrors()[0]['title'] ?? 'Error while rejecting the invite.'
                 );
             }
-            $toast = toast('Successfully rejected the invite.');
+            //$toast = toast('Successfully rejected the invite.');
+            $response = (tabler_ui_html_response(['Successfully rejected the invite.']))->setType(UiResponse::TYPE_SUCCESS);
             
         } catch (GuzzleException $e) {
-            $toast = toast('Network error.');
+            //$toast = toast('Network error.');
+            $response = (tabler_ui_html_response(['Network error.']))->setType(UiResponse::TYPE_ERROR);
         } catch (\RuntimeException $e) {
-            $toast = toast($e->getMessage());
+            //$toast = toast($e->getMessage());
+            $response = (tabler_ui_html_response([$e->getMessage()]))->setType(UiResponse::TYPE_ERROR);
         }
-        return redirect(url()->current())->with('UiToast', $toast->json());
+        //return redirect(url()->current())->with('UiToast', $toast->json());
+        return redirect(url()->current())->with('UiResponse', $response);
     }
     
     /**

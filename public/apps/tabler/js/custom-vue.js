@@ -269,7 +269,7 @@ Vue.component('team-card', {
 
 
 Vue.component('library-video-card', {
-    template: '<div class=" col-sm-9 col-md-9 col-lg-6 col-xl-6">' +
+    template: '<div class="col-md-6">' +
     '<div class="card p-3">' +
         '<a href="javascript:void(0)" class="mb-3">' +
             '<img v-bind:src="video.resource_thumb" v-bind:alt="video.resource_title" class="rounded" data-resource-id="" v-bind:data-resource-source="video.resource_source" v-on:click.prevent="watchVideo">' +
@@ -291,16 +291,15 @@ Vue.component('library-video-card', {
         video: {
             type: Object,
             required: true
-        },
-        index: {
-            type: Number,
-            required: true
         }
     },
     methods: {
         watchVideo: function () {
-            this.$emit('watch-video', this.index);
+            this.$emit('watch-video', this.video.id);
         }
+    },
+    mounted: function() {
+        console.log(this.video)
     }
 });
 
@@ -1154,57 +1153,23 @@ Vue.component('plan-chooser', {
     }
 });
 
-
-/**
- * Settings Toggle component for the right-nav
- */
-Vue.component('settings-toggle', {
-    template: '<div class="switch right"><label>'+
-    '<input v-on:change="updateSetting($event)" v-model="isChecked" type="checkbox" v-bind:name="name">'+
-    '<span class="lever"></span>'+
-    '</label></div>',
-    props: {
-        checked: Boolean,
-        name: String
-    },
-    data: function () {
-        return {
-            isChecked: this.checked
-        }
-    },
-    methods: {
-        updateSetting: function (event) {
-            var attrs = Hub.utilities.getElementAttributes(event.target);
-            // get the attributes
-            console.log(attrs);
-            var context = this;
-            console.log({name: attrs['name'] || 'none', enabled: event.target.checked});
-            axios.post("/xhr/settings", {name: attrs['name'] || 'none', enabled: event.target.checked})
-                .then(function (response) {
-                    context.checked = true;
-                    swal("Done", "The change was successfully saved.", "success");
-                })
-                .catch(function (error) {
-                    var e = error.response.data.errors[0];
-                    console.log(error.response.data.errors);
-                    context.isChecked = false;
-                    return swal("Update Failed", e.title, "warning");
-                });
-        }
-    }
-});
-
 Vue.component('product-category', {
-    template: '<div class="col s12">' +
+
+    template: '<div class="col-md-6 col-xl-4">' +
     '<div class="card">' +
-    '<div class="card-content">' +
-    '<span class="card-title"><h4>{{ category.name }} ({{ category.products_count }})</h4></span>' +
-    '<p class="flow-text">{{ category.slug }}</p>' +
-    '</div>' +
-    '<div class="card-action">' +
-    '<a href="#" class="grey-text text-darken-3" v-on:click.prevent="edit">Edit</a>' +
-    '<a href="#" class="red-text" v-on:click.prevent="deleteField" v-if="showDelete">REMOVE</a>' +
-    '</div>' +
+        '<div class="card-status bg-blue"></div>' +
+        '<div class="card-header">' +
+            '<h3 class="card-title">{{ category.name }} ({{ category.products_count }})</h3>' +
+            '<div class="card-options">' +
+            '</div>' +
+        '</div>' +
+        '<div class="card-body">' +
+            '{{ category.slug }}' +
+        '</div>' +
+        '<div class="card-footer">' +
+            '<!--<a href="#" class="btn btn-secondary btn-sm" v-on:click.prevent="edit">Edit</a>-->' +
+            '<a href="#" class="btn btn-danger btn-sm" v-on:click.prevent="deleteField" v-if="showDelete">Delete</a>' +
+        '</div>' +
     '</div>' +
     '</div>',
     props: {
@@ -1229,37 +1194,82 @@ Vue.component('product-category', {
     methods: {
         edit: function () {
             var context = this;
-            swal({
+            Swal.fire({
                     title: "Update Category",
                     text: "Enter new name [" + context.category.name + "]:",
-                    type: "input",
+                    input: "text",
+                    inputAttributes: {
+                        autocapitalize: 'off'
+                    },
                     showCancelButton: true,
-                    closeOnConfirm: false,
+                    confirmButtonText: 'Save',
                     animation: "slide-from-top",
                     showLoaderOnConfirm: true,
-                    inputPlaceholder: "Custom Field Name"
-                },
-                function(inputValue){
-                    if (inputValue === false) return false;
-                    if (inputValue === "") {
-                        swal.showInputError("You need to write something!");
-                        return false
-                    }
-                    axios.put("/xhr/inventory/categories/"+context.category.id, {
-                        name: inputValue,
-                        update_slug: true
-                    }).then(function (response) {
-                        console.log(response);
-                        context.$emit('update', context.index, response.data);
-                        return swal("Success", "The category name was successfully updated.", "success");
-                    })
+                    inputPlaceholder: "New Category Name",
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'You need to write something!'
+                        }
+                    },
+                    preConfirm: (value) => {
+                        return axios.put("/msl/sales-categories/"+context.category.id, {
+                            name: value,
+                            update_slug: true
+                        }).then(function (response) {
+                            //console.log(response);
+                            context.$emit('update', context.index, response.data);
+                            return swal("Success", "The category name was successfully updated.", "success");
+                        })
+                            .catch(function (error) {
+                                var message = '';
+                                if (error.response) {
+                                    // The request was made and the server responded with a status code
+                                    // that falls out of the range of 2xx
+                                    //var e = error.response.data.errors[0];
+                                    //message = e.title;
+                                    var e = error.response;
+                                    message = e.data.message;
+                                } else if (error.request) {
+                                    // The request was made but no response was received
+                                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                                    // http.ClientRequest in node.js
+                                    message = 'The request was made but no response was received';
+                                } else {
+                                    // Something happened in setting up the request that triggered an Error
+                                    message = error.message;
+                                }
+                                return swal("Oops!", message, "warning");
+                            });
+                      }
+
+                });
+        },
+        deleteField: function () {
+            var context = this;
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You are about to delete the category (" + context.category.name + ").",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                showLoaderOnConfirm: true,
+                preConfirm: (value) => {
+                    return axios.delete("/msl/sales-categories/" + context.category.id)
+                        .then(function (response) {
+                            console.log(response);
+                            context.$emit('remove', context.index);
+                            return swal("Deleted!", "The category was successfully deleted.", "success");
+                        })
                         .catch(function (error) {
                             var message = '';
                             if (error.response) {
                                 // The request was made and the server responded with a status code
                                 // that falls out of the range of 2xx
-                                var e = error.response.data.errors[0];
-                                message = e.title;
+                                //var e = error.response.data.errors[0];
+                                //message = e.title;
+                                    var e = error.response;
+                                    message = e.data.message;
                             } else if (error.request) {
                                 // The request was made but no response was received
                                 // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -1269,66 +1279,32 @@ Vue.component('product-category', {
                                 // Something happened in setting up the request that triggered an Error
                                 message = error.message;
                             }
-                            return swal("Oops!", message, "warning");
+                            return swal("Delete Failed", message, "warning");
                         });
-                });
-        },
-        deleteField: function () {
-            var context = this;
-            swal({
-                title: "Are you sure?",
-                text: "You are about to delete the category (" + context.category.name + ").",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                axios.delete("/xhr/inventory/categories/" + context.category.id)
-                    .then(function (response) {
-                        console.log(response);
-                        context.$emit('remove', context.index);
-                        return swal("Deleted!", "The category was successfully deleted.", "success");
-                    })
-                    .catch(function (error) {
-                        var message = '';
-                        if (error.response) {
-                            // The request was made and the server responded with a status code
-                            // that falls out of the range of 2xx
-                            var e = error.response.data.errors[0];
-                            message = e.title;
-                        } else if (error.request) {
-                            // The request was made but no response was received
-                            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                            // http.ClientRequest in node.js
-                            message = 'The request was made but no response was received';
-                        } else {
-                            // Something happened in setting up the request that triggered an Error
-                            message = error.message;
-                        }
-                        return swal("Delete Failed", message, "warning");
-                    });
+                }
+
             });
         }
     }
 });
 
+
 Vue.component('product-price-control', {
     template: '<div class="row">' +
-    '    <div class="input-field col s12 m4">' +
-    '        <select v-bind:id="id_currency" name="currencies[]" v-model="currency" class="browser-default">' +
+    '    <div class="form-group col-md-3">' +
+    '        <select v-bind:id="id_currency" name="currencies[]" v-model="currency" class="form-control">' +
     '            <option value="EUR">EUR</option>' +
     '            <option value="NGN">NGN</option>' +
     '            <option value="USD">USD</option>' +
+    '        <label class="form-label" v-bind:for="id_currency">Currency</label>' +
     '        </select>' +
     '    </div>' +
-    '    <div class="input-field col s12 m7">' +
-    '        <input v-bind:id="id_price" type="number" name="prices[]" maxlength="10" min="0" step="0.01" v-model="price">' +
-    '        <label v-bind:for="id_price">Unit Price</label>' +
+    '    <div class="form-group col-md-7">' +
+    '        <input class="form-control" v-bind:id="id_price" type="number" name="prices[]" maxlength="10" min="0" step="0.01" v-model="price">' +
+    '        <label class="form-label" v-bind:for="id_price">Unit Price</label>' +
     '    </div>' +
-    '    <div class="input-field col s12 m1">' +
-    '        <a href="#" class="grey-text text-darken-3" v-on:click.prevent="removeEntry"><i class="material-icons small">clear</i></a>' +
+    '    <div class="form-group col-md-2">' +
+    '        <button type="button" class="btn btn-icon btn-primary btn-danger" v-on:click.prevent="removeEntry"><i class="fe fe-trash"></i></button>' +
     '    </div>'+
     '</div>',
     data: function () {
@@ -1369,26 +1345,28 @@ Vue.component('product-price-control', {
     }
 });
 
+
+
 Vue.component('cart-item', {
     template: '<div class="row">' +
-    '    <div class="input-field col s12 m6">' +
-    '        <select name="products[]" class="browser-default" v-model="product" v-on:change="updatePrice">' +
+    '    <div class="form-group col-md-6">' +
+    '        <select name="products[]" class="form-control" v-model="product" v-on:change="updatePrice">' +
     '            <option value="" disabled>Select a Product</option>' +
     '            <option v-for="product in products" :key="product.id" :value="product.id">' +
     '                {{ product.name }}' +
     '            </option>' +
     '        </select>' +
     '   </div>' +
-    '   <div class="input-field col s12 m2">' +
-    '        <input v-bind:id="quantity_id" name="quantities[]" type="number" min="1" v-model="quantity" v-on:keyup="syncCart" v-on:change="syncCart">' +
-    '        <label v-bind:for="quantity_id">Quantity</label>' +
+    '   <div class="form-group col-md-2">' +
+    '        <input class="form-control" v-bind:id="quantity_id" name="quantities[]" type="number" min="1" v-model="quantity" v-on:keyup="syncCart" v-on:change="syncCart">' +
+    '        <label class="form-label" v-bind:for="quantity_id">Quantity</label>' +
     '   </div>' +
-    '   <div class="input-field col s12 m3">' +
-    '        <input v-bind:id="unit_price_id" name="unit_prices[]" type="number" min="0" step="0.01" v-model="unit_price" v-on:keyup="syncCart" v-on:change="syncCart">' +
-    '        <label v-bind:for="unit_price_id">Unit Price</label>' +
+    '   <div class="form-group col-md-3">' +
+    '        <input class="form-control" v-bind:id="unit_price_id" name="unit_prices[]" type="number" min="0" step="10" v-model="unit_price" v-on:keyup="syncCart" v-on:change="syncCart">' +
+    '        <label class="form-label" v-bind:for="unit_price_id">Unit Price</label>' +
     '   </div>' +
-    '    <div class="input-field col s12 m1">' +
-    '        <a href="#" class="grey-text text-darken-3" v-on:click.prevent="removeItem"><i class="material-icons small">clear</i></a>' +
+    '    <div class="form-group col-md-1">' +
+    '        <button type="button" class="btn btn-icon btn-danger" v-on:click.prevent="removeItem"><i class="fe fe-trash"></i></button>' +
     '    </div>'+
     '</div>',
     data: function () {
@@ -1448,6 +1426,46 @@ Vue.component('cart-item', {
         }
     }
 });
+
+/**
+ * Settings Toggle component for the right-nav
+ */
+Vue.component('settings-toggle', {
+    template: '<div class="switch right"><label>'+
+    '<input v-on:change="updateSetting($event)" v-model="isChecked" type="checkbox" v-bind:name="name">'+
+    '<span class="lever"></span>'+
+    '</label></div>',
+    props: {
+        checked: Boolean,
+        name: String
+    },
+    data: function () {
+        return {
+            isChecked: this.checked
+        }
+    },
+    methods: {
+        updateSetting: function (event) {
+            var attrs = Hub.utilities.getElementAttributes(event.target);
+            // get the attributes
+            console.log(attrs);
+            var context = this;
+            console.log({name: attrs['name'] || 'none', enabled: event.target.checked});
+            axios.post("/xhr/settings", {name: attrs['name'] || 'none', enabled: event.target.checked})
+                .then(function (response) {
+                    context.checked = true;
+                    swal("Done", "The change was successfully saved.", "success");
+                })
+                .catch(function (error) {
+                    var e = error.response.data.errors[0];
+                    console.log(error.response.data.errors);
+                    context.isChecked = false;
+                    return swal("Update Failed", e.title, "warning");
+                });
+        }
+    }
+});
+
 
 Vue.component('integration-installer', {
     template: '<div class="col s12" v-if="!installed">' +

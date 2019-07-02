@@ -180,7 +180,16 @@
             loggedInUserRole: {!! json_encode(!empty($dorcasUserRole) ? $dorcasUserRole : 'Business') !!},
             pageMode: '{{ !empty($pageMode) ? $pageMode : 'default' }}',
             viewMode: '{{ empty($viewMode) ? 'business' : $viewMode }}',
-            showUiModalAccessMenu: {!! json_encode(isset($showUiModalAccessMenu) ? $showUiModalAccessMenu : true) !!}
+            showUiModalAccessMenu: {!! json_encode(isset($showUiModalAccessMenu) ? $showUiModalAccessMenu : true) !!},
+            vPanelUrl: {!! json_encode(!empty($vPanelUrl) ? $vPanelUrl : '') !!},
+
+        },
+        mounted: function() {
+            if (this.vPanelUrl.length>0) {
+                console.log('vPanel set')
+            } else {
+                console.log('url not set')
+            }
         }
     });
 
