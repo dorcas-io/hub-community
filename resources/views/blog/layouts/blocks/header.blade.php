@@ -42,14 +42,14 @@
 
                 <!-- Top Search
                 ============================================= -->
-                <div id="top-search">
+                <!-- <div id="top-search">
                     @if (empty($categorySlug))
                         <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
                     @endif
                     <form action="" method="get" v-on:submit.prevent="searchBlog">
                         <input type="text" name="q" class="form-control" v-model="search_term" placeholder="Type &amp; Hit Enter..">
                     </form>
-                </div><!-- #top-search end -->
+                </div> -->
 
             </nav><!-- #primary-menu end -->
 

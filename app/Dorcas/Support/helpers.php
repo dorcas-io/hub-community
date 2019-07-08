@@ -108,6 +108,16 @@ function tabler_ui_html_response(array $messages = []): \App\Dorcas\Hub\Utilitie
 }
 
 /**
+ * @param array $messages
+ *
+ * @return \App\Dorcas\Hub\Utilities\UiResponse\UiResponseInterface
+ */
+function bootstrap_ui_html_response(array $messages = []): \App\Dorcas\Hub\Utilities\UiResponse\UiResponseInterface
+{
+    return new \App\Dorcas\Hub\Utilities\UiResponse\BootstrapUiResponse($messages);
+}
+
+/**
  * Creates the tabler notification from the supplied data.
  *
  * @param string      $actor

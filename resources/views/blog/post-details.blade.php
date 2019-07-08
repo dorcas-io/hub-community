@@ -59,7 +59,7 @@
                 <div class="card-header"><strong>Posted by <a href="#">@{{ post.posted_by.data.firstname + ' ' + post.posted_by.data.lastname }}</a></strong></div>
             </div>
 
-            <div class="line"></div>
+            <!-- <div class="line"></div>
 
             <h4>Related Posts:</h4>
             <div class="related-posts clearfix">
@@ -68,7 +68,7 @@
                                           v-if="index < 6 && sPost.id !== post.id" :post="sPost"
                                           :index="index" :show-admin-buttons="showAdminButtons"></suggestion-blog-post>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </div><!-- .postcontent end -->
