@@ -41,6 +41,8 @@ class Controller extends BaseController
 
         config(['navigation-menu.modules-settings.sub-menu.settings-subscription.visibility' => 'hide']);
         //we need to also do a check on this core controller on if the person rights permission grant access to the route :-)
+
+        //$this->data['overviewModeHeader'] = 'Learning Mode &raquo; <a class="btn btn-primary btn-sm" href="'. route('welcome-overview') . '">Return to Overview Page</a>';
     }
 
     /**

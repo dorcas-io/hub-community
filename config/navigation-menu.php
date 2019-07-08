@@ -76,24 +76,32 @@ return [
                 'title' => 'Marketplace',
                 'route' => 'marketplace-main',
                 'icon' => 'fa fa-handshake-o',
+                'clickable' => true,
+                'navbar' => true,
                 'sub-menu' => []
             ],
             'modules-library' => [
                 'title' => 'Library',
                 'route' => 'library-main',
                 'icon' => 'fa fa-book',
+                'clickable' => true,
+                'navbar' => true,
                 'sub-menu' => []
             ],
             'modules-app-store' => [
                 'title' => 'Apps Store',
                 'route' => 'app-store-main',
                 'icon' => 'fa fa-gift',
+                'clickable' => true,
+                'navbar' => true,
                 'sub-menu' => []
             ],
             'modules-integrations' => [
                 'title' => 'Integrations',
                 'route' => 'integrations-main',
                 'icon' => 'fa fa-gears',
+                'clickable' => true,
+                'navbar' => true,
                 'sub-menu' => []
             ]
         ]

@@ -87,8 +87,8 @@
                             @section('body_content_header')
                                 <div class="page-header">
                                     <h1 class="page-title">
-                                        @if (!empty(request('fromoverview')))
-                                            Overview Mode
+                                        @if (!empty(request('overview_mode')))
+                                            Learning Mode &raquo; <a class="btn btn-primary btn-sm" href="{{ route('welcome-overview') }}">Return to Overview Page</a>
                                         @else
                                             {{ $header['title'] ?: 'Dashboard' }}
                                         @endif
