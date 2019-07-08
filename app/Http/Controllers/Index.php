@@ -13,7 +13,7 @@ class Index extends Controller
         # get the resolved domainInfo, if any
         if (empty($domainInfo) || $domainInfo->getService() === null) {
             if (Auth::check()) {
-                return redirect(route('home'));
+                return redirect(route('dashboard'));
             }
             return redirect(route('login'));
         }

@@ -87,7 +87,11 @@
                             @section('body_content_header')
                                 <div class="page-header">
                                     <h1 class="page-title">
-                                        {{ $header['title'] ?: 'Dashboard' }}
+                                        @if (!empty(request('fromoverview')))
+                                            Overview Mode
+                                        @else
+                                            {{ $header['title'] ?: 'Dashboard' }}
+                                        @endif
                                     </h1>
                                     @yield('body_content_header_extras')
                                 </div>
@@ -185,11 +189,11 @@
 
         },
         mounted: function() {
-            if (this.vPanelUrl.length>0) {
+            /*if (this.vPanelUrl.length>0) {
                 console.log('vPanel set')
             } else {
                 console.log('url not set')
-            }
+            }*/
         }
     });
 

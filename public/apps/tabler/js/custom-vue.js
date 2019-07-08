@@ -1431,13 +1431,17 @@ Vue.component('cart-item', {
  * Settings Toggle component for the right-nav
  */
 Vue.component('settings-toggle', {
-    template: '<div class="switch right"><label>'+
-    '<input v-on:change="updateSetting($event)" v-model="isChecked" type="checkbox" v-bind:name="name">'+
-    '<span class="lever"></span>'+
-    '</label></div>',
+
+    template: '<label class="custom-switch">'+
+    '<input type="checkbox" v-bind:data-title="title" v-bind:data-name="name" v-model="isChecked" v-on:change="updateSetting($event)" class="custom-switch-input">'+
+    '<span class="custom-switch-indicator"></span>'+
+    '<span class="custom-switch-description" v-html="title"></span>'+     
+    '</label>',
+
     props: {
         checked: Boolean,
-        name: String
+        name: String,
+        title: String
     },
     data: function () {
         return {
@@ -1446,21 +1450,27 @@ Vue.component('settings-toggle', {
     },
     methods: {
         updateSetting: function (event) {
-            var attrs = Hub.utilities.getElementAttributes(event.target);
-            // get the attributes
-            console.log(attrs);
+            let target = event.target;
+            if (!target.hasAttribute('data-name')) {
+                target = target.parentNode.hasAttribute('data-name') ? target.parentNode : target;
+            }
+            let name = target.getAttribute('data-name');
+            let title = target.getAttribute('data-title');
             var context = this;
-            console.log({name: attrs['name'] || 'none', enabled: event.target.checked});
-            axios.post("/xhr/settings", {name: attrs['name'] || 'none', enabled: event.target.checked})
+            //console.log({name: attrs['name'] || 'none', enabled: event.target.checked});
+            axios.post("/mse/settings-marketplace", {name: name || 'none', enabled: event.target.checked})
                 .then(function (response) {
+                    //console.log(response)
                     context.checked = true;
-                    swal("Done", "The change was successfully saved.", "success");
+                    swal("Done", "The " + title + " setting was successfully saved.", "success");
+                    window.location = '/mse/settings-business';
                 })
                 .catch(function (error) {
-                    var e = error.response.data.errors[0];
-                    console.log(error.response.data.errors);
+                    //var e = error.response.data.errors[0];
+                    //console.log(error.response.data.errors);
+                    var e = error.response;
                     context.isChecked = false;
-                    return swal("Update Failed", e.title, "warning");
+                    return swal("Update Failed", e.data.message, "warning");
                 });
         }
     }

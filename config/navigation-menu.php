@@ -7,7 +7,8 @@ return [
         'route' => 'dashboard',
         'clickable' => true,
         'navbar' => true,
-        'sub-menu' => []
+        'sub-menu' => [],
+        'sub-menu-display' => 'hide'
     ],
     'modules-assistant' => [
         'icon' => 'fa fa-bar-chart',

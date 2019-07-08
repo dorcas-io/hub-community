@@ -42,7 +42,7 @@
 
                 <!-- Entry Content
                 ============================================= -->
-                <div class="entry-content notopmargin">
+                <div class="entry-content notopmargin" v-html="post.content">
                     @{{ post.content }}
                     <!-- Post Single - Content End -->
                     <div class="clear"></div>
