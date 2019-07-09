@@ -6,7 +6,7 @@
                             @php
                             if ( count($value['sub-menu'])>0 && ( empty($value['sub-menu-display']) || (isset($value['sub-menu-display']) && $value['sub-menu-display']==='show') ) ) { $dropdown=" dropdown"; $dropdownToggle = "dropdown"; } else { $dropdown=""; $dropdownToggle = ""; }
                             @endphp
-                            <li class="nav-item{{ $dropdown }}">
+                            <li class="nav-item{{ $dropdown }}" id="nav_item_{{ $key }}">
                                 <a href="{{ $value['clickable'] && safe_href_route($value['route']) && (isset($selectedMenu) && $key !== $selectedMenu) ? route($value['route']) : 'javascript:void(0)' }}" class="nav-link" v-bind:class="{'active': selectedMenu === '{{ $key }}'}" data-toggle="{{ $dropdownToggle }}"><i class="{{ isset($value['icon']) ? $value['icon'] : 'fe fe-settings' }}"></i> {{ $value['title'] }}</a>
                                 @if (!empty($dropdown))
                                 <div class="dropdown-menu dropdown-menu-arrow">

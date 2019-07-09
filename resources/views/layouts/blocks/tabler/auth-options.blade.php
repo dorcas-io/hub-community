@@ -1,6 +1,6 @@
 <div class="dropdown" id="dorcas-auth-options">
     <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-        <span class="avatar" style="background-image: url({{ $dorcasUser->photo }})"></span>
+        <span class="avatar" style="background-image: url({{ !empty($company->logo) ? $company->logo : $dorcasUser->photo }})"></span>
         <span class="ml-2 d-none d-lg-block">
             <span class="text-default">{{ $dorcasUser->firstname . ' ' . $dorcasUser->lastname }}</span>
             <!-- <small class="text-muted d-block mt-1">{{ !empty($loggedInUserRole) ? $loggedInUserRole : 'Business' }}</small> -->
@@ -22,11 +22,11 @@
         @endif
 
 
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" href="{{ route('settings-personal') }}">
             <i class="dropdown-icon fe fe-user"></i> Profile
         </a>
-        <a class="dropdown-item" href="#">
-            <i class="dropdown-icon fe fe-settings"></i> Settings
+        <a class="dropdown-item" href="{{ route('welcome-overview') }}">
+            <i class="dropdown-icon fe fe-power"></i> Overview &amp; Setup
         </a>
         <!--<a class="dropdown-item" href="#">
             <span class="float-right"><span class="badge badge-primary">6</span></span>

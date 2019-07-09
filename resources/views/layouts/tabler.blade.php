@@ -32,6 +32,7 @@
     <link href="{{ cdn('apps/tabler/plugins/iconfonts/plugin.css') }}" rel="stylesheet" />
     <link href="{{ cdn('apps/tabler/plugins/prismjs/plugin.css') }}" rel="stylesheet" />
     <link href="{{ cdn('apps/tabler/css/bootstrap-table.min.css') }}" rel="stylesheet" />
+    <link href="{{ cdn('css/hopscotch.css') }}" rel="stylesheet" />
     <style type="text/css">
         .combodate {
             display: block;
@@ -134,6 +135,9 @@
 <script src="{{ cdn('apps/tabler/js/custom-vue.js') }}"></script>
 <script src="{{ cdn('apps/tabler/js/custom_script.js') }}"></script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script src="{{ cdn('js/hopscotch.js') }}"></script>
+<script src="{{ cdn('js/dorcas_hub_tours.js') }}"></script>
 <!-- Production JS code -->
 @if (app()->environment() === 'production')
     @include('layouts.blocks.production-js')
@@ -232,6 +236,9 @@
             paymentReturn: ''
         },
         methods: {
+            startHubTour: function(tourName) {
+                hopscotch.startTour(tourName);
+            },
             modulesAssistant: function () {
                 $('#modules-assistant-modal').modal('show');
             },

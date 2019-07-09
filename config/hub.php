@@ -5,7 +5,7 @@ return [
         'registration' => '12345'
     ],
     'support' => [
-        'email' => 'success@dorcas.ng',
+        'email' => 'hello@dorcas.io',
         'phone' => '+2348123456789'
     ],
     'dashboard' => [
