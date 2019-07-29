@@ -44,6 +44,7 @@ class Settings extends Controller
             'lastname' => 'required_if:action,update_profile|string|max:30',
             'gender' => 'required_if:action,update_profile|string|in:female,male',
             'phone' => 'required_if:action,update_profile|string|max:30',
+            'email' => 'required_if:action,update_profile|email|max:80',
             'photo' => 'required_if:action,update_photo|image'
         ]);
         # validate the request
@@ -58,6 +59,15 @@ class Settings extends Controller
                         $resource->addBodyParam($key, $value);
                     }
                     $response = $resource->send('put');
+
+                    $query = $sdk->createCompanyService()
+                                    ->addBodyParam('email', $request->input('email', ''))
+                                    ->send('PUT');
+                    # send the request
+                    if (!$query->isSuccessful()) {
+                        throw new \RuntimeException('Failed while updating your support  email. Please try again.');
+                    }
+
                     break;
                 case 'update_photo':
                     $resource = $sdk->createProfileService();

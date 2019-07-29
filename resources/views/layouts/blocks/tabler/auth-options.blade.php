@@ -16,7 +16,7 @@
         @endif
 
         @if (!empty($vPanelUrl))
-        <a class="dropdown-item" href="{{ $vPanelUrl }}">
+        <a class="dropdown-item" href="{{ $vPanelUrl }}" target="_blank">
             <i class="dropdown-icon fa fa-id-badge"></i> vPanel Dashboard
         </a>
         @endif

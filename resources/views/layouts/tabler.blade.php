@@ -320,7 +320,6 @@
                     showCancelButton: true,
                     confirmButtonColor: "#1565C0",
                     confirmButtonText: "Yes, continue!",
-                    closeOnConfirm: false,
                     showLoaderOnConfirm: true,
                     preConfirm: (update) => {
                         let formData = new FormData();
@@ -352,6 +351,7 @@
                            .then(function (response) {
                                 console.log(response);
                                 //$('#edit-customer-modal').modal('hide');
+                                $("#assistant_help_submit").attr('disabled', false );
                                 return swal("Message Sent!", "Your help message was successfully sent! Expect our reply soon", "success");
                             })
                             .catch(function (error) {

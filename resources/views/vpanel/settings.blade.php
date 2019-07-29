@@ -80,6 +80,18 @@
                                         @endif
                                     </div>
                                 </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label>Support Email</label>
+                                        <input type="text" class="form-control" id="email" name="email" required
+                                               placeholder="Support Email" v-model="company.email" maxlength="30">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-default btn-default-type" name="action"
                                     value="update_profile">Update Profile</button>
