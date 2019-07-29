@@ -65,7 +65,7 @@ class Settings extends Controller
                                     ->send('PUT');
                     # send the request
                     if (!$query->isSuccessful()) {
-                        throw new \RuntimeException('Failed while updating your support  email. Please try again.');
+                        throw new \RuntimeException('Failed while updating your support email. Please try again.');
                     }
 
                     break;

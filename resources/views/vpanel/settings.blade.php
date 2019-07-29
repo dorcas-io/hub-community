@@ -84,7 +84,7 @@
                                     <div class="form-group">
                                         <label>Support Email</label>
                                         <input type="text" class="form-control" id="email" name="email" required
-                                               placeholder="Support Email" v-model="company.email" maxlength="30">
+                                               placeholder="Support Email" v-model="company.email" maxlength="80">
                                         @if ($errors->has('email'))
                                             <span class="text-danger">
                                                 <strong>{{ $errors->first('email') }}</strong>

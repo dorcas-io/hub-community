@@ -351,7 +351,11 @@
                            .then(function (response) {
                                 console.log(response);
                                 //$('#edit-customer-modal').modal('hide');
-                                $("#assistant_help_submit").attr('disabled', false );
+                                $("#message").val('');
+                                context.helpMessage.file = '';
+                                $("#attachment_label").html('Choose Attachment');
+                                $("#assistant_help_file_message").html('');
+                                $("#assistant_help_submit").attr('disabled', true );
                                 return swal("Message Sent!", "Your help message was successfully sent! Expect our reply soon", "success");
                             })
                             .catch(function (error) {
