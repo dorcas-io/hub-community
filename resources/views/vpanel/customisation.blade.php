@@ -218,8 +218,8 @@ function htmlspecialchars_decode(string, quote_style) {
                 }
                 if (typeof this.partner.extra_data.inviteConfig !== 'undefined') {
                     this.inviteConfig = this.partner.extra_data.inviteConfig;
-                    this.inviteConfigBody = htmlspecialchars_decode(inviteConfig.email_body, 'ENT_QUOTES')
-                    this.inviteConfigFooter = htmlspecialchars_decode(inviteConfig.email_footer, 'ENT_QUOTES')
+                    this.inviteConfigBody = htmlspecialchars_decode(this.inviteConfig.email_body, 'ENT_QUOTES')
+                    this.inviteConfigFooter = htmlspecialchars_decode(this.inviteConfig.email_footer, 'ENT_QUOTES')
                 }
             },
             computed: {
