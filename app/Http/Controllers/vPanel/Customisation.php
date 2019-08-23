@@ -92,13 +92,13 @@ class Customisation extends Controller
 
 
 
-            if ($request->has('invite_email_subject')) {
+            if ($request->has('email_subject')) {
                 $extraConfig['inviteConfig']['email_subject'] = $request->input('email_subject');
             }
-            if ($request->has('invite_email_body')) {
+            if ($request->has('email_body')) {
                 $extraConfig['inviteConfig']['email_body'] = $this->clean_json_input($request->input('email_body'));
             }
-            if ($request->has('invite_email_footer')) {
+            if ($request->has('email_footer')) {
                 $extraConfig['inviteConfig']['email_footer'] = $this->clean_json_input($request->input('email_footer'));
             }
 

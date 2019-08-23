@@ -82,7 +82,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Email Subject</label>
+                                        <label>Invite Email Subject</label>
                                         <input type="text" class="form-control" id="email_subject" name="email_subject"
                                                placeholder="Invite Email Subject" v-model="inviteConfig.email_subject" maxlength="100">
                                         @if ($errors->has('email_subject'))
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Email Body</label>
+                                        <label>Invite Email Body</label>
                                         <textarea type="text" class="form-control" id="email_body" name="email_body" v-model="inviteConfig.email_body" rows="5">
                                         </textarea>
                                         @if ($errors->has('email_body'))
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Email Footer</label>
+                                        <label>Invite Email Footer</label>
                                         <textarea type="text" class="form-control" id="email_footer" name="email_footer" v-model="inviteConfig.email_footer" rows="3">
                                         </textarea>
                                         @if ($errors->has('email_footer'))
