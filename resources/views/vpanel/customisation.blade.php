@@ -95,7 +95,7 @@
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label>Invite Email Body</label>
-                                        <textarea type="text" class="form-control" id="email_body" name="email_body" v-model="inviteConfig.email_body" rows="5">
+                                        <textarea type="text" class="form-control" id="email_body" name="email_body" v-model="inviteConfigBody" rows="5">
                                         </textarea>
                                         @if ($errors->has('email_body'))
                                             <span class="text-danger">
@@ -107,7 +107,7 @@
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label>Invite Email Footer</label>
-                                        <textarea type="text" class="form-control" id="email_footer" name="email_footer" v-model="inviteConfig.email_footer" rows="3">
+                                        <textarea type="text" class="form-control" id="email_footer" name="email_footer" v-model="inviteConfigFooter" rows="3">
                                         </textarea>
                                         @if ($errors->has('email_footer'))
                                             <span class="text-danger">
@@ -162,6 +162,45 @@
 @endsection
 @section('body_js')
     <script>
+
+
+function htmlspecialchars_decode(string, quote_style) {  
+    // Convert special HTML entities back to characters    
+    //   
+    // version: 901.714  
+    // discuss at: http://phpjs.org/functions/htmlspecialchars_decode  
+    // +   original by: Mirek Slugen  
+    // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)  
+    // +   bugfixed by: Mateusz "loonquawl" Zalega  
+    // +      input by: ReverseSyntax  
+    // +      input by: Slawomir Kaniecki  
+    // +      input by: Scott Cariss  
+    // +      input by: Francois  
+    // +   bugfixed by: Onno Marsman  
+    // +    revised by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)  
+    // -    depends on: get_html_translation_table  
+    // *     example 1: htmlspecialchars_decode("<p>this -&gt; &quot;</p>", 'ENT_NOQUOTES');  
+    // *     returns 1: '<p>this -> &quot;</p>'  
+    var histogram = {}, symbol = '', tmp_str = '', entity = '';  
+    tmp_str = string.toString();  
+      
+    if (false === (histogram = get_html_translation_table('HTML_SPECIALCHARS', quote_style))) {  
+        return false;  
+    }  
+  
+    // &amp; must be the last character when decoding!  
+    delete(histogram['&']);  
+    histogram['&'] = '&amp;';  
+  
+    for (symbol in histogram) {  
+        entity = histogram[symbol];  
+        tmp_str = tmp_str.split(entity).join(symbol);  
+    }  
+      
+    return tmp_str;  
+} 
+
+
         new Vue({
             el: '#settings-box',
             data: {
@@ -169,6 +208,8 @@
                 partner: {!! json_encode($partner) !!},
                 hubConfig: {},
                 inviteConfig: {},
+                inviteConfigBody: '',
+                inviteConfigFooter: '',
                 loading: false
             },
             mounted: function () {
@@ -177,6 +218,8 @@
                 }
                 if (typeof this.partner.extra_data.inviteConfig !== 'undefined') {
                     this.inviteConfig = this.partner.extra_data.inviteConfig;
+                    this.inviteConfigBody = htmlspecialchars_decode(inviteConfig.email_body, 'ENT_QUOTES')
+                    this.inviteConfigFooter = htmlspecialchars_decode(inviteConfig.email_footer, 'ENT_QUOTES')
                 }
             },
             computed: {
