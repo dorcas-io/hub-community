@@ -79,6 +79,44 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label>Email Subject</label>
+                                        <input type="text" class="form-control" id="email_subject" name="email_subject"
+                                               placeholder="Invite Email Subject" v-model="inviteConfig.email_subject" maxlength="100">
+                                        @if ($errors->has('email_subject'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email_subject') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label>Email Body</label>
+                                        <textarea type="text" class="form-control" id="email_body" name="email_body" v-model="inviteConfig.email_body" rows="5">
+                                        </textarea>
+                                        @if ($errors->has('email_body'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email_body') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label>Email Footer</label>
+                                        <textarea type="text" class="form-control" id="email_footer" name="email_footer" v-model="inviteConfig.email_footer" rows="3">
+                                        </textarea>
+                                        @if ($errors->has('email_footer'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email_footer') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-default btn-default-type">Save Settings</button>
                         </div>
                     </form>
@@ -130,11 +168,15 @@
                 address: {},
                 partner: {!! json_encode($partner) !!},
                 hubConfig: {},
+                inviteConfig: {},
                 loading: false
             },
             mounted: function () {
                 if (typeof this.partner.extra_data.hubConfig !== 'undefined') {
                     this.hubConfig = this.partner.extra_data.hubConfig;
+                }
+                if (typeof this.partner.extra_data.inviteConfig !== 'undefined') {
+                    this.inviteConfig = this.partner.extra_data.inviteConfig;
                 }
             },
             computed: {

@@ -85,8 +85,24 @@ class Customisation extends Controller
                     parse_str($uri->getQuery(), $query);
                     $extraConfig['welcome_video_id'] = $query['v'] ?? '';
                 }
-                $resource->addBodyParam('extra_data', $extraConfig);
+                //$resource->addBodyParam('extra_data', $extraConfig);
             }
+
+            //save invite email data
+
+
+
+            if ($request->has('invite_email_subject')) {
+                $extraConfig['inviteConfig']['email_subject'] = $request->input('email_subject');
+            }
+            if ($request->has('invite_email_body')) {
+                $extraConfig['inviteConfig']['email_body'] = $this->clean_json_input($request->input('email_body'));
+            }
+            if ($request->has('invite_email_footer')) {
+                $extraConfig['inviteConfig']['email_footer'] = $this->clean_json_input($request->input('email_footer'));
+            }
+
+            $resource->addBodyParam('extra_data', $extraConfig);
             $query = $resource->send('post');
             if (!$query->isSuccessful()) {
                 $message = $response->errors[0]['title'] ?? '';
@@ -98,5 +114,11 @@ class Customisation extends Controller
             $response = toast($e->getMessage());
         }
         return redirect(url()->current())->with('UiToast', $response->json());
+    }
+
+    private function clean_json_input($html_input) {
+        //remove quotes
+        $html_input = htmlspecialchars($html_input);
+        return $html_input;
     }
 }

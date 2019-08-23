@@ -41,7 +41,8 @@ class CheckActiveSubscriptionPlan
         }
         $expiry = Carbon::parse($company->access_expires_at);
         # get the expiry
-        if ($expiry->lessThan(Carbon::now()) && $request->path() !== 'home' && $request->path() !== 'dashboard' && !starts_with($request->path(), 'xhr')) {
+        //if ($expiry->lessThan(Carbon::now()) && $request->path() !== 'home' && $request->path() !== 'dashboard' && !starts_with($request->path(), 'xhr')) {
+        if ($expiry->lessThan(Carbon::now()) && $request->path() !== 'home' && !starts_with($request->path(), 'dashboard') && !starts_with($request->path(), 'xhr')) {
             $message = 'Your account subscription expired on '.$expiry->format('D jS M, Y');
             return redirect(route('dashboard') . '?' . http_build_query(['message' => $message]));
         }
