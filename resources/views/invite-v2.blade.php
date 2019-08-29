@@ -17,7 +17,7 @@
                     <form class="card" action="" method="post" v-if="invite.status === 'pending'">
                         {{ csrf_field() }}
                         <div class="card-body p-6">
-                            <div class="card-title">Respond to Invite to {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}</div>
+                            <div class="card-title">Respond to <strong>{{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : config('app.name') }}</strong> Invite</div>
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <input autocomplete="off" required name="firstname" type="text" maxlength="100"
