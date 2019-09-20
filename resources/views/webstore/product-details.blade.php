@@ -71,6 +71,26 @@
                 <!-- Product Single - Short Description
                 ============================================= -->
                 <p>@{{ product.description }}</p>
+                <!-- Product Single - Variants
+                ============================================= -->
+                
+                <div class="panel panel-default product-meta nobottommargin" v-if="!variantSearching && variantSearched && variantProducts.length > 0">
+                    <div class="panel-body">
+                        <h5>Other Options</h5>
+                        <ul class="iconlist">
+                            <li v-for="variantProduct in variantProducts" :key="variantProduct.id">
+                                <i class="icon-tasks"></i> <a v-bind:href="'{{ url('/products') }}' + '/' + variantProduct.id">@{{ variantProduct.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default product-meta nobottommargin" v-if="variantSearching">
+                    <div class="panel-body">
+                        loading...
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="line"></div>
                 <!-- Product Single - Meta
                 ============================================= -->
                 <div class="panel panel-default product-meta nobottommargin">
@@ -144,7 +164,25 @@
                 active_currency: 'NGN',
                 product: {!! json_encode($product) !!},
                 shop: {!! json_encode($storeOwner) !!},
-                quantity: 1
+                base_url: "{{ config('dorcas-api.url') }}",
+                quantity: 1,
+                productType: '{!! !empty($productType) ? $productType : "default" !!}',
+                variantTypes: {!! json_encode($variantTypes ?: []) !!},
+                variantType: '',
+                variant: { name:'', description:'', product_type:'', product_parent:'', prices: '', currency: '', product_variant_type: '' },
+                variantProducts: {!! json_encode(!empty($variantProducts) ? $variantProducts : []) !!},
+                variantParent: {!! json_encode(!empty($variantParent) ? $variantParent : []) !!},
+                variantSearching: false,
+                variantSearched: false
+            },
+            mounted: function() {
+                //console.log(this.productType)
+                //console.log(this.product.product_type)
+                if (this.productType==="default") {
+                    this.searchVariants(this.product.id);
+                } else if (this.productType==="variant") {
+                    this.searchVariants(this.variantParent.id);
+                }
             },
             computed: {
                 default_price: function () {
@@ -164,6 +202,12 @@
                         currency: this.currency,
                         unit_price: {raw: product.default_unit_price.raw, formatted: product.default_unit_price.formatted}
                     };
+                },
+                isVariant: function () {
+                    return this.product.product_type === 'variant';
+                },
+                isVariantSearched: function () {
+                    return this.variantSearched;
                 }
             },
             updated: function () {
@@ -194,8 +238,9 @@
                     var id = this.product.id;
                     var name = this.product.name;
                     var price = this.default_price.unit_price.raw;
+
                     var photo = '{{ cdn('apps/webstore/images/products/1.jpg') }}';
-                    if (typeof this.product.images !== 'undefined' && typeof this.product.images.data !== 'undefined') {
+                    if (typeof this.product.images !== 'undefined' && typeof this.product.images.data !== 'undefined' && this.product.images.data.length > 0) { // added -  && this.product.images.data.length > 0
                         photo = this.product.images.data[0].url;
                     }
                     var quantity = typeof this.quantity === 'undefined' || parseInt(this.quantity, 10) <= 0 ? 1 : parseInt(this.quantity, 10);
@@ -225,7 +270,56 @@
                         context.is_posting = false;
                         return swal("Oops!", message, "warning");
                     });
+                },
+                searchVariants: function (product_id) {
+                    var context = this;
+                    this.is_fetching = true;
+                    this.variantProducts = [];
+                    this.variantSearching = true;
+                    axios.get(this.base_url + "/store/" + this.shop.id, {
+                        params: {
+                            search: context.search_term,
+                            limit: 12,
+                            page: context.page_number,
+                            category_slug: context.category_slug,
+                            product_type: 'variant',
+                            product_parent: product_id
+                        }
+                    }).then(function (response) {
+                        //console.log(response)
+                        context.variantSearching = false;
+                        context.variantSearched = true;
+                        context.variantProducts = response.data.data;
+                        context.is_fetching = false;
+                        context.meta = response.data.meta;
+
+                        if (context.productType==="variant") {
+                            // remove variant option
+                            let currentProduct = context.variantProducts.find( prod => prod.id===context.product.id)
+                            let variantIndex = context.variantProducts.indexOf(currentProduct);
+                            context.variantProducts.splice(variantIndex, 1)
+                        }
+                    }).catch(function (error) {
+                            var message = '';
+                            context.is_fetching = false;
+                            if (error.response) {
+                                // The request was made and the server responded with a status code
+                                // that falls out of the range of 2xx
+                                var e = error.response.data.errors[0];
+                                message = e.title;
+                            } else if (error.request) {
+                                // The request was made but no response was received
+                                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                                // http.ClientRequest in node.js
+                                message = 'The request was made but no response was received';
+                            } else {
+                                // Something happened in setting up the request that triggered an Error
+                                message = error.message;
+                            }
+                            return swal("Oops!", message, "warning");
+                        });
                 }
+
             }
         });
 

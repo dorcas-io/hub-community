@@ -57,6 +57,18 @@ class Home extends Controller
         return redirect()->route('webstore');
     }
     
+    public function variant_type_get(Request $request, Sdk $sdk)
+    {
+
+        $company = $this->getCompanyViaDomain();
+        # get the company information
+        $salesConfig = !empty($company->extra_data['salesConfig']) ? $company->extra_data['salesConfig'] : [];
+        $variantTypes = !empty($salesConfig) ? $salesConfig['variant_types'] : [];
+        return $variantTypes;
+        //return response()->json($variantTypes);
+    }
+
+
     /**
      * @param Request $request
      * @param Sdk     $sdk
@@ -80,6 +92,55 @@ class Home extends Controller
         $this->data['product'] = $product = $query->getData(true);
         $this->data['storeOwner'] = $storeOwner;
         $this->data['cart'] = self::getCartContent($request);
+
+
+
+        $this->data['variantTypes'] = $this->variant_type_get($request,$sdk);
+
+        //check requests params
+        $search = $request->query('search', '');
+        $sort = $request->query('sort', '');
+        $order = $request->query('order', 'asc');
+        $offset = (int) $request->query('offset', 0);
+        $limit = (int) $request->query('limit', 10);
+        $type = $request->query('type', 'variant');
+        $parent = $request->query('parent', $id);
+
+        $this->data['productType'] = $product->product_type;
+
+        $isParent = $product->product_type=="default" ? true : false;
+        $isVariant = $product->product_type=="variant" ? true : false;
+
+        if ($isParent) {
+            /*$req = $sdk->createStoreService();
+            $req = $req->addQueryArgument('limit', $limit)
+                            ->addQueryArgument('page', get_page_number($offset, $limit));
+            if (!empty($type)) {
+                $req = $req->addQueryArgument('product_type', $type);
+            }
+            if (!empty($parent)) {
+                $req = $req->addQueryArgument('product_parent', $parent);
+            }
+            $variants = $req->send('get');
+            # make the request
+            if (!$variants->isSuccessful()) {
+                # it failed
+                $ms = $variants->errors[0]['title'] ?? '';
+                throw new \RuntimeException('Failed while adding the product. '.$ms);
+            }*/
+            $this->data['variantProducts'] = [];
+
+        }  elseif ($isVariant) {
+            //get variant parent
+            $qparent = $sdk->createStoreService()->addQueryArgument('id', $product->product_parent)->send('GET', [$storeOwner->id, 'product']);
+            if (!$qparent->isSuccessful()) {
+                abort(500, $query->getErrors()[0]['title'] ?? 'Something went wrong while fetching the product.');
+            }
+            $this->data['variantParent'] = $qparent->getData(true);
+        }
+
+
+
         $this->data['page']['title'] = 'Product Details | '.$product->name;
         $this->data['page']['header']['title'] = $product->name . ' | ' . $storeOwner->name . ' Store';
         return view('webstore.product-details', $this->data);
