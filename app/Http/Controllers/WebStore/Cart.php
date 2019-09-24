@@ -144,7 +144,8 @@ class Cart extends Controller
         # validate the request
         $cart = new CartManager($request);
         # create the cart manager
-        $cart->addToCart($request->id, $request->name, $request->unit_price, $request->input('quantity', 1), $request->photo);
+        $isShipping = !empty($request->isShipping) ? $request->isShipping : 'no';  
+        $cart->addToCart($request->id, $request->name, $request->unit_price, $request->input('quantity', 1), $request->photo, $isShipping);
         # adds the product to the cart
         return response()->json($cart->getCart());
     }

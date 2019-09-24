@@ -63,7 +63,7 @@
 @section('body_js')
     <script>
         function addToCart(id, name, price, photo, quantity) {
-            console.log(id, name, price, photo, quantity);
+            //console.log(id, name, price, photo, quantity);
             shopView.addToCart(id, name, price, photo, quantity);
         }
 

@@ -71,7 +71,7 @@ class CartManager
      *
      * @return CartManager
      */
-    public function addToCart(string $id, string $name, float $unitPrice, int $quantity = 1, string $imageUrl = null)
+    public function addToCart(string $id, string $name, float $unitPrice, int $quantity = 1, string $imageUrl = null, string $isShipping = 'no')
     {
         if ($quantity <= 0) {
             return $this->remove($id);
@@ -82,7 +82,8 @@ class CartManager
             'name' => $name,
             'unit_price' => $unitPrice,
             'quantity' => $quantity,
-            'photo' => $imageUrl
+            'photo' => $imageUrl,
+            'isShipping' => $isShipping
         ];
         # adds/replaces the entry to/in the array
         return $this->commit();
