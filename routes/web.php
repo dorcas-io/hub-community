@@ -66,12 +66,12 @@ Route::domain($blogSubDomain)->namespace('Blog')->middleware(['blog_verifier'])-
         Route::get('/categories/{id}', 'Home@index')->name('blog.categories.single');
     
     Route::group(['middleware' => ['auth']], function () {
-        Route::get('/blogadmin/new-post', 'Posts@newPost')->name('blog.admin.new-post');
-        Route::post('/blogadmin/new-post', 'Posts@createPost');
-        Route::get('/blogadmin/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');
-        Route::post('/blogadmin/{id}/edit', 'Posts@updatePost');
+        Route::get('/admin-blog/new-post', 'Posts@newPost')->name('blog.admin.new-post');
+        Route::post('/admin-blog/new-post', 'Posts@createPost');
+        Route::get('/admin-blog/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');
+        Route::post('/admin-blog/{id}/edit', 'Posts@updatePost');
         
-        Route::delete('/blogadmin/xhr/posts/{id}', 'Posts@deletePostXhr');
+        Route::delete('/admin-blog/xhr/posts/{id}', 'Posts@deletePostXhr');
     });
 });
 
@@ -86,7 +86,7 @@ Route::domain($blogSubDomain)->namespace('Blog')->middleware(['blog_verifier'])-
         Route::get('/categories/{id}', 'Home@index')->name('blog.categories.single');
     });
     
-    Route::group(['prefix' => 'blog-admin', 'middleware' => ['auth']], function () {
+    Route::group(['prefix' => 'admin-blog', 'middleware' => ['auth']], function () {
         Route::get('/new-post', 'Posts@newPost')->name('blog.admin.new-post');
         Route::post('/new-post', 'Posts@createPost');
         Route::get('/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');

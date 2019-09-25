@@ -48,7 +48,7 @@ class Dashboard extends Controller
         $this->data['subdomain'] = get_dorcas_subdomain($sdk);
         # set the subdomain
         if (!empty($this->data['subdomain'])) {
-            $this->data['blogUrl'] = $this->data['subdomain'] . '/blogadmin/new-post?token=' . $sdk->getAuthorizationToken();
+            $this->data['blogUrl'] = $this->data['subdomain'] . '/admin-blog/new-post?token=' . $sdk->getAuthorizationToken();
         }
         $this->data['blogSettings'] = self::getBlogSettings((array) $this->getCompany()->extra_data);
         # our store settings container

@@ -60,7 +60,7 @@ class BlogVerifier
             });
             $request->session()->put('blogAdministrator', true);
         }
-        if (starts_with($request->path(), 'blogadmin') && empty($blogAdministrator)) {
+        if (starts_with($request->path(), 'admin-blog') && empty($blogAdministrator)) {
             $request->session()->remove('blogAdministrator');
             return redirect()->route('blog');
         }

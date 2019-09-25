@@ -99,7 +99,7 @@
                         confirmButtonColor: "#DD6B55",
                         showLoaderOnConfirm: true
                     }, function() {
-                        axios.delete("/blogadmin/xhr/posts/" + post.id)
+                        axios.delete("/admin-blog/xhr/posts/" + post.id)
                             .then(function (response) {
                                 console.log(response.data);
                                 context.posts.splice(index, 1);
