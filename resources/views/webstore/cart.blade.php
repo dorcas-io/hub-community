@@ -93,7 +93,7 @@
             <tr>
                 <th class="cart-product-remove">Choose</th>
                 <th class="cart-product-thumbnail">&nbsp;</th>
-                <th class="cart-product-name">Shipping Option</th>
+                <th class="cart-product-name">Option</th>
                 <th class="cart-product-quantity" style="text-align: left !important;">Description</th>
                 <th class="cart-product-price" style="text-align: left !important;">Cost</th>
             </tr>
@@ -102,7 +102,7 @@
                 <tr class="cart_item" >
                     <td colspan="5">
                         <div>
-                            Option Selected! Remove from Cart above to switch options
+                            Delivery Option Selected! <em>Remove from cart above to switch options</em>
                         </div>
                     </td>
                 </tr>

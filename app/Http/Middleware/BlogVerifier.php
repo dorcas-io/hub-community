@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\View;
 
 class BlogVerifier
 {
+    const SERVICE_NAME = 'blog';
+
     /**
      * Handle an incoming request.
      *
@@ -22,8 +24,13 @@ class BlogVerifier
             # not accessing it via a custom subdomain that has been resolved
             abort(404, 'No blog at this URL');
         }
+        $domainInfo = $request->session()->get('domainInfo');
         $domain = $request->session()->get('domain');
         # get the domain
+        if ($domainInfo->getService() !== self::SERVICE_NAME) {
+            return next($request);
+        }
+
         $user = $request->user();
         $blogAdministrator = null;
         if (!empty($domain->owner['data'])) {
@@ -37,7 +44,8 @@ class BlogVerifier
             # get the partner information
             View::composer('blog.*', function ($view) use (&$blogAdministrator, $domain, $blogOwner, $partner) {
                 $view->with('blogOwner', $blogOwner);
-                $blogDomain = 'https://'.$domain->prefix . '.' . $domain->domain['data']['domain'].'/blog';
+                //$blogDomain = 'https://'.$domain->prefix . '.' . $domain->domain['data']['domain'].'/blog';
+                $blogDomain = 'https://'.$domain->prefix . '.blog.' . $domain->domain['data']['domain'].'/';
                 $view->with('blogDomain', $blogDomain);
                 $settings = Dashboard::getBlogSettings((array) $blogOwner->extra_data);
                 $view->with('blogSettings', $settings);
@@ -52,7 +60,7 @@ class BlogVerifier
             });
             $request->session()->put('blogAdministrator', true);
         }
-        if (starts_with($request->path(), 'blog-admin') && empty($blogAdministrator)) {
+        if (starts_with($request->path(), 'blogadmin') && empty($blogAdministrator)) {
             $request->session()->remove('blogAdministrator');
             return redirect()->route('blog');
         }

@@ -20,7 +20,8 @@ class ResolveCustomSubdomain
      * @var array
      */
     protected $redirectPathsToSubdomain = [
-        'store' => 'store'
+        'store' => 'store',
+        'blog' => 'blog'
     ];
     
     /** @var array  */

@@ -30,7 +30,7 @@
                     <li><i class="icon-calendar3"></i> @{{ posted_at.format('DD MMM, YYYY') }}</li>
                     <li><a href="#"><i class="icon-user"></i> @{{ post.posted_by.data.firstname + ' ' + post.posted_by.data.lastname }}</a></li>
                     <li v-if="typeof post.media !== 'undefined' && post.media.data.id !== 'undefined'"><a href="#"><i class="icon-camera-retro"></i></a></li>
-                    <li v-if="showAdminButtons"><a v-bind:href="'/blog-admin/' + post.id + '/edit'"><i class="icon-edit"></i> Edit</a></li>
+                    <li v-if="showAdminButtons"><a v-bind:href="'/blogadmin/' + post.id + '/edit'"><i class="icon-edit"></i> Edit</a></li>
                     <li v-if="showAdminButtons"><a href="#" v-on:click.prevent="deletePost"><i class="icon-trash"></i> Delete</a></li>
                 </ul><!-- .entry-meta end -->
 

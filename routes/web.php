@@ -47,6 +47,57 @@ Route::domain($storeSubDomain)->namespace('WebStore')->middleware(['web_store'])
     Route::put('/xhr/cart/update-quantities', 'Cart@updateCartQuantitiesXhr');
 });
 
+$blogSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'blog' ?
+    $currentHost : 'blog' . $defaultUri->getHost();
+
+
+Route::prefix('blog')->group(function () {
+    Route::get('/', 'Blog\RedirectRoute@index');
+    Route::get('/posts/{id?}', 'Blog\RedirectRoute@index');
+    Route::get('/categories/{id?}', 'Blog\RedirectRoute@index');
+    Route::get('/new-post', 'Blog\RedirectRoute@index');
+});
+
+Route::domain($blogSubDomain)->namespace('Blog')->middleware(['blog_verifier'])->group(function () {
+        Route::get('/', 'Home@index')->name('blog');
+        Route::get('/posts', 'Home@index')->name('blog.posts');
+        Route::get('/posts/{id}', 'Home@postDetails')->name('blog.posts.details');
+        Route::get('/categories', 'Home@categories')->name('blog.categories');
+        Route::get('/categories/{id}', 'Home@index')->name('blog.categories.single');
+    
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/blogadmin/new-post', 'Posts@newPost')->name('blog.admin.new-post');
+        Route::post('/blogadmin/new-post', 'Posts@createPost');
+        Route::get('/blogadmin/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');
+        Route::post('/blogadmin/{id}/edit', 'Posts@updatePost');
+        
+        Route::delete('/blogadmin/xhr/posts/{id}', 'Posts@deletePostXhr');
+    });
+});
+
+
+
+/*Route::group(['namespace' => 'Blog', 'middleware' => ['blog_verifier']], function () {
+    Route::group(['prefix' => 'blog'], function () {
+        Route::get('/', 'Home@index')->name('blog');
+        Route::get('/posts', 'Home@index')->name('blog.posts');
+        Route::get('/posts/{id}', 'Home@postDetails')->name('blog.posts.details');
+        Route::get('/categories', 'Home@categories')->name('blog.categories');
+        Route::get('/categories/{id}', 'Home@index')->name('blog.categories.single');
+    });
+    
+    Route::group(['prefix' => 'blog-admin', 'middleware' => ['auth']], function () {
+        Route::get('/new-post', 'Posts@newPost')->name('blog.admin.new-post');
+        Route::post('/new-post', 'Posts@createPost');
+        Route::get('/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');
+        Route::post('/{id}/edit', 'Posts@updatePost');
+        
+        Route::delete('/xhr/posts/{id}', 'Posts@deletePostXhr');
+    });
+}); */
+
+
+
 Route::get('/', 'Index@index');
 
 Auth::routes();
@@ -368,25 +419,6 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Directory', 'prefix' => 
     
     Route::get('/{id}', 'Service@index')->name('directory.service');
     Route::post('/{id}', 'Service@request');
-});
-
-Route::group(['namespace' => 'Blog', 'middleware' => ['blog_verifier']], function () {
-    Route::group(['prefix' => 'blog'], function () {
-        Route::get('/', 'Home@index')->name('blog');
-        Route::get('/posts', 'Home@index')->name('blog.posts');
-        Route::get('/posts/{id}', 'Home@postDetails')->name('blog.posts.details');
-        Route::get('/categories', 'Home@categories')->name('blog.categories');
-        Route::get('/categories/{id}', 'Home@index')->name('blog.categories.single');
-    });
-    
-    Route::group(['prefix' => 'blog-admin', 'middleware' => ['auth']], function () {
-        Route::get('/new-post', 'Posts@newPost')->name('blog.admin.new-post');
-        Route::post('/new-post', 'Posts@createPost');
-        Route::get('/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');
-        Route::post('/{id}/edit', 'Posts@updatePost');
-        
-        Route::delete('/xhr/posts/{id}', 'Posts@deletePostXhr');
-    });
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'access-grants', 'namespace' => 'AccessGrants'], function () {

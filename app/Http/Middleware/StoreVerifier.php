@@ -6,6 +6,7 @@ use App\Http\Controllers\ECommerce\OnlineStore;
 use Closure;
 use Illuminate\Support\Facades\View;
 
+
 class StoreVerifier
 {
     const SERVICE_NAME = 'store';
@@ -29,6 +30,7 @@ class StoreVerifier
         if ($domainInfo->getService() !== self::SERVICE_NAME) {
             return next($request);
         }
+        
         if (!empty($domain->owner['data'])) {
             $storeOwner = (object) $domain->owner['data'];
             $firstUser = !empty($storeOwner->users['data']) && !empty($storeOwner->users['data'][0]) ?

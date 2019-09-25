@@ -100,7 +100,7 @@ Vue.component('blog-post', {
     '                    <li><a href="#"><i class="icon-user"></i> {{ posted_by.firstname + " " + posted_by.lastname }}</a></li>' +
     '                    <li v-if="post.categories.data.length  > 0"><i class="icon-folder-open"></i><a v-for="(category, index) in post.categories.data" :key="category.id" v-if="index < 2" v-bind:href="\'/categories/\' + category.slug">{{ index > 0 ? ", " : "" }}{{ category.name }}</a></li>' +
     '                    <li v-if="typeof media.id !== \'undefined\'"><a href="#"><i class="icon-camera-retro"></i></a></li>' +
-    '                    <li v-if="showAdminButtons"><a v-bind:href="\'/blog-admin/\' + post.id + \'/edit\'"><i class="icon-edit"></i> Edit</a></li>' +
+    '                    <li v-if="showAdminButtons"><a v-bind:href="\'/blogadmin/\' + post.id + \'/edit\'"><i class="icon-edit"></i> Edit</a></li>' +
     '                    <li v-if="showAdminButtons"><a href="#" v-on:click.prevent="deletePost" class="text-danger"><i class="icon-trash"></i> Delete</a></li>' +
     '                </ul>' +
     '                <div class="entry-content">' +
