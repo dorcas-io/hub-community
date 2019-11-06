@@ -34,7 +34,8 @@
             @section('body_main_heading')
                 <section id="page-title">
                     <div class="container clearfix">
-                        <h1>{{ $blogName }}</h1>
+                        <!-- <h1>{{ $blogName }}</h1> -->
+                        <h1>{{ $page['header']['title'] }}</h1>
                         <span>{{ $page['header']['subTitle'] or '' }}</span>
                         @include('blog.layouts.blocks.breadcrumbs')
                     </div>

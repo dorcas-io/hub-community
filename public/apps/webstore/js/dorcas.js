@@ -84,7 +84,7 @@ Vue.component('webstore-product', {
     }
 });
 
-Vue.component('blog-post', {
+/*Vue.component('blog-post', {
     template: '<div class="entry clearfix">' +
     '                <div class="entry-timeline">' +
     '                    {{ date_day }}<span>{{ date_month }}</span>' +
@@ -221,4 +221,4 @@ Vue.component('suggestion-blog-post', {
             this.$emit('delete-post', this.index);
         }
     }
-})
+})*/

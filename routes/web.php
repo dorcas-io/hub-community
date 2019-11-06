@@ -47,7 +47,7 @@ Route::domain($storeSubDomain)->namespace('WebStore')->middleware(['web_store'])
     Route::put('/xhr/cart/update-quantities', 'Cart@updateCartQuantitiesXhr');
 });
 
-$blogSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'blog' ?
+/*$blogSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'blog' ?
     $currentHost : 'blog' . $defaultUri->getHost();
 
 
@@ -59,21 +59,50 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::domain($blogSubDomain)->namespace('Blog')->middleware(['blog_verifier'])->group(function () {
-        Route::get('/', 'Home@index')->name('blog');
-        Route::get('/posts', 'Home@index')->name('blog.posts');
-        Route::get('/posts/{id}', 'Home@postDetails')->name('blog.posts.details');
-        Route::get('/categories', 'Home@categories')->name('blog.categories');
-        Route::get('/categories/{id}', 'Home@index')->name('blog.categories.single');
+
+    Route::get('/', 'Home@index')->name('blog');
+    Route::get('/posts', 'Home@index')->name('blog.posts');
+    Route::get('/posts/{id}', 'Home@postDetails')->name('blog.posts.details');
+    Route::get('/categories', 'Home@categories')->name('blog.categories');
+    Route::get('/categories/{id}', 'Home@index')->name('blog.categories.single');
+
+    Route::get('/admin-blog/new-post', 'Posts@newPost')->name('blog.admin.new-post');
+    Route::post('/admin-blog/new-post', 'Posts@createPost');
+    Route::get('/admin-blog/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');
+    Route::post('/admin-blog/{id}/edit', 'Posts@updatePost');
     
-    Route::group(['middleware' => ['auth']], function () {
-        Route::get('/admin-blog/new-post', 'Posts@newPost')->name('blog.admin.new-post');
-        Route::post('/admin-blog/new-post', 'Posts@createPost');
-        Route::get('/admin-blog/{id}/edit', 'Posts@editPost')->name('blog.admin.edit-post');
-        Route::post('/admin-blog/{id}/edit', 'Posts@updatePost');
-        
-        Route::delete('/admin-blog/xhr/posts/{id}', 'Posts@deletePostXhr');
-    });
-});
+    Route::delete('/admin-blog/xhr/posts/{id}', 'Posts@deletePostXhr');
+
+    Route::get('/{referralData}', function($referralData)
+    {
+        if (substr_count($referralData, "/") > 0) {
+            $values = explode("/", $referralData);
+            if ($values[0]=="r") {
+                $referrer = [];
+                $referrer["value"] = $values[1];
+                if (ctype_digit($values[1])) {
+                    $referrer["mode"] = "id";
+                    //return $referrer;
+                    $app = app();
+                    $controller = $app->make('App\Http\Controllers\Blog\Home');
+                    $request = $app->make('request');
+                    $request->session()->put('dorcas_referrer', $referrer);
+                    return $controller->callAction('index', $parameters = array($request));
+                } elseif (!ctype_digit($values[1])  && !is_numeric($values[1])) {
+                    $referrer["mode"] = "username";
+                    //return $referrer;
+                    $app = app();
+                    $controller = $app->make('App\Http\Controllers\Blog\Home');
+                    $request = $app->make('request');
+                    $request->session()->put('dorcas_referrer', $referrer);
+                    return $controller->callAction('index', $parameters = array($request));
+                }
+            }
+        }
+    })->where('referralData', '.*');
+
+
+});*/
 
 
 

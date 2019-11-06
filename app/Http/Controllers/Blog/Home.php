@@ -35,8 +35,18 @@ class Home extends Controller
         $this->data['categorySlug'] = $slug;
         $this->data['defaultSearch'] = $request->get('q', '');
         $this->data['blogOwner'] = $blogOwner;
-        $this->data['page']['title'] = $blogOwner->name . ' ' . $this->data['page']['title'];
-        $this->data['page']['header']['title'] = $blogOwner->name . ' Blog';
+
+        if ($request->session()->has('dorcas_referrer')) {
+            $referrer =  $request->session()->get('dorcas_referrer', ["mode" => "", "value" => ""]);
+            $this->data['page']['title'] = strtoupper($referrer["value"]) . "'s " . $this->data['page']['title'];
+            $this->data['page']['header']['title'] = strtoupper($referrer["value"]) . "'s Blog";
+            $this->data['blogName'] = strtoupper($referrer["value"]) . "'s Blog";
+        } else {
+            $this->data['page']['title'] = $blogOwner->name . ' ' . $this->data['page']['title'];
+            $this->data['page']['header']['title'] = $blogOwner->name . ' '  . $this->data['page']['title'];
+            $this->data['blogName'] = $blogOwner->name . " Blog";
+        }
+
         return view('blog.timeline', $this->data);
     }
     

@@ -2,7 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Controllers\ECommerce\Blog\Dashboard;
+use Dorcas\ModulesEcommerce\Http\Controllers\ModulesEcommerceBlogController as Dashboard;
+//use App\Http\Controllers\ECommerce\Blog\Dashboard;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
