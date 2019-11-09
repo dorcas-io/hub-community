@@ -64,6 +64,14 @@ return [
             'retry_after' => 90,
         ],
 
+        'azure' => [
+            'driver' => 'azure',    
+            'queue' => env('AZURE_QUEUE_NAME'),
+            'protocol' => 'https', // http or https
+            'account' => env('AZURE_STORAGE_ACCOUNT'),
+            'key' => env('AZURE_STORAGE_KEY')
+        ],
+
     ],
 
     /*
