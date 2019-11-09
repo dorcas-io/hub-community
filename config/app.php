@@ -178,8 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider::class,
-        Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
-        Heedworks\LaravelQueueAzure\LaravelQueueAzureServiceProvider::class
+        Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class
 
     ],
 
