@@ -15,7 +15,6 @@
         "ext-json": "*",
         "aws/aws-sdk-php": "^3.52",
         "microsoft/windowsazure": "^0.5",
-        "heedworks/laravel-queue-azure": "dev-master",
         "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "dev-master",
         "dorcas/modules-access-requests": "dev-master",
