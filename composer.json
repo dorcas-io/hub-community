@@ -4,12 +4,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories": [
-        {
-            "type": "pear",
-            "url": "http://pear.php.net"
-        }
-    ],
+    "repositories": [],
     "require": {
         "php": ">=7.0.0",
         "ext-json": "*",
