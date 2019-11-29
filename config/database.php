@@ -52,6 +52,10 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'sslmode' => 'require',
+            'options'   => array(
+                PDO::MYSQL_ATTR_SSL_CA => '/var/www/hub.dorcas.ng/BaltimoreCyberTrustRoot.crt.pem',
+            ),
         ],
 
         'pgsql' => [
