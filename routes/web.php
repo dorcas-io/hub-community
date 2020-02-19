@@ -23,7 +23,7 @@ try {
 } catch (RuntimeException $e) {
     $domainInfo = null;
 }
-$storeSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'store' ?
+/*$storeSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'store' ?
     $currentHost : 'store' . $defaultUri->getHost();
 
 Route::prefix('store')->group(function () {
@@ -45,7 +45,7 @@ Route::domain($storeSubDomain)->namespace('WebStore')->middleware(['web_store'])
     Route::post('/xhr/cart', 'Cart@addToCartXhr');
     Route::post('/xhr/cart/checkout', 'Cart@checkoutXhr');
     Route::put('/xhr/cart/update-quantities', 'Cart@updateCartQuantitiesXhr');
-});
+});*/
 
 /*$blogSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'blog' ?
     $currentHost : 'blog' . $defaultUri->getHost();
@@ -313,7 +313,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'app-store', 'namespace' => 
 
 
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'apps'], function () {
+/*Route::group(['middleware' => ['auth'], 'prefix' => 'apps'], function () {
     Route::get('/crm', 'Crm\Crm@index')->name('apps.crm');
 });
 
@@ -328,7 +328,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Crm', 'prefix' => 'apps/
     Route::post('/customers/{id}', 'Customers\Customer@post');
     Route::get('/groups', 'Groups@index')->name('apps.crm.groups');
     Route::post('/groups', 'Groups@post');
-});
+});*/
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'ECommerce', 'prefix' => 'apps/ecommerce'], function () {
     Route::get('/', 'ECommerce@index')->name('apps.ecommerce');
@@ -381,7 +381,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Finance', 'prefix' => 'a
     Route::post('/{id}', 'Accounts@create');
 });
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Inventory', 'prefix' => 'apps/inventory'], function () {
+/*Route::group(['middleware' => ['auth'], 'namespace' => 'Inventory', 'prefix' => 'apps/inventory'], function () {
     Route::get('/categories', 'Categories@index')->name('apps.inventory.categories');
     
     Route::get('/products', 'Products@index')->name('apps.inventory');
@@ -399,9 +399,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Inventory', 'prefix' => 
 
     Route::get('/products/{id}/stocks', 'Product@redirect');
     Route::post('/products/{id}/stocks', 'Product@updateStocks')->name('apps.inventory.single.stocks');
-});
+});*/
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Invoicing', 'prefix' => 'apps/invoicing'], function () {
+/*Route::group(['middleware' => ['auth'], 'namespace' => 'Invoicing', 'prefix' => 'apps/invoicing'], function () {
     Route::get('/orders', 'Orders@index')->name('apps.invoicing.orders');
     Route::get('/orders/new', 'NewOrder@index')->name('apps.invoicing.orders.new');
     Route::post('/orders/new', 'NewOrder@create');
@@ -411,9 +411,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Invoicing', 'prefix' => 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Integrations'], function () {
     Route::get('/integrations', 'Integrations@index')->name('integrations');
     Route::get('/integrations/install', 'Install@index')->name('integrations.install');
-});
+});*/
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Settings'], function () {
+/*Route::group(['middleware' => ['auth'], 'namespace' => 'Settings'], function () {
     Route::get('/settings', 'Settings@index')->name('settings');
     Route::get('/settings/bank-accounts', 'BankAccount@index')->name('settings.bank-account');
     Route::post('/settings/bank-accounts', 'BankAccount@post');
@@ -427,7 +427,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Settings'], function () 
     Route::post('/settings/account', 'Personal@post');
     Route::get('/settings/security', 'Security@index')->name('settings.security');
     Route::post('/settings/security', 'Security@post');
-});
+});*/
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Directory', 'prefix' => 'directory'], function () {
     Route::get('/', 'Directory@search')->name('directory');
