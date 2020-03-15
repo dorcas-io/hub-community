@@ -135,7 +135,7 @@ Route::get('/forgot-password', 'Auth\ForgotPasswordController@showLinkRequestFor
 Route::post('/forgot-password', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('forgot-password');
 Route::get('/reset-password/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('/reset-password/{token}', 'Auth\ResetPasswordController@reset')->name('forgot-password-reset');
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verify-email/{id}', 'Auth\Verify@verifyEmail')->name('verify-email');
 
 Route::get('/sso', 'Auth\Partners\SingleSignOn@sso')->middleware('guest');
@@ -153,9 +153,9 @@ Route::get('/professionals', 'Auth\RegisterController@showOldProfessionalRegistr
  * Route Group for XHR: /xhr/...
  */
 Route::group(['middleware' => ['auth'], 'namespace' => 'Ajax', 'prefix' => 'xhr'], function () {
-    Route::post('/account/resend-verification', 'Account\Account@resendVerification');
+    //Route::post('/account/resend-verification', 'Account\Account@resendVerification');
     
-    Route::get('/app-store', 'AppStore\AppStore@search');
+    /*Route::get('/app-store', 'AppStore\AppStore@search');
     Route::post('/app-store/{id}', 'AppStore\AppStore@installApp');
     Route::delete('/app-store/{id}', 'AppStore\AppStore@uninstallApp');
     
@@ -269,7 +269,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Ajax', 'prefix' => 'xhr'
     Route::put('/inventory/orders/{id}/customers', 'Inventory\Orders@updateCustomerOrder');
 
     Route::post('/plans', 'Plans@switch');
-    Route::post('/settings', 'Settings@update');
+    Route::post('/settings', 'Settings@update');*/
     
     Route::group(['middleware' => ['require_role:partner'], 'prefix' => 'vpanel', 'namespace' => 'vPanel'], function () {
         Route::get('/companies', 'Businesses@search')->name('xhr.vpanel.companies');
@@ -287,7 +287,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/subscription', 'Subscription@post');
 });
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Businesses', 'prefix' => 'apps/people'], function () {
+/*Route::group(['middleware' => ['auth'], 'namespace' => 'Businesses', 'prefix' => 'apps/people'], function () {
     Route::get('/', 'Business@index')->name('business');
 
     Route::get('/departments', 'Departments\Departments@index')->name('business.departments');
@@ -309,7 +309,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Businesses', 'prefix' =>
 Route::group(['middleware' => ['auth'], 'prefix' => 'app-store', 'namespace' => 'AppStore'], function () {
     Route::get('/', 'Listing@index')->name('app-store');
     Route::get('/installed', 'Installed@index')->name('app-store.installed');
-});
+});*/
 
 
 
@@ -328,7 +328,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Crm', 'prefix' => 'apps/
     Route::post('/customers/{id}', 'Customers\Customer@post');
     Route::get('/groups', 'Groups@index')->name('apps.crm.groups');
     Route::post('/groups', 'Groups@post');
-});*/
+});
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'ECommerce', 'prefix' => 'apps/ecommerce'], function () {
     Route::get('/', 'ECommerce@index')->name('apps.ecommerce');
@@ -379,7 +379,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Finance', 'prefix' => 'a
     
     Route::get('/{id}', 'Accounts@index');
     Route::post('/{id}', 'Accounts@create');
-});
+});*/
 
 /*Route::group(['middleware' => ['auth'], 'namespace' => 'Inventory', 'prefix' => 'apps/inventory'], function () {
     Route::get('/categories', 'Categories@index')->name('apps.inventory.categories');
@@ -399,9 +399,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Finance', 'prefix' => 'a
 
     Route::get('/products/{id}/stocks', 'Product@redirect');
     Route::post('/products/{id}/stocks', 'Product@updateStocks')->name('apps.inventory.single.stocks');
-});*/
+});
 
-/*Route::group(['middleware' => ['auth'], 'namespace' => 'Invoicing', 'prefix' => 'apps/invoicing'], function () {
+Route::group(['middleware' => ['auth'], 'namespace' => 'Invoicing', 'prefix' => 'apps/invoicing'], function () {
     Route::get('/orders', 'Orders@index')->name('apps.invoicing.orders');
     Route::get('/orders/new', 'NewOrder@index')->name('apps.invoicing.orders.new');
     Route::post('/orders/new', 'NewOrder@create');
@@ -411,9 +411,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Finance', 'prefix' => 'a
 Route::group(['middleware' => ['auth'], 'namespace' => 'Integrations'], function () {
     Route::get('/integrations', 'Integrations@index')->name('integrations');
     Route::get('/integrations/install', 'Install@index')->name('integrations.install');
-});*/
+});
 
-/*Route::group(['middleware' => ['auth'], 'namespace' => 'Settings'], function () {
+Route::group(['middleware' => ['auth'], 'namespace' => 'Settings'], function () {
     Route::get('/settings', 'Settings@index')->name('settings');
     Route::get('/settings/bank-accounts', 'BankAccount@index')->name('settings.bank-account');
     Route::post('/settings/bank-accounts', 'BankAccount@post');
@@ -427,7 +427,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Integrations'], function
     Route::post('/settings/account', 'Personal@post');
     Route::get('/settings/security', 'Security@index')->name('settings.security');
     Route::post('/settings/security', 'Security@post');
-});*/
+});
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Directory', 'prefix' => 'directory'], function () {
     Route::get('/', 'Directory@search')->name('directory');
@@ -455,7 +455,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'access-grants', 'namespace'
     Route::get('/{id}', 'AccessGrantRequests@index');
     Route::post('/', 'AccessGrantRequests@post');
     Route::post('/{id}', 'AccessGrantRequests@post');
-});
+});*/
 
 Route::group(['namespace' => 'vPanel', 'prefix' => 'vpanel', 'middleware' => ['auth', 'require_role:partner']], function () {
     Route::get('/', 'Businesses\Businesses@index')->name('vpanel.dashboard');

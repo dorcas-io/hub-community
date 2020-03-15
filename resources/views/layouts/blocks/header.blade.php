@@ -1,4 +1,4 @@
-<!-- START HEADER -->
+START HEADER -->
 <header id="header" class="page-topbar" v-if="typeof pageMode !== 'undefined' && pageMode === 'default'">
     <!-- start header nav-->
     <div class="navbar-fixed">
@@ -34,7 +34,7 @@
                 </ul>
                 <!-- notifications-dropdown -->
                 <!-- profile-dropdown -->
-                <ul id="profile-dropdown" class="dropdown-content">
+                <!-- <ul id="profile-dropdown" class="dropdown-content">
                     <li>
                         <a href="{{ route('settings.personal') }}" class="grey-text text-darken-1">
                             <i class="material-icons">face</i> Profile
@@ -90,9 +90,9 @@
                             <i class="material-icons">keyboard_tab</i> Logout
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </nav>
     </div>
 </header>
-<!-- END HEADER -->
+<!-- END HEADER

@@ -9,7 +9,9 @@ class Index extends Controller
 {
     public function index(Request $request)
     {
+        //die("hello");
         $domainInfo = $request->session()->get('domainInfo');
+        //dd($domainInfo);
         # get the resolved domainInfo, if any
         if (empty($domainInfo) || $domainInfo->getService() === null) {
             if (Auth::check()) {
@@ -17,5 +19,8 @@ class Index extends Controller
             }
             return redirect(route('login'));
         }
+        /*if (Auth::check()) {
+            return redirect(route('dashboard'));
+        }*/
     }
 }
