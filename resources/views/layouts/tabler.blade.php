@@ -176,7 +176,14 @@
     var collapseVue = new Vue({
         el: '#headerMenuCollapse',
         data: {
-            selectedMenu: '{{ !empty($selectedMenu) ? $selectedMenu : '' }}'
+            selectedMenu: '{{ !empty($selectedMenu) ? $selectedMenu : '' }}',
+            enabledUis: {!! json_encode(!empty($UiConfiguration) ? $UiConfiguration : []) !!},
+            UiUsesGrants: {!! json_encode(!empty($UiUsesGrant)) !!},
+            standardUis: ['modules-dashboard']
+        },
+        mounted: function() {
+            //console.log(this.selectedMenu);
+            //console.log(this.enabledUis)
         }
     });
 
@@ -190,7 +197,6 @@
             viewMode: '{{ empty($viewMode) ? 'business' : $viewMode }}',
             showUiModalAccessMenu: {!! json_encode(isset($showUiModalAccessMenu) ? $showUiModalAccessMenu : true) !!},
             vPanelUrl: {!! json_encode(!empty($vPanelUrl) ? $vPanelUrl : '') !!},
-
         },
         mounted: function() {
             /*if (this.vPanelUrl.length>0) {
@@ -214,6 +220,9 @@
         el: '#sub-menu-menu',
         data: {
             selectedSubMenu: '{{ !empty($selectedSubMenu) ? $selectedSubMenu : '' }}',
+        },
+        methods: {
+
         }
     });
 @endif

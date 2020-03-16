@@ -1,12 +1,33 @@
                     @php
                         $acceptable_modules = array('modules-access-grants','modules-access-requests','modules-app-store','modules-assistant','modules-customers','modules-dashboard','modules-dashboard-vpanel','modules-ecommerce','modules-finance','modules-integrations','modules-library','modules-marketplace','modules-people','modules-sales','modules-service-profile','modules-service-requests','modules-settings','addons');
+
+                        $modules_permission_key = array(
+                            'modules-access-grants' => '',
+                            'modules-access-requests' => '',
+                            'modules-app-store' => 'appstore',
+                            'modules-assistant' => '',
+                            'modules-customers' => 'customers',
+                            'modules-dashboard' => 'dashboard',
+                            'modules-dashboard-vpanel' => '',
+                            'modules-ecommerce' => 'ecommerce',
+                            'modules-finance' => 'finance',
+                            'modules-integrations' => 'integrations',
+                            'modules-library' => '',
+                            'modules-marketplace' => '',
+                            'modules-people' => 'people',
+                            'modules-sales' => 'sales',
+                            'modules-service-profile' => 'services',
+                            'modules-service-requests' => 'services',
+                            'modules-settings' => 'settings',
+                            'addons' => 'addons'
+                        );
                     @endphp
                     @foreach(config('navigation-menu') as $key => $value)
                         @if ( in_array($key,$acceptable_modules) && $value['navbar'] && ($value['dashboard']==$viewMode || $value['dashboard']=='all') )
                             @php
                             if ( count($value['sub-menu'])>0 && ( empty($value['sub-menu-display']) || (isset($value['sub-menu-display']) && $value['sub-menu-display']==='show') ) ) { $dropdown=" dropdown"; $dropdownToggle = "dropdown"; } else { $dropdown=""; $dropdownToggle = ""; }
                             @endphp
-                            <li class="nav-item{{ $dropdown }}" id="nav_item_{{ $key }}">
+                            <li class="nav-item{{ $dropdown }}" id="nav_item_{{ $key }}" v-if="enabledUis.indexOf('{{ $modules_permission_key[$key] }}') !== -1">
                                 <a href="{{ $value['clickable'] && safe_href_route($value['route']) && (isset($selectedMenu) && $key !== $selectedMenu) ? route($value['route']) : 'javascript:void(0)' }}" class="nav-link" v-bind:class="{'active': selectedMenu === '{{ $key }}'}" data-toggle="{{ $dropdownToggle }}"><i class="{{ isset($value['icon']) ? $value['icon'] : 'fe fe-settings' }}"></i> {{ $value['title'] }}</a>
                                 @if (!empty($dropdown))
                                 <div class="dropdown-menu dropdown-menu-arrow">
