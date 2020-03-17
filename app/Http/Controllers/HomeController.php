@@ -67,7 +67,7 @@ class HomeController extends Controller
         $this->data['message'] = $request->query('message');
         # a message in the URL
         $viewMode = $request->session()->get('viewMode', null);
-        # get the current view mode
+        # get the current views mode
         $userConfigurations = (array) $request->user()->extra_configurations;
         $userUiSetup = $userConfigurations['ui_setup'] ?? [];
         $configurations = (array) $company->extra_data;
@@ -141,7 +141,7 @@ class HomeController extends Controller
             # we get the graph data
             
         } else {
-            # default view mode
+            # default views mode
             $metricsData = Cache::remember('company.metrics.'.$company->id, 30, function () use ($sdk, $daysAgo) {
                 $metrics = $sdk->createMetricsService();
                 $metricsData = $metrics->addBodyParam('metrics', [

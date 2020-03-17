@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Dorcas\Support\Tabler\TablerNotification;
 use App\Dorcas\Support\Tabler\TablerNotificationCollection;
+use Dorcas\ModulesFinanceTax\Models\TaxAuthorities;
 use Hostville\Dorcas\Sdk;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * Container that holds view data for the controller
+     * Container that holds views data for the controller
      *
      * @var array
      */
@@ -29,7 +30,7 @@ class Controller extends BaseController
     /**
      * Controller constructor.
      *
-     * We set some defaults for the view data
+     * We set some defaults for the views data
      */
     public function __construct()
     {
@@ -308,7 +309,48 @@ class Controller extends BaseController
         });
         return $accounts;
     }
-    
+
+    /**
+     * @param Sdk|null $sdk
+     *
+     * @return mixed|Collection|null
+     */
+    public function getFinanceTaxAuthorities(Sdk $sdk = null)
+    {
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        # get the company
+        $authorities = Cache::remember('finance.tax.authority.'.$company->id, 30, function () use ($sdk) {
+            $response = $sdk->createTaxResource()->addQueryArgument('limit', 10000)
+                ->send('get', ['authority']);
+            if (!$response->isSuccessful()) {
+                return null;
+            }
+            return collect($response->getData())->map(function ($authorities) {
+                return (object) $authorities;
+            });
+        });
+        return $authorities;
+    }
+
+    public function getPeoplePayrollAuthorities(Sdk $sdk = null){
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        # get the company
+
+        $authorities = Cache::remember('payroll.authority.'.$company->id, 30, function () use ($sdk) {
+            $response = $sdk->createPayrollResource()->addQueryArgument('limit', 10000)
+                ->send('get', ['authority']);
+            if (!$response->isSuccessful()) {
+                return null;
+            }
+            return collect($response->getData())->map(function ($authorities) {
+                return (object) $authorities;
+            });
+        });
+        return $authorities;
+    }
+
     /**
      * @param Sdk|null $sdk
      *
@@ -601,7 +643,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Sets the UiResponse instance in the view data.
+     * Sets the UiResponse instance in the views data.
      *
      * @param Request $request
      *
@@ -618,7 +660,7 @@ class Controller extends BaseController
     }
     
     /**
-     * Sets the notification items for the view.
+     * Sets the notification items for the views.
      *
      * @param Request            $request
      * @param TablerNotification ...$notifications
@@ -630,5 +672,9 @@ class Controller extends BaseController
             $collection->add($notification);
         }
         $request->session()->put('UiNotifications', $collection->toArray());
+    }
+
+    protected function getTaxAuth(){
+        return (object) new TaxAuthorities;
     }
 }

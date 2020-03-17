@@ -122,7 +122,7 @@
         });
 
         new Vue({
-            el: '#details-view',
+            el: '#details-views',
             data: {
                 is_contact: {!! json_encode($is_contact) !!},
                 service: {!! json_encode($service) !!},

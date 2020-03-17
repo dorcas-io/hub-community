@@ -59,7 +59,7 @@ class TablerNotification
     }
     
     /**
-     * Parses the supplied action to be passed to the view.
+     * Parses the supplied action to be passed to the views.
      *
      * @param $action
      *
@@ -71,7 +71,7 @@ class TablerNotification
             return ['data-action' => 'ignore'];
         }
         if (is_string($action)) {
-            return ['data-action' => 'view', 'data-url' => $action];
+            return ['data-action' => 'views', 'data-url' => $action];
         }
         $attributes = [];
         foreach ($action as $key => $value) {

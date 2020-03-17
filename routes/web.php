@@ -40,7 +40,7 @@ Route::domain($storeSubDomain)->namespace('WebStore')->middleware(['web_store'])
     Route::get('/products', 'Home@products')->name('webstore.products');
     Route::get('/products/{id}', 'Home@productDetails')->name('webstore.products.details');
     Route::get('/cart', 'Cart@index')->name('webstore.cart');
-    Route::get('/product-quick-view/{id}', 'Home@quickView')->name('webstore.quick-view');
+    Route::get('/product-quick-views/{id}', 'Home@quickView')->name('webstore.quick-views');
     Route::delete('/xhr/cart', 'Cart@removeFromCartXhr');
     Route::post('/xhr/cart', 'Cart@addToCartXhr');
     Route::post('/xhr/cart/checkout', 'Cart@checkoutXhr');
@@ -128,7 +128,6 @@ Route::domain($blogSubDomain)->namespace('Blog')->middleware(['blog_verifier'])-
 
 
 Route::get('/', 'Index@index');
-
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/forgot-password', 'Auth\ForgotPasswordController@showLinkRequestForm');

@@ -115,7 +115,7 @@
     <script type="text/javascript" src="{{ cdn('vendors/bootstrap-table/bootstrap-table-materialui.js') }}"></script>
     <script type="text/javascript">
         new Vue({
-            el: '#details-view',
+            el: '#details-views',
             data: {
                 department: {!! json_encode($department) !!},
                 updating: false,

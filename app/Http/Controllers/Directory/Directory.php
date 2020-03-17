@@ -34,9 +34,9 @@ class Directory extends Controller
     public function search(Request $request, Sdk $sdk, string $viewTemplate = null)
     {
         $this->setViewUiResponse($request);
-        $view = strtolower($request->query('view', 'listing'));
+        $view = strtolower($request->query('views', 'listing'));
         $this->data['categories'] = $categories = $this->getProfessionalServiceCategories($sdk);
-        $this->data['view'] = $view = empty($categories) ? 'listing' : $view;
+        $this->data['views'] = $view = empty($categories) ? 'listing' : $view;
         $this->data['query'] = $request->query->all();
         $this->data['query']['mode'] = $this->data['viewMode'];
         if ($view !== 'categories') {
@@ -45,7 +45,7 @@ class Directory extends Controller
                 $category = $categories->where('id', $categoryId)->first();
                 if (!empty($category)) {
                     $this->data['page']['header']['title'] .= ' (' . title_case($category->name) . ')';
-                    $entry = ['text' => 'By Category', 'href' => route('directory') .'?view=categories'];
+                    $entry = ['text' => 'By Category', 'href' => route('directory') .'?views=categories'];
                     array_splice($this->data['breadCrumbs']['crumbs'], 0, 0, [$entry]);
                 }
             } else {

@@ -322,7 +322,7 @@
         });
 
         var vm = new Vue({
-            el: '#details-view',
+            el: '#details-views',
             data: {
                 order: {!! json_encode($order) !!},
                 updating: false,

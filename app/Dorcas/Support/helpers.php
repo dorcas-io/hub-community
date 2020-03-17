@@ -86,7 +86,7 @@ function gravatar(
 }
 
 /**
- * Creates and returns an instance of the HTML alert view for the material ui theme.
+ * Creates and returns an instance of the HTML alert views for the material ui theme.
  *
  * @param array $messages
  *

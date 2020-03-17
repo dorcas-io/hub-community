@@ -18,7 +18,7 @@ class ProfessionalModeAccessGate
     {
         if (!$request->user()->is_professional) {
             # this person doesn't have a professional profile
-            $redirect = route('dashboard') . '?view=business';
+            $redirect = route('dashboard') . '?views=business';
             $messages = ['You need to activate the professional profile on your account to access this feature.'];
             $response = (tabler_ui_html_response($messages))->setType(UiResponse::TYPE_ERROR);
             return redirect($redirect)->with('UiResponse', $response);
