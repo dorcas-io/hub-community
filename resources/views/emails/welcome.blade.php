@@ -412,10 +412,9 @@
                             <tr>
                                 <td class="content-cell">
                                     <p>
-                                        {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : 'Hub' }} simply helps you get to your business without
-                                        having to bother with those repetitive processes that are essential.
+                                        {{ !empty($appUiSettings['product_name']) ? $appUiSettings['product_name'] : 'Hub' }} is an all-in-one platform that helps businesses to digitally manage their business functions such as sales, finance, payroll, e-commerce and much more
                                     </p>
-                                    <p>And in few minutes, you will be set.</p>
+                                    <p>Once you verify your account, we will get you all setup in few minutes</p>
                                     <!-- Action -->
                                     <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
@@ -462,7 +461,7 @@
                                         <tr>
                                             <td>
                                                 <p class="sub">If you’re having trouble with the button above, copy and paste the URL below into your web browser.</p>
-                                                <p class="sub">{{ route('home') }}</p>
+                                                <p class="sub">{{ route('dashboard') }}</p>
                                             </td>
                                         </tr>
                                     </table>
@@ -477,7 +476,7 @@
                             <tr>
                                 <td class="content-cell" align="center">
                                     <p class="sub align-center">
-                                        Dorcas is a simple tool for SMEs to manage their business processes.
+                                        We believe all businesses should have access to great digital tools for successful performance
                                     </p>
                                     <p class="sub align-center">
                                         <br>
@@ -487,7 +486,7 @@
                                         {{ config('hub.info.address') }}
                                         <br/>{{ config('hub.info.registration') }}
                                     </p>
-                                    <p class="sub align-center">&copy; 2018 {{ config('app.name') }}. All rights reserved.</p>
+                                    <p class="sub align-center">&copy; 2018-{{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
                                 </td>
                             </tr>
                         </table>

@@ -48,7 +48,7 @@ class WelcomeEmail extends Mailable
             $appUiSettings = $configuration['hubConfig'] ?? [];
             $appUiSettings['product_logo'] = !empty($this->partner->logo) ? $this->partner->logo : null;
         }
-        $subject = 'Welcome to ' . ($appUiSettings['product_name'] ?? 'Hub') . ', ' . $this->user->firstname;
+        $subject = 'Welcome to ' . ($appUiSettings['product_name'] ?? 'the Hub') . ', ' . $this->user->firstname;
         $subdomain = null;
         if (empty($this->domain) && !empty($this->partner->domain_issuances)) {
             $this->domain = $this->partner->domain_issuances['data'][0] ?? null;
