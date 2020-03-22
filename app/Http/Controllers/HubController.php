@@ -58,7 +58,7 @@ class HubController extends Controller
 
     public function getLibraryVideos(Request $request, Sdk $sdk): ?Collection
     {
-        $company = $request->user()->company(true, true);
+        $company = !empty($request->user()) && !empty($request->user()->company(true, true)) ? $request->user()->company(true, true) : null;
         $partner = null;
         if (!empty($request->user()->partner) && !empty($request->user()->partner['data'])) {
             $partner = (object) $request->user()->partner['data'];

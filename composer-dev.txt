@@ -17,6 +17,7 @@
         "aws/aws-sdk-php": "^3.52",
         "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "dev-master",
+        "dorcas/modules-auth": "@dev",
         "dorcas/modules-access-requests": "@dev",
         "dorcas/modules-app-store": "@dev",
         "dorcas/modules-assistant": "@dev",

@@ -54,7 +54,9 @@ class LoginController extends Controller
         $this->data['header']['title'] = 'Login';
 
         $this->setViewUiResponse($request);
-        return view('auth.login-v2', $this->data);
+
+        return view('modules-auth::login', $this->data);
+        //return view('auth.login-v2', $this->data);
     }
 
     /**

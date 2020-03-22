@@ -69,7 +69,9 @@ class RegisterController extends Controller
         }
         $this->data['plan_type'] = !empty($plans[$plan]) && $plans[$plan] === 'yearly' ? 'yearly' : 'monthly';
         # set the plan type
-        return view('auth.register-v2', $this->data);
+
+        return view('modules-auth::register', $this->data);
+        //return view('auth.register-v2', $this->data);
         //return view('auth.register', $this->data);
     }
     

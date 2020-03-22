@@ -141,7 +141,7 @@ Route::get('/verify-email/{id}', 'Auth\Verify@verifyEmail')->name('verify-email'
 Route::get('/sso', 'Auth\Partners\SingleSignOn@sso')->middleware('guest');
 Route::get('/sso-silent', 'Auth\Partners\SingleSignOn@ssoSilent')->middleware('guest');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@post');
 Route::get('/invites/{id}', 'Invites@index')->name('invite');
 Route::post('/invites/{id}', 'Invites@post');
