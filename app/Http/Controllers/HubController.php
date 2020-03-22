@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Hostville\Dorcas\Sdk;
 use Illuminate\Http\Request;
 use Dorcas\ModulesLibrary\Models\ModulesLibraryResources;
+use Dorcas\ModulesLibrary\Models\ModulesLibraryVideos;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -43,6 +44,32 @@ class HubController extends Controller
             $response = ModulesLibraryResources::where([
             	['partner_id', '=', '0'],
             	['resource_type', '=', $resource_type]
+            ])->get()->toArray();
+            //if (!$response->isSuccessful()) {
+            //    return null;
+            //}
+            return collect($response)->map(function ($resource) {
+                return (object) $resource;
+            });
+        });
+        return $resources;
+    }
+
+
+    public function getLibraryVideos(Request $request, Sdk $sdk): ?Collection
+    {
+        $company = $request->user()->company(true, true);
+        $partner = null;
+        if (!empty($request->user()->partner) && !empty($request->user()->partner['data'])) {
+            $partner = (object) $request->user()->partner['data'];
+        }
+        $partner_id = !empty($partner->id) ? $partner->id : 0;
+        $company_id = !empty($company->id) ? $company->id : rand(2000000,3000000);
+
+        $resources = Cache::remember('mda_videos.'.$company_id, 30, function () use ($partner_id) {
+            $response = ModulesLibraryVideos::where([
+                ['partner_id', '=', $partner_id],
+                ['resource_type', '=', 'videos']
             ])->get()->toArray();
             //if (!$response->isSuccessful()) {
             //    return null;
