@@ -56,6 +56,8 @@ return [
             'options'   => array(
                 PDO::MYSQL_ATTR_SSL_CA => '/var/www/hub.dorcas.ng/BaltimoreCyberTrustRoot.crt.pem',
             ),
+
+        ],
         'dorcas-api' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -73,7 +75,6 @@ return [
             'options'   => array(
                 PDO::MYSQL_ATTR_SSL_CA => '/var/www/hub.dorcas.ng/BaltimoreCyberTrustRoot.crt.pem',
             ),
-
         ],
 
         'pgsql' => [
