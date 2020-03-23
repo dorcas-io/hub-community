@@ -23,7 +23,7 @@ try {
 } catch (RuntimeException $e) {
     $domainInfo = null;
 }
-$storeSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'store' ?
+/*$storeSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'store' ?
     $currentHost : 'store' . $defaultUri->getHost();
 
 Route::prefix('store')->group(function () {
@@ -45,7 +45,7 @@ Route::domain($storeSubDomain)->namespace('WebStore')->middleware(['web_store'])
     Route::post('/xhr/cart', 'Cart@addToCartXhr');
     Route::post('/xhr/cart/checkout', 'Cart@checkoutXhr');
     Route::put('/xhr/cart/update-quantities', 'Cart@updateCartQuantitiesXhr');
-});
+});*/
 
 /*$blogSubDomain = !empty($domainInfo) && $domainInfo->getService() === 'blog' ?
     $currentHost : 'blog' . $defaultUri->getHost();
@@ -134,7 +134,7 @@ Route::get('/forgot-password', 'Auth\ForgotPasswordController@showLinkRequestFor
 Route::post('/forgot-password', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('forgot-password');
 Route::get('/reset-password/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('/reset-password/{token}', 'Auth\ResetPasswordController@reset')->name('forgot-password-reset');
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verify-email/{id}', 'Auth\Verify@verifyEmail')->name('verify-email');
 
 Route::get('/sso', 'Auth\Partners\SingleSignOn@sso')->middleware('guest');
@@ -152,9 +152,9 @@ Route::get('/professionals', 'Auth\RegisterController@showOldProfessionalRegistr
  * Route Group for XHR: /xhr/...
  */
 Route::group(['middleware' => ['auth'], 'namespace' => 'Ajax', 'prefix' => 'xhr'], function () {
-    Route::post('/account/resend-verification', 'Account\Account@resendVerification');
+    //Route::post('/account/resend-verification', 'Account\Account@resendVerification');
     
-    Route::get('/app-store', 'AppStore\AppStore@search');
+    /*Route::get('/app-store', 'AppStore\AppStore@search');
     Route::post('/app-store/{id}', 'AppStore\AppStore@installApp');
     Route::delete('/app-store/{id}', 'AppStore\AppStore@uninstallApp');
     
@@ -268,7 +268,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Ajax', 'prefix' => 'xhr'
     Route::put('/inventory/orders/{id}/customers', 'Inventory\Orders@updateCustomerOrder');
 
     Route::post('/plans', 'Plans@switch');
-    Route::post('/settings', 'Settings@update');
+    Route::post('/settings', 'Settings@update');*/
     
     Route::group(['middleware' => ['require_role:partner'], 'prefix' => 'vpanel', 'namespace' => 'vPanel'], function () {
         Route::get('/companies', 'Businesses@search')->name('xhr.vpanel.companies');
@@ -286,7 +286,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/subscription', 'Subscription@post');
 });
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Businesses', 'prefix' => 'apps/people'], function () {
+/*Route::group(['middleware' => ['auth'], 'namespace' => 'Businesses', 'prefix' => 'apps/people'], function () {
     Route::get('/', 'Business@index')->name('business');
 
     Route::get('/departments', 'Departments\Departments@index')->name('business.departments');
@@ -308,11 +308,11 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Businesses', 'prefix' =>
 Route::group(['middleware' => ['auth'], 'prefix' => 'app-store', 'namespace' => 'AppStore'], function () {
     Route::get('/', 'Listing@index')->name('app-store');
     Route::get('/installed', 'Installed@index')->name('app-store.installed');
-});
+});*/
 
 
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'apps'], function () {
+/*Route::group(['middleware' => ['auth'], 'prefix' => 'apps'], function () {
     Route::get('/crm', 'Crm\Crm@index')->name('apps.crm');
 });
 
@@ -378,9 +378,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Finance', 'prefix' => 'a
     
     Route::get('/{id}', 'Accounts@index');
     Route::post('/{id}', 'Accounts@create');
-});
+});*/
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Inventory', 'prefix' => 'apps/inventory'], function () {
+/*Route::group(['middleware' => ['auth'], 'namespace' => 'Inventory', 'prefix' => 'apps/inventory'], function () {
     Route::get('/categories', 'Categories@index')->name('apps.inventory.categories');
     
     Route::get('/products', 'Products@index')->name('apps.inventory');
@@ -454,7 +454,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'access-grants', 'namespace'
     Route::get('/{id}', 'AccessGrantRequests@index');
     Route::post('/', 'AccessGrantRequests@post');
     Route::post('/{id}', 'AccessGrantRequests@post');
-});
+});*/
 
 Route::group(['namespace' => 'vPanel', 'prefix' => 'vpanel', 'middleware' => ['auth', 'require_role:partner']], function () {
     Route::get('/', 'Businesses\Businesses@index')->name('vpanel.dashboard');

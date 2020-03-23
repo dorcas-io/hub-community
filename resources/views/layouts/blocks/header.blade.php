@@ -1,4 +1,4 @@
-<!-- START HEADER -->
+START HEADER -->
 <header id="header" class="page-topbar" v-if="typeof pageMode !== 'undefined' && pageMode === 'default'">
     <!-- start header nav-->
     <div class="navbar-fixed">
@@ -95,4 +95,4 @@
         </nav>
     </div>
 </header>
-<!-- END HEADER -->
+<!-- END HEADER
