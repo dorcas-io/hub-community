@@ -59,7 +59,9 @@ class ResetPasswordController extends Controller
         }
         $this->data = array_merge($this->data, ['token' => $token, 'email' => $request->email]);
         $this->setViewUiResponse($request);
-        return view('auth.passwords.reset-v2', $this->data);
+        
+        return view('modules-auth::reset', $this->data);
+        //return view('auth.passwords.reset-v2', $this->data);
     }
 
     /**

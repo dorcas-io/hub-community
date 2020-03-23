@@ -46,7 +46,9 @@ class ForgotPasswordController extends Controller
         }
         $this->data['header']['title'] = 'Password Reset';
         $this->setViewUiResponse($request);
-        return view('auth.passwords.forgot-v2', $this->data);
+
+        return view('modules-auth::forgot', $this->data);
+        //return view('auth.passwords.forgot-v2', $this->data);
     }
 
     /**
