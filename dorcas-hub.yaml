@@ -2,7 +2,7 @@
 - hosts: dorcas_io_azure
   remote_user: ubuntu
   vars:
-    git_branch: hub-enterprise
+    git_branch: tomide-hub-branch
     dest_path: /var/www/hub.dorcas.ng
     repo: https://hostville:sD1AGa-gCdJxPXPb8uVB@gitlab.com/dorcasng/dorcas-hub
     server_state: started
