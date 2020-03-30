@@ -70,6 +70,12 @@ class RegisterController extends Controller
         $this->data['plan_type'] = !empty($plans[$plan]) && $plans[$plan] === 'yearly' ? 'yearly' : 'monthly';
         # set the plan type
 
+        $sdk = app(Sdk::class);
+
+        $authMedia = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthMedia($request, $sdk, "register", "all", "image");
+        $this->data['authMedia'] = $authMedia;
+
+
         return view('modules-auth::register', $this->data);
         //return view('auth.register-v2', $this->data);
         //return view('auth.register', $this->data);

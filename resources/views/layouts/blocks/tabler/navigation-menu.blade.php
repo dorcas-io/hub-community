@@ -3,7 +3,7 @@
 
                         $modules_permission_key = array(
                             'modules-access-grants' => '',
-                            'modules-access-requests' => '',
+                            'modules-access-requests' => 'services',
                             'modules-app-store' => 'appstore',
                             'modules-assistant' => '',
                             'modules-customers' => 'customers',

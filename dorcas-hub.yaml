@@ -35,6 +35,12 @@
               value: "eu-west-1"
             - name: "AWS_SQS_QUEUE"
               value: "dorcas-hub-queue"
+            - name: "AWS_KEY_EKO"
+              value: "AKIAS75A2ZYDMUMM3PEV"
+            - name: "AWS_SECRET_EKO"
+              value: "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"
+            - name: "AWS_SES_REGION_EKO"
+              value: "eu-west-1"
             - name: "BUGSNAG_API_KEY"
               value: "95aa9aff0599ae3ee57ec2046af9422d"
             - name: "BROADCAST_DRIVER"
@@ -64,7 +70,13 @@
             - name: "DORCAS_PERSONAL_CLIENT_SECRET"
               value: "jA4GG1wJ8bFIKApWviFuyfNAN29737s258nVVCjk"
             - name: "MAIL_DRIVER"
-              value: "ses"
+              value: "mailgun"
+            - name: "MAILGUN_DOMAIN"
+              value: "mg.dorcas.io"
+            - name: "MAILGUN_SECRET"
+              value: "a8e08585449bcf3bc04c8449d324270f-7238b007-3ef23eeb"
+            - name: "MAILGUN_ENDPOINT"
+              value: "api.eu.mailgun.net"
             - name: "MAIL_FROM_ADDRESS"
               value: "hello@dorcas.ng"
             - name: "QUEUE_DRIVER"
@@ -93,6 +105,8 @@
               value: "dorcas-hub-queue"
             - name: "AZURE_STORAGE_CONTAINER"
               value: "dorcas-storage"
+            - name: "REDIS_QUEUE"
+              value: "dorcas-hub-queue"
     supervisor:
       worker01:
         name: hub-worker
@@ -134,7 +148,7 @@
       tags:
         - pull
         - deploy
-    - name: adjust privileges and ownerships for the directories
+    - name: adjust privileges and ownerships for the directories and create log files
       file:
         path="{{ item.path }}"
         state={{ item.state | default(omit) }}
@@ -146,6 +160,8 @@
         - { path: "{{ dest_path }}", state: "directory", recurse: "yes" }
         - { path: "{{ dest_path }}/bootstrap/cache", state: "directory", recurse: "yes", mode: 'u=rwx,g=rwx,o=rwx' }
         - { path: "{{ dest_path }}/storage", state: "directory", recurse: "yes", mode: 'u=rwx,g=rwx,o=rwx' }
+        - { path: "{{ dest_path }}/storage/logs", state: "directory", recurse: "yes", mode: 'u=rwx,g=rwx,o=rw' }
+        - { path: "{{ dest_path }}/storage/logs/laravel.log", state: "touch", mode: 'u=rwx,g=rw,o=rw' }
         - { path: "{{ dest_path }}/artisan", state: "file", mode: 'u=rwx,g=rx,o=x' }
       become: yes
       become_method: sudo

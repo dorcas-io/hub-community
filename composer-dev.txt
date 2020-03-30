@@ -23,7 +23,7 @@
         "dorcas/modules-dashboard": "@dev",
         "dorcas/modules-ecommerce": "@dev",
         "dorcas/modules-finance": "@dev",
-        "dorcas/modules-finance-tax": "@dev",
+        "dorcas/modules-finance": "@dev",
         "dorcas/modules-integrations": "@dev",
         "dorcas/modules-library": "@dev",
         "dorcas/modules-marketplace": "@dev",

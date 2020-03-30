@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Hostville\Dorcas\Sdk;
 
 class LoginController extends Controller
 {
@@ -53,8 +54,22 @@ class LoginController extends Controller
     public function showLoginForm(Request $request)
     {
         $this->data['header']['title'] = 'Login';
-
         $this->setViewUiResponse($request);
+
+        $sdk = app(Sdk::class);
+
+        /*if (app()->getProvider(Dorcas\ModulesAuth\ModulesAuthServiceProvider::class)) {
+
+            $authMedia = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getLoginMedia($request, $sdk, "login", "all", "image");
+
+            $this->data['authMedia'] = $authMedia;
+
+        }  else {
+            dd("no provider");
+        }*/
+
+        $authMedia = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthMedia($request, $sdk, "login", "all", "image");
+        $this->data['authMedia'] = $authMedia;
 
         return view('modules-auth::login', $this->data);
         //return view('auth.login-v2', $this->data);
