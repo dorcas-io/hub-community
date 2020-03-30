@@ -307,6 +307,7 @@ class Controller extends BaseController
                 return (object) $account;
             });
         });
+
         return $accounts;
     }
 
@@ -320,7 +321,7 @@ class Controller extends BaseController
         $sdk = $sdk ?: app(Sdk::class);
         $company = auth()->user()->company(true, true);
         # get the company
-        $authorities = Cache::remember('finance.tax.authority.'.$company->id, 30, function () use ($sdk) {
+//        $authorities = Cache::remember('finance.tax.authority.'.$company->id, 30, function () use ($sdk) {
             $response = $sdk->createTaxResource()->addQueryArgument('limit', 10000)
                 ->send('get', ['authority']);
             if (!$response->isSuccessful()) {
@@ -329,8 +330,8 @@ class Controller extends BaseController
             return collect($response->getData())->map(function ($authorities) {
                 return (object) $authorities;
             });
-        });
-        return $authorities;
+//        });
+        return $response;
     }
 
     public function getPeoplePayrollAuthorities(Sdk $sdk = null){
@@ -338,7 +339,7 @@ class Controller extends BaseController
         $company = auth()->user()->company(true, true);
         # get the company
 
-        $authorities = Cache::remember('payroll.authority.'.$company->id, 30, function () use ($sdk) {
+//        $authorities = Cache::remember('payroll.authority.'.$company->id, 30, function () use ($sdk) {
             $response = $sdk->createPayrollResource()->addQueryArgument('limit', 10000)
                 ->send('get', ['authority']);
             if (!$response->isSuccessful()) {
@@ -347,8 +348,8 @@ class Controller extends BaseController
             return collect($response->getData())->map(function ($authorities) {
                 return (object) $authorities;
             });
-        });
-        return $authorities;
+//        });
+        return $response;
     }
 
     /**
