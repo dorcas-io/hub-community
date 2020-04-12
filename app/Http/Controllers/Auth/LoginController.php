@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Hostville\Dorcas\Sdk;
+use Carbon\Carbon;
+use App\Dorcas\Hub\Utilities\UiResponse\UiResponse;
 
 class LoginController extends Controller
 {
@@ -98,6 +100,35 @@ class LoginController extends Controller
         }
         $request->session()->put('viewMode', $viewMode);
         # set it to the session
+
+        //dd($company);
+
+        $currentExpiry = Carbon::parse($company["access_expires_at"]);
+        $createdDate = Carbon::parse($company["created_at"]);
+        $dDay = Carbon::parse("30th March 2020 10:08 PM");
+
+        if ($createdDate->lessThan($dDay) && $currentExpiry->lessThan($dDay->addYear()) ) { //update the expiry if old customer whose expiry has not  been updated
+            //dd($dDay);  && $currentExpiry->lessThan($dDay->addYear())
+            
+            try {
+                $new_expiry = Carbon::now()->addYear()->subDay()->endOfDay();
+
+                $sdk = app(Sdk::class);
+                $query = $sdk->createCompanyService()->addBodyParam('access_expires_at', $new_expiry->format('Y-m-d H:i:s'))
+                                                    ->addBodyParam('update_expiry', 'yes')
+                                                    ->send('PUT');
+
+                if (!$query->isSuccessful()) {
+                    //throw new \RuntimeException('Failed while updating your business information. Please try again.');
+                    $response = (tabler_ui_html_response([$query->getErrors()[0]['title'] ?? 'Error Updating  Subscription']))->setType(UiResponse::TYPE_ERROR);
+                } else {
+                    $response = (tabler_ui_html_response(['Congratulations! Your subscription expiry has been successfully extended till ' . $new_expiry->toDayDateTimeString() . '!']))->setType(UiResponse::TYPE_SUCCESS);
+                }
+            } catch (\Exception $e) {
+                $response = (tabler_ui_html_response([$e->getMessage()]))->setType(UiResponse::TYPE_ERROR);
+            }
+        }
+
         try {
             # we use this opportunity to sync the user data with what we have in our db
             DB::transaction(function () use ($dorcasUser) {

@@ -64,6 +64,15 @@ return [
         'navbar' => true,
         'sub-menu' => []
     ],
+    'modules-ops' => [
+        'icon' => 'fa fa-building',
+        'dashboard' => 'business',
+        'title' => 'Operations',
+        'route' => 'operations',
+        'clickable' => false,
+        'navbar' => true,
+        'sub-menu' => []
+    ],
     'addons' => [
         'icon' => 'fa fa-laptop',
         'dashboard' => 'business',
@@ -77,7 +86,7 @@ return [
                 'route' => 'marketplace-main',
                 'icon' => 'fa fa-handshake-o',
                 'clickable' => true,
-                'navbar' => true,
+                'navbar' => false,
                 'sub-menu' => []
             ],
             'modules-library' => [
@@ -93,7 +102,7 @@ return [
                 'route' => 'app-store-main',
                 'icon' => 'fa fa-gift',
                 'clickable' => true,
-                'navbar' => true,
+                'navbar' => false,
                 'sub-menu' => []
             ],
             'modules-integrations' => [
@@ -101,7 +110,7 @@ return [
                 'route' => 'integrations-main',
                 'icon' => 'fa fa-gears',
                 'clickable' => true,
-                'navbar' => true,
+                'navbar' => false,
                 'sub-menu' => []
             ]
         ]
