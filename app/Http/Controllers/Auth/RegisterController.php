@@ -55,7 +55,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm(Request $request)
     {
-        $this->data['header']['title'] = 'Create an Account';
+        $this->data['header']['title'] = 'Sign Up for an Account';
 
         $plans = $request->only(['starter', 'classic', 'premium']);
         # we decide the plan from the URL
@@ -70,9 +70,25 @@ class RegisterController extends Controller
         $this->data['plan_type'] = !empty($plans[$plan]) && $plans[$plan] === 'yearly' ? 'yearly' : 'monthly';
         # set the plan type
 
+
+        //https://hub.dorcas.io/register?module=customers&package=starter&location=hub_screenshot
+
+        //lets decide the preference module
+        $possible_modules = ['customers','people','finance','ecommerce','sales'];
+        $module_preference = $request->query('module', 'all');
+
+        $module = in_array($module_preference, $possible_modules) ? $module_preference : "all";
+
+        $request->session()->put('modulePreference', $module);
+        $this->data['module'] = $module;
+
+        /*if ($request->session()->has('users')) {
+            //
+        }*/
+
         $sdk = app(Sdk::class);
 
-        $authMedia = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthMedia($request, $sdk, "register", "all", "image");
+        $authMedia = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthMedia($request, $sdk, "register", $module, "image");
         $this->data['authMedia'] = $authMedia;
 
 
@@ -141,6 +157,8 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
+
+        //dd($request->all());
 
         event(new Registered($user = $this->create($request, $request->all())));
 

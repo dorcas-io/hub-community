@@ -1,5 +1,5 @@
                     @php
-                        $acceptable_modules = array('modules-access-grants','modules-access-requests','modules-app-store','modules-assistant','modules-customers','modules-dashboard','modules-dashboard-vpanel','modules-ecommerce','modules-finance','modules-integrations','modules-library','modules-marketplace','modules-people','modules-sales','modules-service-profile','modules-service-requests','modules-settings','addons');
+                        $acceptable_modules = array('modules-access-grants','modules-access-requests','modules-app-store','modules-assistant','modules-customers','modules-dashboard','modules-dashboard-vpanel','modules-ecommerce','modules-finance','modules-ops','modules-integrations','modules-library','modules-marketplace','modules-people','modules-sales','modules-service-profile','modules-service-requests','modules-settings','addons');
 
                         $modules_permission_key = array(
                             'modules-access-grants' => '',
@@ -11,6 +11,7 @@
                             'modules-dashboard-vpanel' => '',
                             'modules-ecommerce' => 'ecommerce',
                             'modules-finance' => 'finance',
+                            'modules-ops' => 'operations',
                             'modules-integrations' => 'integrations',
                             'modules-library' => '',
                             'modules-marketplace' => '',
@@ -21,7 +22,9 @@
                             'modules-settings' => 'settings',
                             'addons' => 'addons'
                         );
+                        //dd(config('navigation-menu'));
                     @endphp
+
                     @foreach(config('navigation-menu') as $key => $value)
                         @if ( in_array($key,$acceptable_modules) && $value['navbar'] && ($value['dashboard']==$viewMode || $value['dashboard']=='all') )
                             @php
