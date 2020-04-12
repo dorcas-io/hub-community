@@ -352,6 +352,89 @@ class Controller extends BaseController
         return $response;
     }
 
+    /*
+     * This function gets Approvals
+     */
+
+    public function getPeopleApprovals(Sdk $sdk = null){
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        # get the company
+
+        $response = $sdk->createApprovalsResource()->addQueryArgument('limit', 10000)
+            ->send('get', ['approval']);
+        if (!$response->isSuccessful()) {
+            return null;
+        }
+        return collect($response->getData())->map(function ($approvals) {
+            return (object) $approvals;
+        });
+        return $response;
+    }
+
+    public function getUsers(Sdk $sdk= null){
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        $resource = $sdk->createUserResource()->addQueryArgument('limit', 10000);
+        $response =  $resource->relationships('company')->send('get');
+        if (!$response->isSuccessful()) {
+            return null;
+        }
+        return collect($response->getData())->map(function ($users) {
+            return (object) $users;
+        });
+        return $response;
+    }
+
+    public function getPeopleLeaveTypes(Sdk $sdk = null){
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        # get the company
+
+        $response = $sdk->createLeavesResource()->addQueryArgument('limit', 10000)
+            ->send('get', ['types']);
+        if (!$response->isSuccessful()) {
+            return null;
+        }
+        return collect($response->getData())->map(function ($leave) {
+            return (object) $leave;
+        });
+        return $response;
+    }
+
+    public function getPeopleLeaveGroups(Sdk $sdk = null){
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        # get the company
+
+        $response = $sdk->createLeavesResource()->addQueryArgument('limit', 10000)
+            ->send('get', ['groups']);
+        if (!$response->isSuccessful()) {
+            return null;
+        }
+        return collect($response->getData())->map(function ($leave) {
+            return (object) $leave;
+        });
+        return $response;
+    }
+
+    public function getEmployeeLeaveRequest(Sdk $sdk = null){
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        # get the company
+
+        $response = $sdk->createLeavesResource()
+            ->addQueryArgument('limit', 10000)
+            ->addQueryArgument('user_id', \auth()->user()->id)
+            ->send('get', ['requests']);
+        if (!$response->isSuccessful()) {
+            return null;
+        }
+        return collect($response->getData())->map(function ($leave) {
+            return (object) $leave;
+        });
+        return $response;
+    }
     /**
      * @param Sdk|null $sdk
      *
