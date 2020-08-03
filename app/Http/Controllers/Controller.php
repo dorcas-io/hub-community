@@ -372,6 +372,22 @@ class Controller extends BaseController
         return $response;
     }
 
+    public function getTranstrakAccount(Sdk $sdk = null){
+        $sdk = $sdk ?: app(Sdk::class);
+        $company = auth()->user()->company(true, true);
+        # get the company
+
+        $response = $sdk->createFinanceResource()
+            ->send('get', ['transtrak','mail']);
+        if (!$response->isSuccessful()) {
+            return null;
+        }
+        return collect($response->getData())->map(function ($transtrak) {
+            return (object) $transtrak;
+        });
+        return $response;
+    }
+
     public function getUsers(Sdk $sdk= null){
         $sdk = $sdk ?: app(Sdk::class);
         $company = auth()->user()->company(true, true);
