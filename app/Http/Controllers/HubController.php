@@ -15,7 +15,81 @@ use Carbon\Carbon;
 
 class HubController extends Controller
 {
-    
+    const DORCAS_SUBSCRIPTIONS_PLANS = [
+        1 => [
+            'partner' => 0,
+            'plan' => 'starter',
+            'title' => 'Starter',
+            'next' => 2
+        ],
+        2 => [
+            'partner' => 0,
+            'plan' => 'classic',
+            'title' => 'Classic',
+            'next' => 3
+        ],
+        3 => [
+            'partner' => 0,
+            'plan' => 'premium',
+            'title' => 'Premium',
+            'next' => 0
+        ]
+    ];
+
+    // STARTER SUBSCRIPTIONS MUST ALWAYS HAVE ONLY 1 MODULE ENTRY BELOW!!!
+
+    const DORCAS_SUBSCRIPTIONS_MODULES = [
+        1 => [
+            'partner' => 0,
+            'subscription_id' => 1,
+            'slug' => 'getting_started',
+            'title' => 'Getting Started',
+            'modules' => ["customers","operations"],
+            'trial_days' => 365,
+            'cost_month' => 0,
+            'cost_year' => 0
+        ],
+        2 => [
+            'partner' => 0,
+            'subscription_id' => 2,
+            'slug' => 'selling_online',
+            'title' => 'Selling Online',
+            'modules' => ["ecommerce","sales"],
+            'trial_days' => 60,
+            'cost_month' => 3000,
+            'cost_year' => 30000
+        ],
+        3 => [
+            'partner' => 0,
+            'subscription_id' => 2,
+            'slug' => 'payroll',
+            'title' => 'Payroll',
+            'modules' => ["people"],
+            'trial_days' => 60,
+            'cost_month' => 2000,
+            'cost_year' => 20000
+        ],
+        4 => [
+            'partner' => 0,
+            'subscription_id' => 2,
+            'slug' => 'finance',
+            'title' => 'Finance',
+            'modules' => ["finance"],
+            'trial_days' => 60,
+            'cost_month' => 3000,
+            'cost_year' => 30000
+        ],
+        5 => [
+            'partner' => 0,
+            'subscription_id' => 2,
+            'slug' => 'all',
+            'title' => 'Complete',
+            'modules' => ["customers","operations","ecommerce","sales","people","finance"],
+            'trial_days' => 60,
+            'cost_month' => 5000,
+            'cost_year' => 50000
+        ]
+    ];
 
     /**
      * Create a new Dorcas Hub controller instance.
@@ -273,5 +347,55 @@ class HubController extends Controller
         
         return response()->json($billsQuery->getData());
     }
+
+    public static function getPartnerSubscriptionMeta(Request $request, Sdk $sdk)
+    {
+        $company = !empty($request->user()) && !empty($request->user()->company(true, true)) ? $request->user()->company(true, true) : null;
+
+        $plan = $request->session()->get('planConfiguration');
+        $plan_name = $plan["name"] ?? "starter";
+
+        $partner_id = 0; // we need to collect real partner ID
+
+        $partnerSubscriptionKey = collect(self::DORCAS_SUBSCRIPTIONS_PLANS)->filter(function ($plans_value, $plans_key) use ($partner_id, $plan_name) {
+            return $plans_value["partner"] === $partner_id && $plans_value["plan"] === $plan_name;
+        })->keys()->first();
+        $partnerSubscriptionValue = collect(self::DORCAS_SUBSCRIPTIONS_PLANS)->filter(function ($plans_value, $plans_key) use ($partner_id, $plan_name) {
+            return $plans_value["partner"] === $partner_id && $plans_value["plan"] === $plan_name;
+        })->values()->first();
+        
+        $partnerSubscriptions = collect(self::DORCAS_SUBSCRIPTIONS_PLANS)->filter(function ($plans_value, $plans_key) use ($partner_id, $plan_name) {
+            return $plans_value["partner"] === $partner_id;
+        })->all();
+
+        $partnerSubscriptionModules = collect(self::DORCAS_SUBSCRIPTIONS_MODULES)->filter(function ($modules_value, $modules_key) use ($partner_id) {
+            return $modules_value["partner"] == $partner_id;
+        })->all();
+        /*->map(function ($modules_value, $modules_key) use ($partner_id) {
+            $plans = self::DORCAS_SUBSCRIPTIONS_PLANS;
+            $key = $modules_value["subscription_id"];
+            return $modules_value[] = $plans[$key];
+        })*/
+
+        $partnerSubscriptionModulesCurrent = collect(self::DORCAS_SUBSCRIPTIONS_MODULES)->filter(function ($modules_value, $modules_key) use ($partnerSubscriptionKey) {
+            return $modules_value["subscription_id"] == $partnerSubscriptionKey;
+        })->all();
+
+        $partnerSubscriptionUpgradeKey = $partnerSubscriptionValue["next"];
+
+        $partnerSubscriptionModulesUpgrade = collect(self::DORCAS_SUBSCRIPTIONS_MODULES)->filter(function ($modules_value, $modules_key) use ($partnerSubscriptionUpgradeKey) {
+            return $modules_value["subscription_id"] == $partnerSubscriptionUpgradeKey;
+        })->all();
+
+        return array(
+            "partnerSubscriptionKey" => $partnerSubscriptionKey,
+            "partnerSubscriptionValue" => $partnerSubscriptionValue,
+            "partnerSubscriptions" => $partnerSubscriptions,
+            "partnerSubscriptionModules" => $partnerSubscriptionModules,
+            "partnerSubscriptionModulesCurrent" => $partnerSubscriptionModulesCurrent,
+            "partnerSubscriptionModulesUpgrade" => $partnerSubscriptionModulesUpgrade
+        );
+    }
+
 
 }

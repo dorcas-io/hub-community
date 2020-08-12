@@ -92,10 +92,14 @@ class ViewComposerServiceProvider extends ServiceProvider
 
                 $view->with('business', $company);
                 
-                $defaultUiConfiguration = collect(HomeController::SETUP_UI_COMPONENTS)->map(function ($ui) {
+                /*$defaultUiConfiguration = collect(HomeController::SETUP_UI_COMPONENTS)->map(function ($ui) {
                     return $ui['id'];
-                })->all();
+                })->all();*/
                 # the default UI configuration for user accounts - everything visible
+                $defaultUiConfiguration = collect(HomeController::SETUP_UI_COMPONENTS)->filter(function ($ui) {
+                    return $ui['base']===true;
+                })->all();
+                # return the base configuration instead
                 
                 if (empty($dorcasUser->meta['granted_for'])) {
                     # not using grants -- regular users
@@ -108,7 +112,7 @@ class ViewComposerServiceProvider extends ServiceProvider
                         $view->with('showUiModalAccessMenu', false);
                     } else {
                         $effectiveUiConfiguration = $configurations['ui_setup'] ?? $defaultUiConfiguration;
-                        $effectiveUiConfiguration[] = 'settings';
+                        //$effectiveUiConfiguration[] = 'settings';
                     }
                     
                 } else {
@@ -125,6 +129,10 @@ class ViewComposerServiceProvider extends ServiceProvider
                 $view->with('allowPlanSwitch', $allowSwitch);
                 $view->with('isOnPaidPlan', $planPrice > 0);
                 $view->with('isOnPremiumPlan', $company->plan['data']['name'] === 'premium');
+                $planConfiguration = array("id" => $company->plan['data']['id'], "name" => $company->plan['data']['name']);
+                $view->with('planConfiguration', $planConfiguration);
+                $request->session()->put('planConfiguration',$planConfiguration);
+
 
                 $view->with('dorcasSubdomain', get_dorcas_subdomain($dorcasUser->getDorcasSdk()));
                 # set the dorcas.ng subdomain for the authenticated user

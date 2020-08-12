@@ -145,6 +145,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:80|unique:users',
             'password' => 'required|string|min:6',
             'company' => 'nullable|max:100',
+            'feature_select' => 'required|string|max:50',
             'phone' => 'required|numeric',
         ], [
             'phone.numeric' => 'The phone number should only contain numbers'
