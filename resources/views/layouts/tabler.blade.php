@@ -134,6 +134,8 @@
 <script src="{{cdn('apps/tabler/js/vendors/selectize.min.js')}}"></script>
 <script src="{{cdn('apps/tabler/js/lib/flatpickr/dist/flatpickr.min.js')}}"></script>
 <script src="{{ cdn('apps/tabler/js/app.js') }}"></script>
+
+
 <!--custom-script.js - Add your own theme custom JS-->
 <script src="{{ cdn('apps/tabler/js/custom-vue.js') }}"></script>
 <script src="{{ cdn('apps/tabler/js/custom_script.js') }}"></script>
@@ -141,6 +143,14 @@
 
 <script src="{{ cdn('js/hopscotch.js') }}"></script>
 <script src="{{ cdn('js/dorcas_hub_tours.js') }}"></script>
+
+<!-- <script src="{{ cdn('apps/tabler/js/require.min.js') }}"></script>
+<script>
+    requirejs.config({
+        baseUrl: '.'
+  });
+</script> -->
+
 <!-- Production JS code -->
 @if (app()->environment() === 'production')
     @include('layouts.blocks.production-js')
