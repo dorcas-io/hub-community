@@ -1,0 +1,4 @@
+Currency,Amount,Memo,Source (Type),Source (Info),Date (YYYY-MM-DD)
+NGN,10800,Sale of Chanel handbag,Shop (POS),Point of Sale,2018-09-10
+NGN,13450.5,Sale of bags (1 units),Manual,,
+NGN,200.01,SMS Charges,Bank,,2018-11-02
