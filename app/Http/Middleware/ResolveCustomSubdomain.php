@@ -25,7 +25,7 @@ class ResolveCustomSubdomain
     ];
     
     /** @var array  */
-    protected $standardHosts = ['dorcas.io', 'dorcas.ng'];
+    protected $standardHosts = config('app.standard_hosts');
     
     /**
      * ResolveCustomSubdomain constructor.
