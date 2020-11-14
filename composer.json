@@ -4,48 +4,11 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-<<<<<<< HEAD
-    "repositories": [{
-        "type": "path",
-        "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/*",
-        "symlink": true
-    }],
-=======
     "repositories":[],
->>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
     "require": {
         "php": ">=7.0.0",
         "ext-json": "*",
         "aws/aws-sdk-php": "^3.52",
-<<<<<<< HEAD
-        "barryvdh/laravel-dompdf": "^0.8.6",
-        "bugsnag/bugsnag-laravel": "^2.0",
-        "dorcas/laravel-compat": "@dev",
-        "dorcas/modules-access-requests": "@dev",
-        "dorcas/modules-app-store": "@dev",
-        "dorcas/modules-assistant": "@dev",
-        "dorcas/modules-auth": "@dev",
-        "dorcas/modules-customers": "@dev",
-        "dorcas/modules-dashboard": "@dev",
-        "dorcas/modules-ecommerce": "@dev",
-        "dorcas/modules-finance": "@dev",
-        "dorcas/modules-finance-tax": "@dev",
-        "dorcas/modules-finance-transtrak": "@dev",
-        "dorcas/modules-integrations": "@dev",
-        "dorcas/modules-library": "@dev",
-        "dorcas/modules-marketplace": "@dev",
-        "dorcas/modules-people": "@dev",
-        "dorcas/modules-people-approval": "@dev",
-        "dorcas/modules-people-leaves": "@dev",
-        "dorcas/modules-people-payroll": "@dev",
-        "dorcas/modules-sales": "@dev",
-        "dorcas/modules-service-profile": "@dev",
-        "dorcas/modules-service-requests": "@dev",
-        "dorcas/modules-settings": "@dev",
-        "dorcas/resellerclub-php": "@dev",
-        "dorcas/sdk-php-laravel": "@dev",
-=======
-        "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "dev-master",
         "dorcas/modules-auth": "dev-master",
         "dorcas/modules-access-requests": "dev-master",
@@ -67,36 +30,11 @@
         "dorcas/modules-settings": "dev-master",
         "dorcas/resellerclub-php": "dev-master",
         "dorcas/sdk-php-laravel": "dev-master",
->>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
         "fedeisas/laravel-mail-css-inliner": "^2.2",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
         "kingflamez/laravelrave": "^1.0",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0",
-        "league/csv": "^9.1",
-<<<<<<< HEAD
-        "microsoft/windowsazure": "^0.5",
-=======
->>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
-        "moneyphp/money": "^3.1",
-        "moontoast/math": "^1.1",
-        "predis/predis": "^1.1",
-        "ramsey/uuid": "^3.7",
-        "yabacon/paystack-php": "^2.1"
-    },
-    "require-dev": {
-        "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0"
-    },
-    "autoload": {
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
-        "psr-4": {
             "App\\": "app/"
         },
         "files": [
@@ -110,12 +48,8 @@
     },
     "extra": {
         "laravel": {
-<<<<<<< HEAD
-            "dont-discover": []
-=======
             "dont-discover": [
             ]
->>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
         }
     },
     "scripts": {
@@ -133,10 +67,6 @@
     "config": {
         "sort-packages": true,
         "optimize-autoloader": true,
-<<<<<<< HEAD
-        "cache-files-ttl": 0
-=======
         "cache-files-ttl":0
->>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
     }
 }
