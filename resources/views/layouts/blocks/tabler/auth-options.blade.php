@@ -33,13 +33,13 @@
             <i class="dropdown-icon fe fe-mail"></i> Inbox
         </a>-->
         <!-- <div class="dropdown-divider"></div>
-        <a v-if="viewMode !== 'business'" class="dropdown-item" href="{{ safe_href_route('dashboard') ? route('dashboard').'?views=business' : '#' }}">
+        <a v-if="viewMode !== 'business'" class="dropdown-item" href="{{ safe_href_route('dashboard') ? route('dashboard').'?view=business' : '#' }}">
             <i class="dropdown-icon fa fa-address-card"></i> Business Dashboard
         </a>
-        <a v-if="viewMode !== 'professional' && loggedInUser.is_professional" class="dropdown-item" href="{{ safe_href_route('dashboard') ? route('dashboard').'?views=professional' : '#' }}">
+        <a v-if="viewMode !== 'professional' && loggedInUser.is_professional" class="dropdown-item" href="{{ safe_href_route('dashboard') ? route('dashboard').'?view=professional' : '#' }}">
             <i class="dropdown-icon fa fa-id-card"></i> Service Dashboard
         </a>
-        <a v-if="viewMode !== 'vendor' && loggedInUser.is_vendor" class="dropdown-item" href="{{ safe_href_route('dashboard') ? route('dashboard').'?views=vendor' : '#' }}">
+        <a v-if="viewMode !== 'vendor' && loggedInUser.is_vendor" class="dropdown-item" href="{{ safe_href_route('dashboard') ? route('dashboard').'?view=vendor' : '#' }}">
             <i class="dropdown-icon fa fa-id-card-o"></i> Vendor Dashboard
         </a> -->
 

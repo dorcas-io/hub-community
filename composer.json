@@ -4,15 +4,20 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+<<<<<<< HEAD
     "repositories": [{
         "type": "path",
         "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/*",
         "symlink": true
     }],
+=======
+    "repositories":[],
+>>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
     "require": {
         "php": ">=7.0.0",
         "ext-json": "*",
         "aws/aws-sdk-php": "^3.52",
+<<<<<<< HEAD
         "barryvdh/laravel-dompdf": "^0.8.6",
         "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "@dev",
@@ -39,6 +44,30 @@
         "dorcas/modules-settings": "@dev",
         "dorcas/resellerclub-php": "@dev",
         "dorcas/sdk-php-laravel": "@dev",
+=======
+        "bugsnag/bugsnag-laravel": "^2.0",
+        "dorcas/laravel-compat": "dev-master",
+        "dorcas/modules-auth": "dev-master",
+        "dorcas/modules-access-requests": "dev-master",
+        "dorcas/modules-app-store": "dev-master",
+        "dorcas/modules-assistant": "dev-master",
+        "dorcas/modules-customers": "dev-master",
+        "dorcas/modules-dashboard": "dev-master",
+        "dorcas/modules-ecommerce": "dev-master",
+        "dorcas/modules-finance": "dev-master",
+        "dorcas/modules-finance-tax": "dev-master",
+        "dorcas/modules-integrations": "dev-master",
+        "dorcas/modules-library": "dev-master",
+        "dorcas/modules-marketplace": "dev-master",
+        "dorcas/modules-people": "dev-master",
+        "dorcas/modules-people-payroll": "dev-master",
+        "dorcas/modules-sales": "dev-master",
+        "dorcas/modules-service-profile": "dev-master",
+        "dorcas/modules-service-requests": "dev-master",
+        "dorcas/modules-settings": "dev-master",
+        "dorcas/resellerclub-php": "dev-master",
+        "dorcas/sdk-php-laravel": "dev-master",
+>>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
         "fedeisas/laravel-mail-css-inliner": "^2.2",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
@@ -46,7 +75,10 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "league/csv": "^9.1",
+<<<<<<< HEAD
         "microsoft/windowsazure": "^0.5",
+=======
+>>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
         "moneyphp/money": "^3.1",
         "moontoast/math": "^1.1",
         "predis/predis": "^1.1",
@@ -78,7 +110,12 @@
     },
     "extra": {
         "laravel": {
+<<<<<<< HEAD
             "dont-discover": []
+=======
+            "dont-discover": [
+            ]
+>>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
         }
     },
     "scripts": {
@@ -96,6 +133,10 @@
     "config": {
         "sort-packages": true,
         "optimize-autoloader": true,
+<<<<<<< HEAD
         "cache-files-ttl": 0
+=======
+        "cache-files-ttl":0
+>>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65
     }
 }

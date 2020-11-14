@@ -231,7 +231,7 @@ class Profile extends Controller
         $pageNumber = $request->query('page', 1);
         # get the request data
         $viewMode = $request->session()->get('viewMode');
-        # get the views mode
+        # get the view mode
         $query = $sdk->createDirectoryResource()->addQueryArgument('limit', $limit)
                                                 ->addQueryArgument('page', $pageNumber);
         if ($viewMode !== 'professional') {

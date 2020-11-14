@@ -282,7 +282,7 @@
         });
 
         new Vue({
-            el: '#details-views',
+            el: '#details-view',
             data: {
                 product: {!! json_encode($product) !!},
                 subdomains: {!! json_encode($subdomains ?: []) !!},

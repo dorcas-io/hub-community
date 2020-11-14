@@ -40,7 +40,7 @@ Route::domain($storeSubDomain)->namespace('WebStore')->middleware(['web_store'])
     Route::get('/products', 'Home@products')->name('webstore.products');
     Route::get('/products/{id}', 'Home@productDetails')->name('webstore.products.details');
     Route::get('/cart', 'Cart@index')->name('webstore.cart');
-    Route::get('/product-quick-views/{id}', 'Home@quickView')->name('webstore.quick-views');
+    Route::get('/product-quick-view/{id}', 'Home@quickView')->name('webstore.quick-view');
     Route::delete('/xhr/cart', 'Cart@removeFromCartXhr');
     Route::post('/xhr/cart', 'Cart@addToCartXhr');
     Route::post('/xhr/cart/checkout', 'Cart@checkoutXhr');

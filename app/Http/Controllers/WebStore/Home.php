@@ -170,7 +170,7 @@ class Home extends Controller
         }
         $this->data['product'] = $product = (object) $json->data;
         $this->data['price'] = collect($product->prices->data)->where('currency', 'NGN')->first();
-        return view('webstore.quick-views', $this->data);
+        return view('webstore.quick-view', $this->data);
     }
 
     /**
