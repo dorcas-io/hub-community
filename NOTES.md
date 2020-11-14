@@ -1,0 +1,3 @@
+- video beside register page
+- registration steps guide flow on hub
+- 
