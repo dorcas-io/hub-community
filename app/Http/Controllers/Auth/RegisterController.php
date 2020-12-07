@@ -161,12 +161,17 @@ class RegisterController extends Controller
 
         //dd($request->all());
 
-        event(new Registered($user = $this->create($request, $request->all())));
+
+        // event(new Registered($user = $this->create($request, $request->all())));
+       $user = $this->create($request, $request->all());
+
+
 
         $sdk = app(Sdk::class);
         $provider = new DorcasUserProvider($sdk);
         # get the provider
         $dorcasUser = $provider->retrieveByCredentials(['email' => $user->email, 'password' => $request->password]);
+
         # get the authenticated user
 
         $this->guard()->login($dorcasUser);
