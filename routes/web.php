@@ -148,6 +148,8 @@ Route::get('/register/professionals', 'Auth\RegisterController@showProfessionalR
 Route::get('/register/vendors', 'Auth\RegisterController@showVendorRegistrationForm')->name('vendor.register');
 Route::get('/professionals', 'Auth\RegisterController@showOldProfessionalRegistrationForm');
 
+
+
 /**
  * Route Group for XHR: /xhr/...
  */
