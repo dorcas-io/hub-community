@@ -46,7 +46,6 @@
       <change beforePath="$PROJECT_DIR$/../dorcas-business-base/app/Http/Controllers/Auth/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-business-base/app/Http/Controllers/Auth/Register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dorcas-business-base/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-business-base/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/AccountExistsException.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/ApplicationAccessDeniedException.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/DeletingFailedException.php" beforeDir="false" />
@@ -83,6 +82,29 @@
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="ft-develop" />
+                    <option name="lastUsedInstant" value="1607557746" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="business" />
+                    <option name="lastUsedInstant" value="1607557745" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -247,7 +269,7 @@
       <updated>1607517925473</updated>
       <workItem from="1607517935120" duration="4859000" />
       <workItem from="1607552201963" duration="40000" />
-      <workItem from="1607554825449" duration="2706000" />
+      <workItem from="1607554825449" duration="3061000" />
     </task>
     <servers />
   </component>
