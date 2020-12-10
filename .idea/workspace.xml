@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec1666b5-75ab-4925-9db1-1a1543ee1411" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../dorcas-hub/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-hub/.idea/commandlinetools/Laravel_09_12_2020__23_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-hub/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.idea/dorcas-modules.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.phpintel/a62c7c69566e46ec8c2e6a287d19efaa" afterDir="false" />
@@ -44,17 +41,9 @@
       <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/reports.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dorcas-business-base/app/Http/Controllers/Auth/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-business-base/app/Http/Controllers/Auth/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dorcas-business-base/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-business-base/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/AccountExistsException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/ApplicationAccessDeniedException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/DeletingFailedException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/Handler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-base/app/Exceptions/RecordNotFoundException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-base/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-base/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-base/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-base/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-hub/app/Http/Middleware/ResolveCustomSubdomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-hub/app/Http/Middleware/ResolveCustomSubdomain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-hub/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-hub/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/navigation-menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/navigation-menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/Http/Controllers/ModulesAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/Http/Controllers/ModulesAuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/config/modules-auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/config/modules-auth.php" afterDir="false" />
@@ -78,7 +67,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../dorcas-hub" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -100,6 +89,21 @@
                 </list>
               </option>
               <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="ft-develop" />
+                    <option name="lastUsedInstant" value="1607559278" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="business" />
+                    <option name="lastUsedInstant" value="1607559277" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/../dorcas-business-base" />
             </RecentBranchesForRepo>
           </list>
         </option>
@@ -269,7 +273,7 @@
       <updated>1607517925473</updated>
       <workItem from="1607517935120" duration="4859000" />
       <workItem from="1607552201963" duration="40000" />
-      <workItem from="1607554825449" duration="3061000" />
+      <workItem from="1607554825449" duration="8272000" />
     </task>
     <servers />
   </component>
@@ -281,13 +285,24 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1607526737118" />
-    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup" timestamp="1607557101670">
+    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup" timestamp="1607563880417">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607557101670" />
+    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607563880417" />
     <state x="450" y="360" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1607557444249">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="450" y="360" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1440.900@0.0.1440.900" timestamp="1607557444249" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../../dorcas-modules/modules-people/src/resources/views/teams/team.blade.php</url>
+          <line>201</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
