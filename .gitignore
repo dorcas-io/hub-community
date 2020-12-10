@@ -9,7 +9,9 @@ app/storage/
 dorcas-hub.yaml
 hostville_dorcashub.sql
 BaltimoreCyberTrustRoot.crt.pem
-
+composer-dev.txt
+composer-live.txt
+ansible-automation
 # Laravel 5 & Lumen specific
 public/storage
 public/hot
