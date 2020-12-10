@@ -52,7 +52,7 @@ return [
         'title' => 'Finance',
         'route' => 'finance',
         'clickable' => false,
-        'navbar' => false,
+        'navbar' => true,
         'sub-menu' => []
     ],
     'modules-sales' => [
