@@ -11,10 +11,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/dorcas/modules-finance-transtrak" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dorcas/modules-people-approval" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dorcas/modules-people-leaves" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/mime-type-detection" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-font-lib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-svg-lib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sabberworm/php-css-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/stillat/numeral.php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
