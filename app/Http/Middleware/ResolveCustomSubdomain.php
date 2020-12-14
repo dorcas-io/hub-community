@@ -25,8 +25,8 @@ class ResolveCustomSubdomain
     ];
     
     /** @var array  */
-    protected $standardHosts = ['dorcas.io', 'dorcas.ng','dorcas-hub.test'];
-    
+    protected $standardHosts = [];
+
     /**
      * ResolveCustomSubdomain constructor.
      */
@@ -145,7 +145,7 @@ class ResolveCustomSubdomain
      *
      * @return string|null
      */
-    public function getServiceRedirectUrl(DorcasSubdomain $domainInfo, string $path, string $query = null): ?string
+    public function getServiceRedirectUrl(DorcasSubdomain $domainInfo, string $path, string $query = null): ? string
     {
         if ($domainInfo->getService() === null || !starts_with($path, array_values($this->redirectPathsToSubdomain))) {
             # no resolved service OR it's not a service configured for compulsory redirect
@@ -166,11 +166,13 @@ class ResolveCustomSubdomain
      */
     public function splitHost(string $host, string $path = null): DorcasSubdomain
     {
+       $this->standardHosts[] = env('STANDARD_HOST');
         if (in_array($host, $this->standardHosts, true)) {
-            throw new \RuntimeException('Accessing via the regular domain.');
+          throw new \RuntimeException('Accessing via the regular domain.');
         }
         $parts = explode('.', $host, 3);
-        # split it up to at most 3 parts -- we're trying to match things like:
+
+      # split it up to at most 3 parts -- we're trying to match things like:
         # xyz.dorcas.io, xyz.store.dorcas.io
         $slug = $parts[0];
         # the actual sub-domain
@@ -185,7 +187,8 @@ class ResolveCustomSubdomain
             $serviceName = $service;
             break;
         }
-        if ($parts[count($parts) - 2] === 'dorcas') {
+
+      if ($parts[count($parts) - 2] === 'dorcas') {
             # since the 2nd to the last index is just dorcas - we merge it with the TLD
             $parts[1] .= '.' . $parts[2];
             if ($serviceName !== null) {
@@ -196,7 +199,8 @@ class ResolveCustomSubdomain
                 unset($parts[2]);
             }
         }
-        if (count($parts) === 3 && !starts_with($parts[2], 'dorcas')) {
+
+      if (count($parts) === 3 && !starts_with($parts[2], 'dorcas')) {
             # we still have 3 indexes in the array, but the host domain is a not a Dorcas domain
             $host = $parts[1] . '.' . $parts[2];
             # recreate the parts

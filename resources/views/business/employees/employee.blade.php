@@ -202,7 +202,7 @@
         });
 
         new Vue({
-            el: '#profile-views',
+            el: '#profile-view',
             data: {
                 employee: {!! json_encode($employee) !!},
                 saving: false

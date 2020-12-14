@@ -1,2 +1,5 @@
 *.sqlite
+<<<<<<< HEAD
 config/database.php
+=======
+>>>>>>> 160f9e2e9af775e01e2b7fdc30ec9fefa65c8e65

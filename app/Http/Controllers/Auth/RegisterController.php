@@ -161,18 +161,32 @@ class RegisterController extends Controller
 
         //dd($request->all());
 
-        event(new Registered($user = $this->create($request, $request->all())));
 
+        // event(new Registered($user = $this->create($request, $request->all())));
+         $user = $this->create($request, $request->all());
+         event(new Registered($user));
         $sdk = app(Sdk::class);
         $provider = new DorcasUserProvider($sdk);
         # get the provider
         $dorcasUser = $provider->retrieveByCredentials(['email' => $user->email, 'password' => $request->password]);
+
         # get the authenticated user
 
         $this->guard()->login($dorcasUser);
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());
+    }
+
+    public function installerRegistration(Request $request){
+        $user = $this->installerCreate($request, $request->all());
+        event(new Registered($user));
+        $sdk = app(Sdk::class);
+        $provider = new DorcasUserProvider($sdk);
+        # get the provider
+        $dorcasUser = $provider->retrieveByCredentials(['email' => $user->email, 'password' => $request->password]);
+
+        return response()->json(['message' => 'registration succesful','user' => $user],201);
     }
     
     /**
@@ -194,6 +208,62 @@ class RegisterController extends Controller
         $domain = $request->session()->get('domain');
         # the domain the registration occurred on
         $partner = $request->session()->get('partner');
+        # get the partner
+        if (!empty($partner)) {
+            $data['partner'] = $partner->id;
+        }
+        $response = create_account($sdk, $data);
+        if (!$response->isSuccessful()) {
+            throw new \RuntimeException($response->errors[0]['title'] ?? 'Error while creating the Dorcas account!');
+        }
+        $dorcasUser = new DorcasUser($response->getData(), $sdk);
+        # create the user
+        $user = null;
+        $company = null;
+        try {
+            DB::transaction(function () use ($dorcasUser, &$user) {
+                $data = $dorcasUser->company(true, true);
+                # get the company data
+                $company = Company::create([
+                    'uuid' => $data->id,
+                    'reg_number' => $data->registration,
+                    'name' => $data->name,
+                    'phone' => $data->phone,
+                    'email' => $data->email,
+                    'website' => $data->website
+                ]);
+                # create the company
+                $user = $company->users()->create([
+                    'uuid' => $dorcasUser->id,
+                    'firstname' => $dorcasUser->firstname,
+                    'lastname' => $dorcasUser->lastname,
+                    'email' => $dorcasUser->email,
+                    'password' => $dorcasUser->password,
+                    'gender' => $dorcasUser->gender,
+                    'photo_url' => $dorcasUser->photo,
+                    'is_verified' => (int) $dorcasUser->is_verified
+                ]);
+                # create the user
+            });
+            event(new SignedUp($user, $partner, $domain));
+            
+        } catch (\Throwable $e) {
+            Log::error($e->getMessage());
+        }
+        return $user;
+    }
+
+
+    protected function installerCreate(Request $request, array $data)
+    {
+        $sdk = app(Sdk::class);
+        $data['company'] = empty($data['company']) ? $data['firstname']. ' ' . $data['lastname'] : $data['company'];
+        # set the company name as the user's full name when not available
+        $data['trigger_event'] = 0;
+        # we don't want the event on the API triggered
+        $domain = $request->get('domain');
+        # the domain the registration occurred on
+        $partner = $request->get('partner');
         # get the partner
         if (!empty($partner)) {
             $data['partner'] = $partner->id;

@@ -231,4 +231,8 @@ return [
 
     ],
 
+   'standard_hosts' => [
+     
+   ]
+
 ];

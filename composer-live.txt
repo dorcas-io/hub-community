@@ -15,7 +15,7 @@
         "dorcas/modules-access-requests": "dev-master",
         "dorcas/modules-app-store": "dev-master",
         "dorcas/modules-assistant": "dev-master",
-        "dorcas/modules-customers": "dev-maste  r",
+        "dorcas/modules-customers": "dev-master",
         "dorcas/modules-dashboard": "dev-master",
         "dorcas/modules-ecommerce": "dev-master",
         "dorcas/modules-finance": "dev-master",

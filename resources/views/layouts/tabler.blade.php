@@ -32,7 +32,6 @@
     <link href="{{ cdn('apps/tabler/plugins/iconfonts/plugin.css') }}" rel="stylesheet" />
     <link href="{{ cdn('apps/tabler/plugins/prismjs/plugin.css') }}" rel="stylesheet" />
     <link href="{{ cdn('apps/tabler/css/bootstrap-table.min.css') }}" rel="stylesheet" />
-    <link href="{{ cdn('apps/tabler/js/lib/flatpickr/dist/flatpickr.min.css') }}" rel="stylesheet" />
     <link href="{{ cdn('css/hopscotch.css') }}" rel="stylesheet" />
     <style type="text/css">
         .combodate {
@@ -131,8 +130,6 @@
 <script src="{{ cdn('apps/tabler/js/lib/bootstrap-table/bootstrap-table.min.js') }}"></script>
 <script src="{{ cdn('apps/tabler/js/lib/moment.min.js') }}"></script>
 <script src="{{ cdn('apps/tabler/js/lib/combodate.js') }}"></script>
-<script src="{{cdn('apps/tabler/js/vendors/selectize.min.js')}}"></script>
-<script src="{{cdn('apps/tabler/js/lib/flatpickr/dist/flatpickr.min.js')}}"></script>
 <script src="{{ cdn('apps/tabler/js/app.js') }}"></script>
 
 

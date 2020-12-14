@@ -9,19 +9,19 @@ class TablerNotification
 {
     /** @var string  */
     public $actor;
-    
+
     /** @var null|string  */
     public $photo;
-    
+
     /** @var string  */
     public $activity;
-    
+
     /** @var array  */
     public $action;
-    
+
     /** @var Carbon|null  */
     public $timestamp;
-    
+
     /**
      * TablerNotification constructor.
      *
@@ -38,9 +38,8 @@ class TablerNotification
         $this->photo = !empty($photo) ? $photo : null;
         $this->timestamp = $this->parseTimestamp($timestamp);
         $this->action = $this->parseAction($action);
-        
     }
-    
+
     /**
      * Parses the timestamp, converting it to an instance of Carbon.
      *
@@ -57,9 +56,9 @@ class TablerNotification
         }
         return Carbon::parse($timestamp);
     }
-    
+
     /**
-     * Parses the supplied action to be passed to the views.
+     * Parses the supplied action to be passed to the view.
      *
      * @param $action
      *
@@ -67,11 +66,11 @@ class TablerNotification
      */
     protected function parseAction($action): array
     {
-        if (! (is_array($action) || is_string($action))) {
+        if (!(is_array($action) || is_string($action))) {
             return ['data-action' => 'ignore'];
         }
         if (is_string($action)) {
-            return ['data-action' => 'views', 'data-url' => $action];
+            return ['data-action' => 'view', 'data-url' => $action];
         }
         $attributes = [];
         foreach ($action as $key => $value) {
@@ -82,7 +81,7 @@ class TablerNotification
         }
         return $attributes;
     }
-    
+
     /**
      * Converts this notification instance to an array.
      *

@@ -20,9 +20,9 @@ class ViewModeMiddleware
     public function handle($request, Closure $next)
     {
         $viewMode = $request->session()->get('viewMode', 'business');
-        # get the views mode
-        if ($request->query->has('views')) {
-            $viewMode = strtolower($request->query('views'));
+        # get the view mode
+        if ($request->query->has('view')) {
+            $viewMode = strtolower($request->query('view'));
             $viewMode = !in_array($viewMode, $this->supportedViews) ? 'business' : $viewMode;
         }
         $request->session()->put('viewMode', $viewMode);

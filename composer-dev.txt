@@ -4,22 +4,23 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories": [{
-        "type": "path",
-        "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/*",
-        "symlink": true
-    }],
+    "repositories":[
+        {
+            "type": "path",
+            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/*",
+            "symlink": true
+        }
+    ],
     "require": {
         "php": ">=7.0.0",
         "ext-json": "*",
         "aws/aws-sdk-php": "^3.52",
-        "barryvdh/laravel-dompdf": "^0.8.6",
         "bugsnag/bugsnag-laravel": "^2.0",
-        "dorcas/laravel-compat": "@dev",
+        "dorcas/laravel-compat": "dev-master",
+        "dorcas/modules-auth": "@dev",
         "dorcas/modules-access-requests": "@dev",
         "dorcas/modules-app-store": "@dev",
         "dorcas/modules-assistant": "@dev",
-         "dorcas/modules-auth": "@dev",
         "dorcas/modules-customers": "@dev",
         "dorcas/modules-dashboard": "@dev",
         "dorcas/modules-ecommerce": "@dev",
@@ -34,8 +35,8 @@
         "dorcas/modules-service-profile": "@dev",
         "dorcas/modules-service-requests": "@dev",
         "dorcas/modules-settings": "@dev",
-        "dorcas/resellerclub-php": "@dev",
-        "dorcas/sdk-php-laravel": "@dev",
+        "dorcas/resellerclub-php": "dev-master",
+        "dorcas/sdk-php-laravel": "dev-master",
         "fedeisas/laravel-mail-css-inliner": "^2.2",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
@@ -43,7 +44,6 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "league/csv": "^9.1",
-        "microsoft/windowsazure": "^0.5",
         "moneyphp/money": "^3.1",
         "moontoast/math": "^1.1",
         "predis/predis": "^1.1",
@@ -75,7 +75,8 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+            ]
         }
     },
     "scripts": {
@@ -93,6 +94,6 @@
     "config": {
         "sort-packages": true,
         "optimize-autoloader": true,
-        "cache-files-ttl": 0
+        "cache-files-ttl":0
     }
 }

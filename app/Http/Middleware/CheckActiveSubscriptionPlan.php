@@ -26,7 +26,7 @@ class CheckActiveSubscriptionPlan
         $allowEvenWhenExpired = ['plans', 'subscription','mse','mas', 'logout', 'login', 'register', 'password'];
         # paths to allow even when the account is in the expired state
         /*if (in_array($request->path(), $allowEvenWhenExpired)) {
-            # allow people to views the pages even when their account has expired
+            # allow people to view the pages even when their account has expired
             return $next($request);
         }*/
         if (starts_with($request->path(), $allowEvenWhenExpired)) {

@@ -52,11 +52,10 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
-//            'sslmode' => 'require',
-//            'options'   => array(
-//                PDO::MYSQL_ATTR_SSL_CA => '/var/www/hub.dorcas.ng/BaltimoreCyberTrustRoot.crt.pem',
-//            ),
-
+            'sslmode' => env('DB_SSLMODE', 'prefer'),
+             'options' => env('DB_SSLMODE') === "require" ? array(
+                PDO::MYSQL_ATTR_SSL_CA => '/var/www/hub.dorcas.ng/BaltimoreCyberTrustRoot.crt.pem',
+            ) : [],  
 
         ],
         'dorcas-api' => [
@@ -73,9 +72,9 @@ return [
             'strict' => true,
             'engine' => null,
             'sslmode' => 'require',
-            'options'   => array(
+            'options' => env('DB_SSLMODE') === "require" ? array(
                 PDO::MYSQL_ATTR_SSL_CA => '/var/www/hub.dorcas.ng/BaltimoreCyberTrustRoot.crt.pem',
-            ),
+            ) : [],  
         ],
 
         'pgsql' => [

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\User;
-use Hostville\Dorcas\LaravelCompat\Auth\DorcasUser;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -79,7 +78,7 @@ class LoginController extends Controller
 
     /**
      * @param Request $request
-     * @param    $dorcasUser
+     * @param         $dorcasUser
      */
     protected function authenticated(Request $request, $dorcasUser)
     {
