@@ -1,6 +1,6 @@
 {
-    "name": "dorcas/hub-enterprise",
-    "description": "The Dorcas Hub Enterprise Edition",
+    "name": "dorcas/hub-business",
+    "description": "The Dorcas Hub Business Edition",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
