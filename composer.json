@@ -4,11 +4,19 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories":[],
+    "repositories":[
+        {
+            "type":"path",
+            "url": "/Users/mac/Desktop/projects/hostvile/dorcas-projects/dorcas-modules/*",
+            "symlink":true
+        }
+    ],
     "require": {
         "php": ">=7.1",
         "ext-json": "*",
         "aws/aws-sdk-php": "^3.52",
+        "dorcas/modules-analytics":"@dev",
+        "dorcas/modules-sales":"@dev",
         "barryvdh/laravel-dompdf": "^0.8.7",
         "bugsnag/bugsnag-laravel": "^2.0",
         "dorcas/laravel-compat": "dev-master",
@@ -26,7 +34,6 @@
         "dorcas/modules-marketplace": "dev-master",
         "dorcas/modules-people": "dev-master",
         "dorcas/modules-people-payroll": "dev-master",
-        "dorcas/modules-sales": "dev-master",
         "dorcas/modules-service-profile": "dev-master",
         "dorcas/modules-service-requests": "dev-master",
         "dorcas/modules-settings": "dev-master",

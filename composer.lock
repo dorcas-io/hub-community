@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f2179493b8986b5a52054395c486ec5",
+    "content-hash": "695b5ddd0cb5cc0d6df8ef1f64c50682",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.166.2",
+            "version": "3.171.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "fe0ec9235d07b0f51ec4396dce0dd639020ae1a7"
+                "reference": "742663a85ec84647f74dea454d2dc45bba180f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fe0ec9235d07b0f51ec4396dce0dd639020ae1a7",
-                "reference": "fe0ec9235d07b0f51ec4396dce0dd639020ae1a7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/742663a85ec84647f74dea454d2dc45bba180f9d",
+                "reference": "742663a85ec84647f74dea454d2dc45bba180f9d",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-12-04T19:12:30+00:00"
+            "time": "2020-12-18T19:12:13+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -776,6 +776,29 @@
             "time": "2020-09-04T13:43:59+00:00"
         },
         {
+            "name": "dorcas/modules-analytics",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/Users/mac/Desktop/projects/hostvile/dorcas-projects/dorcas-modules/modules-analytics",
+                "reference": "bc3d7f408ceff40c3b1ae7ff7cd8fa3a63c158a1"
+            },
+            "type": "library",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "surmount96",
+                    "email": "ayanwoye74@gmail.com"
+                }
+            ],
+            "description": "Dorcas Hub Analytics Module",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "dorcas/modules-app-store",
             "version": "dev-master",
             "source": {
@@ -1320,12 +1343,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dorcas-io/modules-people.git",
-                "reference": "4f09bb68c8d771cff6d49dcf80036feb9cdd49b1"
+                "reference": "72e5a562892c258d831587c21679b784a78aad90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people/zipball/4f09bb68c8d771cff6d49dcf80036feb9cdd49b1",
-                "reference": "4f09bb68c8d771cff6d49dcf80036feb9cdd49b1",
+                "url": "https://api.github.com/repos/dorcas-io/modules-people/zipball/72e5a562892c258d831587c21679b784a78aad90",
+                "reference": "72e5a562892c258d831587c21679b784a78aad90",
                 "shasum": ""
             },
             "require": {
@@ -1361,21 +1384,15 @@
                 }
             ],
             "description": "Dorcas Hub People Module",
-            "time": "2020-09-04T14:05:41+00:00"
+            "time": "2020-12-10T01:37:19+00:00"
         },
         {
             "name": "dorcas/modules-people-payroll",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-people-payroll.git",
-                "reference": "30a6732473153add6a8fb2137629e799e07c7977"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people-payroll/zipball/30a6732473153add6a8fb2137629e799e07c7977",
-                "reference": "30a6732473153add6a8fb2137629e799e07c7977",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/mac/Desktop/projects/hostvile/dorcas-projects/dorcas-modules/modules-people-payroll",
+                "reference": "30a6732473153add6a8fb2137629e799e07c7977"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1400,7 +1417,16 @@
                     "Dorcas\\ModulesPeoplePayroll\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "post-install-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ],
+                "post-update-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ]
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1411,21 +1437,17 @@
                 }
             ],
             "description": "Dorcas Hub People Payroll Module",
-            "time": "2020-09-08T20:33:24+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-sales",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-sales.git",
-                "reference": "6d92dd2e110c9759f07d0e83039d51fba753bd1e"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-sales/zipball/6d92dd2e110c9759f07d0e83039d51fba753bd1e",
-                "reference": "6d92dd2e110c9759f07d0e83039d51fba753bd1e",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/mac/Desktop/projects/hostvile/dorcas-projects/dorcas-modules/modules-sales",
+                "reference": "6d92dd2e110c9759f07d0e83039d51fba753bd1e"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1449,7 +1471,6 @@
                     "Dorcas\\ModulesSales\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1460,7 +1481,9 @@
                 }
             ],
             "description": "Dorcas Hub Sales Module",
-            "time": "2020-09-08T20:32:47+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-service-profile",
@@ -1651,12 +1674,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dorcas-io/sdk-php-laravel.git",
-                "reference": "8bac29325371ac150e75cecfc8ac201ae08cea7b"
+                "reference": "e73508a8bebc60355080dddef776baf2af40597c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/sdk-php-laravel/zipball/8bac29325371ac150e75cecfc8ac201ae08cea7b",
-                "reference": "8bac29325371ac150e75cecfc8ac201ae08cea7b",
+                "url": "https://api.github.com/repos/dorcas-io/sdk-php-laravel/zipball/e73508a8bebc60355080dddef776baf2af40597c",
+                "reference": "e73508a8bebc60355080dddef776baf2af40597c",
                 "shasum": ""
             },
             "require": {
@@ -1699,7 +1722,7 @@
                 "php",
                 "sdk"
             ],
-            "time": "2020-08-25T11:57:29+00:00"
+            "time": "2020-12-06T23:03:46+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -2531,22 +2554,22 @@
         },
         {
             "name": "league/csv",
-            "version": "9.6.1",
+            "version": "9.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "634322df4aed210fdfbb7c94e434dc860da733d9"
+                "reference": "f28da6e483bf979bac10e2add384c90ae9983e4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/634322df4aed210fdfbb7c94e434dc860da733d9",
-                "reference": "634322df4aed210fdfbb7c94e434dc860da733d9",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/f28da6e483bf979bac10e2add384c90ae9983e4e",
+                "reference": "f28da6e483bf979bac10e2add384c90ae9983e4e",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "php": "^7.2.5"
+                "php": ">=7.2.5"
             },
             "require-dev": {
                 "ext-curl": "*",
@@ -2605,7 +2628,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-05T08:40:12+00:00"
+            "time": "2020-12-10T19:40:30+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2879,16 +2902,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.25.5",
+            "version": "1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1817faadd1846cd08be9a49e905dc68823bc38c0"
+                "reference": "2209ddd84e7ef1256b7af205d0717fb62cfc9c33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1817faadd1846cd08be9a49e905dc68823bc38c0",
-                "reference": "1817faadd1846cd08be9a49e905dc68823bc38c0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/2209ddd84e7ef1256b7af205d0717fb62cfc9c33",
+                "reference": "2209ddd84e7ef1256b7af205d0717fb62cfc9c33",
                 "shasum": ""
             },
             "require": {
@@ -2904,7 +2927,7 @@
                 "graylog2/gelf-php": "~1.0",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
-                "php-parallel-lint/php-parallel-lint": "^1.0",
+                "phpstan/phpstan": "^0.12.59",
                 "phpunit/phpunit": "~4.5",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
@@ -2924,11 +2947,6 @@
                 "sentry/sentry": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Monolog\\": "src/Monolog"
@@ -2962,7 +2980,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-23T08:35:51+00:00"
+            "time": "2020-12-14T12:56:38+00:00"
         },
         {
             "name": "moontoast/math",
@@ -3180,16 +3198,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.10.3",
+            "version": "v4.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "dbe56d23de8fcb157bbc0cfb3ad7c7de0cfb0984"
+                "reference": "c6d052fc58cb876152f89f532b95a8d7907e7f0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/dbe56d23de8fcb157bbc0cfb3ad7c7de0cfb0984",
-                "reference": "dbe56d23de8fcb157bbc0cfb3ad7c7de0cfb0984",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c6d052fc58cb876152f89f532b95a8d7907e7f0e",
+                "reference": "c6d052fc58cb876152f89f532b95a8d7907e7f0e",
                 "shasum": ""
             },
             "require": {
@@ -3228,7 +3246,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-12-03T17:45:45+00:00"
+            "time": "2020-12-20T10:01:03+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3411,16 +3429,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.29",
+            "version": "2.0.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "497856a8d997f640b4a516062f84228a772a48a8"
+                "reference": "136b9ca7eebef78be14abf90d65c5e57b6bc5d36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/497856a8d997f640b4a516062f84228a772a48a8",
-                "reference": "497856a8d997f640b4a516062f84228a772a48a8",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/136b9ca7eebef78be14abf90d65c5e57b6bc5d36",
+                "reference": "136b9ca7eebef78be14abf90d65c5e57b6bc5d36",
                 "shasum": ""
             },
             "require": {
@@ -3428,7 +3446,7 @@
             },
             "require-dev": {
                 "phing/phing": "~2.7",
-                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+                "phpunit/phpunit": "^4.8.35|^5.7|^6.0|^9.4",
                 "squizlabs/php_codesniffer": "~2.0"
             },
             "suggest": {
@@ -3512,7 +3530,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-08T04:24:43+00:00"
+            "time": "2020-12-17T05:42:04+00:00"
         },
         {
             "name": "predis/predis",
@@ -4070,32 +4088,31 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.2.3",
+            "version": "v6.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "149cfdf118b169f7840bbe3ef0d4bc795d1780c9"
+                "reference": "56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/149cfdf118b169f7840bbe3ef0d4bc795d1780c9",
-                "reference": "149cfdf118b169f7840bbe3ef0d4bc795d1780c9",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e",
+                "reference": "56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e",
                 "shasum": ""
             },
             "require": {
-                "egulias/email-validator": "~2.0",
+                "egulias/email-validator": "^2.0",
                 "php": ">=7.0.0",
                 "symfony/polyfill-iconv": "^1.0",
                 "symfony/polyfill-intl-idn": "^1.10",
                 "symfony/polyfill-mbstring": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1",
-                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
+                "mockery/mockery": "^1.0",
+                "symfony/phpunit-bridge": "^4.4|^5.0"
             },
             "suggest": {
-                "ext-intl": "Needed to support internationalized email addresses",
-                "true/punycode": "Needed to support internationalized email addresses, if ext-intl is not installed"
+                "ext-intl": "Needed to support internationalized email addresses"
             },
             "type": "library",
             "extra": {
@@ -4128,7 +4145,17 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2019-11-12T09:31:26+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/swiftmailer/swiftmailer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-12-08T18:02:06+00:00"
         },
         {
             "name": "symfony/console",
@@ -4213,16 +4240,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v5.2.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256"
+                "reference": "f789e7ead4c79e04ca9a6d6162fc629c89bd8054"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256",
-                "reference": "b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/f789e7ead4c79e04ca9a6d6162fc629c89bd8054",
+                "reference": "f789e7ead4c79e04ca9a6d6162fc629c89bd8054",
                 "shasum": ""
             },
             "require": {
@@ -4271,7 +4298,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-28T21:31:18+00:00"
+            "time": "2020-12-08T17:02:38+00:00"
         },
         {
             "name": "symfony/debug",
@@ -4340,16 +4367,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.4.17",
+            "version": "v4.4.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "f029d6f21eac61ab23198e7aca40e7638e8c8924"
+                "reference": "5d4c874b0eb1c32d40328a09dbc37307a5a910b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/f029d6f21eac61ab23198e7aca40e7638e8c8924",
-                "reference": "f029d6f21eac61ab23198e7aca40e7638e8c8924",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/5d4c874b0eb1c32d40328a09dbc37307a5a910b0",
+                "reference": "5d4c874b0eb1c32d40328a09dbc37307a5a910b0",
                 "shasum": ""
             },
             "require": {
@@ -4416,7 +4443,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-31T22:44:29+00:00"
+            "time": "2020-12-18T07:41:31+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
@@ -6004,16 +6031,16 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.9.1",
+            "version": "v1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
-                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
+                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
                 "shasum": ""
             },
             "require": {
@@ -6051,7 +6078,7 @@
                 "fixtures"
             ],
             "abandoned": true,
-            "time": "2019-12-12T13:22:17+00:00"
+            "time": "2020-12-11T09:56:16+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -7612,6 +7639,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "dorcas/modules-analytics": 20,
+        "dorcas/modules-sales": 20,
         "dorcas/laravel-compat": 20,
         "dorcas/modules-access-requests": 20,
         "dorcas/modules-app-store": 20,
@@ -7627,7 +7656,6 @@
         "dorcas/modules-marketplace": 20,
         "dorcas/modules-people": 20,
         "dorcas/modules-people-payroll": 20,
-        "dorcas/modules-sales": 20,
         "dorcas/modules-service-profile": 20,
         "dorcas/modules-service-requests": 20,
         "dorcas/modules-settings": 20,
