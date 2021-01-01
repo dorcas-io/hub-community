@@ -7,7 +7,7 @@
     "repositories":[
         {
             "type": "path",
-            "url": "/Users/edchub/Documents/Apps/DorcasFramework/Modules/*",
+            "url": "/Users/olawoye/Documents/Apps/DorcasFramework/Modules/*",
             "symlink": true
         }
     ],

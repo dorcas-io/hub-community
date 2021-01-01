@@ -212,9 +212,11 @@ class RegisterController extends Controller
         if (!empty($partner)) {
             $data['partner'] = $partner->id;
         }
+        //dd($sdk);
         $response = create_account($sdk, $data);
         if (!$response->isSuccessful()) {
-            throw new \RuntimeException($response->errors[0]['title'] ?? 'Error while creating the Dorcas account!');
+            throw new \RuntimeException('Error while creating the Dorcas account: ' . $response->getErrors()[0]['title']);
+            //throw new \RuntimeException($response->getErrors()[0]['title'] ?? 'Error while creating the Dorcas account!');
         }
         $dorcasUser = new DorcasUser($response->getData(), $sdk);
         # create the user

@@ -27,8 +27,9 @@ COPY . /var/www
 RUN composer dump-autoload --no-scripts --no-dev --optimize
 
 RUN chown -R www-data:www-data /var/www/storage
-
 RUN chmod -R u=rwx,g=rwx,o=rwx /var/www/storage
+RUN chmod -R u=rwx,g=rwx,o=rwx /var/www/bootstrap/cache
 RUN chmod -R u=rwx,g=rwx,o=rw /var/www/storage/logs
+RUN touch /var/www/storage/logs/laravel.log
+RUN chmod u=rwx,g=rw,o=rw /var/www/storage/logs/laravel.log
 RUN chmod u=rwx,g=rx,o=x /var/www/artisan
-

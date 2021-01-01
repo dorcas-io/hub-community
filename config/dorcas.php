@@ -1,5 +1,6 @@
 <?php
 return [
+    'edition' => env('DORCAS_EDITION','business'),
     'standard_hosts' => explode('//', env('APP_STANDARD_HOSTS','dorcas.io//dorcas.ng')),
     'transtrak_token' => env('TRANSTRAK_TOKEN', '+WopX4Y4vcGzxW/aeLlBQPdMNmDXidKtfhPjWylkpCc='),
     
