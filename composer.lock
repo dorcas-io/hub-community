@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c62f65bcbaf5e096529a9a42b8710777",
+    "content-hash": "0dd15cd3589ed4240c783699b134d3eb",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -361,6 +361,73 @@
             "time": "2020-08-23T12:54:47+00:00"
         },
         {
+            "name": "defuse/php-encryption",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/defuse/php-encryption.git",
+                "reference": "0f407c43b953d571421e0020ba92082ed5fb7620"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/0f407c43b953d571421e0020ba92082ed5fb7620",
+                "reference": "0f407c43b953d571421e0020ba92082ed5fb7620",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "paragonie/random_compat": ">= 2",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^2.0|^3.0|^4.0",
+                "phpunit/phpunit": "^4|^5"
+            },
+            "bin": [
+                "bin/generate-defuse-key"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Defuse\\Crypto\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Hornby",
+                    "email": "taylor@defuse.ca",
+                    "homepage": "https://defuse.ca/"
+                },
+                {
+                    "name": "Scott Arciszewski",
+                    "email": "info@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "Secure PHP Encryption Library",
+            "keywords": [
+                "aes",
+                "authenticated encryption",
+                "cipher",
+                "crypto",
+                "cryptography",
+                "encrypt",
+                "encryption",
+                "openssl",
+                "security",
+                "symmetric key cryptography"
+            ],
+            "support": {
+                "issues": "https://github.com/defuse/php-encryption/issues",
+                "source": "https://github.com/defuse/php-encryption/tree/master"
+            },
+            "time": "2018-07-24T23:27:56+00:00"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
             "source": {
@@ -576,27 +643,20 @@
         {
             "name": "dorcas/laravel-compat",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/laravel-compat.git",
-                "reference": "88b14a991ad65eef24f0fc02aca6dfdebcf42ed8"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/laravel-compat/zipball/88b14a991ad65eef24f0fc02aca6dfdebcf42ed8",
-                "reference": "88b14a991ad65eef24f0fc02aca6dfdebcf42ed8",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/laravel-compat",
+                "reference": "82ff6f9395801f138a5fdbca43c37f5d2ec81e0d"
             },
             "require": {
                 "dorcas/sdk-php-laravel": "dev-master",
-                "illuminate/auth": "~5.5",
-                "illuminate/notifications": "~5.5",
-                "php": ">=5.6.4"
+                "illuminate/auth": "^5.8",
+                "illuminate/notifications": "^5.8",
+                "php": ">=7.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6"
+                "phpunit/phpunit": "^7"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -610,11 +670,14 @@
                     "Hostville\\Dorcas\\LaravelCompat\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
+                {
+                    "name": "Ifeoluwa Olawoye",
+                    "email": "bolaji.olawoye@hostvillenigeria.org"
+                },
                 {
                     "name": "Emmanuel Okeke",
                     "homepage": "https://github.com/emmanix2002"
@@ -629,25 +692,17 @@
                 "laravel",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/dorcas-io/laravel-compat/issues",
-                "source": "https://github.com/dorcas-io/laravel-compat/tree/master"
-            },
-            "time": "2019-03-29T11:49:34+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-access-requests",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-access-requests.git",
-                "reference": "1958b280e4a5f58d7405dd62d424437d764fb0c4"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-access-requests/zipball/1958b280e4a5f58d7405dd62d424437d764fb0c4",
-                "reference": "1958b280e4a5f58d7405dd62d424437d764fb0c4",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-access-requests",
+                "reference": "1958b280e4a5f58d7405dd62d424437d764fb0c4"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -658,7 +713,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -672,7 +726,6 @@
                     "Dorcas\\ModulesAccessRequests\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -683,25 +736,17 @@
                 }
             ],
             "description": "Dorcas Hub Access Requests Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-access-requests/issues",
-                "source": "https://github.com/dorcas-io/modules-access-requests/tree/master"
-            },
-            "time": "2020-09-04T13:43:59+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-app-store",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-app-store.git",
-                "reference": "4c6b4ba81535b378e633c14be930b76e43b6881b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-app-store/zipball/4c6b4ba81535b378e633c14be930b76e43b6881b",
-                "reference": "4c6b4ba81535b378e633c14be930b76e43b6881b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-app-store",
+                "reference": "4c6b4ba81535b378e633c14be930b76e43b6881b"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -712,7 +757,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -726,7 +770,6 @@
                     "Dorcas\\ModulesAppStore\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -737,25 +780,17 @@
                 }
             ],
             "description": "Dorcas Hub App Store Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-app-store/issues",
-                "source": "https://github.com/dorcas-io/modules-app-store/tree/master"
-            },
-            "time": "2020-09-04T13:45:02+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-assistant",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-assistant.git",
-                "reference": "5855a87ad63368b9eb3223d0e0ba70a9d8b84d74"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-assistant/zipball/5855a87ad63368b9eb3223d0e0ba70a9d8b84d74",
-                "reference": "5855a87ad63368b9eb3223d0e0ba70a9d8b84d74",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-assistant",
+                "reference": "5855a87ad63368b9eb3223d0e0ba70a9d8b84d74"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -766,7 +801,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -780,7 +814,6 @@
                     "Dorcas\\ModulesAssistant\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -791,25 +824,17 @@
                 }
             ],
             "description": "Dorcas Assistant Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-assistant/issues",
-                "source": "https://github.com/dorcas-io/modules-assistant/tree/master"
-            },
-            "time": "2020-09-04T13:46:19+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-auth",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-auth.git",
-                "reference": "ad9267d89aacf0d6958d2a4ca9accc21cb966f17"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-auth/zipball/ad9267d89aacf0d6958d2a4ca9accc21cb966f17",
-                "reference": "ad9267d89aacf0d6958d2a4ca9accc21cb966f17",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-auth",
+                "reference": "ad9267d89aacf0d6958d2a4ca9accc21cb966f17"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -820,7 +845,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -834,7 +858,6 @@
                     "Dorcas\\ModulesAuth\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -845,25 +868,17 @@
                 }
             ],
             "description": "Dorcas Authentication Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-auth/issues",
-                "source": "https://github.com/dorcas-io/modules-auth/tree/master"
-            },
-            "time": "2020-09-04T13:36:25+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-customers",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-customers.git",
-                "reference": "1467177defca219a9ace2d1be0d4d6ca168c458c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-customers/zipball/1467177defca219a9ace2d1be0d4d6ca168c458c",
-                "reference": "1467177defca219a9ace2d1be0d4d6ca168c458c",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-customers",
+                "reference": "1467177defca219a9ace2d1be0d4d6ca168c458c"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -874,7 +889,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -888,7 +902,6 @@
                     "Dorcas\\ModulesCustomers\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -899,25 +912,17 @@
                 }
             ],
             "description": "Dorcas Hub Customers Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-customers/issues",
-                "source": "https://github.com/dorcas-io/modules-customers/tree/master"
-            },
-            "time": "2019-05-30T13:27:56+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-dashboard",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-dashboard.git",
-                "reference": "af66978beb5fbc0d4b100d7087f09e85bd5ad44b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-dashboard/zipball/af66978beb5fbc0d4b100d7087f09e85bd5ad44b",
-                "reference": "af66978beb5fbc0d4b100d7087f09e85bd5ad44b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-dashboard",
+                "reference": "af66978beb5fbc0d4b100d7087f09e85bd5ad44b"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -928,7 +933,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -942,7 +946,6 @@
                     "Dorcas\\ModulesDashboard\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -953,25 +956,17 @@
                 }
             ],
             "description": "Dorcas Dashboard Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-dashboard/issues",
-                "source": "https://github.com/dorcas-io/modules-dashboard/tree/master"
-            },
-            "time": "2020-09-04T13:49:09+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-ecommerce",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-ecommerce.git",
-                "reference": "40b4aee221ad792b9c2ba79bad84469a0882bbc1"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-ecommerce/zipball/40b4aee221ad792b9c2ba79bad84469a0882bbc1",
-                "reference": "40b4aee221ad792b9c2ba79bad84469a0882bbc1",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-ecommerce",
+                "reference": "2cab9c4f7b832863ce40bc3ffa6e3fd80acd98da"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -982,7 +977,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -996,7 +990,6 @@
                     "Dorcas\\ModulesEcommerce\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1007,25 +1000,17 @@
                 }
             ],
             "description": "Dorcas Hub eCommerce Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-ecommerce/issues",
-                "source": "https://github.com/dorcas-io/modules-ecommerce/tree/master"
-            },
-            "time": "2020-09-04T13:49:56+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-finance",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-finance.git",
-                "reference": "ae6ac7b67c3dbd71f273e739e77397d3db942ed7"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-finance/zipball/ae6ac7b67c3dbd71f273e739e77397d3db942ed7",
-                "reference": "ae6ac7b67c3dbd71f273e739e77397d3db942ed7",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-finance",
+                "reference": "ae6ac7b67c3dbd71f273e739e77397d3db942ed7"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1036,7 +1021,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1050,7 +1034,6 @@
                     "Dorcas\\ModulesFinance\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1061,25 +1044,17 @@
                 }
             ],
             "description": "Dorcas Hub Finance Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-finance/issues",
-                "source": "https://github.com/dorcas-io/modules-finance/tree/master"
-            },
-            "time": "2020-09-04T13:51:28+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-finance-tax",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-finance-tax.git",
-                "reference": "d9b7ad15e0315c2e6d010053b60015d7a46fa7ae"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-finance-tax/zipball/d9b7ad15e0315c2e6d010053b60015d7a46fa7ae",
-                "reference": "d9b7ad15e0315c2e6d010053b60015d7a46fa7ae",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-finance-tax",
+                "reference": "d9b7ad15e0315c2e6d010053b60015d7a46fa7ae"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1090,7 +1065,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1104,7 +1078,6 @@
                     "Dorcas\\ModulesFinanceTax\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1115,25 +1088,17 @@
                 }
             ],
             "description": "Dorcas Hub Tax Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-finance-tax/issues",
-                "source": "https://github.com/dorcas-io/modules-finance-tax/tree/master"
-            },
-            "time": "2020-09-04T13:53:39+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-integrations",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-integrations.git",
-                "reference": "01dfbbf5170824b02596d3667d858b4475b08400"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-integrations/zipball/01dfbbf5170824b02596d3667d858b4475b08400",
-                "reference": "01dfbbf5170824b02596d3667d858b4475b08400",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-integrations",
+                "reference": "01dfbbf5170824b02596d3667d858b4475b08400"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1144,7 +1109,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1158,7 +1122,6 @@
                     "Dorcas\\ModulesIntegrations\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1169,25 +1132,17 @@
                 }
             ],
             "description": "Dorcas Hub Integrations Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-integrations/issues",
-                "source": "https://github.com/dorcas-io/modules-integrations/tree/master"
-            },
-            "time": "2020-09-04T13:55:18+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-library",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-library.git",
-                "reference": "8928f4b8df085d57c6c101bc26407fc306dc1582"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-library/zipball/8928f4b8df085d57c6c101bc26407fc306dc1582",
-                "reference": "8928f4b8df085d57c6c101bc26407fc306dc1582",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-library",
+                "reference": "8928f4b8df085d57c6c101bc26407fc306dc1582"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1198,7 +1153,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1212,7 +1166,6 @@
                     "Dorcas\\ModulesLibrary\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1223,25 +1176,17 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-library/issues",
-                "source": "https://github.com/dorcas-io/modules-library/tree/master"
-            },
-            "time": "2020-09-04T13:56:32+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-marketplace",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-marketplace.git",
-                "reference": "cc452705ac4692bb6bf0ab1feffd6d021b1215cf"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-marketplace/zipball/cc452705ac4692bb6bf0ab1feffd6d021b1215cf",
-                "reference": "cc452705ac4692bb6bf0ab1feffd6d021b1215cf",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-marketplace",
+                "reference": "cc452705ac4692bb6bf0ab1feffd6d021b1215cf"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1252,7 +1197,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1266,7 +1210,6 @@
                     "Dorcas\\ModulesMarketplace\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1277,25 +1220,17 @@
                 }
             ],
             "description": "Dorcas Hub Marketplace Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-marketplace/issues",
-                "source": "https://github.com/dorcas-io/modules-marketplace/tree/master"
-            },
-            "time": "2020-09-04T13:58:11+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-people",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-people.git",
-                "reference": "72e5a562892c258d831587c21679b784a78aad90"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people/zipball/72e5a562892c258d831587c21679b784a78aad90",
-                "reference": "72e5a562892c258d831587c21679b784a78aad90",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-people",
+                "reference": "4f09bb68c8d771cff6d49dcf80036feb9cdd49b1"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1306,7 +1241,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1320,7 +1254,6 @@
                     "Dorcas\\ModulesPeople\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1331,25 +1264,17 @@
                 }
             ],
             "description": "Dorcas Hub People Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-people/issues",
-                "source": "https://github.com/dorcas-io/modules-people/tree/master"
-            },
-            "time": "2020-12-10T01:37:19+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-people-payroll",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-people-payroll.git",
-                "reference": "30a6732473153add6a8fb2137629e799e07c7977"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people-payroll/zipball/30a6732473153add6a8fb2137629e799e07c7977",
-                "reference": "30a6732473153add6a8fb2137629e799e07c7977",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-people-payroll",
+                "reference": "30a6732473153add6a8fb2137629e799e07c7977"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1361,7 +1286,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1375,7 +1299,16 @@
                     "Dorcas\\ModulesPeoplePayroll\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "post-install-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ],
+                "post-update-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ]
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1386,25 +1319,17 @@
                 }
             ],
             "description": "Dorcas Hub People Payroll Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-people-payroll/issues",
-                "source": "https://github.com/dorcas-io/modules-people-payroll/tree/master"
-            },
-            "time": "2020-09-08T20:33:24+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-sales",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-sales.git",
-                "reference": "6d92dd2e110c9759f07d0e83039d51fba753bd1e"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-sales/zipball/6d92dd2e110c9759f07d0e83039d51fba753bd1e",
-                "reference": "6d92dd2e110c9759f07d0e83039d51fba753bd1e",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-sales",
+                "reference": "6d92dd2e110c9759f07d0e83039d51fba753bd1e"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1415,7 +1340,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1429,7 +1353,6 @@
                     "Dorcas\\ModulesSales\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1440,25 +1363,17 @@
                 }
             ],
             "description": "Dorcas Hub Sales Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-sales/issues",
-                "source": "https://github.com/dorcas-io/modules-sales/tree/master"
-            },
-            "time": "2020-09-08T20:32:47+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-service-profile",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-service-profile.git",
-                "reference": "8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-service-profile/zipball/8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b",
-                "reference": "8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-service-profile",
+                "reference": "8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1469,7 +1384,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1483,7 +1397,6 @@
                     "Dorcas\\ModulesServiceProfile\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1494,25 +1407,17 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-service-profile/issues",
-                "source": "https://github.com/dorcas-io/modules-service-profile/tree/master"
-            },
-            "time": "2020-09-04T14:15:54+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-service-requests",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-service-requests.git",
-                "reference": "f9060a262ac69a096b08cbbaed649f618f35ec48"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-service-requests/zipball/f9060a262ac69a096b08cbbaed649f618f35ec48",
-                "reference": "f9060a262ac69a096b08cbbaed649f618f35ec48",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-service-requests",
+                "reference": "f9060a262ac69a096b08cbbaed649f618f35ec48"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1523,7 +1428,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1537,7 +1441,6 @@
                     "Dorcas\\ModulesServiceRequests\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1548,25 +1451,17 @@
                 }
             ],
             "description": "Dorcas Hub Service Requests Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-service-requests/issues",
-                "source": "https://github.com/dorcas-io/modules-service-requests/tree/master"
-            },
-            "time": "2020-09-04T14:17:24+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-settings",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-settings.git",
-                "reference": "fd6447edbd53665b4d8e3dfa6f2174d9b4f0a61b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-settings/zipball/fd6447edbd53665b4d8e3dfa6f2174d9b4f0a61b",
-                "reference": "fd6447edbd53665b4d8e3dfa6f2174d9b4f0a61b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-network-marketing",
+                "reference": "35d43ed6595cdd220f36c48b89f1d170bfed67eb"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1577,7 +1472,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1591,7 +1485,6 @@
                     "Dorcas\\ModulesSettings\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1602,37 +1495,27 @@
                 }
             ],
             "description": "Dorcas Hub Settings Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-settings/issues",
-                "source": "https://github.com/dorcas-io/modules-settings/tree/master"
-            },
-            "time": "2020-09-04T14:18:46+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/resellerclub-php",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/resellerclub-php.git",
-                "reference": "f8912b3d32781391208ad02fcbcbd48796006689"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/resellerclub-php/zipball/f8912b3d32781391208ad02fcbcbd48796006689",
-                "reference": "f8912b3d32781391208ad02fcbcbd48796006689",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/resellerclub-php",
+                "reference": "f8912b3d32781391208ad02fcbcbd48796006689"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "afbora\\ResellerClub\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1643,37 +1526,28 @@
                 }
             ],
             "description": "PHP SDK for ResellerClub API",
-            "support": {
-                "issues": "https://github.com/dorcas-io/resellerclub-php/issues",
-                "source": "https://github.com/dorcas-io/resellerclub-php/tree/master"
-            },
-            "time": "2019-03-23T12:23:17+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/sdk-php-laravel",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/sdk-php-laravel.git",
-                "reference": "90f4c5f4f037f54276076f3695390b08815f0790"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/sdk-php-laravel/zipball/90f4c5f4f037f54276076f3695390b08815f0790",
-                "reference": "90f4c5f4f037f54276076f3695390b08815f0790",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/sdk-php-laravel",
+                "reference": "89d462255552c27d41797a5efe8dae0d645b7642"
             },
             "require": {
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^6.3",
-                "illuminate/support": "^5.5",
+                "illuminate/support": "^5.8",
                 "moneyphp/money": "^3.1",
                 "php": ">=7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6"
+                "phpunit/phpunit": "^7"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1683,7 +1557,6 @@
                     "src/helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1704,11 +1577,9 @@
                 "php",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/dorcas-io/sdk-php-laravel/issues",
-                "source": "https://github.com/dorcas-io/sdk-php-laravel/tree/master"
-            },
-            "time": "2020-12-23T21:47:14+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2008,6 +1879,60 @@
                 "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.1"
             },
             "time": "2020-10-22T13:48:01+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "feb0e820b8436873675fd3aca04f3728eb2185cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/feb0e820b8436873675fd3aca04f3728eb2185cb",
+                "reference": "feb0e820b8436873675fd3aca04f3728eb2185cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8 <=9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "keywords": [
+                "jwt",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/firebase/php-jwt/issues",
+                "source": "https://github.com/firebase/php-jwt/tree/master"
+            },
+            "time": "2020-03-25T18:49:23+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2536,6 +2461,81 @@
             "time": "2020-04-14T14:14:36+00:00"
         },
         {
+            "name": "laravel/passport",
+            "version": "v7.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/passport.git",
+                "reference": "d63cdd672c3d65b3c35b73d0ef13a9dbfcb71c08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/d63cdd672c3d65b3c35b73d0ef13a9dbfcb71c08",
+                "reference": "d63cdd672c3d65b3c35b73d0ef13a9dbfcb71c08",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "firebase/php-jwt": "~3.0|~4.0|~5.0",
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/auth": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/console": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/container": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/contracts": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/cookie": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/database": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/encryption": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/http": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
+                "league/oauth2-server": "^7.0",
+                "php": ">=7.1",
+                "phpseclib/phpseclib": "^2.0",
+                "symfony/psr-http-message-bridge": "~1.0",
+                "zendframework/zend-diactoros": "~1.0|~2.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Passport\\PassportServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Passport\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel Passport provides OAuth2 server support to Laravel.",
+            "keywords": [
+                "laravel",
+                "oauth",
+                "passport"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/passport/issues",
+                "source": "https://github.com/laravel/passport"
+            },
+            "time": "2019-10-08T16:45:24+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v1.0.10",
             "source": {
@@ -2601,6 +2601,75 @@
                 "source": "https://github.com/laravel/tinker/tree/v1.0.10"
             },
             "time": "2019-08-07T15:10:45+00:00"
+        },
+        {
+            "name": "lcobucci/jwt",
+            "version": "3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lcobucci/jwt.git",
+                "reference": "56f10808089e38623345e28af2f2d5e4eb579455"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/56f10808089e38623345e28af2f2d5e4eb579455",
+                "reference": "56f10808089e38623345e28af2f2d5e4eb579455",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1.5",
+                "phpmd/phpmd": "~2.2",
+                "phpunit/php-invoker": "~1.1",
+                "phpunit/phpunit": "^5.7 || ^7.3",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lcobucci\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Luís Otávio Cobucci Oblonczyk",
+                    "email": "lcobucci@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to work with JSON Web Token and JSON Web Signature",
+            "keywords": [
+                "JWS",
+                "jwt"
+            ],
+            "support": {
+                "issues": "https://github.com/lcobucci/jwt/issues",
+                "source": "https://github.com/lcobucci/jwt/tree/3.3.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/lcobucci",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/lcobucci",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-05-22T08:21:12+00:00"
         },
         {
             "name": "league/csv",
@@ -2685,6 +2754,60 @@
                 }
             ],
             "time": "2020-12-10T19:40:30+00:00"
+        },
+        {
+            "name": "league/event",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/event.git",
+                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/event/zipball/d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
+                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
+                "phpspec/phpspec": "^2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Event\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Event package",
+            "keywords": [
+                "emitter",
+                "event",
+                "listener"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/event/issues",
+                "source": "https://github.com/thephpleague/event/tree/master"
+            },
+            "time": "2018-11-26T11:52:41+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2835,6 +2958,87 @@
                 }
             ],
             "time": "2020-10-18T11:50:25+00:00"
+        },
+        {
+            "name": "league/oauth2-server",
+            "version": "7.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-server.git",
+                "reference": "2eb1cf79e59d807d89c256e7ac5e2bf8bdbd4acf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-server/zipball/2eb1cf79e59d807d89c256e7ac5e2bf8bdbd4acf",
+                "reference": "2eb1cf79e59d807d89c256e7ac5e2bf8bdbd4acf",
+                "shasum": ""
+            },
+            "require": {
+                "defuse/php-encryption": "^2.1",
+                "ext-openssl": "*",
+                "lcobucci/jwt": "^3.2.2",
+                "league/event": "^2.1",
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0.1"
+            },
+            "replace": {
+                "league/oauth2server": "*",
+                "lncd/oauth2": "*"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.9.2",
+                "phpstan/phpstan-phpunit": "^0.9.4",
+                "phpstan/phpstan-strict-rules": "^0.9.0",
+                "phpunit/phpunit": "^6.3 || ^7.0",
+                "roave/security-advisories": "dev-master",
+                "zendframework/zend-diactoros": "^1.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Bilbie",
+                    "email": "hello@alexbilbie.com",
+                    "homepage": "http://www.alexbilbie.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Andy Millington",
+                    "email": "andrew@noexceptions.io",
+                    "homepage": "https://www.noexceptions.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight and powerful OAuth 2.0 authorization and resource server library with support for all the core specification grants. This library will allow you to secure your API with OAuth and allow your applications users to approve apps that want to access their data from your API.",
+            "homepage": "https://oauth2.thephpleague.com/",
+            "keywords": [
+                "Authentication",
+                "api",
+                "auth",
+                "authorisation",
+                "authorization",
+                "oauth",
+                "oauth 2",
+                "oauth 2.0",
+                "oauth2",
+                "protect",
+                "resource",
+                "secure",
+                "server"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/oauth2-server/issues",
+                "source": "https://github.com/thephpleague/oauth2-server/tree/master"
+            },
+            "time": "2019-05-05T09:22:01+00:00"
         },
         {
             "name": "mashape/unirest-php",
@@ -3810,6 +4014,61 @@
                 "source": "https://github.com/php-fig/container/tree/master"
             },
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory/tree/master"
+            },
+            "time": "2019-04-30T12:38:16+00:00"
         },
         {
             "name": "psr/http-message",
@@ -5920,6 +6179,75 @@
             "time": "2020-12-08T16:59:59+00:00"
         },
         {
+            "name": "symfony/psr-http-message-bridge",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/psr-http-message-bridge.git",
+                "reference": "9d3e80d54d9ae747ad573cad796e8e247df7b796"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/9d3e80d54d9ae747ad573cad796e8e247df7b796",
+                "reference": "9d3e80d54d9ae747ad573cad796e8e247df7b796",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "psr/http-message": "^1.0",
+                "symfony/http-foundation": "^4.4 || ^5.0"
+            },
+            "require-dev": {
+                "nyholm/psr7": "^1.1",
+                "symfony/phpunit-bridge": "^4.4 || ^5.0",
+                "zendframework/zend-diactoros": "^1.4.1 || ^2.0"
+            },
+            "suggest": {
+                "nyholm/psr7": "For a super lightweight PSR-7/17 implementation"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\PsrHttpMessage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "PSR HTTP message bridge",
+            "homepage": "http://symfony.com",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr-17",
+                "psr-7"
+            ],
+            "support": {
+                "issues": "https://github.com/symfony/psr-http-message-bridge/issues",
+                "source": "https://github.com/symfony/psr-http-message-bridge/tree/master"
+            },
+            "time": "2019-11-25T19:33:50+00:00"
+        },
+        {
             "name": "symfony/routing",
             "version": "v4.4.18",
             "source": {
@@ -6543,6 +6871,82 @@
                 "source": "https://github.com/yabacon/paystack-php/tree/v2.2.0"
             },
             "time": "2020-05-04T15:43:09+00:00"
+        },
+        {
+            "name": "zendframework/zend-diactoros",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-diactoros.git",
+                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/de5847b068362a88684a55b0dbb40d85986cfa52",
+                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "http-interop/http-factory-tests": "^0.5.0",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpunit/phpunit": "^7.0.2",
+                "zendframework/zend-coding-standard": "~1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev",
+                    "dev-develop": "2.2.x-dev",
+                    "dev-release-1.8": "1.8.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions/create_uploaded_file.php",
+                    "src/functions/marshal_headers_from_sapi.php",
+                    "src/functions/marshal_method_from_sapi.php",
+                    "src/functions/marshal_protocol_version_from_sapi.php",
+                    "src/functions/marshal_uri_from_sapi.php",
+                    "src/functions/normalize_server.php",
+                    "src/functions/normalize_uploaded_files.php",
+                    "src/functions/parse_cookie_header.php"
+                ],
+                "psr-4": {
+                    "Zend\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "keywords": [
+                "http",
+                "psr",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://docs.zendframework.com/zend-diactoros/",
+                "forum": "https://discourse.zendframework.com/c/questions/exprssive",
+                "issues": "https://github.com/zendframework/zend-diactoros/issues",
+                "rss": "https://github.com/zendframework/zend-diactoros/releases.atom",
+                "slack": "https://zendframework-slack.herokuapp.com",
+                "source": "https://github.com/zendframework/zend-diactoros"
+            },
+            "abandoned": "laminas/laminas-diactoros",
+            "time": "2019-11-13T19:16:13+00:00"
         }
     ],
     "packages-dev": [

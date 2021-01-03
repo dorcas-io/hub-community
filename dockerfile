@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.4-fpm
 RUN apt-get update -y && apt-get install -y openssl zip unzip git nano
 #RUN apt-get update -y && apt-get install -y openssl zip unzip git libxml2-dev curl nano
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*

@@ -71,7 +71,8 @@ class ResolveCustomSubdomain
             $domainInfo = $this->splitHost($host, $request->path());
             # get the host information
 
-            $slug = $domainInfo->getSubdomain();
+            $slug =  $this->dorcasEdition === 'business' ? $domainInfo->getHost() : $domainInfo->getSubdomain();
+            // we  need  to later  modify DorcasSubdomain to accept a  full "domain" field later
             # get the slug
             if (empty($slug) && $this->dorcasEdition === 'business') {
                 # no matches
@@ -92,19 +93,20 @@ class ResolveCustomSubdomain
             }
             $sdk = app(Sdk::class);
             # get the Sdk
-            $domain = Cache::remember('domain_' . $slug, 60, function () use ($slug, $sdk) {
+            Cache::forget('domain_' . $slug);
+            $domain = Cache::remember('domain_' . $slug, 3600, function () use ($slug, $sdk) {
                 $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
-                                                        ->addQueryArgument('include', 'owner,owner.users')
-                                                        ->send('get', ['resolver']);
+                                                         ->addQueryArgument('include', 'owner,owner.users')
+                                                         ->send('get', ['resolver']);
                 # send the query
-                dd($query->getErrors());
+                //dd($query);
                 if (!$query->isSuccessful()) {
                     return null;
                 }
                 return (object) $query->getData();
             });
             //dd(array($domainInfo,$request->path()));
-            dd($domain);
+            //dd($domain);
             if (empty($domain)) {
                 throw new \RuntimeException('Could not resolve the custom subdomain');
             }

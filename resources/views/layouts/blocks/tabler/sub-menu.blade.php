@@ -14,7 +14,7 @@
                 @foreach(config($submenuConfig) as $key => $value)
                     @if ( empty($value['visibility']) || ( isset($value['visibility']) && $value['visibility']==='show' ) )
                         <a href="{{ safe_href_route($value['route']) ? route($value['route']) : 'javascript:void(0)' }}" class="list-group-item list-group-item-action d-flex align-items-center" v-bind:class="{'active': selectedSubMenu === '{{ $key }}'}">
-                            <span class="icon mr-3"><i class="{{ isset($value['icon']) ? $value['icon'] : 'fe fe-file' }}"></i></span>{{ $value['title'] }}
+                            <span class="icon mr-3"><i class="{{ isset($value['icon']) ? $value['icon'] : 'fe fe-file' }}"></i></span>{!! $value['title'] !!}
                         </a>
                     @endif
                 @endforeach

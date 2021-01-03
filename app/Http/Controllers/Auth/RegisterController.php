@@ -167,11 +167,12 @@ class RegisterController extends Controller
          event(new Registered($user));
         $sdk = app(Sdk::class);
         $provider = new DorcasUserProvider($sdk);
+        //dd($provider);
         # get the provider
         $dorcasUser = $provider->retrieveByCredentials(['email' => $user->email, 'password' => $request->password]);
 
         # get the authenticated user
-
+        //dd($dorcasUser);
         $this->guard()->login($dorcasUser);
 
         return $this->registered($request, $user)
@@ -214,7 +215,9 @@ class RegisterController extends Controller
         }
         //dd($sdk);
         $response = create_account($sdk, $data);
+        
         if (!$response->isSuccessful()) {
+            //dd($response);
             throw new \RuntimeException('Error while creating the Dorcas account: ' . $response->getErrors()[0]['title']);
             //throw new \RuntimeException($response->getErrors()[0]['title'] ?? 'Error while creating the Dorcas account!');
         }

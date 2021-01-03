@@ -4,7 +4,13 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-
+    "repositories":[
+        {
+            "type": "path",
+            "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/*",
+            "symlink": true
+        }
+    ],
     "require": {
         "php": ">=7.0.0",
         "ext-json": "*",
@@ -36,6 +42,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "kingflamez/laravelrave": "^1.0",
         "laravel/framework": "5.8.*",
+        "laravel/passport": "^7.5",
+        "lcobucci/jwt": "3.3.2",
         "laravel/tinker": "~1.0",
         "league/csv": "^9.1",
         "moneyphp/money": "^3.1",

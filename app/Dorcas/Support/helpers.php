@@ -241,6 +241,15 @@ function get_dorcas_domain(): string
 {
     return 'dorcas.' . (app()->environment() === 'production' ? 'io' : 'local');
 }
+/**
+ * Returns the base URL for custom subdomains.
+ *
+ * @return string
+ */
+function get_dorcas_parent_domain(): string
+{
+    return env("DORCAS_EDITION","business") === "business" ? env("DORCAS_BASE_DOMAIN","dorcashub.test") : "." . env("DORCAS_PARENT_DOMAIN","dorcas.io");
+}
 
 /**
  * Tries to get the Dorcas.ng subdomain for the currently authenticated account.
