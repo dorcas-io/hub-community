@@ -10,10 +10,10 @@ class CreateTestDeploysTable extends Migration
     {
         Schema::create('test_deploys', function (Blueprint $table) {
 
-		$table->$table->primary('id');
+		$table->integer('id')->primary()->unsigned();
 		$table->char('uuid',50);
-		$table->string('tests',100)->nullable()->default('NULL');
-		$table->timestamp('deleted_at')->nullable()->default('NULL');
+		$table->string('tests',100)->nullable();
+		$table->timestamp('deleted_at')->nullable();
 		$table->timestamps();
 
         });
