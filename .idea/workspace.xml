@@ -2,59 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec1666b5-75ab-4925-9db1-1a1543ee1411" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.idea/dorcas-modules.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.phpintel/a62c7c69566e46ec8c2e6a287d19efaa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.phpintel/ba9c94dc2370f7fe2a3212b7de9670e9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/.phpintel/index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/src/Http/Controllers/ModulesFinanceTranstrakController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/src/ModulesFinanceTranstrakServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/src/config/modules-finance-transtrak.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/src/config/navigation-menu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/src/resources/views/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/src/resources/views/viewtranstrak.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance-transtrak/src/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/Http/Controllers/ModulesFinanceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/Models/ModulesFinance.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/ModulesFinanceServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/config/modules-finance.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/config/navigation-menu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/accounts.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/entries-confirmation.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/entries.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/modals/accounts-edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/modals/accounts-sub.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/modals/entries-add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/modals/entries-import.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/modals/reports-config.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/modals/reports-generation.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/reports-configure.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/reports-manager.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/resources/views/reports.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-finance/src/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dorcas-business-base/app/Http/Controllers/Auth/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-business-base/app/Http/Controllers/Auth/Register.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/.idea/dorcas-modules.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/.phpintel/a62c7c69566e46ec8c2e6a287d19efaa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/.phpintel/ba9c94dc2370f7fe2a3212b7de9670e9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/.phpintel/index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/src/Http/Controllers/ModulesFinanceTranstrakController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/src/ModulesFinanceTranstrakServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/src/config/modules-finance-transtrak.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/src/config/navigation-menu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/src/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/src/resources/views/viewtranstrak.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance-transtrak/src/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/Http/Controllers/ModulesFinanceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/Models/ModulesFinance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/ModulesFinanceServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/config/modules-finance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/config/navigation-menu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/accounts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/entries-confirmation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/entries.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/modals/accounts-edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/modals/accounts-sub.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/modals/entries-add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/modals/entries-import.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/modals/reports-config.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/modals/reports-generation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/reports-configure.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/reports-manager.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/resources/views/reports.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dorcas-modules/modules-finance/src/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-base/app/Http/Controllers/ECommerce/Domains/DomainIssuances.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-base/app/Http/Controllers/ECommerce/Domains/DomainIssuances.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-base/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-base/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-base/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-base/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dorcas-business-hub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dorcas-business-hub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dorcas-hub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dorcas-hub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/Http/Controllers/ModulesAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/Http/Controllers/ModulesAuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/config/modules-auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/config/modules-auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/resources/views/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/resources/views/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/resources/views/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-auth/src/resources/views/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-people-approval" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-people-approval" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-people-leaves" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-people-leaves" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-people-payroll/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-people-payroll/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-people-payroll/src/ModulesPeoplePayrollServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/modules-people-payroll/src/ModulesPeoplePayrollServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/modules-people-payroll/src/config/module-people-payroll.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dorcas-modules/sdk-php-laravel/src/Sdk.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../dorcas-modules/sdk-php-laravel/src/Sdk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer-dev.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer-dev.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer-live.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer-live.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-auth/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-auth/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/Http/Controllers/ModulesAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/Http/Controllers/ModulesAuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/config/modules-auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/config/modules-auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/resources/views/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/resources/views/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/resources/views/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-auth/src/resources/views/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-people-approval" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-people-approval" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-people-leaves" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-people-leaves" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-people-payroll/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-people-payroll/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-people-payroll/src/ModulesPeoplePayrollServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/modules-people-payroll/src/ModulesPeoplePayrollServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/modules-people-payroll/src/config/module-people-payroll.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dorcas-modules/sdk-php-laravel/src/Sdk.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dorcas-modules/sdk-php-laravel/src/Sdk.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +77,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../dorcas-business-base" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../dorcas-modules" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -236,6 +247,217 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-mime" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-mail" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-loader" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-stdlib" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-validator" />
+      <path value="$PROJECT_DIR$/vendor/pear/pear_exception" />
+      <path value="$PROJECT_DIR$/vendor/pear/mail_mime" />
+      <path value="$PROJECT_DIR$/vendor/pear/pear-core-minimal" />
+      <path value="$PROJECT_DIR$/vendor/pear/net_url2" />
+      <path value="$PROJECT_DIR$/vendor/pear/console_getopt" />
+      <path value="$PROJECT_DIR$/vendor/true/punycode" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-leaves" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-transtrak" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-approval" />
+      <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/microsoft/azure-storage" />
+      <path value="$PROJECT_DIR$/vendor/microsoft/windowsazure" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/laravel-compat" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/sdk-php-laravel" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-customers" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-finance-tax" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-people-payroll" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-dashboard" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-assistant" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-library" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-settings" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-dashboard" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-assistant" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-settings" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-dashboard" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-assistant" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-settings" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-dashboard" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-assistant" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-dashboard" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-assistant" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-dashboard" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-dashboard" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-ecommerce" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-marketplace" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-integrations" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-access-requests" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
+      <path value="$PROJECT_DIR$/vendor/dorcas/modules-service-profile" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lQ8OwC2zVLeU5cTQcqfqQpd1H9" />
@@ -247,7 +469,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor/dorcas" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -273,21 +495,38 @@
       <workItem from="1607517935120" duration="4859000" />
       <workItem from="1607552201963" duration="40000" />
       <workItem from="1607554825449" duration="8945000" />
+      <workItem from="1607950275013" duration="576000" />
+      <workItem from="1607974897095" duration="183000" />
+      <workItem from="1608120243071" duration="94000" />
+      <workItem from="1608176495009" duration="954000" />
+      <workItem from="1608223733317" duration="6863000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607526737118">
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608176607121">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1607526737118" />
-    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup" timestamp="1607564933224">
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1608176607121" />
+    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup" timestamp="1608235127003">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607564933224" />
+    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608235127003" />
     <state x="450" y="360" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1607557444249">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

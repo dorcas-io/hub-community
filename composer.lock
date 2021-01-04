@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "695b5ddd0cb5cc0d6df8ef1f64c50682",
+    "content-hash": "c85839c8c599a5586b77ec296fad1f20",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.171.2",
+            "version": "3.171.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "742663a85ec84647f74dea454d2dc45bba180f9d"
+                "reference": "ba12cbba6b7ae8f2aab741e5ac47e8bb30d3eac7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/742663a85ec84647f74dea454d2dc45bba180f9d",
-                "reference": "742663a85ec84647f74dea454d2dc45bba180f9d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ba12cbba6b7ae8f2aab741e5ac47e8bb30d3eac7",
+                "reference": "ba12cbba6b7ae8f2aab741e5ac47e8bb30d3eac7",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,12 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-12-18T19:12:13+00:00"
+            "support": {
+                "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
+                "issues": "https://github.com/aws/aws-sdk-php/issues",
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.171.10"
+            },
+            "time": "2020-12-31T19:13:37+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -145,6 +150,10 @@
                 "laravel",
                 "pdf"
             ],
+            "support": {
+                "issues": "https://github.com/barryvdh/laravel-dompdf/issues",
+                "source": "https://github.com/barryvdh/laravel-dompdf/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://github.com/barryvdh",
@@ -210,6 +219,10 @@
                 "logging",
                 "tracking"
             ],
+            "support": {
+                "issues": "https://github.com/bugsnag/bugsnag-php/issues",
+                "source": "https://github.com/bugsnag/bugsnag-php/tree/v3.25.0"
+            },
             "time": "2020-11-25T13:15:13+00:00"
         },
         {
@@ -270,6 +283,10 @@
                 "logging",
                 "tracking"
             ],
+            "support": {
+                "issues": "https://github.com/bugsnag/bugsnag-laravel/issues",
+                "source": "https://github.com/bugsnag/bugsnag-laravel/tree/v2.21.0"
+            },
             "time": "2020-11-25T13:26:13+00:00"
         },
         {
@@ -328,6 +345,10 @@
                 "psr",
                 "tracking"
             ],
+            "support": {
+                "issues": "https://github.com/bugsnag/bugsnag-psr-logger/issues",
+                "source": "https://github.com/bugsnag/bugsnag-psr-logger/tree/master"
+            },
             "time": "2020-02-26T22:02:20+00:00"
         },
         {
@@ -384,6 +405,11 @@
                 "ssl",
                 "tls"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/ca-bundle/issues",
+                "source": "https://github.com/composer/ca-bundle/tree/1.2.8"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -399,6 +425,42 @@
                 }
             ],
             "time": "2020-08-23T12:54:47+00:00"
+        },
+        {
+            "name": "container-interop/container-interop",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/container-interop/container-interop.git",
+                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/79cbf1341c22ec75643d841642dd5d6acd83bdb8",
+                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8",
+                "shasum": ""
+            },
+            "require": {
+                "psr/container": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Container\\": "src/Interop/Container/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
+            "homepage": "https://github.com/container-interop/container-interop",
+            "support": {
+                "issues": "https://github.com/container-interop/container-interop/issues",
+                "source": "https://github.com/container-interop/container-interop/tree/master"
+            },
+            "abandoned": "psr/container",
+            "time": "2017-02-14T19:40:03+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -431,6 +493,10 @@
                 "MIT"
             ],
             "description": "implementation of xdg base directory specification for php",
+            "support": {
+                "issues": "https://github.com/dnoegel/php-xdg-base-dir/issues",
+                "source": "https://github.com/dnoegel/php-xdg-base-dir/tree/v0.1.1"
+            },
             "time": "2019-12-04T15:06:13+00:00"
         },
         {
@@ -509,6 +575,10 @@
                 "uppercase",
                 "words"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/inflector/issues",
+                "source": "https://github.com/doctrine/inflector/tree/1.4.x"
+            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -585,6 +655,10 @@
                 "parser",
                 "php"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/lexer/issues",
+                "source": "https://github.com/doctrine/lexer/tree/1.2.1"
+            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -667,21 +741,19 @@
             ],
             "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
             "homepage": "https://github.com/dompdf/dompdf",
+            "support": {
+                "issues": "https://github.com/dompdf/dompdf/issues",
+                "source": "https://github.com/dompdf/dompdf/tree/master"
+            },
             "time": "2020-08-30T22:54:22+00:00"
         },
         {
             "name": "dorcas/laravel-compat",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/laravel-compat.git",
-                "reference": "88b14a991ad65eef24f0fc02aca6dfdebcf42ed8"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/laravel-compat/zipball/88b14a991ad65eef24f0fc02aca6dfdebcf42ed8",
-                "reference": "88b14a991ad65eef24f0fc02aca6dfdebcf42ed8",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/laravel-compat",
+                "reference": "88b14a991ad65eef24f0fc02aca6dfdebcf42ed8"
             },
             "require": {
                 "dorcas/sdk-php-laravel": "dev-master",
@@ -705,7 +777,6 @@
                     "Hostville\\Dorcas\\LaravelCompat\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -724,21 +795,17 @@
                 "laravel",
                 "sdk"
             ],
-            "time": "2019-03-29T11:49:34+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-access-requests",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-access-requests.git",
-                "reference": "1958b280e4a5f58d7405dd62d424437d764fb0c4"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-access-requests/zipball/1958b280e4a5f58d7405dd62d424437d764fb0c4",
-                "reference": "1958b280e4a5f58d7405dd62d424437d764fb0c4",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-access-requests",
+                "reference": "1958b280e4a5f58d7405dd62d424437d764fb0c4"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -762,7 +829,6 @@
                     "Dorcas\\ModulesAccessRequests\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -773,17 +839,40 @@
                 }
             ],
             "description": "Dorcas Hub Access Requests Module",
-            "time": "2020-09-04T13:43:59+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-analytics",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "/Users/mac/Desktop/projects/hostvile/dorcas-projects/dorcas-modules/modules-analytics",
-                "reference": "bc3d7f408ceff40c3b1ae7ff7cd8fa3a63c158a1"
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-analytics",
+                "reference": "3b9c215429a14e142b250b3465af396a0a41259f"
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.74",
+                "guzzlehttp/guzzle": "^6.3",
+                "laravel/framework": "^5.5",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dorcas\\ModulesAnalytics\\ModulesAnalyticsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dorcas\\ModulesAnalytics\\": "src/"
+                }
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -821,6 +910,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -845,21 +935,19 @@
                 }
             ],
             "description": "Dorcas Hub App Store Module",
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-app-store/issues",
+                "source": "https://github.com/dorcas-io/modules-app-store/tree/master"
+            },
             "time": "2020-09-04T13:45:02+00:00"
         },
         {
             "name": "dorcas/modules-assistant",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-assistant.git",
-                "reference": "5855a87ad63368b9eb3223d0e0ba70a9d8b84d74"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-assistant/zipball/5855a87ad63368b9eb3223d0e0ba70a9d8b84d74",
-                "reference": "5855a87ad63368b9eb3223d0e0ba70a9d8b84d74",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-assistant",
+                "reference": "5855a87ad63368b9eb3223d0e0ba70a9d8b84d74"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -883,7 +971,6 @@
                     "Dorcas\\ModulesAssistant\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -894,21 +981,17 @@
                 }
             ],
             "description": "Dorcas Assistant Module",
-            "time": "2020-09-04T13:46:19+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-auth",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-auth.git",
-                "reference": "ad9267d89aacf0d6958d2a4ca9accc21cb966f17"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-auth/zipball/ad9267d89aacf0d6958d2a4ca9accc21cb966f17",
-                "reference": "ad9267d89aacf0d6958d2a4ca9accc21cb966f17",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-auth",
+                "reference": "79fe6a6c47737a998869ca3d179318c8ca32248d"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -932,7 +1015,6 @@
                     "Dorcas\\ModulesAuth\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -943,21 +1025,17 @@
                 }
             ],
             "description": "Dorcas Authentication Module",
-            "time": "2020-09-04T13:36:25+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-customers",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-customers.git",
-                "reference": "1467177defca219a9ace2d1be0d4d6ca168c458c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-customers/zipball/1467177defca219a9ace2d1be0d4d6ca168c458c",
-                "reference": "1467177defca219a9ace2d1be0d4d6ca168c458c",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-customers",
+                "reference": "1467177defca219a9ace2d1be0d4d6ca168c458c"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -981,7 +1059,6 @@
                     "Dorcas\\ModulesCustomers\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -992,21 +1069,17 @@
                 }
             ],
             "description": "Dorcas Hub Customers Module",
-            "time": "2019-05-30T13:27:56+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-dashboard",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-dashboard.git",
-                "reference": "af66978beb5fbc0d4b100d7087f09e85bd5ad44b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-dashboard/zipball/af66978beb5fbc0d4b100d7087f09e85bd5ad44b",
-                "reference": "af66978beb5fbc0d4b100d7087f09e85bd5ad44b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-dashboard",
+                "reference": "af66978beb5fbc0d4b100d7087f09e85bd5ad44b"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1030,7 +1103,6 @@
                     "Dorcas\\ModulesDashboard\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1041,21 +1113,17 @@
                 }
             ],
             "description": "Dorcas Dashboard Module",
-            "time": "2020-09-04T13:49:09+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-ecommerce",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-ecommerce.git",
-                "reference": "40b4aee221ad792b9c2ba79bad84469a0882bbc1"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-ecommerce/zipball/40b4aee221ad792b9c2ba79bad84469a0882bbc1",
-                "reference": "40b4aee221ad792b9c2ba79bad84469a0882bbc1",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-ecommerce",
+                "reference": "40b4aee221ad792b9c2ba79bad84469a0882bbc1"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1079,7 +1147,6 @@
                     "Dorcas\\ModulesEcommerce\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1090,21 +1157,17 @@
                 }
             ],
             "description": "Dorcas Hub eCommerce Module",
-            "time": "2020-09-04T13:49:56+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-finance",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-finance.git",
-                "reference": "ae6ac7b67c3dbd71f273e739e77397d3db942ed7"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-finance/zipball/ae6ac7b67c3dbd71f273e739e77397d3db942ed7",
-                "reference": "ae6ac7b67c3dbd71f273e739e77397d3db942ed7",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-finance",
+                "reference": "b4bad03d1822acf6975915c141f7e11e7385e5df"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1128,32 +1191,27 @@
                     "Dorcas\\ModulesFinance\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
             "authors": [
                 {
                     "name": "Ifeoluwa Olawoye",
-                    "email": "bolaji.olawoye@hostvillenigeria.org"
+                    "email": "dev@hostvillenigeria.org"
                 }
             ],
             "description": "Dorcas Hub Finance Module",
-            "time": "2020-09-04T13:51:28+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-finance-tax",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-finance-tax.git",
-                "reference": "d9b7ad15e0315c2e6d010053b60015d7a46fa7ae"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-finance-tax/zipball/d9b7ad15e0315c2e6d010053b60015d7a46fa7ae",
-                "reference": "d9b7ad15e0315c2e6d010053b60015d7a46fa7ae",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-finance-tax",
+                "reference": "f981d40da925d30f59b77a64aa0f77b635011318"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1177,7 +1235,6 @@
                     "Dorcas\\ModulesFinanceTax\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1188,21 +1245,61 @@
                 }
             ],
             "description": "Dorcas Hub Tax Module",
-            "time": "2020-09-04T13:53:39+00:00"
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "dorcas/modules-finance-transtrak",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-finance-transtrak",
+                "reference": "1fd1efb5ac10d820193e35e05cbc66a4ce97a4df"
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.74",
+                "guzzlehttp/guzzle": "^6.3",
+                "laravel/framework": "^5.5",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dorcas\\ModulesFinanceTranstrak\\ModulesFinanceTranstrakServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dorcas\\ModulesFinanceTranstrak\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ayotomide Aina",
+                    "email": "ayotomideaina@gmail.com"
+                }
+            ],
+            "description": "Dorcas Hub Transtrak Module",
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-integrations",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-integrations.git",
-                "reference": "01dfbbf5170824b02596d3667d858b4475b08400"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-integrations/zipball/01dfbbf5170824b02596d3667d858b4475b08400",
-                "reference": "01dfbbf5170824b02596d3667d858b4475b08400",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-integrations",
+                "reference": "01dfbbf5170824b02596d3667d858b4475b08400"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1226,7 +1323,6 @@
                     "Dorcas\\ModulesIntegrations\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1237,21 +1333,17 @@
                 }
             ],
             "description": "Dorcas Hub Integrations Module",
-            "time": "2020-09-04T13:55:18+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-library",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-library.git",
-                "reference": "8928f4b8df085d57c6c101bc26407fc306dc1582"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-library/zipball/8928f4b8df085d57c6c101bc26407fc306dc1582",
-                "reference": "8928f4b8df085d57c6c101bc26407fc306dc1582",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-library",
+                "reference": "8928f4b8df085d57c6c101bc26407fc306dc1582"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1275,7 +1367,6 @@
                     "Dorcas\\ModulesLibrary\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1286,21 +1377,17 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "time": "2020-09-04T13:56:32+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-marketplace",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-marketplace.git",
-                "reference": "cc452705ac4692bb6bf0ab1feffd6d021b1215cf"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-marketplace/zipball/cc452705ac4692bb6bf0ab1feffd6d021b1215cf",
-                "reference": "cc452705ac4692bb6bf0ab1feffd6d021b1215cf",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-marketplace",
+                "reference": "cc452705ac4692bb6bf0ab1feffd6d021b1215cf"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1324,7 +1411,6 @@
                     "Dorcas\\ModulesMarketplace\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1335,21 +1421,17 @@
                 }
             ],
             "description": "Dorcas Hub Marketplace Module",
-            "time": "2020-09-04T13:58:11+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-people",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-people.git",
-                "reference": "72e5a562892c258d831587c21679b784a78aad90"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people/zipball/72e5a562892c258d831587c21679b784a78aad90",
-                "reference": "72e5a562892c258d831587c21679b784a78aad90",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-people",
+                "reference": "72e5a562892c258d831587c21679b784a78aad90"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1373,7 +1455,6 @@
                     "Dorcas\\ModulesPeople\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1384,15 +1465,127 @@
                 }
             ],
             "description": "Dorcas Hub People Module",
-            "time": "2020-12-10T01:37:19+00:00"
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "dorcas/modules-people-approval",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-people-approval",
+                "reference": "7d5de0a390fa573e4ecd48a6aebc5e40f30e76d0"
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.74",
+                "guzzlehttp/guzzle": "^6.3",
+                "laravel/framework": "^5.5",
+                "php": "^7.1.3",
+                "stillat/numeral.php": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dorcas\\ModulesPeopleApproval\\ModulesPeopleApprovalServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dorcas\\ModulesPeopleApproval\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ],
+                "post-update-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ayotomide Aina",
+                    "email": "ayotomideaina@gmail.com"
+                }
+            ],
+            "description": "Dorcas Hub People Approval Module",
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "dorcas/modules-people-leaves",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-people-leaves",
+                "reference": "6bf69360a2fa1c3c0fa52a9fbbe4e3c174fcf154"
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.74",
+                "guzzlehttp/guzzle": "^6.3",
+                "laravel/framework": "^5.5",
+                "php": "^7.1.3",
+                "stillat/numeral.php": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dorcas\\ModulesPeopleLeaves\\ModulesPeopleLeavesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dorcas\\ModulesPeopleLeaves\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ],
+                "post-update-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ayotomide Aina",
+                    "email": "ayotomideaina@gmail.com"
+                }
+            ],
+            "description": "Dorcas Hub People Leaves Module",
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-people-payroll",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "/Users/mac/Desktop/projects/hostvile/dorcas-projects/dorcas-modules/modules-people-payroll",
-                "reference": "30a6732473153add6a8fb2137629e799e07c7977"
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-people-payroll",
+                "reference": "5a92de848611d1a027b23d8c7d4c37471021734d"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1446,7 +1639,7 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "/Users/mac/Desktop/projects/hostvile/dorcas-projects/dorcas-modules/modules-sales",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-sales",
                 "reference": "6d92dd2e110c9759f07d0e83039d51fba753bd1e"
             },
             "require": {
@@ -1488,16 +1681,10 @@
         {
             "name": "dorcas/modules-service-profile",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-service-profile.git",
-                "reference": "8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-service-profile/zipball/8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b",
-                "reference": "8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-service-profile",
+                "reference": "8f3f1c2e00eb09fbb5b0cfc76e04a31932b1c53b"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1521,7 +1708,6 @@
                     "Dorcas\\ModulesServiceProfile\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1532,7 +1718,9 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "time": "2020-09-04T14:15:54+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-service-requests",
@@ -1557,6 +1745,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1581,21 +1770,19 @@
                 }
             ],
             "description": "Dorcas Hub Service Requests Module",
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-service-requests/issues",
+                "source": "https://github.com/dorcas-io/modules-service-requests/tree/master"
+            },
             "time": "2020-09-04T14:17:24+00:00"
         },
         {
             "name": "dorcas/modules-settings",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-settings.git",
-                "reference": "fd6447edbd53665b4d8e3dfa6f2174d9b4f0a61b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-settings/zipball/fd6447edbd53665b4d8e3dfa6f2174d9b4f0a61b",
-                "reference": "fd6447edbd53665b4d8e3dfa6f2174d9b4f0a61b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-settings",
+                "reference": "fd6447edbd53665b4d8e3dfa6f2174d9b4f0a61b"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1619,7 +1806,6 @@
                     "Dorcas\\ModulesSettings\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1630,7 +1816,9 @@
                 }
             ],
             "description": "Dorcas Hub Settings Module",
-            "time": "2020-09-04T14:18:46+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/resellerclub-php",
@@ -1649,6 +1837,7 @@
             "require": {
                 "guzzlehttp/guzzle": "~6"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1666,21 +1855,19 @@
                 }
             ],
             "description": "PHP SDK for ResellerClub API",
+            "support": {
+                "issues": "https://github.com/dorcas-io/resellerclub-php/issues",
+                "source": "https://github.com/dorcas-io/resellerclub-php/tree/master"
+            },
             "time": "2019-03-23T12:23:17+00:00"
         },
         {
             "name": "dorcas/sdk-php-laravel",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/sdk-php-laravel.git",
-                "reference": "e73508a8bebc60355080dddef776baf2af40597c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/sdk-php-laravel/zipball/e73508a8bebc60355080dddef776baf2af40597c",
-                "reference": "e73508a8bebc60355080dddef776baf2af40597c",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/sdk-php-laravel",
+                "reference": "e73508a8bebc60355080dddef776baf2af40597c"
             },
             "require": {
                 "ext-json": "*",
@@ -1701,7 +1888,6 @@
                     "src/helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1722,20 +1908,22 @@
                 "php",
                 "sdk"
             ],
-            "time": "2020-12-06T23:03:46+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.24",
+            "version": "2.1.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "ca90a3291eee1538cd48ff25163240695bd95448"
+                "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/ca90a3291eee1538cd48ff25163240695bd95448",
-                "reference": "ca90a3291eee1538cd48ff25163240695bd95448",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/0dbf5d78455d4d6a41d186da50adc1122ec066f4",
+                "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4",
                 "shasum": ""
             },
             "require": {
@@ -1780,13 +1968,17 @@
                 "validation",
                 "validator"
             ],
+            "support": {
+                "issues": "https://github.com/egulias/EmailValidator/issues",
+                "source": "https://github.com/egulias/EmailValidator/tree/2.1.25"
+            },
             "funding": [
                 {
                     "url": "https://github.com/egulias",
                     "type": "github"
                 }
             ],
-            "time": "2020-11-14T15:56:27+00:00"
+            "time": "2020-12-29T14:50:06+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1832,6 +2024,10 @@
                 "markdown",
                 "parser"
             ],
+            "support": {
+                "issues": "https://github.com/erusev/parsedown/issues",
+                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
+            },
             "time": "2019-12-30T22:54:17+00:00"
         },
         {
@@ -1887,6 +2083,10 @@
                 "laravel",
                 "mailer"
             ],
+            "support": {
+                "issues": "https://github.com/fedeisas/laravel-mail-css-inliner/issues",
+                "source": "https://github.com/fedeisas/laravel-mail-css-inliner/tree/master"
+            },
             "time": "2019-09-13T23:11:54+00:00"
         },
         {
@@ -1944,7 +2144,58 @@
                 "proxy",
                 "trusted proxy"
             ],
+            "support": {
+                "issues": "https://github.com/fideloper/TrustedProxy/issues",
+                "source": "https://github.com/fideloper/TrustedProxy/tree/master"
+            },
             "time": "2017-06-15T17:19:42+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
+                "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "support": {
+                "issues": "https://github.com/firebase/php-jwt/issues",
+                "source": "https://github.com/firebase/php-jwt/tree/v4.0.0"
+            },
+            "time": "2016-07-18T04:51:16+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2011,6 +2262,10 @@
                 "rest",
                 "web service"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/guzzle/issues",
+                "source": "https://github.com/guzzle/guzzle/tree/6.5"
+            },
             "time": "2020-06-16T21:01:06+00:00"
         },
         {
@@ -2062,6 +2317,10 @@
             "keywords": [
                 "promise"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/promises/issues",
+                "source": "https://github.com/guzzle/promises/tree/1.4.0"
+            },
             "time": "2020-09-30T07:37:28+00:00"
         },
         {
@@ -2133,6 +2392,10 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/1.7.0"
+            },
             "time": "2020-09-30T07:37:11+00:00"
         },
         {
@@ -2175,6 +2438,10 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "support": {
+                "issues": "https://github.com/JakubOnderka/PHP-Console-Color/issues",
+                "source": "https://github.com/JakubOnderka/PHP-Console-Color/tree/master"
+            },
             "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
@@ -2222,6 +2489,10 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "support": {
+                "issues": "https://github.com/JakubOnderka/PHP-Console-Highlighter/issues",
+                "source": "https://github.com/JakubOnderka/PHP-Console-Highlighter/tree/master"
+            },
             "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
@@ -2294,6 +2565,10 @@
                 "rave",
                 "ravepay.co"
             ],
+            "support": {
+                "issues": "https://github.com/kingflamez/laravelrave/issues",
+                "source": "https://github.com/kingflamez/laravelrave/tree/v1.1.4"
+            },
             "time": "2020-03-24T12:46:18+00:00"
         },
         {
@@ -2339,6 +2614,10 @@
                 }
             ],
             "description": "Update helper",
+            "support": {
+                "issues": "https://github.com/kylekatarnls/update-helper/issues",
+                "source": "https://github.com/kylekatarnls/update-helper/tree/1.2.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/kylekatarnls",
@@ -2487,6 +2766,10 @@
                 "framework",
                 "laravel"
             ],
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
             "time": "2020-08-18T13:47:57+00:00"
         },
         {
@@ -2550,6 +2833,10 @@
                 "laravel",
                 "psysh"
             ],
+            "support": {
+                "issues": "https://github.com/laravel/tinker/issues",
+                "source": "https://github.com/laravel/tinker/tree/v1.0.10"
+            },
             "time": "2019-08-07T15:10:45+00:00"
         },
         {
@@ -2622,6 +2909,12 @@
                 "transform",
                 "write"
             ],
+            "support": {
+                "docs": "https://csv.thephpleague.com",
+                "issues": "https://github.com/thephpleague/csv/issues",
+                "rss": "https://github.com/thephpleague/csv/releases.atom",
+                "source": "https://github.com/thephpleague/csv"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sponsors/nyamsprod",
@@ -2713,6 +3006,10 @@
                 "sftp",
                 "storage"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/flysystem/issues",
+                "source": "https://github.com/thephpleague/flysystem/tree/1.x"
+            },
             "funding": [
                 {
                     "url": "https://offset.earth/frankdejonge",
@@ -2760,6 +3057,10 @@
                 }
             ],
             "description": "Mime-type detection for Flysystem",
+            "support": {
+                "issues": "https://github.com/thephpleague/mime-type-detection/issues",
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.5.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/frankdejonge",
@@ -2816,7 +3117,146 @@
                 "https",
                 "rest"
             ],
+            "support": {
+                "email": "opensource@mashape.com",
+                "issues": "https://github.com/Mashape/unirest-php/issues",
+                "source": "https://github.com/Mashape/unirest-php/tree/master"
+            },
             "time": "2016-08-11T17:49:21+00:00"
+        },
+        {
+            "name": "microsoft/azure-storage",
+            "version": "v0.19.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Azure/azure-storage-php.git",
+                "reference": "e1702ae9e6194fa392b64a11737c5e3252d2c8e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Azure/azure-storage-php/zipball/e1702ae9e6194fa392b64a11737c5e3252d2c8e6",
+                "reference": "e1702ae9e6194fa392b64a11737c5e3252d2c8e6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "@stable",
+                "mikey179/vfsstream": "~1.6",
+                "pdepend/pdepend": "~2.2",
+                "phpdocumentor/phpdocumentor": "dev-master",
+                "phploc/phploc": "~2.1",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "~4.0",
+                "sebastian/phpcpd": "~2.0",
+                "squizlabs/php_codesniffer": "@stable",
+                "theseer/phpdox": "~0.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.10.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MicrosoftAzure\\Storage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Azure Storage PHP SDK",
+                    "email": "dmsh@microsoft.com"
+                }
+            ],
+            "description": "This project provides a set of PHP client libraries that make it easy to access Microsoft Azure storage APIs.",
+            "keywords": [
+                "azure",
+                "php",
+                "sdk",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/Azure/azure-storage-php/issues",
+                "source": "https://github.com/Azure/azure-storage-php/tree/v0.19.1"
+            },
+            "abandoned": "microsoft/azure-storage-blob;microsoft/azure-storage-queue;microsoft/azure-storage-table;microsoft/azure-storage-file",
+            "time": "2017-09-25T08:35:45+00:00"
+        },
+        {
+            "name": "microsoft/windowsazure",
+            "version": "v0.5.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Azure/azure-sdk-for-php.git",
+                "reference": "498a386a351a5caefa8533bd9539f2bcfbff1c00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Azure/azure-sdk-for-php/zipball/498a386a351a5caefa8533bd9539f2bcfbff1c00",
+                "reference": "498a386a351a5caefa8533bd9539f2bcfbff1c00",
+                "shasum": ""
+            },
+            "require": {
+                "firebase/php-jwt": "^4.0",
+                "guzzlehttp/guzzle": "^6.2",
+                "microsoft/azure-storage": "^0.19.1",
+                "pear/mail_mime": "^1.10",
+                "pear/net_url2": "^2.2",
+                "php": ">=5.6",
+                "zendframework/zend-mail": "^2.7",
+                "zendframework/zend-mime": "^2.6"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.12.2",
+                "mayflower/php-codebrowser": "^1.1",
+                "mikey179/vfsstream": "^1.6",
+                "pdepend/pdepend": "^2.2",
+                "phpdocumentor/phpdocumentor": "^2.8",
+                "phploc/phploc": "^2.1",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
+                "sebastian/phpcpd": "^2.0",
+                "squizlabs/php_codesniffer": "^2.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WindowsAzure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Azure PHP SDK",
+                    "email": "azurephpsdk@microsoft.com"
+                }
+            ],
+            "description": "This project provides a set of PHP client libraries that make it easy to access Windows Azure tables, blobs, queues, service runtime and service management APIs.",
+            "keywords": [
+                "azure",
+                "php",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/Azure/azure-sdk-for-php/issues",
+                "source": "https://github.com/Azure/azure-sdk-for-php/tree/v0.5.7"
+            },
+            "time": "2017-11-27T23:49:28+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -2898,6 +3338,10 @@
                 "money",
                 "vo"
             ],
+            "support": {
+                "issues": "https://github.com/moneyphp/money/issues",
+                "source": "https://github.com/moneyphp/money/tree/master"
+            },
             "time": "2020-03-18T17:49:59+00:00"
         },
         {
@@ -2970,6 +3414,10 @@
                 "logging",
                 "psr-3"
             ],
+            "support": {
+                "issues": "https://github.com/Seldaek/monolog/issues",
+                "source": "https://github.com/Seldaek/monolog/tree/1.26.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -3030,6 +3478,10 @@
                 "bcmath",
                 "math"
             ],
+            "support": {
+                "issues": "https://github.com/ramsey/moontoast-math/issues",
+                "source": "https://github.com/ramsey/moontoast-math"
+            },
             "abandoned": "brick/math",
             "time": "2020-01-05T04:49:34+00:00"
         },
@@ -3075,6 +3527,10 @@
                 "cron",
                 "schedule"
             ],
+            "support": {
+                "issues": "https://github.com/mtdowling/cron-expression/issues",
+                "source": "https://github.com/mtdowling/cron-expression/tree/v1.2.3"
+            },
             "abandoned": "dragonmantank/cron-expression",
             "time": "2019-12-28T04:23:06+00:00"
         },
@@ -3133,6 +3589,10 @@
                 "json",
                 "jsonpath"
             ],
+            "support": {
+                "issues": "https://github.com/jmespath/jmespath.php/issues",
+                "source": "https://github.com/jmespath/jmespath.php/tree/2.6.0"
+            },
             "time": "2020-07-31T21:01:56+00:00"
         },
         {
@@ -3194,6 +3654,10 @@
                 "datetime",
                 "time"
             ],
+            "support": {
+                "issues": "https://github.com/briannesbitt/Carbon/issues",
+                "source": "https://github.com/briannesbitt/Carbon"
+            },
             "time": "2019-10-14T05:51:36+00:00"
         },
         {
@@ -3246,6 +3710,10 @@
                 "parser",
                 "php"
             ],
+            "support": {
+                "issues": "https://github.com/nikic/PHP-Parser/issues",
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.4"
+            },
             "time": "2020-12-20T10:01:03+00:00"
         },
         {
@@ -3291,7 +3759,288 @@
                 "pseudorandom",
                 "random"
             ],
+            "support": {
+                "email": "info@paragonie.com",
+                "issues": "https://github.com/paragonie/random_compat/issues",
+                "source": "https://github.com/paragonie/random_compat"
+            },
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "pear/console_getopt",
+            "version": "v1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Console_Getopt.git",
+                "reference": "a41f8d3e668987609178c7c4a9fe48fecac53fa0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Console_Getopt/zipball/a41f8d3e668987609178c7c4a9fe48fecac53fa0",
+                "reference": "a41f8d3e668987609178c7c4a9fe48fecac53fa0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Console": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Andrei Zmievski",
+                    "email": "andrei@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Stig Bakken",
+                    "email": "stig@php.net",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net",
+                    "role": "Helper"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/Console_Getopt",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Console_Getopt",
+                "source": "https://github.com/pear/Console_Getopt"
+            },
+            "time": "2019-11-20T18:27:48+00:00"
+        },
+        {
+            "name": "pear/mail_mime",
+            "version": "1.10.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Mail_Mime.git",
+                "reference": "1e7ae4e5258b6c0d385a8e76add567934245d38d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Mail_Mime/zipball/1e7ae4e5258b6c0d385a8e76add567934245d38d",
+                "reference": "1e7ae4e5258b6c0d385a8e76add567934245d38d",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear-core-minimal": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mail": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-3-clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cipriano Groenendal",
+                    "email": "cipri@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Aleksander Machniak",
+                    "email": "alec@php.net",
+                    "role": "Lead"
+                }
+            ],
+            "description": "Mail_Mime provides classes to create MIME messages",
+            "homepage": "http://pear.php.net/package/Mail_Mime",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Mail_Mime",
+                "source": "https://github.com/pear/Mail_Mime"
+            },
+            "time": "2020-06-27T08:35:27+00:00"
+        },
+        {
+            "name": "pear/net_url2",
+            "version": "v2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Net_URL2.git",
+                "reference": "07fd055820dbf466ee3990abe96d0e40a8791f9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Net_URL2/zipball/07fd055820dbf466ee3990abe96d0e40a8791f9d",
+                "reference": "07fd055820dbf466ee3990abe96d0e40a8791f9d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.1.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=3.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "Net/URL2.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "David Coallier",
+                    "email": "davidc@php.net"
+                },
+                {
+                    "name": "Tom Klingenberg",
+                    "email": "tkli@php.net"
+                },
+                {
+                    "name": "Christian Schmidt",
+                    "email": "chmidt@php.net"
+                }
+            ],
+            "description": "Class for parsing and handling URL. Provides parsing of URLs into their constituent parts (scheme, host, path etc.), URL generation, and resolving of relative URLs.",
+            "homepage": "https://github.com/pear/Net_URL2",
+            "keywords": [
+                "PEAR",
+                "net",
+                "networking",
+                "rfc3986",
+                "uri",
+                "url"
+            ],
+            "support": {
+                "issues": "https://pear.php.net/bugs/search.php?cmd=display&package_name[]=Net_URL2",
+                "source": "https://github.com/pear/Net_URL2"
+            },
+            "time": "2017-08-25T06:16:11+00:00"
+        },
+        {
+            "name": "pear/pear-core-minimal",
+            "version": "v1.10.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/pear-core-minimal.git",
+                "reference": "625a3c429d9b2c1546438679074cac1b089116a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/625a3c429d9b2c1546438679074cac1b089116a7",
+                "reference": "625a3c429d9b2c1546438679074cac1b089116a7",
+                "shasum": ""
+            },
+            "require": {
+                "pear/console_getopt": "~1.4",
+                "pear/pear_exception": "~1.0"
+            },
+            "replace": {
+                "rsky/pear-core-min": "self.version"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Weiske",
+                    "email": "cweiske@php.net",
+                    "role": "Lead"
+                }
+            ],
+            "description": "Minimal set of PEAR core files to be used as composer dependency",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=PEAR",
+                "source": "https://github.com/pear/pear-core-minimal"
+            },
+            "time": "2019-11-19T19:00:24+00:00"
+        },
+        {
+            "name": "pear/pear_exception",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/PEAR_Exception.git",
+                "reference": "dbb42a5a0e45f3adcf99babfb2a1ba77b8ac36a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/dbb42a5a0e45f3adcf99babfb2a1ba77b8ac36a7",
+                "reference": "dbb42a5a0e45f3adcf99babfb2a1ba77b8ac36a7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=4.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "class",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "PEAR/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "."
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Helgi Thormar",
+                    "email": "dufuz@php.net"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net"
+                }
+            ],
+            "description": "The PEAR Exception base class.",
+            "homepage": "https://github.com/pear/PEAR_Exception",
+            "keywords": [
+                "exception"
+            ],
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=PEAR_Exception",
+                "source": "https://github.com/pear/PEAR_Exception"
+            },
+            "time": "2019-12-10T10:24:42+00:00"
         },
         {
             "name": "phenx/php-font-lib",
@@ -3328,6 +4077,10 @@
             ],
             "description": "A library to read, parse, export and make subsets of different types of font files.",
             "homepage": "https://github.com/PhenX/php-font-lib",
+            "support": {
+                "issues": "https://github.com/PhenX/php-font-lib/issues",
+                "source": "https://github.com/PhenX/php-font-lib/tree/0.5.2"
+            },
             "time": "2020-03-08T15:31:32+00:00"
         },
         {
@@ -3368,30 +4121,34 @@
             ],
             "description": "A library to read, parse and export to PDF SVG files.",
             "homepage": "https://github.com/PhenX/php-svg-lib",
+            "support": {
+                "issues": "https://github.com/PhenX/php-svg-lib/issues",
+                "source": "https://github.com/PhenX/php-svg-lib/tree/master"
+            },
             "time": "2019-09-11T20:02:13+00:00"
         },
         {
             "name": "phpseclib/bcmath_compat",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/bcmath_compat.git",
-                "reference": "89cbb63742a32730b7187773a60b6b12b9db4479"
+                "reference": "f6f03d3af2ef95fc35b30abdd29f20ee11276a65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/bcmath_compat/zipball/89cbb63742a32730b7187773a60b6b12b9db4479",
-                "reference": "89cbb63742a32730b7187773a60b6b12b9db4479",
+                "url": "https://api.github.com/repos/phpseclib/bcmath_compat/zipball/f6f03d3af2ef95fc35b30abdd29f20ee11276a65",
+                "reference": "f6f03d3af2ef95fc35b30abdd29f20ee11276a65",
                 "shasum": ""
             },
             "require": {
-                "phpseclib/phpseclib": ">=2.0.19"
+                "phpseclib/phpseclib": ">=2.0.19 <3.0.0"
             },
             "provide": {
-                "ext-bcmath": "7.3.5"
+                "ext-bcmath": "8.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+                "phpunit/phpunit": "^4.8.35|^5.7|^6.0|^9.4",
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "suggest": {
@@ -3425,7 +4182,12 @@
                 "math",
                 "polyfill"
             ],
-            "time": "2020-04-26T16:34:33+00:00"
+            "support": {
+                "email": "terrafrost@php.net",
+                "issues": "https://github.com/phpseclib/bcmath_compat/issues",
+                "source": "https://github.com/phpseclib/bcmath_compat"
+            },
+            "time": "2020-12-22T16:34:18+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -3516,6 +4278,10 @@
                 "x.509",
                 "x509"
             ],
+            "support": {
+                "issues": "https://github.com/phpseclib/phpseclib/issues",
+                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.30"
+            },
             "funding": [
                 {
                     "url": "https://github.com/terrafrost",
@@ -3599,6 +4365,10 @@
                 "predis",
                 "redis"
             ],
+            "support": {
+                "issues": "https://github.com/predis/predis/issues",
+                "source": "https://github.com/predis/predis/tree/v1.1.6"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sponsors/tillkruss",
@@ -3654,6 +4424,10 @@
                 "container-interop",
                 "psr"
             ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/master"
+            },
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
@@ -3704,6 +4478,9 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
@@ -3751,6 +4528,9 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.3"
+            },
             "time": "2020-03-23T09:12:05+00:00"
         },
         {
@@ -3799,6 +4579,9 @@
                 "psr-16",
                 "simple-cache"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/simple-cache/tree/master"
+            },
             "time": "2017-10-23T01:57:42+00:00"
         },
         {
@@ -3873,6 +4656,10 @@
                 "interactive",
                 "shell"
             ],
+            "support": {
+                "issues": "https://github.com/bobthecow/psysh/issues",
+                "source": "https://github.com/bobthecow/psysh/tree/v0.9.12"
+            },
             "time": "2019-12-06T14:19:43+00:00"
         },
         {
@@ -3913,6 +4700,10 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
@@ -4000,6 +4791,12 @@
                 "identifier",
                 "uuid"
             ],
+            "support": {
+                "issues": "https://github.com/ramsey/uuid/issues",
+                "rss": "https://github.com/ramsey/uuid/releases.atom",
+                "source": "https://github.com/ramsey/uuid",
+                "wiki": "https://github.com/ramsey/uuid/wiki"
+            },
             "time": "2020-02-21T04:36:14+00:00"
         },
         {
@@ -4045,6 +4842,10 @@
                 "parser",
                 "stylesheet"
             ],
+            "support": {
+                "issues": "https://github.com/sabberworm/PHP-CSS-Parser/issues",
+                "source": "https://github.com/sabberworm/PHP-CSS-Parser/tree/8.3.1"
+            },
             "time": "2020-06-01T09:10:00+00:00"
         },
         {
@@ -4084,6 +4885,9 @@
                 }
             ],
             "description": "A PHP port of adamwdraper/Numeral-js",
+            "support": {
+                "source": "https://github.com/Stillat/numeral.php/tree/v2.0.1"
+            },
             "time": "2016-10-17T01:01:05+00:00"
         },
         {
@@ -4145,6 +4949,10 @@
                 "mail",
                 "mailer"
             ],
+            "support": {
+                "issues": "https://github.com/swiftmailer/swiftmailer/issues",
+                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.4"
+            },
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
@@ -4222,6 +5030,9 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/console/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4284,6 +5095,9 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/css-selector/tree/v5.2.1"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4349,6 +5163,9 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/debug/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4429,6 +5246,9 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/event-dispatcher/tree/v4.4.18"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4505,6 +5325,9 @@
                 "interoperability",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v1.1.9"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4563,6 +5386,9 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/finder/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4626,6 +5452,9 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/http-foundation/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4725,6 +5554,9 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/http-kernel/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4801,6 +5633,9 @@
                 "polyfill",
                 "portable"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4878,6 +5713,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-iconv/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4962,6 +5800,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5043,6 +5884,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5120,6 +5964,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5185,6 +6032,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php56/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5250,6 +6100,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php70/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5323,6 +6176,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php72/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5381,6 +6237,9 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5466,6 +6325,9 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "source": "https://github.com/symfony/routing/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5556,6 +6418,9 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/translation/tree/4.3"
+            },
             "time": "2020-01-04T12:24:57+00:00"
         },
         {
@@ -5617,6 +6482,9 @@
                 "interoperability",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/symfony/translation-contracts/tree/v1.1.10"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5695,6 +6563,9 @@
                 "debug",
                 "dump"
             ],
+            "support": {
+                "source": "https://github.com/symfony/var-dumper/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5758,7 +6629,61 @@
             ],
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+            "support": {
+                "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
+                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
+            },
             "time": "2020-07-13T06:12:54+00:00"
+        },
+        {
+            "name": "true/punycode",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/true/php-punycode.git",
+                "reference": "a4d0c11a36dd7f4e7cd7096076cab6d3378a071e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/true/php-punycode/zipball/a4d0c11a36dd7f4e7cd7096076cab6d3378a071e",
+                "reference": "a4d0c11a36dd7f4e7cd7096076cab6d3378a071e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/polyfill-mbstring": "^1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.7",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TrueBV\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Renan Gonçalves",
+                    "email": "renan.saddam@gmail.com"
+                }
+            ],
+            "description": "A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA)",
+            "homepage": "https://github.com/true/php-punycode",
+            "keywords": [
+                "idna",
+                "punycode"
+            ],
+            "support": {
+                "issues": "https://github.com/true/php-punycode/issues",
+                "source": "https://github.com/true/php-punycode/tree/master"
+            },
+            "time": "2016-11-16T10:37:54+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5820,6 +6745,10 @@
                 "env",
                 "environment"
             ],
+            "support": {
+                "issues": "https://github.com/vlucas/phpdotenv/issues",
+                "source": "https://github.com/vlucas/phpdotenv/tree/v2.6.6"
+            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -5899,7 +6828,334 @@
                 "verify",
                 "yabacon"
             ],
+            "support": {
+                "issues": "https://github.com/yabacon/paystack-php/issues",
+                "source": "https://github.com/yabacon/paystack-php/tree/v2.2.0"
+            },
             "time": "2020-05-04T15:43:09+00:00"
+        },
+        {
+            "name": "zendframework/zend-loader",
+            "version": "2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-loader.git",
+                "reference": "91da574d29b58547385b2298c020b257310898c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-loader/zipball/91da574d29b58547385b2298c020b257310898c6",
+                "reference": "91da574d29b58547385b2298c020b257310898c6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.4",
+                "zendframework/zend-coding-standard": "~1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6.x-dev",
+                    "dev-develop": "2.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Loader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Autoloading and plugin loading strategies",
+            "keywords": [
+                "ZendFramework",
+                "loader",
+                "zf"
+            ],
+            "support": {
+                "chat": "https://zendframework-slack.herokuapp.com",
+                "docs": "https://docs.zendframework.com/zend-loader/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-loader/issues",
+                "rss": "https://github.com/zendframework/zend-loader/releases.atom",
+                "source": "https://github.com/zendframework/zend-loader"
+            },
+            "abandoned": "laminas/laminas-loader",
+            "time": "2019-09-04T19:38:14+00:00"
+        },
+        {
+            "name": "zendframework/zend-mail",
+            "version": "2.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-mail.git",
+                "reference": "d7beb63d5f7144a21ac100072c453e63860cdab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-mail/zipball/d7beb63d5f7144a21ac100072c453e63860cdab8",
+                "reference": "d7beb63d5f7144a21ac100072c453e63860cdab8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "php": "^5.6 || ^7.0",
+                "true/punycode": "^2.1",
+                "zendframework/zend-loader": "^2.5",
+                "zendframework/zend-mime": "^2.5",
+                "zendframework/zend-stdlib": "^2.7 || ^3.0",
+                "zendframework/zend-validator": "^2.10.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.25 || ^6.4.4 || ^7.1.4",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-config": "^2.6",
+                "zendframework/zend-crypt": "^2.6 || ^3.0",
+                "zendframework/zend-servicemanager": "^2.7.10 || ^3.3.1"
+            },
+            "suggest": {
+                "zendframework/zend-crypt": "Crammd5 support in SMTP Auth",
+                "zendframework/zend-servicemanager": "^2.7.10 || ^3.3.1 when using SMTP to deliver messages"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.10.x-dev",
+                    "dev-develop": "2.11.x-dev"
+                },
+                "zf": {
+                    "component": "Zend\\Mail",
+                    "config-provider": "Zend\\Mail\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Mail\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Provides generalized functionality to compose and send both text and MIME-compliant multipart e-mail messages",
+            "keywords": [
+                "ZendFramework",
+                "mail",
+                "zf"
+            ],
+            "support": {
+                "chat": "https://zendframework-slack.herokuapp.com",
+                "docs": "https://docs.zendframework.com/zend-mail/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-mail/issues",
+                "rss": "https://github.com/zendframework/zend-mail/releases.atom",
+                "source": "https://github.com/zendframework/zend-mail"
+            },
+            "abandoned": "laminas/laminas-mail",
+            "time": "2018-06-07T13:37:07+00:00"
+        },
+        {
+            "name": "zendframework/zend-mime",
+            "version": "2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-mime.git",
+                "reference": "c91e0350be53cc9d29be15563445eec3b269d7c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-mime/zipball/c91e0350be53cc9d29be15563445eec3b269d7c1",
+                "reference": "c91e0350be53cc9d29be15563445eec3b269d7c1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.21 || ^6.3",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-mail": "^2.6"
+            },
+            "suggest": {
+                "zendframework/zend-mail": "Zend\\Mail component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev",
+                    "dev-develop": "2.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Mime\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Create and parse MIME messages and parts",
+            "keywords": [
+                "ZendFramework",
+                "mime",
+                "zf"
+            ],
+            "support": {
+                "chat": "https://zendframework-slack.herokuapp.com",
+                "docs": "https://docs.zendframework.com/zend-mime/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-mime/issues",
+                "rss": "https://github.com/zendframework/zend-mime/releases.atom",
+                "source": "https://github.com/zendframework/zend-mime"
+            },
+            "abandoned": "laminas/laminas-mime",
+            "time": "2019-10-16T19:30:37+00:00"
+        },
+        {
+            "name": "zendframework/zend-stdlib",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-stdlib.git",
+                "reference": "66536006722aff9e62d1b331025089b7ec71c065"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/66536006722aff9e62d1b331025089b7ec71c065",
+                "reference": "66536006722aff9e62d1b331025089b7ec71c065",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpbench/phpbench": "^0.13",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2",
+                "zendframework/zend-coding-standard": "~1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2.x-dev",
+                    "dev-develop": "3.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Stdlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "SPL extensions, array utilities, error handlers, and more",
+            "keywords": [
+                "ZendFramework",
+                "stdlib",
+                "zf"
+            ],
+            "support": {
+                "docs": "https://docs.zendframework.com/zend-stdlib/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-stdlib/issues",
+                "rss": "https://github.com/zendframework/zend-stdlib/releases.atom",
+                "slack": "https://zendframework-slack.herokuapp.com",
+                "source": "https://github.com/zendframework/zend-stdlib"
+            },
+            "abandoned": "laminas/laminas-stdlib",
+            "time": "2018-08-28T21:34:05+00:00"
+        },
+        {
+            "name": "zendframework/zend-validator",
+            "version": "2.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-validator.git",
+                "reference": "b54acef1f407741c5347f2a97f899ab21f2229ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/b54acef1f407741c5347f2a97f899ab21f2229ef",
+                "reference": "b54acef1f407741c5347f2a97f899ab21f2229ef",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "^1.1",
+                "php": "^7.1",
+                "zendframework/zend-stdlib": "^3.2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-config": "^2.6",
+                "zendframework/zend-db": "^2.7",
+                "zendframework/zend-filter": "^2.6",
+                "zendframework/zend-http": "^2.5.4",
+                "zendframework/zend-i18n": "^2.6",
+                "zendframework/zend-math": "^2.6",
+                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
+                "zendframework/zend-session": "^2.8",
+                "zendframework/zend-uri": "^2.5"
+            },
+            "suggest": {
+                "psr/http-message": "psr/http-message, required when validating PSR-7 UploadedFileInterface instances via the Upload and UploadFile validators",
+                "zendframework/zend-db": "Zend\\Db component, required by the (No)RecordExists validator",
+                "zendframework/zend-filter": "Zend\\Filter component, required by the Digits validator",
+                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages",
+                "zendframework/zend-i18n-resources": "Translations of validator messages",
+                "zendframework/zend-math": "Zend\\Math component, required by the Csrf validator",
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager component to allow using the ValidatorPluginManager and validator chains",
+                "zendframework/zend-session": "Zend\\Session component, ^2.8; required by the Csrf validator",
+                "zendframework/zend-uri": "Zend\\Uri component, required by the Uri and Sitemap\\Loc validators"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.13.x-dev",
+                    "dev-develop": "2.14.x-dev"
+                },
+                "zf": {
+                    "component": "Zend\\Validator",
+                    "config-provider": "Zend\\Validator\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Validator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Validation classes for a wide range of domains, and the ability to chain validators to create complex validation criteria",
+            "keywords": [
+                "ZendFramework",
+                "validator",
+                "zf"
+            ],
+            "support": {
+                "chat": "https://zendframework-slack.herokuapp.com",
+                "docs": "https://docs.zendframework.com/zend-validator/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-validator/issues",
+                "rss": "https://github.com/zendframework/zend-validator/releases.atom",
+                "source": "https://github.com/zendframework/zend-validator"
+            },
+            "abandoned": "laminas/laminas-validator",
+            "time": "2019-12-28T04:07:18+00:00"
         }
     ],
     "packages-dev": [
@@ -5952,6 +7208,10 @@
                 "constructor",
                 "instantiate"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/instantiator/issues",
+                "source": "https://github.com/doctrine/instantiator/tree/1.4.0"
+            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -6027,6 +7287,10 @@
                 "throwable",
                 "whoops"
             ],
+            "support": {
+                "issues": "https://github.com/filp/whoops/issues",
+                "source": "https://github.com/filp/whoops/tree/2.9.1"
+            },
             "time": "2020-11-01T12:00:00+00:00"
         },
         {
@@ -6077,6 +7341,10 @@
                 "faker",
                 "fixtures"
             ],
+            "support": {
+                "issues": "https://github.com/fzaninotto/Faker/issues",
+                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
+            },
             "abandoned": true,
             "time": "2020-12-11T09:56:16+00:00"
         },
@@ -6125,6 +7393,10 @@
             "keywords": [
                 "test"
             ],
+            "support": {
+                "issues": "https://github.com/hamcrest/hamcrest-php/issues",
+                "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
+            },
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
@@ -6190,6 +7462,10 @@
                 "test double",
                 "testing"
             ],
+            "support": {
+                "issues": "https://github.com/mockery/mockery/issues",
+                "source": "https://github.com/mockery/mockery/tree/1.3.3"
+            },
             "time": "2020-08-11T18:10:21+00:00"
         },
         {
@@ -6238,6 +7514,10 @@
                 "object",
                 "object graph"
             ],
+            "support": {
+                "issues": "https://github.com/myclabs/DeepCopy/issues",
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.10.2"
+            },
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
@@ -6299,6 +7579,10 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
+            "support": {
+                "issues": "https://github.com/phar-io/manifest/issues",
+                "source": "https://github.com/phar-io/manifest/tree/master"
+            },
             "time": "2017-03-05T18:14:27+00:00"
         },
         {
@@ -6346,6 +7630,10 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
+            "support": {
+                "issues": "https://github.com/phar-io/version/issues",
+                "source": "https://github.com/phar-io/version/tree/master"
+            },
             "time": "2017-03-05T17:38:23+00:00"
         },
         {
@@ -6395,6 +7683,10 @@
                 "reflection",
                 "static analysis"
             ],
+            "support": {
+                "issues": "https://github.com/phpDocumentor/ReflectionCommon/issues",
+                "source": "https://github.com/phpDocumentor/ReflectionCommon/tree/2.x"
+            },
             "time": "2020-06-27T09:03:43+00:00"
         },
         {
@@ -6447,6 +7739,10 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
+            "support": {
+                "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/master"
+            },
             "time": "2020-09-03T19:13:55+00:00"
         },
         {
@@ -6492,6 +7788,10 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
+            "support": {
+                "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.4.0"
+            },
             "time": "2020-09-17T18:55:26+00:00"
         },
         {
@@ -6555,6 +7855,10 @@
                 "spy",
                 "stub"
             ],
+            "support": {
+                "issues": "https://github.com/phpspec/prophecy/issues",
+                "source": "https://github.com/phpspec/prophecy/tree/v1.10.3"
+            },
             "time": "2020-03-05T15:02:03+00:00"
         },
         {
@@ -6618,6 +7922,10 @@
                 "testing",
                 "xunit"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/5.3"
+            },
             "time": "2018-04-06T15:36:58+00:00"
         },
         {
@@ -6665,6 +7973,11 @@
                 "filesystem",
                 "iterator"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.net/phpunit",
+                "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
+                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/1.4.5"
+            },
             "time": "2017-11-27T13:52:08+00:00"
         },
         {
@@ -6706,6 +8019,10 @@
             "keywords": [
                 "template"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-text-template/issues",
+                "source": "https://github.com/sebastianbergmann/php-text-template/tree/1.2.1"
+            },
             "time": "2015-06-21T13:50:34+00:00"
         },
         {
@@ -6755,6 +8072,10 @@
             "keywords": [
                 "timer"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-timer/issues",
+                "source": "https://github.com/sebastianbergmann/php-timer/tree/master"
+            },
             "time": "2017-02-26T11:10:40+00:00"
         },
         {
@@ -6804,6 +8125,10 @@
             "keywords": [
                 "tokenizer"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-token-stream/issues",
+                "source": "https://github.com/sebastianbergmann/php-token-stream/tree/master"
+            },
             "abandoned": true,
             "time": "2017-11-27T05:48:46+00:00"
         },
@@ -6889,6 +8214,10 @@
                 "testing",
                 "xunit"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/phpunit/issues",
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/6.5.14"
+            },
             "time": "2019-02-01T05:22:47+00:00"
         },
         {
@@ -6948,6 +8277,10 @@
                 "mock",
                 "xunit"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/phpunit-mock-objects/issues",
+                "source": "https://github.com/sebastianbergmann/phpunit-mock-objects/tree/5.0.10"
+            },
             "abandoned": true,
             "time": "2018-08-09T05:50:03+00:00"
         },
@@ -6994,6 +8327,10 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/issues",
+                "source": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/tree/1.0.2"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7064,6 +8401,10 @@
                 "compare",
                 "equality"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/comparator/issues",
+                "source": "https://github.com/sebastianbergmann/comparator/tree/master"
+            },
             "time": "2018-02-01T13:46:46+00:00"
         },
         {
@@ -7116,6 +8457,10 @@
             "keywords": [
                 "diff"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/diff/issues",
+                "source": "https://github.com/sebastianbergmann/diff/tree/master"
+            },
             "time": "2017-08-03T08:09:46+00:00"
         },
         {
@@ -7166,6 +8511,10 @@
                 "environment",
                 "hhvm"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/environment/issues",
+                "source": "https://github.com/sebastianbergmann/environment/tree/master"
+            },
             "time": "2017-07-01T08:51:00+00:00"
         },
         {
@@ -7233,6 +8582,10 @@
                 "export",
                 "exporter"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/exporter/issues",
+                "source": "https://github.com/sebastianbergmann/exporter/tree/3.1.3"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7290,6 +8643,10 @@
             "keywords": [
                 "global state"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/global-state/issues",
+                "source": "https://github.com/sebastianbergmann/global-state/tree/2.0.0"
+            },
             "time": "2017-04-27T15:39:26+00:00"
         },
         {
@@ -7337,6 +8694,10 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/object-enumerator/issues",
+                "source": "https://github.com/sebastianbergmann/object-enumerator/tree/3.0.4"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7388,6 +8749,10 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/object-reflector/issues",
+                "source": "https://github.com/sebastianbergmann/object-reflector/tree/1.1.2"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7447,6 +8812,10 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/recursion-context/issues",
+                "source": "https://github.com/sebastianbergmann/recursion-context/tree/3.0.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7495,6 +8864,10 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
+                "source": "https://github.com/sebastianbergmann/resource-operations/tree/master"
+            },
             "time": "2015-07-28T20:34:47+00:00"
         },
         {
@@ -7538,6 +8911,10 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/version/issues",
+                "source": "https://github.com/sebastianbergmann/version/tree/master"
+            },
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
@@ -7578,6 +8955,10 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
+            "support": {
+                "issues": "https://github.com/theseer/tokenizer/issues",
+                "source": "https://github.com/theseer/tokenizer/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://github.com/theseer",
@@ -7633,14 +9014,16 @@
                 "check",
                 "validate"
             ],
+            "support": {
+                "issues": "https://github.com/webmozart/assert/issues",
+                "source": "https://github.com/webmozart/assert/tree/master"
+            },
             "time": "2020-07-08T17:02:28+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dorcas/modules-analytics": 20,
-        "dorcas/modules-sales": 20,
         "dorcas/laravel-compat": 20,
         "dorcas/modules-access-requests": 20,
         "dorcas/modules-app-store": 20,
@@ -7651,13 +9034,18 @@
         "dorcas/modules-ecommerce": 20,
         "dorcas/modules-finance": 20,
         "dorcas/modules-finance-tax": 20,
+        "dorcas/modules-finance-transtrak": 20,
         "dorcas/modules-integrations": 20,
         "dorcas/modules-library": 20,
         "dorcas/modules-marketplace": 20,
         "dorcas/modules-people": 20,
+        "dorcas/modules-people-approval": 20,
+        "dorcas/modules-people-leaves": 20,
         "dorcas/modules-people-payroll": 20,
+        "dorcas/modules-sales": 20,
         "dorcas/modules-service-profile": 20,
         "dorcas/modules-service-requests": 20,
+        "dorcas/modules-analytics": 20,
         "dorcas/modules-settings": 20,
         "dorcas/resellerclub-php": 20,
         "dorcas/sdk-php-laravel": 20
@@ -7665,9 +9053,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1",
+        "php": ">=7.0.0",
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

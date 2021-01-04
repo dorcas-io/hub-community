@@ -1,5 +1,10 @@
                     @php
-                        $acceptable_modules = array('modules-access-grants','modules-access-requests','modules-app-store','modules-assistant','modules-customers','modules-dashboard','modules-dashboard-vpanel','modules-ecommerce','modules-finance','modules-ops','modules-integrations','modules-library','modules-marketplace','modules-people','modules-sales','modules-service-profile','modules-service-requests','modules-settings','addons');
+                        $acceptable_modules = array('modules-access-grants','modules-access-requests',
+                        'modules-app-store','modules-assistant','modules-customers','modules-dashboard',
+                        'modules-dashboard-vpanel','modules-ecommerce','modules-finance','modules-ops',
+                        'modules-integrations','modules-library','modules-marketplace','modules-people',
+                        'modules-sales','modules-service-profile','modules-service-requests','modules-settings',
+                        'addons','modules-analytics');
 
                         $modules_permission_key = array(
                             'modules-access-grants' => '',
@@ -20,6 +25,7 @@
                             'modules-service-profile' => 'services',
                             'modules-service-requests' => 'services',
                             'modules-settings' => 'settings',
+                            'modules-analytics' => 'analytics',
                             'addons' => 'addons'
                         );
                         //dd(config('navigation-menu'));

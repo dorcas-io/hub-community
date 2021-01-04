@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../dorcas-base" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../dorcas-modules" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../dorcas-base" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../dorcas-hub" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../dorcas-modules" vcs="Git" />
