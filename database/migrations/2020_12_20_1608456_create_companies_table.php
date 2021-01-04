@@ -10,7 +10,7 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
 
-			$table->integer('id')->primary()->unsigned();
+			$table->bigIncrements('id');
 			$table->char('uuid',50);
 			$table->char('reg_number',30)->nullable();
 			$table->char('name',100);

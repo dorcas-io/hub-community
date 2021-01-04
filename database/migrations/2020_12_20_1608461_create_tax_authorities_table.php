@@ -10,7 +10,7 @@ class CreateTaxAuthoritiesTable extends Migration
     {
         Schema::create('tax_authorities', function (Blueprint $table) {
 
-            $table->integer('id')->primary()->unsigned();
+            $table->bigIncrements('id');
             $table->string('authority_name');
             $table->enum('payment_mode',['Paystack','FlutterWave']);
             $table->timestamps();

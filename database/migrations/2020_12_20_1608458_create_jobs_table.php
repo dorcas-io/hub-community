@@ -10,7 +10,7 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
 
-            $table->integer('id')->primary()->unsigned();
+            $table->bigIncrements('id');
             $table->string('queue');
             $table->tinyInteger('attempts',);
             $table->integer('reserved_at',)->unsigned()->nullable();

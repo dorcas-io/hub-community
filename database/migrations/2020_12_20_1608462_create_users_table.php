@@ -10,9 +10,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
 
-		$table->integer('id')->primary()->unsigned();
+		$table->bigIncrements('id');
 		$table->char('uuid',80);
-		$table->integer('company_id')->unsigned();
+		$table->bigInteger('company_id')->unsigned();
 		$table->char('firstname',30);
 		$table->char('lastname',30);
 		$table->string('email',80);
