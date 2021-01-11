@@ -91,7 +91,7 @@
                                         @if (!empty(request('overview_mode')))
                                             Learning Mode &raquo; <a class="btn btn-primary btn-sm" href="{{ route('welcome-overview') }}">Return to Overview Page</a>
                                         @else
-                                            {{ $header['title'] ?: 'Dashboard' }}
+                                            {!! $header['title'] ?: 'Dashboard' !!}
                                         @endif
                                     </h1>
                                     @yield('body_content_header_extras')

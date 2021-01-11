@@ -3,7 +3,7 @@ RUN apt-get update -y && apt-get install -y openssl zip unzip git nano
 #RUN apt-get update -y && apt-get install -y openssl zip unzip git libxml2-dev curl nano
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /var/www
+WORKDIR /var/www/dorcas-business-hub
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -17,19 +17,19 @@ RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini && \
 
 
 # Install dependencies
-COPY composer.json /var/www/composer.json
+COPY composer.json /var/www/dorcas-business-hub/composer.json
 RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader && rm -rf /root/.composer
 
 # Copy codebase
-COPY . /var/www
+COPY . /var/www/dorcas-business-hub
 
 # Finish composer
 RUN composer dump-autoload --no-scripts --no-dev --optimize
 
-RUN chown -R www-data:www-data /var/www/storage
-RUN chmod -R u=rwx,g=rwx,o=rwx /var/www/storage
-RUN chmod -R u=rwx,g=rwx,o=rwx /var/www/bootstrap/cache
-RUN chmod -R u=rwx,g=rwx,o=rw /var/www/storage/logs
-RUN touch /var/www/storage/logs/laravel.log
-RUN chmod u=rwx,g=rw,o=rw /var/www/storage/logs/laravel.log
-RUN chmod u=rwx,g=rx,o=x /var/www/artisan
+RUN chown -R www-data:www-data /var/www/dorcas-business-hub/storage
+RUN chmod -R u=rwx,g=rwx,o=rwx /var/www/dorcas-business-hub/storage
+RUN chmod -R u=rwx,g=rwx,o=rwx /var/www/dorcas-business-hub/bootstrap/cache
+RUN chmod -R u=rwx,g=rwx,o=rw /var/www/dorcas-business-hub/storage/logs
+RUN touch /var/www/dorcas-business-hub/storage/logs/laravel.log
+RUN chmod u=rwx,g=rw,o=rw /var/www/dorcas-business-hub/storage/logs/laravel.log
+RUN chmod u=rwx,g=rx,o=x /var/www/dorcas-business-hub/artisan
