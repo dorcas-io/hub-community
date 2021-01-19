@@ -1,6 +1,0 @@
-//TODO
-
-
-* properly connect mysql (hub and base)
-* fix redis error ( base )
-* fix media error ( hub and base)
