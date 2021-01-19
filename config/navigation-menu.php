@@ -4,7 +4,7 @@ return [
         'icon' => 'fa fa-home',
         'dashboard' => 'all',
         'title' => 'Home',
-        'route' => 'dashboard',
+        'route' => 'dashboards',
         'clickable' => true,
         'navbar' => true,
         'sub-menu' => [],
