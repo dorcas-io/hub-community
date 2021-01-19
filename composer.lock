@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c85839c8c599a5586b77ec296fad1f20",
+    "content-hash": "a10f4a6b22b469584e691357fe94576f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.171.10",
+            "version": "3.171.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ba12cbba6b7ae8f2aab741e5ac47e8bb30d3eac7"
+                "reference": "eeebac8f6efd141af09c44dbd9cca4f1d327ef21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ba12cbba6b7ae8f2aab741e5ac47e8bb30d3eac7",
-                "reference": "ba12cbba6b7ae8f2aab741e5ac47e8bb30d3eac7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/eeebac8f6efd141af09c44dbd9cca4f1d327ef21",
+                "reference": "eeebac8f6efd141af09c44dbd9cca4f1d327ef21",
                 "shasum": ""
             },
             "require": {
@@ -92,9 +92,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.171.10"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.171.11"
             },
-            "time": "2020-12-31T19:13:37+00:00"
+            "time": "2021-01-04T19:13:09+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1079,7 +1079,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/user/sites/EIC/Dorcas/dorcas-modules/modules-dashboard",
-                "reference": "af66978beb5fbc0d4b100d7087f09e85bd5ad44b"
+                "reference": "31de6b32b574480c1d8b37975fb81447bac02a53"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
