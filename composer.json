@@ -36,7 +36,6 @@
         "dorcas/modules-sales": "dev-master",
         "dorcas/modules-service-profile": "dev-master",
         "dorcas/modules-service-requests": "dev-master",
-        "dorcas/modules-analytics": "@dev",
         "dorcas/modules-settings": "dev-master",
         "dorcas/resellerclub-php": "dev-master",
         "dorcas/sdk-php-laravel": "dev-master",
