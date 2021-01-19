@@ -21,7 +21,7 @@
     <link rel="icon" href="{{ cdn('favicon.ico') }}" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="{{ cdn('favicon.ico')  }}" />
     <!-- Generated: 2018-04-16 09:29:05 +0200 -->
-    <title>@section('head_title'){{ !empty($page['title']) ? $page['title'] : 'Tabler' }} | {{ config('app.name') }}@show</title>
+    <title>@section('head_title'){!! !empty($page['title']) ? $page['title'] : 'Tabler' !!} | {{ config('app.name') }}@show</title>
     @include('layouts.blocks.tabler.favicons')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
@@ -91,7 +91,7 @@
                                         @if (!empty(request('overview_mode')))
                                             Learning Mode &raquo; <a class="btn btn-primary btn-sm" href="{{ route('welcome-overview') }}">Return to Overview Page</a>
                                         @else
-                                            {{ $header['title'] ?: 'Dashboard' }}
+                                            {!! $header['title'] ?: 'Dashboard' !!}
                                         @endif
                                     </h1>
                                     @yield('body_content_header_extras')

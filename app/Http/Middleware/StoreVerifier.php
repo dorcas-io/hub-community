@@ -20,6 +20,7 @@ class StoreVerifier
      */
     public function handle($request, Closure $next)
     {
+        //dd($request->session());
         if (!$request->session()->has('domain')) {
             # not accessing it via a custom subdomain that has been resolved
             abort(404, 'No store at this URL');

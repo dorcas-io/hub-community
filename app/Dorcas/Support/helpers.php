@@ -241,9 +241,70 @@ function get_dorcas_domain(): string
 {
     return 'dorcas.' . (app()->environment() === 'production' ? 'io' : 'local');
 }
+/**
+ * Returns the base URL for custom subdomains.
+ *
+ * @return string
+ */
+function get_dorcas_parent_domain(): string
+{
+    return env("DORCAS_EDITION","business") === "business" ? env("DORCAS_BASE_DOMAIN","dorcashub.test") : "." . env("DORCAS_PARENT_DOMAIN","dorcas.io");
+}
 
 /**
- * Tries to get the Dorcas.ng subdomain for the currently authenticated account.
+ * Tries to get the domain or subdomains for the currently company via domain.
+ *
+ * @param \Hostville\Dorcas\Sdk|null $sdk
+ *
+ * @return null|string
+ */
+/* function get_dorcas_subdomain_via_owner($domainOwner, $sdk = null)
+  {
+    Cache::forget('ecommerce.subdomains.'.$domainOwner->id);
+    $subdomains = Cache::remember('ecommerce.subdomains.'.$domainOwner->id, 1800, function () use ($sdk) {
+      $response = $sdk->createDomainResource()->addQueryArgument('limit', 1000)->send('get', ['issuances']);
+      dd($response);
+      if (!$response->isSuccessful()) {
+        return null;
+      }
+      return collect($response->getData())->map(function ($subdomain) {
+        return (object) $subdomain;
+      });
+    });
+
+    if (empty($subdomains) || $subdomains->count() === 0) {
+        # none found
+        return null;
+    }
+
+    $dorcasEdition = (new \App\Http\Controllers\HubController())->getDorcasEdition();
+
+    $domain = get_dorcas_parent_domain();
+
+    $scheme = app()->environment() === 'production' ? 'https' : 'http';
+
+    switch ($dorcasEdition):
+        case "business":
+            $subdomain = $subdomains->filter(function ($sub) use ($domain) {
+                return $sub->prefix === $domain;
+            })->first();
+            //$sudomain_url = $scheme . '://' . $subdomain->prefix;
+            $sudomain_url = $subdomain->prefix;
+        break;
+        default:
+            $subdomain = $subdomains->first();
+            //$sudomain_url = $scheme . '://' . $subdomain->prefix . '.' . $subdomain->domain['data']['domain'];
+            $sudomain_url = $subdomain->prefix . '.' . $subdomain->domain['data']['domain'];
+        break;
+    endswitch;
+
+    return $sudomain_url;
+
+  } */
+
+
+/**
+ * Tries to get the domain  or subdomain for the currently authenticated account.
  *
  * @param \Hostville\Dorcas\Sdk|null $sdk
  *
@@ -257,9 +318,29 @@ function get_dorcas_subdomain(\Hostville\Dorcas\Sdk $sdk = null)
         # none found
         return null;
     }
-    $subdomain = $subdomains->first();
+
+    $dorcasEdition = (new \App\Http\Controllers\HubController())->getDorcasEdition();
+
+    $domain = get_dorcas_parent_domain();
+
     $scheme = app()->environment() === 'production' ? 'https' : 'http';
-    return $scheme . '://' . $subdomain->prefix . '.' . $subdomain->domain['data']['domain'];
+
+    switch ($dorcasEdition):
+        case "business":
+            $subdomain = $subdomains->filter(function ($sub) use ($domain) {
+                return $sub->prefix === $domain;
+            })->first();
+            //$sudomain_url = $scheme . '://' . $subdomain->prefix;
+            $sudomain_url = $subdomain->prefix;
+        break;
+        default:
+            $subdomain = $subdomains->first();
+            //$sudomain_url = $scheme . '://' . $subdomain->prefix . '.' . $subdomain->domain['data']['domain'];
+            $sudomain_url = $subdomain->prefix . '.' . $subdomain->domain['data']['domain'];
+        break;
+    endswitch;
+
+    return $sudomain_url;
 }
 
 /**

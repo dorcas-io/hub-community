@@ -52,21 +52,21 @@ class DorcasAuthViaUrlToken
             $grantedFor = $user->meta['granted_for']['data'];
             $request->session()->put('granted_for', $grantedFor['id']);
             $storeId = $data['id'].'.granted_for.'.$grantedFor['id'];
-            Cache::put('dorcas.auth_token.'.$storeId, $token, 24 * 60);
+            Cache::put('dorcas.auth_token.'.$storeId, $token, 24 * 60 * 60);
             # setting a granted for token
-            Cookie::queue('store_id', $storeId, 24 * 60);
+            Cookie::queue('store_id', $storeId, 24 * 60 * 60);
             # set the user id cookie
         } elseif ($request->session()->has('granted_for')) {
             # the granted-for data exists in the session
             $storeId = $data['id'].'.granted_for.'. $request->session()->get('granted_for');
-            Cache::put('dorcas.auth_token.'.$storeId, $token, 24 * 60);
+            Cache::put('dorcas.auth_token.'.$storeId, $token, 24 * 60 * 60);
             # setting a granted for token
         } else {
             # neither of the above situations
             $storeId = $data['id'];
-            Cookie::queue('store_id', $storeId, 24 * 60);
+            Cookie::queue('store_id', $storeId, 24 * 60 * 60);
             # set the user id cookie
-            Cache::put('dorcas.auth_token.'.$storeId, $token, 24 * 60);
+            Cache::put('dorcas.auth_token.'.$storeId, $token, 24 * 60 * 60);
             $request->session()->remove('granted_for');
             $request->session()->put('skip-configuration-check', true);
         }

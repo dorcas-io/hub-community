@@ -80,7 +80,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = $this->getCompany();
     # get the user
-    $adverts = Cache::remember('adverts.'.$company->id, 30, function () use ($sdk) {
+    $adverts = Cache::remember('adverts.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createAdvertResource()->addQueryArgument('limit', 100)->send('GET');
       if (!$response->isSuccessful()) {
         return null;
@@ -104,7 +104,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $user = auth()->user();
     # get the user
-    $bankAccounts = Cache::remember('user.bank-accounts.'.$user->id, 30, function () use ($sdk) {
+    $bankAccounts = Cache::remember('user.bank-accounts.'.$user->id, 1800, function () use ($sdk) {
       $response = $sdk->createProfileService()->send('GET', ['bank-accounts']);
       if (!$response->isSuccessful()) {
         return null;
@@ -127,7 +127,7 @@ class Controller extends BaseController
     $company = auth()->user()->company(true, true);
     # get the company
 
-    $categories = Cache::remember('business.blog-categories.'.$company->id, 30, function () use ($sdk) {
+    $categories = Cache::remember('business.blog-categories.'.$company->id, 1800, function () use ($sdk) {
       $query = $sdk->createBlogResource()->addQueryArgument('limit', 10000)->send('GET', ['categories']);
       # get the response
       if (!$query->isSuccessful() || empty($query->getData())) {
@@ -152,7 +152,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $contactFields = Cache::remember('crm.custom-fields.'.$company->id, 30, function () use ($sdk) {
+    $contactFields = Cache::remember('crm.custom-fields.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createContactFieldResource()->addQueryArgument('limit', 100)->send('get');
       if (!$response->isSuccessful()) {
         return null;
@@ -174,7 +174,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = $this->getCompany();
     # get the user
-    $groupd = Cache::remember('crm.groups.'.$company->id, 30, function () use ($sdk) {
+    $groupd = Cache::remember('crm.groups.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createGroupResource()->addQueryArgument('limit', 200)->send('GET');
       if (!$response->isSuccessful()) {
         return null;
@@ -198,7 +198,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $customers = Cache::remember('crm.customers.'.$company->id, 30, function () use ($sdk) {
+    $customers = Cache::remember('crm.customers.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createCustomerResource()->addQueryArgument('limit', 10000)->send('get');
       if (!$response->isSuccessful()) {
         return null;
@@ -222,7 +222,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $departments = Cache::remember('business.departments.'.$company->id, 30, function () use ($sdk) {
+    $departments = Cache::remember('business.departments.'.$company->id, 1800, function () use ($sdk) {
       $query =  $sdk->createDepartmentResource()->addQueryArgument('limit', 10000)->send('get');
       # send the request
       if (!$query->isSuccessful()) {
@@ -247,7 +247,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $domains = Cache::remember('ecommerce.domains.'.$company->id, 30, function () use ($sdk) {
+    $domains = Cache::remember('ecommerce.domains.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createDomainResource()->addQueryArgument('limit', 1000)->send('get');
       if (!$response->isSuccessful()) {
         return null;
@@ -271,7 +271,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $employees = Cache::remember('business.employees.'.$company->id, 30, function () use ($sdk) {
+    $employees = Cache::remember('business.employees.'.$company->id, 1800, function () use ($sdk) {
       $query =  $sdk->createEmployeeResource()->addQueryArgument('include', 'teams:limit(30|0),department')
         ->addQueryArgument('limit', 10000)
         ->send('get');
@@ -296,7 +296,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $accounts = Cache::remember('finance.accounts.'.$company->id, 30, function () use ($sdk) {
+    $accounts = Cache::remember('finance.accounts.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createFinanceResource()->addQueryArgument('limit', 10000)
         ->addQueryArgument('include', 'sub_accounts')
         ->send('get', ['accounts']);
@@ -321,7 +321,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-//        $authorities = Cache::remember('finance.tax.authority.'.$company->id, 30, function () use ($sdk) {
+//        $authorities = Cache::remember('finance.tax.authority.'.$company->id, 1800, function () use ($sdk) {
     $response = $sdk->createTaxResource()->addQueryArgument('limit', 10000)
       ->send('get', ['authority']);
     if (!$response->isSuccessful()) {
@@ -339,7 +339,7 @@ class Controller extends BaseController
     $company = auth()->user()->company(true, true);
     # get the company
 
-//        $authorities = Cache::remember('payroll.authority.'.$company->id, 30, function () use ($sdk) {
+//        $authorities = Cache::remember('payroll.authority.'.$company->id, 1800, function () use ($sdk) {
     $response = $sdk->createPayrollResource()->addQueryArgument('limit', 10000)
       ->send('get', ['authority']);
     if (!$response->isSuccessful()) {
@@ -461,7 +461,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $configurations = Cache::remember('finance.report_configurations.'.$company->id, 30, function () use ($sdk) {
+    $configurations = Cache::remember('finance.report_configurations.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createFinanceResource()->addQueryArgument('limit', 10000)
         ->send('get', ['reports', 'configure']);
       if (!$response->isSuccessful()) {
@@ -486,7 +486,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $integrations = Cache::remember('integrations.'.$company->id, 30, function () use ($sdk) {
+    $integrations = Cache::remember('integrations.'.$company->id, 1800, function () use ($sdk) {
       $query =  $sdk->createIntegrationResource()->addQueryArgument('limit', 100)
         ->send('get');
       # send the request
@@ -536,7 +536,7 @@ class Controller extends BaseController
   {
     $sdk = $sdk ?: app(Sdk::class);
     # get the company
-    $plans = Cache::remember('pricing_plans', 30, function () use ($sdk) {
+    $plans = Cache::remember('pricing_plans', 1800, function () use ($sdk) {
       $query = $sdk->createPlanResource()->send('get');
       # get the response
       if (!$query->isSuccessful()) {
@@ -587,7 +587,7 @@ class Controller extends BaseController
     $company = auth()->user()->company(true, true);
     # get the company
 
-    $categories = Cache::remember('business.product-categories.'.$company->id, 30, function () use ($sdk) {
+    $categories = Cache::remember('business.product-categories.'.$company->id, 1800, function () use ($sdk) {
       $query = $sdk->createProductCategoryResource()->addQueryArgument('limit', 10000)->send('GET');
       # get the response
       if (!$query->isSuccessful() || empty($query->getData())) {
@@ -633,7 +633,7 @@ class Controller extends BaseController
   public function getProfessionalServiceCategories(Sdk $sdk = null)
   {
     $sdk = $sdk ?: app(Sdk::class);
-    $profile = Cache::remember('professional.service_categories', 30, function () use ($sdk) {
+    $profile = Cache::remember('professional.service_categories', 1800, function () use ($sdk) {
       $query = $sdk->createDirectoryResource()->send('get', ['categories']);
       # get the response
       if (!$query->isSuccessful() || empty($query->getData())) {
@@ -659,7 +659,7 @@ class Controller extends BaseController
     $company = auth()->user()->company(true, true);
     # get the company
     Cache::forget('ecommerce.subdomains.'.$company->id);
-    $subdomains = Cache::remember('ecommerce.subdomains.'.$company->id, 30, function () use ($sdk) {
+    $subdomains = Cache::remember('ecommerce.subdomains.'.$company->id, 1800, function () use ($sdk) {
       $response = $sdk->createDomainResource()->addQueryArgument('limit', 1000)->send('get', ['issuances']);
       if (!$response->isSuccessful()) {
         return null;
@@ -683,7 +683,7 @@ class Controller extends BaseController
     $sdk = $sdk ?: app(Sdk::class);
     $company = auth()->user()->company(true, true);
     # get the company
-    $teams = Cache::remember('business.teams.'.$company->id, 30, function () use ($sdk) {
+    $teams = Cache::remember('business.teams.'.$company->id, 1800, function () use ($sdk) {
       $query =  $sdk->createTeamResource()->addQueryArgument('limit', 10000)->send('get');
       # send the request
       if (!$query->isSuccessful()) {
@@ -728,7 +728,7 @@ class Controller extends BaseController
    */
   public static function getCountries(Sdk $sdk)
   {
-    $countries = Cache::remember('dorcas_all_countries_cache', 30, function () use ($sdk) {
+    $countries = Cache::remember('dorcas_all_countries_cache', 1800, function () use ($sdk) {
       $query = $sdk->createCountryResource()->addQueryArgument('include', 'states')
         ->addQueryArgument('limit', 1000)
         ->send('GET');

@@ -42,7 +42,7 @@
                                 <div class="dropdown-menu dropdown-menu-arrow">
                                     @foreach($value['sub-menu'] as $sk => $sv)
                                         @if ( empty($sv['visibility']) || ( isset($sv['visibility']) && $sv['visibility']==='show' ) )
-                                            <a href="{{ safe_href_route($sv['route']) ? route($sv['route']) : 'javascript:void(0)' }}" class="dropdown-item "><i class="{{ isset($sv['icon']) ? $sv['icon'] : 'fe fe-settings' }}"></i> {{ $sv['title'] }}</a>
+                                            <a href="{{ safe_href_route($sv['route']) ? route($sv['route']) : 'javascript:void(0)' }}" class="dropdown-item "><i class="{{ isset($sv['icon']) ? $sv['icon'] : 'fe fe-settings' }}"></i> {!! $sv['title'] !!}</a>
                                         @endif
                                     @endforeach
                                 </div>

@@ -25,17 +25,32 @@ class ResolveCustomSubdomain
     ];
     
     /** @var array  */
-    protected $standardHosts = [];
+    protected $standardHosts = ['dorcashub.test'];
+    //protected $standardHosts = [];
+    # empty it
+
+    /**
+     * String containing the Dorcas Edition
+     *
+     * @var string
+     */
+    protected $dorcasEdition = '';
 
     /**
      * ResolveCustomSubdomain constructor.
      */
     public function __construct()
     {
+        $this->dorcasEdition = config('dorcas.edition','business');   
         $uri = new Uri(config('app.url'));
         # the base URI
+
         $this->standardHosts[] = $uri->getHost();
         # append the configured host
+
+        //$this->standardHosts =  config('dorcas.standard_hosts');
+        # get this from ENV as opposed to hard-coded $this->standardHosts
+
     }
     
     /**
@@ -48,32 +63,50 @@ class ResolveCustomSubdomain
     {
         $host = $request->header('host');
         # get the host header value
+
+        //$docker = env('DEPLOY_ENV', 'local') === 'docker' ? true : false;
+        //dd($request->path());
         try {
+
             $domainInfo = $this->splitHost($host, $request->path());
             # get the host information
-            $slug = $domainInfo->getSubdomain();
+
+            $slug =  $this->dorcasEdition === 'business' ? $domainInfo->getHost() : $domainInfo->getSubdomain();
+            // we  need  to later  modify DorcasSubdomain to accept a  full "domain" field later
             # get the slug
-            if (empty($slug)) {
+            if (empty($slug) && $this->dorcasEdition === 'business') {
+                # no matches
+                throw new \RuntimeException('Could not reliably determine the URL domain for this host.');
+            } elseif (empty($slug) && $this->dorcasEdition !== 'business') {
                 # no matches
                 throw new \RuntimeException('Could not reliably determine the URL slug for this host.');
             }
+
+            //dd(array($domainInfo, $slug, $this->dorcasEdition));
+
             $serviceRedirectUrl = $this->getServiceRedirectUrl($domainInfo, $request->path(), $request->getQueryString());
+            //dd($serviceRedirectUrl);
+            //dd(array($domainInfo, $request->path(), $request->getQueryString()));
+            //dd(array($domainInfo, $slug, $this->dorcasEdition,$serviceRedirectUrl,$request));
             if ($serviceRedirectUrl !== null) {
-                //dd($serviceRedirectUrl);
                 return redirect($serviceRedirectUrl);
             }
             $sdk = app(Sdk::class);
             # get the Sdk
-            $domain = Cache::remember('domain_' . $slug, 60, function () use ($slug, $sdk) {
+            Cache::forget('domain_' . $slug);
+            $domain = Cache::remember('domain_' . $slug, 3600, function () use ($slug, $sdk) {
                 $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
-                                                        ->addQueryArgument('include', 'owner,owner.users')
-                                                        ->send('get', ['resolver']);
+                                                         ->addQueryArgument('include', 'owner,owner.users')
+                                                         ->send('get', ['resolver']);
                 # send the query
+                //dd($query);
                 if (!$query->isSuccessful()) {
                     return null;
                 }
                 return (object) $query->getData();
             });
+            //dd(array($domainInfo,$request->path()));
+            //dd($domain);
             if (empty($domain)) {
                 throw new \RuntimeException('Could not resolve the custom subdomain');
             }
@@ -121,6 +154,7 @@ class ResolveCustomSubdomain
             # remove the domain from the session, if previously set
             $request->session()->remove('partner');
             # same for the partner
+            //dd("No Subdomain: ". $e->getMessage());
         }
         return $next($request);
     }
@@ -166,29 +200,42 @@ class ResolveCustomSubdomain
      */
     public function splitHost(string $host, string $path = null): DorcasSubdomain
     {
-       $this->standardHosts[] = env('STANDARD_HOST');
+        //$this->standardHosts[] = env('STANDARD_HOST');
+       
+        if (substr_count($host,"localhost") >= 1) {
+            throw new \RuntimeException('Accessing via localhost.');
+        }
+
         if (in_array($host, $this->standardHosts, true)) {
           throw new \RuntimeException('Accessing via the regular domain.');
         }
-        $parts = explode('.', $host, 3);
+        # ignore & exist  as  Resolver  is only concerened with subdomain/slug/service type scenarios
 
-      # split it up to at most 3 parts -- we're trying to match things like:
-        # xyz.dorcas.io, xyz.store.dorcas.io
+        $parts = $this->dorcasEdition === 'business' ? explode('.', $host, 3) : explode('.', $host, 4);
+        # split it up to at most 3 parts -- we're trying to match things like: xyz.dorcas.io (business), xyz.store.dorcas.io (cloud, community and enterprise)
+
+        # there  is need to re-write the below for 4 parts (cloud, community & enterprise editions)
+        //dd($parts);
+
         $slug = $parts[0];
-        # the actual sub-domain
+        # the actual sub-domain in cloud, community & enterprise scenarios OR simply service in business
+
         $services = array_keys($this->redirectPathsToSubdomain);
         # get the services - we want to identify the service to be loaded
+
         $serviceName = null;
         foreach ($services as $service) {
             $pathRefersToService = $path !== null && starts_with($path, $service);
-            if (!$pathRefersToService && !str_contains($slug, $service)) {
+            $slugContainsService  = str_contains($slug, $service);
+            if (!$pathRefersToService && !$slugContainsService) {
                 continue;
             }
             $serviceName = $service;
             break;
         }
 
-      if ($parts[count($parts) - 2] === 'dorcas') {
+      if ($parts[count($parts) - 2] === 'dorcas') { // meaning the cloud version
+        //dd("BJ");
             # since the 2nd to the last index is just dorcas - we merge it with the TLD
             $parts[1] .= '.' . $parts[2];
             if ($serviceName !== null) {
@@ -200,7 +247,8 @@ class ResolveCustomSubdomain
             }
         }
 
-      if (count($parts) === 3 && !starts_with($parts[2], 'dorcas')) {
+      if (count($parts) === 3 && !starts_with($parts[2], 'dorcas')) { // 3 parts - business. Later needAdd a replica for comminity  & enterprise
+        //dd(array($path,$serviceName));
             # we still have 3 indexes in the array, but the host domain is a not a Dorcas domain
             $host = $parts[1] . '.' . $parts[2];
             # recreate the parts
@@ -214,6 +262,9 @@ class ResolveCustomSubdomain
                 unset($parts[2]);
             }
         }
-        return new DorcasSubdomain($parts);
+        $resp = new DorcasSubdomain($parts);
+        //dd("Hello");
+        //dd(array($resp,$parts,$path));
+        return $resp;
     }
 }
