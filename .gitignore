@@ -26,7 +26,7 @@ Homestead.json
 .rocketeer/
 
 .DS_Store
-
+.DS_Store*
 composer.lock
 
 sftp-config.json
