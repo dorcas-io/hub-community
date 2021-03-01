@@ -6,9 +6,6 @@ npm-debug.log
 bootstrap/compiled.php
 app/storage/
 
-dorcas-hub.yaml
-hostville_dorcashub.sql
-BaltimoreCyberTrustRoot.crt.pem
 composer-dev.txt
 composer-live.txt
 ansible-automation
@@ -28,7 +25,3 @@ Homestead.json
 .DS_Store
 .DS_Store*
 composer.lock
-
-sftp-config.json
-
-.idea
