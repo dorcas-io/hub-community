@@ -46,7 +46,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware(['guest','edition_multitenant_only'])->except(['installerRegistration','installerCreate']);
+        //$this->middleware(['guest','edition_multitenant_only'])->except(['installerRegistration','installerCreate']);
         $this->data['page']['title'] = 'Create an Account';
     }
 
@@ -55,7 +55,6 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm(Request $request)
     {
-        //$this->middleware('edition_multitenant_only');
 
         $this->data['header']['title'] = 'Sign Up for an Account';
 
