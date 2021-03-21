@@ -6,7 +6,9 @@ npm-debug.log
 bootstrap/compiled.php
 app/storage/
 
-# Laravel 5 & Lumen specific
+composer-dev.txt
+composer-live.txt
+
 public/storage
 public/hot
 storage/*.key
@@ -15,8 +17,7 @@ storage/*.key
 .env
 
 .DS_Store
-
+.DS_Store*
 composer.lock
-storage/logs/*
 
 .git
