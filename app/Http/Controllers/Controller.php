@@ -161,6 +161,7 @@ class Controller extends BaseController
         return (object) $customField;
       });
     });
+    //echo $contactFields;
     return $contactFields;
   }
 
