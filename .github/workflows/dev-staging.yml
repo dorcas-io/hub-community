@@ -1,7 +1,7 @@
-name: Hub_DeployToStaging
+name: Hub_DeployDevToStaging
 on:
     push:
-      branches: [ business ]
+      branches: [ dev ]
 
 jobs:
     deploy-lumen-to-ec2:
