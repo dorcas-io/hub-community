@@ -11,14 +11,14 @@ class DorcasSetup extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'dorcas:setup';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Setup Dorcas Installation';
 
     /**
      * Create a new command instance.
