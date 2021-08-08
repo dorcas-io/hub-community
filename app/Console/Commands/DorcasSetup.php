@@ -50,37 +50,10 @@ class DorcasSetup extends Command
         // $options = $this->option();
 
 
-        // default setup
-        $database = $this->option('database');
-        $database = getenv('DB_DATABASE');
+        // DATABASE CREATION AND IMPORT MOVED TO CORE DORCAS SETUP COMMAND
 
-        if (!$database) {
-            $this->info('Skipping creation of database as env(DB_DATABASE) is empty');
-            return;
-        }
 
-        try {
-            //putenv ("CUSTOM_VARIABLE=hero");
 
-            $conn = mysqli_connect(getenv('DB_HOST'), getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
-
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            
-            // Create database
-            $sql = "CREATE DATABASE IF NOT EXISTS `" . $database . "`";
-            if (mysqli_query($conn, $sql)) {
-                $this->info(sprintf('Successfully created %s database', $database));
-            } else {
-                $this->error(sprintf('Error creating %s database, %s', $database, mysqli_error($conn)));
-            }
-            
-            mysqli_close($conn);
-
-        } catch (Exception $exception) {
-            $this->error(sprintf('Failed to create %s database, %s', $database, $exception->getMessage()));
-            }
 
     }
 
