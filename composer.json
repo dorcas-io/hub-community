@@ -1,7 +1,7 @@
 {
     "name": "dorcas/hub-base",
     "description": "The Dorcas Hub Base Edition",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["framework", "laravel", "dorcas"],
     "license": "MIT",
     "type": "project",
     "repositories":[],
