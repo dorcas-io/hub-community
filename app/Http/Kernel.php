@@ -61,6 +61,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            \App\Http\Middleware\DorcasProxyHandler::class,
             DorcasAuthViaUrlToken::class,
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -103,5 +104,8 @@ class Kernel extends HttpKernel
         'blog_verifier' => BlogVerifier::class,
         'web_store' => StoreVerifier::class,
         'require_role' => RequireRole::class,
+        'edition_business_only' =>  \App\Http\Middleware\DorcasBusinessGateOnly::class,
+        'edition_multitenant_only' =>  \App\Http\Middleware\DorcasMultiTenantGateOnly::class,
+        'edition_commercial_only' =>  \App\Http\Middleware\DorcasCommercialGateOnly::class,
     ];
 }

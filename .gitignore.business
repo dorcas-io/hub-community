@@ -18,9 +18,6 @@ storage/*.key
 .env.*.php
 .env.php
 .env
-.env.dev
-.env.staging
-.env.production
 
 .DS_Store
 .DS_Store*

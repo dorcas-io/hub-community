@@ -1,7 +1,7 @@
 {
     "name": "dorcas/hub-base",
     "description": "The Dorcas Hub Base Edition",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["framework", "laravel", "dorcas"],
     "license": "MIT",
     "type": "project",
     "repositories":[],
@@ -42,7 +42,7 @@
         "laravel/tinker": "~1.0",
         "league/csv": "^9.1",
         "moneyphp/money": "^3.1",
-        "moontoast/math": "^1.1",
+        "moontoast/math": "1.1.2 as 1.99.0",
         "predis/predis": "^1.1",
         "ramsey/uuid": "^3.7",
         "yabacon/paystack-php": "^2.1"
@@ -85,7 +85,8 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
+            "@php artisan package:discover",
+            "@php artisan vendor:publish --tag=dorcas-modules --force"
         ]
     },
     "config": {
