@@ -1,0 +1,122 @@
+service: dorcas-base-hub
+
+provider:
+    name: aws
+    # The AWS region in which to deploy (us-east-1 is the default)
+    region: eu-west-1
+    # The stage of the application, e.g. dev, production, staging… ('dev' is the default)
+    stage: staging
+    runtime: provided.al2
+    lambdaHashingVersion: 20201221
+    vpc:
+      securityGroupIds:
+        - ${self:custom.VPC_SECURITY_GROUP_ID}
+      subnetIds: ${self:custom.VPC_SUBNET_IDS}
+    environment:
+        APP_NAME: ${self:custom.APP_NAME}
+        APP_ENV: ${self:custom.APP_ENV}
+        APP_KEY: ${self:custom.APP_KEY}
+        APP_DEBUG: ${self:custom.APP_DEBUG}
+        APP_LOG: ${self:custom.APP_LOG}
+        LOG_CHANNEL: ${self:custom.LOG_CHANNEL}
+        APP_LOG_LEVEL: ${self:custom.APP_LOG_LEVEL}
+        APP_URL: ${self:custom.APP_URL}
+        ASSET_URL: ${self:custom.ASSET_URL}
+        APP_URL_STATIC: ${self:custom.APP_URL_STATIC}
+        DB_CONNECTION: ${self:custom.DB_CONNECTION}
+        DB_HOST: ${self:custom.DB_HOST}
+        DB_DATABASE: ${self:custom.DB_DATABASE}
+        DB_USERNAME: ${self:custom.DB_USERNAME}
+        DB_PASSWORD: ${self:custom.DB_PASSWORD}
+        SESSION_DRIVER: ${self:custom.SESSION_DRIVER}
+        CACHE_DRIVER: ${self:custom.CACHE_DRIVER}
+        FILESYSTEM_DRIVER: ${self:custom.FILESYSTEM_DRIVER}
+        AWS_BUCKET: ${self:custom.AWS_BUCKET}
+        VIEW_COMPILED_PATH: ${self:custom.VIEW_COMPILED_PATH}
+    iamRoleStatements:
+        # Allow Lambda to read and write files in the S3 buckets
+        -   Effect: Allow
+            Action: s3:*
+            Resource:
+                - !Sub '${Storage.Arn}' # the storage bucket
+                - !Sub '${Storage.Arn}/*' # and everything inside
+        -   Effect: Allow
+            Action: execute-api:Invoke
+            Resource:
+              - arn:aws:execute-api:eu-west-1:794361967691:9au05b4bw9/*/*
+
+custom:
+  VPC_ID: 'vpc-0260ddc821e8740a9' 
+  VPC_SECURITY_GROUP_ID: 'sg-0d930405f9eda48b3'
+  VPC_SUBNET_IDS: ['subnet-0ea4601f4ae69d9f4','subnet-07a08fc7e9b62c655','subnet-0ee2af7b68db1bedb']
+  APP_NAME: 'SmartTech LMS'
+  APP_ENV: 'production'
+  APP_KEY: ${ssm:smarttech-lms-hub-APP_KEY}
+  APP_DEBUG: 'true'
+  APP_LOG: 'errorlog'
+  LOG_CHANNEL: 'stderr'
+  APP_LOG_LEVEL: 'debug'
+  ASSET_URL: 'https://assets.business.staging.dorcas.io'
+  APP_URL_STATIC: 'https://assets.business.staging.dorcas.io'
+  DB_CONNECTION: 'mysql'
+  DB_DATABASE: ${ssm:smarttech-lms-hub-DB_DATABASE}
+  DB_USERNAME: ${ssm:smarttech-lms-hub-DB_USERNAME}
+  DB_PASSWORD: ${ssm:smarttech-lms-hub-DB_PASSWORD}
+  DB_HOST: !GetAtt RDSCluster.Endpoint.Address
+  APP_URL:
+    !Join
+      - ''
+      - - 'https://'
+        - !Ref ApiGatewayRestApi
+        - '.execute-api.'
+        - ${opt:region, self:provider.region}
+        - '.amazonaws.com'
+  SESSION_DRIVER: 'cookie'
+  CACHE_DRIVER: 'array'
+  FILESYSTEM_DRIVER: s3
+  AWS_BUCKET: !Ref Storage
+  VIEW_COMPILED_PATH: '/storage/framework/views'
+  customDomain:
+    domainName: business.staging.dorcas.io
+    stage: staging
+    certificateName: 'business.staging.dorcas.io'
+    createRoute53Record: true
+    endpointType: 'edge'
+    securityPolicy: tls_1_2
+    apiType: rest
+    autoDomain: false
+package:
+    # Directories to exclude from deployment
+    patterns:
+        - '!node_modules/**'
+        - '!public/storage/**'
+        - '!resources/assets/**'
+        - '!storage/**'
+        - '!tests/**'
+
+functions:
+    # This function runs the Laravel website/API
+    web:
+        handler: public/index.php
+        timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
+        layers:
+            - ${bref:layer.php-74-fpm}
+        events:
+            #-   httpApi: '*'
+            - http: 'ANY /'
+            - http: 'ANY /{proxy+}'
+    # This function lets us run artisan commands in Lambda
+    artisan:
+        handler: artisan
+        timeout: 120 # in seconds
+        layers:
+            - ${bref:layer.php-74} # PHP
+            - ${bref:layer.console} # The "console" layer
+
+plugins:
+  - ./vendor/bref/bref
+  - serverless-domain-manager
+resources:
+  - ${file(serverless_resources_s3.yml)}
+  - ${file(serverless_resources_rds.yml)}
+
