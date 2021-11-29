@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba8189b329e215f7965a4557b264d2e7",
+    "content-hash": "a664eab817aeab18114e63838fded5db",
     "packages": [
         {
             "name": "async-aws/core",
@@ -182,16 +182,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.202.2",
+            "version": "3.205.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4460481cd63446454869534c69ddaf00cffa45be"
+                "reference": "97c143e05c37a199c7ddf44a43f9eeba09d09b54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4460481cd63446454869534c69ddaf00cffa45be",
-                "reference": "4460481cd63446454869534c69ddaf00cffa45be",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/97c143e05c37a199c7ddf44a43f9eeba09d09b54",
+                "reference": "97c143e05c37a199c7ddf44a43f9eeba09d09b54",
                 "shasum": ""
             },
             "require": {
@@ -267,9 +267,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.202.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.205.0"
             },
-            "time": "2021-11-12T19:15:25+00:00"
+            "time": "2021-11-29T07:13:00+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -339,16 +339,16 @@
         },
         {
             "name": "bref/bref",
-            "version": "1.3.5",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brefphp/bref.git",
-                "reference": "35b0a754f076c657d8d4390712697282301bebdb"
+                "reference": "1a8d052954ae25f64c619330d24b19cd7d9584da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brefphp/bref/zipball/35b0a754f076c657d8d4390712697282301bebdb",
-                "reference": "35b0a754f076c657d8d4390712697282301bebdb",
+                "url": "https://api.github.com/repos/brefphp/bref/zipball/1a8d052954ae25f64c619330d24b19cd7d9584da",
+                "reference": "1a8d052954ae25f64c619330d24b19cd7d9584da",
                 "shasum": ""
             },
             "require": {
@@ -401,7 +401,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brefphp/bref/issues",
-                "source": "https://github.com/brefphp/bref/tree/1.3.5"
+                "source": "https://github.com/brefphp/bref/tree/1.4.0"
             },
             "funding": [
                 {
@@ -413,7 +413,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-12T17:14:35+00:00"
+            "time": "2021-11-25T20:43:01+00:00"
         },
         {
             "name": "bref/laravel-bridge",
@@ -612,27 +612,27 @@
         },
         {
             "name": "bugsnag/bugsnag-psr-logger",
-            "version": "v1.4.3",
+            "version": "v1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bugsnag/bugsnag-psr-logger.git",
-                "reference": "222a7338bc5c39833c7c3922a175c539e996797c"
+                "reference": "d2cc608524903ab6a896427ebcb1457123cf8890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bugsnag/bugsnag-psr-logger/zipball/222a7338bc5c39833c7c3922a175c539e996797c",
-                "reference": "222a7338bc5c39833c7c3922a175c539e996797c",
+                "url": "https://api.github.com/repos/bugsnag/bugsnag-psr-logger/zipball/d2cc608524903ab6a896427ebcb1457123cf8890",
+                "reference": "d2cc608524903ab6a896427ebcb1457123cf8890",
                 "shasum": ""
             },
             "require": {
                 "bugsnag/bugsnag": "^3.10",
                 "php": ">=5.5",
-                "psr/log": "^1.0"
+                "psr/log": "^1.0|^2.0"
             },
             "require-dev": {
                 "graham-campbell/testbench-core": "^1.1",
                 "mockery/mockery": "^0.9.4|^1.3.1",
-                "phpunit/phpunit": "^4.8.36|^7.5.15"
+                "phpunit/phpunit": "^4.8.36|^7.5.15|^9.4.3"
             },
             "type": "library",
             "extra": {
@@ -668,9 +668,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bugsnag/bugsnag-psr-logger/issues",
-                "source": "https://github.com/bugsnag/bugsnag-psr-logger/tree/master"
+                "source": "https://github.com/bugsnag/bugsnag-psr-logger/tree/v1.4.4"
             },
-            "time": "2020-02-26T22:02:20+00:00"
+            "time": "2021-11-18T11:41:38+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -1097,16 +1097,10 @@
         {
             "name": "dorcas/laravel-compat",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/laravel-compat.git",
-                "reference": "8f917875810d1c803f2696c1a1943696c7dc23d0"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/laravel-compat/zipball/8f917875810d1c803f2696c1a1943696c7dc23d0",
-                "reference": "8f917875810d1c803f2696c1a1943696c7dc23d0",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/laravel-compat",
+                "reference": "8f917875810d1c803f2696c1a1943696c7dc23d0"
             },
             "require": {
                 "dorcas/sdk-php-laravel": "dev-master",
@@ -1117,7 +1111,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1131,7 +1124,6 @@
                     "Hostville\\Dorcas\\LaravelCompat\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1154,25 +1146,17 @@
                 "laravel",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/dorcas-io/laravel-compat/issues",
-                "source": "https://github.com/dorcas-io/laravel-compat/tree/master"
-            },
-            "time": "2021-11-15T16:54:33+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-access-requests",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-access-requests.git",
-                "reference": "775e1379e17f659e2081263636f0815566fbf3e1"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-access-requests/zipball/775e1379e17f659e2081263636f0815566fbf3e1",
-                "reference": "775e1379e17f659e2081263636f0815566fbf3e1",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-access-requests",
+                "reference": "775e1379e17f659e2081263636f0815566fbf3e1"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1183,7 +1167,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1197,7 +1180,6 @@
                     "Dorcas\\ModulesAccessRequests\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1208,25 +1190,17 @@
                 }
             ],
             "description": "Dorcas Hub Access Requests Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-access-requests/issues",
-                "source": "https://github.com/dorcas-io/modules-access-requests/tree/master"
-            },
-            "time": "2021-11-15T16:52:48+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-app-store",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-app-store.git",
-                "reference": "bf2a9cb683574143068ebdf328d1e8ebe96e627e"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-app-store/zipball/bf2a9cb683574143068ebdf328d1e8ebe96e627e",
-                "reference": "bf2a9cb683574143068ebdf328d1e8ebe96e627e",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-app-store",
+                "reference": "bf2a9cb683574143068ebdf328d1e8ebe96e627e"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1237,7 +1211,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1251,7 +1224,6 @@
                     "Dorcas\\ModulesAppStore\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1262,25 +1234,17 @@
                 }
             ],
             "description": "Dorcas Hub App Store Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-app-store/issues",
-                "source": "https://github.com/dorcas-io/modules-app-store/tree/master"
-            },
-            "time": "2021-11-15T16:52:08+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-assistant",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-assistant.git",
-                "reference": "64a62607e3f8d934aedc38e2cea2cabef56c0a39"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-assistant/zipball/64a62607e3f8d934aedc38e2cea2cabef56c0a39",
-                "reference": "64a62607e3f8d934aedc38e2cea2cabef56c0a39",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-assistant",
+                "reference": "64a62607e3f8d934aedc38e2cea2cabef56c0a39"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1291,7 +1255,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1305,7 +1268,6 @@
                     "Dorcas\\ModulesAssistant\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1316,25 +1278,17 @@
                 }
             ],
             "description": "Dorcas Assistant Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-assistant/issues",
-                "source": "https://github.com/dorcas-io/modules-assistant/tree/master"
-            },
-            "time": "2021-11-15T16:51:36+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-auth",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-auth.git",
-                "reference": "6fc74fb3feebfebb6cc2611e53940b1fab773863"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-auth/zipball/6fc74fb3feebfebb6cc2611e53940b1fab773863",
-                "reference": "6fc74fb3feebfebb6cc2611e53940b1fab773863",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-auth",
+                "reference": "6fc74fb3feebfebb6cc2611e53940b1fab773863"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1345,7 +1299,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1359,7 +1312,6 @@
                     "Dorcas\\ModulesAuth\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1370,25 +1322,17 @@
                 }
             ],
             "description": "Dorcas Authentication Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-auth/issues",
-                "source": "https://github.com/dorcas-io/modules-auth/tree/master"
-            },
-            "time": "2021-11-15T16:51:07+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-customers",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-customers.git",
-                "reference": "e8d01141dd66bad6bc3b8e11c0e468c7cea8fdce"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-customers/zipball/e8d01141dd66bad6bc3b8e11c0e468c7cea8fdce",
-                "reference": "e8d01141dd66bad6bc3b8e11c0e468c7cea8fdce",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-customers",
+                "reference": "e8d01141dd66bad6bc3b8e11c0e468c7cea8fdce"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1399,7 +1343,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1413,7 +1356,6 @@
                     "Dorcas\\ModulesCustomers\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1424,25 +1366,17 @@
                 }
             ],
             "description": "Dorcas Hub Customers Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-customers/issues",
-                "source": "https://github.com/dorcas-io/modules-customers/tree/master"
-            },
-            "time": "2021-11-15T16:50:34+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-dashboard",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-dashboard.git",
-                "reference": "511b891d94bc277b121d6b14fff3f5a658f3180e"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-dashboard/zipball/511b891d94bc277b121d6b14fff3f5a658f3180e",
-                "reference": "511b891d94bc277b121d6b14fff3f5a658f3180e",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-dashboard",
+                "reference": "511b891d94bc277b121d6b14fff3f5a658f3180e"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1453,7 +1387,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1467,7 +1400,6 @@
                     "Dorcas\\ModulesDashboard\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1478,25 +1410,17 @@
                 }
             ],
             "description": "Dorcas Dashboard Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-dashboard/issues",
-                "source": "https://github.com/dorcas-io/modules-dashboard/tree/master"
-            },
-            "time": "2021-11-15T16:50:15+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-ecommerce",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-ecommerce.git",
-                "reference": "a0af5c2de95502dc18a426903c9594253d9e112b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-ecommerce/zipball/a0af5c2de95502dc18a426903c9594253d9e112b",
-                "reference": "a0af5c2de95502dc18a426903c9594253d9e112b",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-ecommerce",
+                "reference": "a0af5c2de95502dc18a426903c9594253d9e112b"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1507,7 +1431,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1521,7 +1444,6 @@
                     "Dorcas\\ModulesEcommerce\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1532,25 +1454,17 @@
                 }
             ],
             "description": "Dorcas Hub eCommerce Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-ecommerce/issues",
-                "source": "https://github.com/dorcas-io/modules-ecommerce/tree/master"
-            },
-            "time": "2021-11-15T16:49:13+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-finance",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-finance.git",
-                "reference": "c66eaa39f265404a25499ae0612b06aa0ceaaf72"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-finance/zipball/c66eaa39f265404a25499ae0612b06aa0ceaaf72",
-                "reference": "c66eaa39f265404a25499ae0612b06aa0ceaaf72",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-finance",
+                "reference": "c66eaa39f265404a25499ae0612b06aa0ceaaf72"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1561,7 +1475,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1575,7 +1488,6 @@
                     "Dorcas\\ModulesFinance\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1586,25 +1498,17 @@
                 }
             ],
             "description": "Dorcas Hub Finance Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-finance/issues",
-                "source": "https://github.com/dorcas-io/modules-finance/tree/master"
-            },
-            "time": "2021-11-15T16:49:26+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-finance-tax",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-finance-tax.git",
-                "reference": "c3b6cc019728536042a625a1d378897d8491e69a"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-finance-tax/zipball/c3b6cc019728536042a625a1d378897d8491e69a",
-                "reference": "c3b6cc019728536042a625a1d378897d8491e69a",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-finance-tax",
+                "reference": "c3b6cc019728536042a625a1d378897d8491e69a"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1615,7 +1519,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1629,7 +1532,6 @@
                     "Dorcas\\ModulesFinanceTax\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1640,25 +1542,17 @@
                 }
             ],
             "description": "Dorcas Hub Tax Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-finance-tax/issues",
-                "source": "https://github.com/dorcas-io/modules-finance-tax/tree/master"
-            },
-            "time": "2021-11-15T16:28:10+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-integrations",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-integrations.git",
-                "reference": "efd1a6332f97ce0420cca6f83b95c1f24383de2c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-integrations/zipball/efd1a6332f97ce0420cca6f83b95c1f24383de2c",
-                "reference": "efd1a6332f97ce0420cca6f83b95c1f24383de2c",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-integrations",
+                "reference": "efd1a6332f97ce0420cca6f83b95c1f24383de2c"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1669,7 +1563,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1683,7 +1576,6 @@
                     "Dorcas\\ModulesIntegrations\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1694,25 +1586,17 @@
                 }
             ],
             "description": "Dorcas Hub Integrations Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-integrations/issues",
-                "source": "https://github.com/dorcas-io/modules-integrations/tree/master"
-            },
-            "time": "2021-11-15T16:27:19+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-library",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-library.git",
-                "reference": "41e673e47d207b7dfc4a7f2d2e27d3ff5853894d"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-library/zipball/41e673e47d207b7dfc4a7f2d2e27d3ff5853894d",
-                "reference": "41e673e47d207b7dfc4a7f2d2e27d3ff5853894d",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-library",
+                "reference": "41e673e47d207b7dfc4a7f2d2e27d3ff5853894d"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1723,7 +1607,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1737,7 +1620,6 @@
                     "Dorcas\\ModulesLibrary\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1748,25 +1630,17 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-library/issues",
-                "source": "https://github.com/dorcas-io/modules-library/tree/master"
-            },
-            "time": "2021-11-15T16:26:41+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-marketplace",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-marketplace.git",
-                "reference": "743d761962c48f196c54c3add3071326a2beaba0"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-marketplace/zipball/743d761962c48f196c54c3add3071326a2beaba0",
-                "reference": "743d761962c48f196c54c3add3071326a2beaba0",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-marketplace",
+                "reference": "743d761962c48f196c54c3add3071326a2beaba0"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1777,7 +1651,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1791,7 +1664,6 @@
                     "Dorcas\\ModulesMarketplace\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1802,25 +1674,17 @@
                 }
             ],
             "description": "Dorcas Hub Marketplace Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-marketplace/issues",
-                "source": "https://github.com/dorcas-io/modules-marketplace/tree/master"
-            },
-            "time": "2021-11-15T16:26:15+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-people",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-people.git",
-                "reference": "080ab6e6fc8a50ea9b752481d7fa40e482327fee"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people/zipball/080ab6e6fc8a50ea9b752481d7fa40e482327fee",
-                "reference": "080ab6e6fc8a50ea9b752481d7fa40e482327fee",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-people",
+                "reference": "080ab6e6fc8a50ea9b752481d7fa40e482327fee"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1831,7 +1695,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1845,7 +1708,6 @@
                     "Dorcas\\ModulesPeople\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1856,25 +1718,17 @@
                 }
             ],
             "description": "Dorcas Hub People Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-people/issues",
-                "source": "https://github.com/dorcas-io/modules-people/tree/master"
-            },
-            "time": "2021-11-15T16:25:29+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-people-payroll",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-people-payroll.git",
-                "reference": "7e7973e2525b90c8726b88cb3017fe28e8f78674"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people-payroll/zipball/7e7973e2525b90c8726b88cb3017fe28e8f78674",
-                "reference": "7e7973e2525b90c8726b88cb3017fe28e8f78674",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-people-payroll",
+                "reference": "7e7973e2525b90c8726b88cb3017fe28e8f78674"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1886,7 +1740,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1900,7 +1753,16 @@
                     "Dorcas\\ModulesPeoplePayroll\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "post-install-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ],
+                "post-update-cmd": [
+                    "...",
+                    "php artisan vendor:publish --tag=public --force"
+                ]
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1911,25 +1773,17 @@
                 }
             ],
             "description": "Dorcas Hub People Payroll Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-people-payroll/issues",
-                "source": "https://github.com/dorcas-io/modules-people-payroll/tree/master"
-            },
-            "time": "2021-11-15T16:22:07+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-sales",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-sales.git",
-                "reference": "d3fb34c4f15f0f736f2439c784209921f837d573"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-sales/zipball/d3fb34c4f15f0f736f2439c784209921f837d573",
-                "reference": "d3fb34c4f15f0f736f2439c784209921f837d573",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-sales",
+                "reference": "d3fb34c4f15f0f736f2439c784209921f837d573"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1940,7 +1794,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1954,7 +1807,6 @@
                     "Dorcas\\ModulesSales\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1965,25 +1817,17 @@
                 }
             ],
             "description": "Dorcas Hub Sales Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-sales/issues",
-                "source": "https://github.com/dorcas-io/modules-sales/tree/master"
-            },
-            "time": "2021-11-15T16:20:53+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-service-profile",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-service-profile.git",
-                "reference": "90c43dd555ae6df37527f3b7f676fa3f73b9ab56"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-service-profile/zipball/90c43dd555ae6df37527f3b7f676fa3f73b9ab56",
-                "reference": "90c43dd555ae6df37527f3b7f676fa3f73b9ab56",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-service-profile",
+                "reference": "90c43dd555ae6df37527f3b7f676fa3f73b9ab56"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1994,7 +1838,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2008,7 +1851,6 @@
                     "Dorcas\\ModulesServiceProfile\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -2019,25 +1861,17 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-service-profile/issues",
-                "source": "https://github.com/dorcas-io/modules-service-profile/tree/master"
-            },
-            "time": "2021-11-15T16:20:16+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-service-requests",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-service-requests.git",
-                "reference": "18acab30e6873212269a907311766247baf1e4d1"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-service-requests/zipball/18acab30e6873212269a907311766247baf1e4d1",
-                "reference": "18acab30e6873212269a907311766247baf1e4d1",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-service-requests",
+                "reference": "18acab30e6873212269a907311766247baf1e4d1"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -2048,7 +1882,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2062,7 +1895,6 @@
                     "Dorcas\\ModulesServiceRequests\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -2073,25 +1905,17 @@
                 }
             ],
             "description": "Dorcas Hub Service Requests Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-service-requests/issues",
-                "source": "https://github.com/dorcas-io/modules-service-requests/tree/master"
-            },
-            "time": "2021-11-15T16:16:59+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/modules-settings",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/modules-settings.git",
-                "reference": "44cd11cbacd7c06c9aff8a068bd392d85fc0a56d"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-settings/zipball/44cd11cbacd7c06c9aff8a068bd392d85fc0a56d",
-                "reference": "44cd11cbacd7c06c9aff8a068bd392d85fc0a56d",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-settings",
+                "reference": "44cd11cbacd7c06c9aff8a068bd392d85fc0a56d"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -2102,7 +1926,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2116,7 +1939,6 @@
                     "Dorcas\\ModulesSettings\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -2127,37 +1949,27 @@
                 }
             ],
             "description": "Dorcas Hub Settings Module",
-            "support": {
-                "issues": "https://github.com/dorcas-io/modules-settings/issues",
-                "source": "https://github.com/dorcas-io/modules-settings/tree/master"
-            },
-            "time": "2021-11-15T16:15:48+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/resellerclub-php",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/resellerclub-php.git",
-                "reference": "f8912b3d32781391208ad02fcbcbd48796006689"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/resellerclub-php/zipball/f8912b3d32781391208ad02fcbcbd48796006689",
-                "reference": "f8912b3d32781391208ad02fcbcbd48796006689",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/resellerclub-php",
+                "reference": "f8912b3d32781391208ad02fcbcbd48796006689"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "afbora\\ResellerClub\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2168,25 +1980,17 @@
                 }
             ],
             "description": "PHP SDK for ResellerClub API",
-            "support": {
-                "issues": "https://github.com/dorcas-io/resellerclub-php/issues",
-                "source": "https://github.com/dorcas-io/resellerclub-php/tree/master"
-            },
-            "time": "2019-03-23T12:23:17+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dorcas/sdk-php-laravel",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dorcas-io/sdk-php-laravel.git",
-                "reference": "78c95ae5a26042564ffd06786ba193fc4a359564"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/sdk-php-laravel/zipball/78c95ae5a26042564ffd06786ba193fc4a359564",
-                "reference": "78c95ae5a26042564ffd06786ba193fc4a359564",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/sdk-php-laravel",
+                "reference": "78c95ae5a26042564ffd06786ba193fc4a359564"
             },
             "require": {
                 "ext-json": "*",
@@ -2198,7 +2002,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^7"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2208,7 +2011,6 @@
                     "src/helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -2229,11 +2031,9 @@
                 "php",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/dorcas-io/sdk-php-laravel/issues",
-                "source": "https://github.com/dorcas-io/sdk-php-laravel/tree/master"
-            },
-            "time": "2021-11-15T16:10:19+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -3031,16 +2831,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.20.38",
+            "version": "v6.20.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1b301ac996e65d1319bc0d28716521ef6d1cd5c5"
+                "reference": "74db641f743e65dd8f39dcb74dce68709e73711c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1b301ac996e65d1319bc0d28716521ef6d1cd5c5",
-                "reference": "1b301ac996e65d1319bc0d28716521ef6d1cd5c5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/74db641f743e65dd8f39dcb74dce68709e73711c",
+                "reference": "74db641f743e65dd8f39dcb74dce68709e73711c",
                 "shasum": ""
             },
             "require": {
@@ -3180,7 +2980,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-11-09T15:35:52+00:00"
+            "time": "2021-11-23T14:27:31+00:00"
         },
         {
             "name": "laravel/helpers",
@@ -3560,16 +3360,16 @@
         },
         {
             "name": "league/csv",
-            "version": "9.7.2",
+            "version": "9.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "8544655c460fd01eed0ad258e514488d4b388645"
+                "reference": "d8149032aa74a9daca6f7b35d63c46a35c9bc1d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/8544655c460fd01eed0ad258e514488d4b388645",
-                "reference": "8544655c460fd01eed0ad258e514488d4b388645",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/d8149032aa74a9daca6f7b35d63c46a35c9bc1d5",
+                "reference": "d8149032aa74a9daca6f7b35d63c46a35c9bc1d5",
                 "shasum": ""
             },
             "require": {
@@ -3581,9 +3381,9 @@
                 "ext-curl": "*",
                 "ext-dom": "*",
                 "friendsofphp/php-cs-fixer": "^3.0",
-                "phpstan/phpstan": "^0.12.99",
-                "phpstan/phpstan-phpunit": "^0.12.22",
-                "phpstan/phpstan-strict-rules": "^0.12.11",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0.0",
+                "phpstan/phpstan-strict-rules": "^1.0",
                 "phpunit/phpunit": "^9.5"
             },
             "suggest": {
@@ -3640,7 +3440,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-05T19:41:46+00:00"
+            "time": "2021-11-21T19:32:00+00:00"
         },
         {
             "name": "league/event",
@@ -3698,16 +3498,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.5",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "18634df356bfd4119fe3d6156bdb990c414c14ea"
+                "reference": "c995bb0c23c58c9813d081f9523c9b7bb496698e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/18634df356bfd4119fe3d6156bdb990c414c14ea",
-                "reference": "18634df356bfd4119fe3d6156bdb990c414c14ea",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c995bb0c23c58c9813d081f9523c9b7bb496698e",
+                "reference": "c995bb0c23c58c9813d081f9523c9b7bb496698e",
                 "shasum": ""
             },
             "require": {
@@ -3780,7 +3580,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/1.1.5"
+                "source": "https://github.com/thephpleague/flysystem/tree/1.1.8"
             },
             "funding": [
                 {
@@ -3788,20 +3588,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-08-17T13:49:42+00:00"
+            "time": "2021-11-28T21:50:23+00:00"
         },
         {
             "name": "league/mime-type-detection",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/mime-type-detection.git",
-                "reference": "b38b25d7b372e9fddb00335400467b223349fd7e"
+                "reference": "aa70e813a6ad3d1558fc927863d47309b4c23e69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/b38b25d7b372e9fddb00335400467b223349fd7e",
-                "reference": "b38b25d7b372e9fddb00335400467b223349fd7e",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/aa70e813a6ad3d1558fc927863d47309b4c23e69",
+                "reference": "aa70e813a6ad3d1558fc927863d47309b4c23e69",
                 "shasum": ""
             },
             "require": {
@@ -3809,7 +3609,7 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.18",
+                "friendsofphp/php-cs-fixer": "^3.2",
                 "phpstan/phpstan": "^0.12.68",
                 "phpunit/phpunit": "^8.5.8 || ^9.3"
             },
@@ -3832,7 +3632,7 @@
             "description": "Mime-type detection for Flysystem",
             "support": {
                 "issues": "https://github.com/thephpleague/mime-type-detection/issues",
-                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.8.0"
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.9.0"
             },
             "funding": [
                 {
@@ -3844,7 +3644,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-25T08:23:19+00:00"
+            "time": "2021-11-21T11:48:40+00:00"
         },
         {
             "name": "league/oauth2-server",
@@ -4937,16 +4737,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.34",
+            "version": "2.0.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec"
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/98a6fe587f3481aea319eef7e656d02cfe1675ec",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/4e16cf3f5f927a7d3f5317820af795c0366c0420",
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420",
                 "shasum": ""
             },
             "require": {
@@ -5026,7 +4826,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.34"
+                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.35"
             },
             "funding": [
                 {
@@ -5042,7 +4842,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-27T02:46:30+00:00"
+            "time": "2021-11-28T23:30:39+00:00"
         },
         {
             "name": "predis/predis",
@@ -5920,20 +5720,21 @@
                     "type": "tidelift"
                 }
             ],
+            "abandoned": "symfony/mailer",
             "time": "2021-10-18T15:26:12+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.33",
+            "version": "v4.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "8dbd23ef7a8884051482183ddee8d9061b5feed0"
+                "reference": "329b3a75cc6b16d435ba1b1a41df54a53382a3f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8dbd23ef7a8884051482183ddee8d9061b5feed0",
-                "reference": "8dbd23ef7a8884051482183ddee8d9061b5feed0",
+                "url": "https://api.github.com/repos/symfony/console/zipball/329b3a75cc6b16d435ba1b1a41df54a53382a3f0",
+                "reference": "329b3a75cc6b16d435ba1b1a41df54a53382a3f0",
                 "shasum": ""
             },
             "require": {
@@ -5994,7 +5795,7 @@
             "description": "Eases the creation of beautiful and testable command line interfaces",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/console/tree/v4.4.33"
+                "source": "https://github.com/symfony/console/tree/v4.4.34"
             },
             "funding": [
                 {
@@ -6010,7 +5811,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-25T16:36:08+00:00"
+            "time": "2021-11-04T12:23:33+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -6148,16 +5949,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627"
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5f38c8804a9e97d23e0c8d63341088cd8a22d627",
-                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
                 "shasum": ""
             },
             "require": {
@@ -6166,7 +5967,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6195,7 +5996,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.4.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -6211,20 +6012,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-23T23:28:01+00:00"
+            "time": "2021-07-12T14:48:14+00:00"
         },
         {
             "name": "symfony/error-handler",
-            "version": "v4.4.30",
+            "version": "v4.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/error-handler.git",
-                "reference": "51f98f7aa99f00f3b1da6bafe934e67ae6ba6dc5"
+                "reference": "17785c374645def1e884d8ec49976c156c61db4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/error-handler/zipball/51f98f7aa99f00f3b1da6bafe934e67ae6ba6dc5",
-                "reference": "51f98f7aa99f00f3b1da6bafe934e67ae6ba6dc5",
+                "url": "https://api.github.com/repos/symfony/error-handler/zipball/17785c374645def1e884d8ec49976c156c61db4d",
+                "reference": "17785c374645def1e884d8ec49976c156c61db4d",
                 "shasum": ""
             },
             "require": {
@@ -6263,7 +6064,7 @@
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/error-handler/tree/v4.4.30"
+                "source": "https://github.com/symfony/error-handler/tree/v4.4.34"
             },
             "funding": [
                 {
@@ -6279,20 +6080,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-27T17:42:48+00:00"
+            "time": "2021-11-12T14:57:39+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.4.30",
+            "version": "v4.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "2fe81680070043c4c80e7cedceb797e34f377bac"
+                "reference": "1a024b45369c9d55d76b6b8a241bd20c9ea1cbd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/2fe81680070043c4c80e7cedceb797e34f377bac",
-                "reference": "2fe81680070043c4c80e7cedceb797e34f377bac",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/1a024b45369c9d55d76b6b8a241bd20c9ea1cbd8",
+                "reference": "1a024b45369c9d55d76b6b8a241bd20c9ea1cbd8",
                 "shasum": ""
             },
             "require": {
@@ -6347,7 +6148,7 @@
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v4.4.30"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v4.4.34"
             },
             "funding": [
                 {
@@ -6363,20 +6164,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-04T20:31:23+00:00"
+            "time": "2021-11-15T14:42:25+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v1.1.9",
+            "version": "v1.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "84e23fdcd2517bf37aecbd16967e83f0caee25a7"
+                "reference": "01e9a4efac0ee33a05dfdf93b346f62e7d0e998c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/84e23fdcd2517bf37aecbd16967e83f0caee25a7",
-                "reference": "84e23fdcd2517bf37aecbd16967e83f0caee25a7",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/01e9a4efac0ee33a05dfdf93b346f62e7d0e998c",
+                "reference": "01e9a4efac0ee33a05dfdf93b346f62e7d0e998c",
                 "shasum": ""
             },
             "require": {
@@ -6389,7 +6190,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-main": "1.1-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6426,7 +6227,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v1.1.9"
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v1.1.11"
             },
             "funding": [
                 {
@@ -6442,7 +6243,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T13:19:58+00:00"
+            "time": "2021-03-23T15:25:38+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -6571,16 +6372,16 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v5.3.10",
+            "version": "v5.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "710b69ed4bc9469900ec5ae5c3807b0509bee0dc"
+                "reference": "3f55da60fc3c3d6e6a4144ee65a37d23a637107e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/710b69ed4bc9469900ec5ae5c3807b0509bee0dc",
-                "reference": "710b69ed4bc9469900ec5ae5c3807b0509bee0dc",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/3f55da60fc3c3d6e6a4144ee65a37d23a637107e",
+                "reference": "3f55da60fc3c3d6e6a4144ee65a37d23a637107e",
                 "shasum": ""
             },
             "require": {
@@ -6638,7 +6439,7 @@
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-client/tree/v5.3.10"
+                "source": "https://github.com/symfony/http-client/tree/v5.3.11"
             },
             "funding": [
                 {
@@ -6654,20 +6455,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-19T08:32:53+00:00"
+            "time": "2021-11-20T16:42:42+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client-contracts.git",
-                "reference": "7e82f6084d7cae521a75ef2cb5c9457bbda785f4"
+                "reference": "ec82e57b5b714dbb69300d348bd840b345e24166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/7e82f6084d7cae521a75ef2cb5c9457bbda785f4",
-                "reference": "7e82f6084d7cae521a75ef2cb5c9457bbda785f4",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/ec82e57b5b714dbb69300d348bd840b345e24166",
+                "reference": "ec82e57b5b714dbb69300d348bd840b345e24166",
                 "shasum": ""
             },
             "require": {
@@ -6679,7 +6480,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6716,7 +6517,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/http-client-contracts/tree/v2.4.0"
+                "source": "https://github.com/symfony/http-client-contracts/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -6732,20 +6533,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-11T23:07:08+00:00"
+            "time": "2021-11-03T09:24:47+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.4.33",
+            "version": "v4.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "b9a91102f548e0111f4996e8c622fb1d1d479850"
+                "reference": "f4cbbb6fc428588ce8373802461e7fe84e6809ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/b9a91102f548e0111f4996e8c622fb1d1d479850",
-                "reference": "b9a91102f548e0111f4996e8c622fb1d1d479850",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/f4cbbb6fc428588ce8373802461e7fe84e6809ab",
+                "reference": "f4cbbb6fc428588ce8373802461e7fe84e6809ab",
                 "shasum": ""
             },
             "require": {
@@ -6784,7 +6585,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v4.4.33"
+                "source": "https://github.com/symfony/http-foundation/tree/v4.4.34"
             },
             "funding": [
                 {
@@ -6800,20 +6601,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-07T15:31:35+00:00"
+            "time": "2021-11-04T12:23:33+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v4.4.33",
+            "version": "v4.4.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "6f1fcca1154f782796549f4f4e5090bae9525c0e"
+                "reference": "fb793f1381c34b79a43596a532a6a49bd729c9db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/6f1fcca1154f782796549f4f4e5090bae9525c0e",
-                "reference": "6f1fcca1154f782796549f4f4e5090bae9525c0e",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/fb793f1381c34b79a43596a532a6a49bd729c9db",
+                "reference": "fb793f1381c34b79a43596a532a6a49bd729c9db",
                 "shasum": ""
             },
             "require": {
@@ -6888,7 +6689,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v4.4.33"
+                "source": "https://github.com/symfony/http-kernel/tree/v4.4.35"
             },
             "funding": [
                 {
@@ -6904,20 +6705,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-29T08:14:01+00:00"
+            "time": "2021-11-24T08:40:10+00:00"
         },
         {
             "name": "symfony/mime",
-            "version": "v5.3.8",
+            "version": "v5.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "a756033d0a7e53db389618653ae991eba5a19a11"
+                "reference": "dffc0684f10526db12c52fcd6238c64695426d61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/a756033d0a7e53db389618653ae991eba5a19a11",
-                "reference": "a756033d0a7e53db389618653ae991eba5a19a11",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/dffc0684f10526db12c52fcd6238c64695426d61",
+                "reference": "dffc0684f10526db12c52fcd6238c64695426d61",
                 "shasum": ""
             },
             "require": {
@@ -6971,7 +6772,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/v5.3.8"
+                "source": "https://github.com/symfony/mime/tree/v5.3.11"
             },
             "funding": [
                 {
@@ -6987,7 +6788,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-10T12:30:38+00:00"
+            "time": "2021-11-20T16:42:42+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -7639,16 +7440,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.4.30",
+            "version": "v4.4.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "13d3161ef63a8ec21eeccaaf9a4d7f784a87a97d"
+                "reference": "c2098705326addae6e6742151dfade47ac71da1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/13d3161ef63a8ec21eeccaaf9a4d7f784a87a97d",
-                "reference": "13d3161ef63a8ec21eeccaaf9a4d7f784a87a97d",
+                "url": "https://api.github.com/repos/symfony/process/zipball/c2098705326addae6e6742151dfade47ac71da1b",
+                "reference": "c2098705326addae6e6742151dfade47ac71da1b",
                 "shasum": ""
             },
             "require": {
@@ -7681,7 +7482,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v4.4.30"
+                "source": "https://github.com/symfony/process/tree/v4.4.35"
             },
             "funding": [
                 {
@@ -7697,7 +7498,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-04T20:31:23+00:00"
+            "time": "2021-11-22T22:36:24+00:00"
         },
         {
             "name": "symfony/psr-http-message-bridge",
@@ -7770,16 +7571,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v4.4.30",
+            "version": "v4.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "9ddf033927ad9f30ba2bfd167a7b342cafa13e8e"
+                "reference": "fc9dda0c8496f8ef0a89805c2eabfc43b8cef366"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/9ddf033927ad9f30ba2bfd167a7b342cafa13e8e",
-                "reference": "9ddf033927ad9f30ba2bfd167a7b342cafa13e8e",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/fc9dda0c8496f8ef0a89805c2eabfc43b8cef366",
+                "reference": "fc9dda0c8496f8ef0a89805c2eabfc43b8cef366",
                 "shasum": ""
             },
             "require": {
@@ -7839,7 +7640,7 @@
                 "url"
             ],
             "support": {
-                "source": "https://github.com/symfony/routing/tree/v4.4.30"
+                "source": "https://github.com/symfony/routing/tree/v4.4.34"
             },
             "funding": [
                 {
@@ -7855,25 +7656,29 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-04T21:41:01+00:00"
+            "time": "2021-11-04T12:23:33+00:00"
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb"
+                "reference": "1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb",
-                "reference": "f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc",
+                "reference": "1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "psr/container": "^1.1"
+                "psr/container": "^1.1",
+                "symfony/deprecation-contracts": "^2.1"
+            },
+            "conflict": {
+                "ext-psr": "<1.1|>=2"
             },
             "suggest": {
                 "symfony/service-implementation": ""
@@ -7881,7 +7686,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -7918,7 +7723,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v2.4.0"
+                "source": "https://github.com/symfony/service-contracts/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -7934,20 +7739,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-01T10:43:52+00:00"
+            "time": "2021-11-04T16:48:04+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v4.4.32",
+            "version": "v4.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "db0ba1e85280d8ff11e38d53c70f8814d4d740f5"
+                "reference": "26d330720627b234803595ecfc0191eeabc65190"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/db0ba1e85280d8ff11e38d53c70f8814d4d740f5",
-                "reference": "db0ba1e85280d8ff11e38d53c70f8814d4d740f5",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/26d330720627b234803595ecfc0191eeabc65190",
+                "reference": "26d330720627b234803595ecfc0191eeabc65190",
                 "shasum": ""
             },
             "require": {
@@ -8007,7 +7812,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v4.4.32"
+                "source": "https://github.com/symfony/translation/tree/v4.4.34"
             },
             "funding": [
                 {
@@ -8023,20 +7828,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-26T05:57:13+00:00"
+            "time": "2021-11-04T12:23:33+00:00"
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "95c812666f3e91db75385749fe219c5e494c7f95"
+                "reference": "d28150f0f44ce854e942b671fc2620a98aae1b1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/95c812666f3e91db75385749fe219c5e494c7f95",
-                "reference": "95c812666f3e91db75385749fe219c5e494c7f95",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/d28150f0f44ce854e942b671fc2620a98aae1b1e",
+                "reference": "d28150f0f44ce854e942b671fc2620a98aae1b1e",
                 "shasum": ""
             },
             "require": {
@@ -8048,7 +7853,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -8085,7 +7890,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v2.4.0"
+                "source": "https://github.com/symfony/translation-contracts/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -8101,20 +7906,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-23T23:28:01+00:00"
+            "time": "2021-08-17T14:20:01+00:00"
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v4.4.33",
+            "version": "v4.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "50286e2b7189bfb4f419c0731e86632cddf7c5ee"
+                "reference": "2d0c056b2faaa3d785bdbd5adecc593a5be9c16e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/50286e2b7189bfb4f419c0731e86632cddf7c5ee",
-                "reference": "50286e2b7189bfb4f419c0731e86632cddf7c5ee",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/2d0c056b2faaa3d785bdbd5adecc593a5be9c16e",
+                "reference": "2d0c056b2faaa3d785bdbd5adecc593a5be9c16e",
                 "shasum": ""
             },
             "require": {
@@ -8174,7 +7979,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v4.4.33"
+                "source": "https://github.com/symfony/var-dumper/tree/v4.4.34"
             },
             "funding": [
                 {
@@ -8190,20 +7995,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-25T20:24:58+00:00"
+            "time": "2021-11-12T10:50:54+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.3.6",
+            "version": "v5.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7"
+                "reference": "226638aa877bc4104e619a15f27d8141cd6b4e4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7",
-                "reference": "4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/226638aa877bc4104e619a15f27d8141cd6b4e4a",
+                "reference": "226638aa877bc4104e619a15f27d8141cd6b4e4a",
                 "shasum": ""
             },
             "require": {
@@ -8249,7 +8054,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.3.6"
+                "source": "https://github.com/symfony/yaml/tree/v5.3.11"
             },
             "funding": [
                 {
@@ -8265,7 +8070,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-29T06:20:01+00:00"
+            "time": "2021-11-20T16:42:42+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

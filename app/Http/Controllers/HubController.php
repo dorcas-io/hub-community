@@ -167,25 +167,25 @@ class HubController extends Controller
     }
 
 
-    public function getAuthResources(Request $request, Sdk $sdk): ?Collection
-    {
-        $company = !empty($request->user()) && !empty($request->user()->company(true, true)) ? $request->user()->company(true, true) : null;
-        $partner = null;
-        if (!empty($request->user()->partner) && !empty($request->user()->partner['data'])) {
-            $partner = (object) $request->user()->partner['data'];
-        }
-        $partner_id = !empty($partner->id) ? $partner->id : 0;
-        $company_id = !empty($company->id) ? $company->id : rand(2000000,3000000);
+    // public function getAuthResources(Request $request, Sdk $sdk): ?Collection
+    // {
+    //     $company = !empty($request->user()) && !empty($request->user()->company(true, true)) ? $request->user()->company(true, true) : null;
+    //     $partner = null;
+    //     if (!empty($request->user()->partner) && !empty($request->user()->partner['data'])) {
+    //         $partner = (object) $request->user()->partner['data'];
+    //     }
+    //     $partner_id = !empty($partner->id) ? $partner->id : 0;
+    //     $company_id = !empty($company->id) ? $company->id : rand(2000000,3000000);
 
-        $resources = Cache::remember('mau_media.'.$company_id, 30, function () use ($partner_id) {
-            $response = collect(config('modules-auth.resources.media', []));
-            return $response->map(function ($resource) {
-                return (object) $resource;
-            });
-        });
+    //     $resources = Cache::remember('mau_media.'.$company_id, 30, function () use ($partner_id) {
+    //         $response = collect(config('modules-auth.resources.media', []));
+    //         return $response->map(function ($resource) {
+    //             return (object) $resource;
+    //         });
+    //     });
 
-        return $resources;
-    }
+    //     return $resources;
+    // }
 
 
 

@@ -3,6 +3,38 @@
 return [
     'title' => 'Auth Module',
     'resources' => [
+        'index' => [
+            'login' => [
+                'media' => 'image',
+                'image' => "tabler-icon-login.png",
+                'image_link' => '#',
+                'title' => 'Login',
+                'description' => 'Login to Your Hub Account',
+                'button_text' => '',
+                'button_link' => 'https://dorcas.io',
+                'editions' => ['business', 'community']
+            ],
+            'store' => [
+                'media' => 'image',
+                'image' => "tabler-icon-shopping-cart.png",
+                'image_link' => '#',
+                'title' => 'Store',
+                'description' => 'View Your Store',
+                'button' => '',
+                'button_link' => 'https://dorcas.io',
+                'editions' => ['business', 'community']
+            ],
+            'marketplace' => [
+                'media' => 'image',
+                'image' => "tabler-icon-building-store.png",
+                'image_link' => '#',
+                'title' => 'Marketplace',
+                'description' => 'Explore Partner Marketplace',
+                'button' => '',
+                'button_link' => 'https://dorcas.io',
+                'editions' => ['business', 'community']
+            ]
+        ],
         'media' =>[
             [
                 'partner_id' => '0',

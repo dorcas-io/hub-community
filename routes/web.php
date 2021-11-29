@@ -20,6 +20,10 @@ $currentHost = $request->header('host');
 $defaultUri = new Uri(config('app.url'));
 
 Route::get('/', 'Index@index');
+Route::get('/index-business', 'Index@indexBusiness')->name('index-business');
+Route::get('/index-community', 'Index@indexCommunity')->name('index-community');
+Route::get('/index-enterprise', 'Index@indexEnterprise')->name('index-enterprise');
+Route::get('/index-cloud', 'Index@indexCloud')->name('index-cloud');
 
 
 //Auth::routes();
