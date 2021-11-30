@@ -73,6 +73,7 @@ class Index extends Controller
     {
         $this->data['header']['title'] = 'Dorcas Community :: Welcome';
         $this->setViewUiResponse($request);
+        $sdk = app(Sdk::class);
         $authIndexes = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthIndex($request, $sdk, "community");
         $this->data['authIndexes'] = $authIndexes;
         return view('modules-auth::index-community', $this->data);
@@ -83,7 +84,9 @@ class Index extends Controller
     {
         $this->data['header']['title'] = 'Dorcas Enterprise :: Welcome';
         $this->setViewUiResponse($request);
-
+        $sdk = app(Sdk::class);
+        $authIndexes = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthIndex($request, $sdk, "enterprise");
+        $this->data['authIndexes'] = $authIndexes;
         return view('modules-auth::index-enterprise', $this->data);
 
     }
@@ -92,7 +95,9 @@ class Index extends Controller
     {
         $this->data['header']['title'] = 'Dorcas Cloud :: Welcome';
         $this->setViewUiResponse($request);
-
+        $sdk = app(Sdk::class);
+        $authIndexes = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthIndex($request, $sdk, "cloud");
+        $this->data['authIndexes'] = $authIndexes;
         return view('modules-auth::index-cloud', $this->data);
 
     }
