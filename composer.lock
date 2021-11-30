@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a664eab817aeab18114e63838fded5db",
+    "content-hash": "ba8189b329e215f7965a4557b264d2e7",
     "packages": [
         {
             "name": "async-aws/core",
@@ -1097,10 +1097,16 @@
         {
             "name": "dorcas/laravel-compat",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/laravel-compat",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/laravel-compat.git",
                 "reference": "8f917875810d1c803f2696c1a1943696c7dc23d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/laravel-compat/zipball/8f917875810d1c803f2696c1a1943696c7dc23d0",
+                "reference": "8f917875810d1c803f2696c1a1943696c7dc23d0",
+                "shasum": ""
             },
             "require": {
                 "dorcas/sdk-php-laravel": "dev-master",
@@ -1111,6 +1117,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1124,6 +1131,7 @@
                     "Hostville\\Dorcas\\LaravelCompat\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1146,17 +1154,25 @@
                 "laravel",
                 "sdk"
             ],
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/laravel-compat/issues",
+                "source": "https://github.com/dorcas-io/laravel-compat/tree/master"
+            },
+            "time": "2021-11-15T16:54:33+00:00"
         },
         {
             "name": "dorcas/modules-access-requests",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-access-requests",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-access-requests.git",
                 "reference": "775e1379e17f659e2081263636f0815566fbf3e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-access-requests/zipball/775e1379e17f659e2081263636f0815566fbf3e1",
+                "reference": "775e1379e17f659e2081263636f0815566fbf3e1",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1167,6 +1183,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1180,6 +1197,7 @@
                     "Dorcas\\ModulesAccessRequests\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1190,17 +1208,25 @@
                 }
             ],
             "description": "Dorcas Hub Access Requests Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-access-requests/issues",
+                "source": "https://github.com/dorcas-io/modules-access-requests/tree/master"
+            },
+            "time": "2021-11-15T16:52:48+00:00"
         },
         {
             "name": "dorcas/modules-app-store",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-app-store",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-app-store.git",
                 "reference": "bf2a9cb683574143068ebdf328d1e8ebe96e627e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-app-store/zipball/bf2a9cb683574143068ebdf328d1e8ebe96e627e",
+                "reference": "bf2a9cb683574143068ebdf328d1e8ebe96e627e",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1211,6 +1237,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1224,6 +1251,7 @@
                     "Dorcas\\ModulesAppStore\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1234,17 +1262,25 @@
                 }
             ],
             "description": "Dorcas Hub App Store Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-app-store/issues",
+                "source": "https://github.com/dorcas-io/modules-app-store/tree/master"
+            },
+            "time": "2021-11-15T16:52:08+00:00"
         },
         {
             "name": "dorcas/modules-assistant",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-assistant",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-assistant.git",
                 "reference": "64a62607e3f8d934aedc38e2cea2cabef56c0a39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-assistant/zipball/64a62607e3f8d934aedc38e2cea2cabef56c0a39",
+                "reference": "64a62607e3f8d934aedc38e2cea2cabef56c0a39",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1255,6 +1291,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1268,6 +1305,7 @@
                     "Dorcas\\ModulesAssistant\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1278,17 +1316,31 @@
                 }
             ],
             "description": "Dorcas Assistant Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-assistant/issues",
+                "source": "https://github.com/dorcas-io/modules-assistant/tree/master"
+            },
+            "time": "2021-11-15T16:51:36+00:00"
         },
         {
             "name": "dorcas/modules-auth",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-auth.git",
+                "reference": "ce61fb29b3104495b678fc3a79451159a5ebada5"
+            },
             "dist": {
+<<<<<<< HEAD
                 "type": "path",
                 "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-auth",
                 "reference": "ce61fb29b3104495b678fc3a79451159a5ebada5"
+=======
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-auth/zipball/ce61fb29b3104495b678fc3a79451159a5ebada5",
+                "reference": "ce61fb29b3104495b678fc3a79451159a5ebada5",
+                "shasum": ""
+>>>>>>> dev
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1299,6 +1351,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1312,6 +1365,7 @@
                     "Dorcas\\ModulesAuth\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1322,17 +1376,25 @@
                 }
             ],
             "description": "Dorcas Authentication Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-auth/issues",
+                "source": "https://github.com/dorcas-io/modules-auth/tree/master"
+            },
+            "time": "2021-11-29T16:22:10+00:00"
         },
         {
             "name": "dorcas/modules-customers",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-customers",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-customers.git",
                 "reference": "e8d01141dd66bad6bc3b8e11c0e468c7cea8fdce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-customers/zipball/e8d01141dd66bad6bc3b8e11c0e468c7cea8fdce",
+                "reference": "e8d01141dd66bad6bc3b8e11c0e468c7cea8fdce",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1343,6 +1405,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1356,6 +1419,7 @@
                     "Dorcas\\ModulesCustomers\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1366,17 +1430,25 @@
                 }
             ],
             "description": "Dorcas Hub Customers Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-customers/issues",
+                "source": "https://github.com/dorcas-io/modules-customers/tree/master"
+            },
+            "time": "2021-11-15T16:50:34+00:00"
         },
         {
             "name": "dorcas/modules-dashboard",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-dashboard",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-dashboard.git",
                 "reference": "511b891d94bc277b121d6b14fff3f5a658f3180e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-dashboard/zipball/511b891d94bc277b121d6b14fff3f5a658f3180e",
+                "reference": "511b891d94bc277b121d6b14fff3f5a658f3180e",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1387,6 +1459,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1400,6 +1473,7 @@
                     "Dorcas\\ModulesDashboard\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1410,17 +1484,25 @@
                 }
             ],
             "description": "Dorcas Dashboard Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-dashboard/issues",
+                "source": "https://github.com/dorcas-io/modules-dashboard/tree/master"
+            },
+            "time": "2021-11-15T16:50:15+00:00"
         },
         {
             "name": "dorcas/modules-ecommerce",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-ecommerce",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-ecommerce.git",
                 "reference": "a0af5c2de95502dc18a426903c9594253d9e112b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-ecommerce/zipball/a0af5c2de95502dc18a426903c9594253d9e112b",
+                "reference": "a0af5c2de95502dc18a426903c9594253d9e112b",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1431,6 +1513,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1444,6 +1527,7 @@
                     "Dorcas\\ModulesEcommerce\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1454,17 +1538,25 @@
                 }
             ],
             "description": "Dorcas Hub eCommerce Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-ecommerce/issues",
+                "source": "https://github.com/dorcas-io/modules-ecommerce/tree/master"
+            },
+            "time": "2021-11-15T16:49:13+00:00"
         },
         {
             "name": "dorcas/modules-finance",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-finance",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-finance.git",
                 "reference": "c66eaa39f265404a25499ae0612b06aa0ceaaf72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-finance/zipball/c66eaa39f265404a25499ae0612b06aa0ceaaf72",
+                "reference": "c66eaa39f265404a25499ae0612b06aa0ceaaf72",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1475,6 +1567,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1488,6 +1581,7 @@
                     "Dorcas\\ModulesFinance\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1498,17 +1592,25 @@
                 }
             ],
             "description": "Dorcas Hub Finance Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-finance/issues",
+                "source": "https://github.com/dorcas-io/modules-finance/tree/master"
+            },
+            "time": "2021-11-15T16:49:26+00:00"
         },
         {
             "name": "dorcas/modules-finance-tax",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-finance-tax",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-finance-tax.git",
                 "reference": "c3b6cc019728536042a625a1d378897d8491e69a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-finance-tax/zipball/c3b6cc019728536042a625a1d378897d8491e69a",
+                "reference": "c3b6cc019728536042a625a1d378897d8491e69a",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1519,6 +1621,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1532,6 +1635,7 @@
                     "Dorcas\\ModulesFinanceTax\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1542,17 +1646,25 @@
                 }
             ],
             "description": "Dorcas Hub Tax Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-finance-tax/issues",
+                "source": "https://github.com/dorcas-io/modules-finance-tax/tree/master"
+            },
+            "time": "2021-11-15T16:28:10+00:00"
         },
         {
             "name": "dorcas/modules-integrations",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-integrations",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-integrations.git",
                 "reference": "efd1a6332f97ce0420cca6f83b95c1f24383de2c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-integrations/zipball/efd1a6332f97ce0420cca6f83b95c1f24383de2c",
+                "reference": "efd1a6332f97ce0420cca6f83b95c1f24383de2c",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1563,6 +1675,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1576,6 +1689,7 @@
                     "Dorcas\\ModulesIntegrations\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1586,17 +1700,25 @@
                 }
             ],
             "description": "Dorcas Hub Integrations Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-integrations/issues",
+                "source": "https://github.com/dorcas-io/modules-integrations/tree/master"
+            },
+            "time": "2021-11-15T16:27:19+00:00"
         },
         {
             "name": "dorcas/modules-library",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-library",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-library.git",
                 "reference": "41e673e47d207b7dfc4a7f2d2e27d3ff5853894d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-library/zipball/41e673e47d207b7dfc4a7f2d2e27d3ff5853894d",
+                "reference": "41e673e47d207b7dfc4a7f2d2e27d3ff5853894d",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1607,6 +1729,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1620,6 +1743,7 @@
                     "Dorcas\\ModulesLibrary\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1630,17 +1754,25 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-library/issues",
+                "source": "https://github.com/dorcas-io/modules-library/tree/master"
+            },
+            "time": "2021-11-15T16:26:41+00:00"
         },
         {
             "name": "dorcas/modules-marketplace",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-marketplace",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-marketplace.git",
                 "reference": "743d761962c48f196c54c3add3071326a2beaba0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-marketplace/zipball/743d761962c48f196c54c3add3071326a2beaba0",
+                "reference": "743d761962c48f196c54c3add3071326a2beaba0",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1651,6 +1783,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1664,6 +1797,7 @@
                     "Dorcas\\ModulesMarketplace\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1674,17 +1808,25 @@
                 }
             ],
             "description": "Dorcas Hub Marketplace Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-marketplace/issues",
+                "source": "https://github.com/dorcas-io/modules-marketplace/tree/master"
+            },
+            "time": "2021-11-15T16:26:15+00:00"
         },
         {
             "name": "dorcas/modules-people",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-people",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-people.git",
                 "reference": "080ab6e6fc8a50ea9b752481d7fa40e482327fee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-people/zipball/080ab6e6fc8a50ea9b752481d7fa40e482327fee",
+                "reference": "080ab6e6fc8a50ea9b752481d7fa40e482327fee",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1695,6 +1837,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1708,6 +1851,7 @@
                     "Dorcas\\ModulesPeople\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1718,17 +1862,25 @@
                 }
             ],
             "description": "Dorcas Hub People Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-people/issues",
+                "source": "https://github.com/dorcas-io/modules-people/tree/master"
+            },
+            "time": "2021-11-15T16:25:29+00:00"
         },
         {
             "name": "dorcas/modules-people-payroll",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-people-payroll",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-people-payroll.git",
                 "reference": "7e7973e2525b90c8726b88cb3017fe28e8f78674"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-people-payroll/zipball/7e7973e2525b90c8726b88cb3017fe28e8f78674",
+                "reference": "7e7973e2525b90c8726b88cb3017fe28e8f78674",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1740,6 +1892,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1753,16 +1906,7 @@
                     "Dorcas\\ModulesPeoplePayroll\\": "src/"
                 }
             },
-            "scripts": {
-                "post-install-cmd": [
-                    "...",
-                    "php artisan vendor:publish --tag=public --force"
-                ],
-                "post-update-cmd": [
-                    "...",
-                    "php artisan vendor:publish --tag=public --force"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1773,17 +1917,25 @@
                 }
             ],
             "description": "Dorcas Hub People Payroll Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-people-payroll/issues",
+                "source": "https://github.com/dorcas-io/modules-people-payroll/tree/master"
+            },
+            "time": "2021-11-15T16:22:07+00:00"
         },
         {
             "name": "dorcas/modules-sales",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-sales",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-sales.git",
                 "reference": "d3fb34c4f15f0f736f2439c784209921f837d573"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-sales/zipball/d3fb34c4f15f0f736f2439c784209921f837d573",
+                "reference": "d3fb34c4f15f0f736f2439c784209921f837d573",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1794,6 +1946,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1807,6 +1960,7 @@
                     "Dorcas\\ModulesSales\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1817,17 +1971,25 @@
                 }
             ],
             "description": "Dorcas Hub Sales Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-sales/issues",
+                "source": "https://github.com/dorcas-io/modules-sales/tree/master"
+            },
+            "time": "2021-11-15T16:20:53+00:00"
         },
         {
             "name": "dorcas/modules-service-profile",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-service-profile",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-service-profile.git",
                 "reference": "90c43dd555ae6df37527f3b7f676fa3f73b9ab56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-service-profile/zipball/90c43dd555ae6df37527f3b7f676fa3f73b9ab56",
+                "reference": "90c43dd555ae6df37527f3b7f676fa3f73b9ab56",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1838,6 +2000,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1851,6 +2014,7 @@
                     "Dorcas\\ModulesServiceProfile\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1861,17 +2025,25 @@
                 }
             ],
             "description": "Dorcas Hub Service Profile Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-service-profile/issues",
+                "source": "https://github.com/dorcas-io/modules-service-profile/tree/master"
+            },
+            "time": "2021-11-15T16:20:16+00:00"
         },
         {
             "name": "dorcas/modules-service-requests",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-service-requests",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-service-requests.git",
                 "reference": "18acab30e6873212269a907311766247baf1e4d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-service-requests/zipball/18acab30e6873212269a907311766247baf1e4d1",
+                "reference": "18acab30e6873212269a907311766247baf1e4d1",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1882,6 +2054,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1895,6 +2068,7 @@
                     "Dorcas\\ModulesServiceRequests\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1905,17 +2079,25 @@
                 }
             ],
             "description": "Dorcas Hub Service Requests Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-service-requests/issues",
+                "source": "https://github.com/dorcas-io/modules-service-requests/tree/master"
+            },
+            "time": "2021-11-15T16:16:59+00:00"
         },
         {
             "name": "dorcas/modules-settings",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-settings",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/modules-settings.git",
                 "reference": "44cd11cbacd7c06c9aff8a068bd392d85fc0a56d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/modules-settings/zipball/44cd11cbacd7c06c9aff8a068bd392d85fc0a56d",
+                "reference": "44cd11cbacd7c06c9aff8a068bd392d85fc0a56d",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
@@ -1926,6 +2108,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1939,6 +2122,7 @@
                     "Dorcas\\ModulesSettings\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1949,27 +2133,37 @@
                 }
             ],
             "description": "Dorcas Hub Settings Module",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/modules-settings/issues",
+                "source": "https://github.com/dorcas-io/modules-settings/tree/master"
+            },
+            "time": "2021-11-15T16:15:48+00:00"
         },
         {
             "name": "dorcas/resellerclub-php",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/resellerclub-php",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/resellerclub-php.git",
                 "reference": "f8912b3d32781391208ad02fcbcbd48796006689"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/resellerclub-php/zipball/f8912b3d32781391208ad02fcbcbd48796006689",
+                "reference": "f8912b3d32781391208ad02fcbcbd48796006689",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "~6"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "afbora\\ResellerClub\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1980,17 +2174,25 @@
                 }
             ],
             "description": "PHP SDK for ResellerClub API",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/resellerclub-php/issues",
+                "source": "https://github.com/dorcas-io/resellerclub-php/tree/master"
+            },
+            "time": "2019-03-23T12:23:17+00:00"
         },
         {
             "name": "dorcas/sdk-php-laravel",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/sdk-php-laravel",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dorcas-io/sdk-php-laravel.git",
                 "reference": "78c95ae5a26042564ffd06786ba193fc4a359564"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dorcas-io/sdk-php-laravel/zipball/78c95ae5a26042564ffd06786ba193fc4a359564",
+                "reference": "78c95ae5a26042564ffd06786ba193fc4a359564",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -2002,6 +2204,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2011,6 +2214,7 @@
                     "src/helpers.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -2031,9 +2235,11 @@
                 "php",
                 "sdk"
             ],
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/dorcas-io/sdk-php-laravel/issues",
+                "source": "https://github.com/dorcas-io/sdk-php-laravel/tree/master"
+            },
+            "time": "2021-11-15T16:10:19+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",

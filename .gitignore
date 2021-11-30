@@ -19,7 +19,6 @@ storage/*.key
 .env.php
 .env
 .env.*
-
 .DS_Store
 .DS_Store*
 
