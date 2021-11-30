@@ -1331,16 +1331,10 @@
                 "reference": "ce61fb29b3104495b678fc3a79451159a5ebada5"
             },
             "dist": {
-<<<<<<< HEAD
-                "type": "path",
-                "url": "/Users/ifeoluwa/Documents/Apps/DorcasFramework/Modules/modules-auth",
-                "reference": "ce61fb29b3104495b678fc3a79451159a5ebada5"
-=======
                 "type": "zip",
                 "url": "https://api.github.com/repos/dorcas-io/modules-auth/zipball/ce61fb29b3104495b678fc3a79451159a5ebada5",
                 "reference": "ce61fb29b3104495b678fc3a79451159a5ebada5",
                 "shasum": ""
->>>>>>> dev
             },
             "require": {
                 "aws/aws-sdk-php": "^3.74",
