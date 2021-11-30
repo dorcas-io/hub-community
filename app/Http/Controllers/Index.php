@@ -73,9 +73,8 @@ class Index extends Controller
     {
         $this->data['header']['title'] = 'Dorcas Community :: Welcome';
         $this->setViewUiResponse($request);
-
-        
-
+        $authIndexes = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthIndex($request, $sdk, "community");
+        $this->data['authIndexes'] = $authIndexes;
         return view('modules-auth::index-community', $this->data);
 
     }
