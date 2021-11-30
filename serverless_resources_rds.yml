@@ -1,0 +1,23 @@
+Resources:
+  RDSCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      MasterUsername: ${self:custom.DB_USERNAME}
+      MasterUserPassword: ${self:custom.DB_PASSWORD}
+      DatabaseName: ${self:custom.DB_DATABASE}
+      Engine: aurora
+      EngineMode: serverless
+      ScalingConfiguration:
+        AutoPause: false
+        MaxCapacity: 2
+        MinCapacity: 1
+        SecondsUntilAutoPause: 3600
+      EnableHttpEndpoint: true
+      StorageEncrypted: true
+      Tags: 
+        - Key: "Name"
+          Value: "ModulloHubRDS"
+      VpcSecurityGroupIds: 
+        - ${self:custom.VPC_SECURITY_GROUP_ID}
+      DeletionProtection: true
+      DBClusterIdentifier: modullo-db-hub
