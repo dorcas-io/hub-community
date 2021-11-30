@@ -1598,12 +1598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dorcas-io/modules-finance-tax.git",
-                "reference": "c3b6cc019728536042a625a1d378897d8491e69a"
+                "reference": "bbd6b18e83fd2fa77f90888dbb3a3f53f619e335"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-finance-tax/zipball/c3b6cc019728536042a625a1d378897d8491e69a",
-                "reference": "c3b6cc019728536042a625a1d378897d8491e69a",
+                "url": "https://api.github.com/repos/dorcas-io/modules-finance-tax/zipball/bbd6b18e83fd2fa77f90888dbb3a3f53f619e335",
+                "reference": "bbd6b18e83fd2fa77f90888dbb3a3f53f619e335",
                 "shasum": ""
             },
             "require": {
@@ -1644,7 +1644,7 @@
                 "issues": "https://github.com/dorcas-io/modules-finance-tax/issues",
                 "source": "https://github.com/dorcas-io/modules-finance-tax/tree/master"
             },
-            "time": "2021-11-15T16:28:10+00:00"
+            "time": "2021-11-30T10:16:03+00:00"
         },
         {
             "name": "dorcas/modules-integrations",
@@ -1706,12 +1706,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dorcas-io/modules-library.git",
-                "reference": "41e673e47d207b7dfc4a7f2d2e27d3ff5853894d"
+                "reference": "a8a6929c87a11eaa6f25423e9f614a93abcc565e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-library/zipball/41e673e47d207b7dfc4a7f2d2e27d3ff5853894d",
-                "reference": "41e673e47d207b7dfc4a7f2d2e27d3ff5853894d",
+                "url": "https://api.github.com/repos/dorcas-io/modules-library/zipball/a8a6929c87a11eaa6f25423e9f614a93abcc565e",
+                "reference": "a8a6929c87a11eaa6f25423e9f614a93abcc565e",
                 "shasum": ""
             },
             "require": {
@@ -1752,7 +1752,7 @@
                 "issues": "https://github.com/dorcas-io/modules-library/issues",
                 "source": "https://github.com/dorcas-io/modules-library/tree/master"
             },
-            "time": "2021-11-15T16:26:41+00:00"
+            "time": "2021-11-30T10:02:02+00:00"
         },
         {
             "name": "dorcas/modules-marketplace",
@@ -1868,12 +1868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dorcas-io/modules-people-payroll.git",
-                "reference": "7e7973e2525b90c8726b88cb3017fe28e8f78674"
+                "reference": "52ed85baf0b3c37d593b6beb66c78ccc9db88851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-people-payroll/zipball/7e7973e2525b90c8726b88cb3017fe28e8f78674",
-                "reference": "7e7973e2525b90c8726b88cb3017fe28e8f78674",
+                "url": "https://api.github.com/repos/dorcas-io/modules-people-payroll/zipball/52ed85baf0b3c37d593b6beb66c78ccc9db88851",
+                "reference": "52ed85baf0b3c37d593b6beb66c78ccc9db88851",
                 "shasum": ""
             },
             "require": {
@@ -1915,7 +1915,7 @@
                 "issues": "https://github.com/dorcas-io/modules-people-payroll/issues",
                 "source": "https://github.com/dorcas-io/modules-people-payroll/tree/master"
             },
-            "time": "2021-11-15T16:22:07+00:00"
+            "time": "2021-11-30T10:09:43+00:00"
         },
         {
             "name": "dorcas/modules-sales",
@@ -2031,12 +2031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dorcas-io/modules-service-requests.git",
-                "reference": "18acab30e6873212269a907311766247baf1e4d1"
+                "reference": "ab0b621dbc0dcf439f4a3b5fcc39505a675c7ece"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dorcas-io/modules-service-requests/zipball/18acab30e6873212269a907311766247baf1e4d1",
-                "reference": "18acab30e6873212269a907311766247baf1e4d1",
+                "url": "https://api.github.com/repos/dorcas-io/modules-service-requests/zipball/ab0b621dbc0dcf439f4a3b5fcc39505a675c7ece",
+                "reference": "ab0b621dbc0dcf439f4a3b5fcc39505a675c7ece",
                 "shasum": ""
             },
             "require": {
@@ -2077,7 +2077,7 @@
                 "issues": "https://github.com/dorcas-io/modules-service-requests/issues",
                 "source": "https://github.com/dorcas-io/modules-service-requests/tree/master"
             },
-            "time": "2021-11-15T16:16:59+00:00"
+            "time": "2021-11-30T09:57:46+00:00"
         },
         {
             "name": "dorcas/modules-settings",
