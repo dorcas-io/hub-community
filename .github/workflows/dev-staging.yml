@@ -1,0 +1,66 @@
+name: Hub_DeployToStaging
+on:
+    push:
+      branches: [ staging ]
+
+jobs:
+    deploy-laravel-to-ec2:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@master
+      - name: Add public IP to AWS security group
+        uses: sohelamin/aws-security-group-add-ip-action@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'eu-west-1'
+          aws-security-group-id: ${{ secrets.AWS_SECURITY_GROUP_ID_STAGING }}
+          port: '22'
+          protocol: 'tcp'
+          description: 'GitHub Action Access (Staging)'
+      - name: Clear Out Hub Community Directory (Staging)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_STAGING_COMMUNITY }}
+          username: ${{ secrets.USERNAME_STAGING_COMMUNITY }}
+          key: ${{ secrets.KEY_STAGING_COMMUNITY }}
+          port: ${{ secrets.PORT_STAGING_COMMUNITY }}
+          script: |
+            sudo rm -rf ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/*
+      - name: Copy Hub Community Directory (Staging)
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_STAGING_COMMUNITY }}
+          username: ${{ secrets.USERNAME_STAGING_COMMUNITY }}
+          key: ${{ secrets.KEY_STAGING_COMMUNITY }}
+          port: ${{ secrets.PORT_STAGING_COMMUNITY }}
+          overwrite: true
+          source: "./*"
+          target: ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}
+          tar_tmp_path: "/var/www/github-tmp"
+      - name: Setup and Configure Laravel Installation
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_STAGING_COMMUNITY }}
+          username: ${{ secrets.USERNAME_STAGING_COMMUNITY }}
+          key: ${{ secrets.KEY_STAGING_COMMUNITY }}
+          port: ${{ secrets.PORT_STAGING_COMMUNITY }}
+
+          script: |
+            cp /var/www/deploy-files/.env-community-hub-staging ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/.env
+            cd ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}
+            composer install --optimize-autoloader --no-dev
+            php artisan optimize
+            php artisan key:generate
+            sudo chown -R $USER:www-data ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/storage
+            sudo chown -R $USER:www-data ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/bootstrap/cache
+            sudo chmod -R 775 ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/storage
+            sudo chmod -R 775 ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/bootstrap/cache
+            sudo chmod -R u=rwx,g=rwx,o=rw ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/storage/logs
+            touch ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/storage/logs/laravel.log && > ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/storage/logs/laravel.log
+            sudo chown $USER:www-data ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/storage/logs/laravel.log
+            sudo chmod u=rwx,g=rw,o=rw ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/storage/logs/laravel.log
+            sudo chmod u=rwx,g=rx,o=x ${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}/artisan
+            find "${{ secrets.APPDIR_STAGING_COMMUNITY_HUB }}" -type f -name '*.php' -exec chmod 644 {} \;
+            php artisan config:clear
+            php artisan dorcas:setup --database="community-hub"
