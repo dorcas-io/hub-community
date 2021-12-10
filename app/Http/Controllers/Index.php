@@ -11,9 +11,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Collection;
 use Hostville\Dorcas\Sdk;
 use Carbon\Carbon;
 use App\Dorcas\Hub\Utilities\UiResponse\UiResponse;
+
+use GuzzleHttp\Psr7\Uri;
+use Illuminate\Support\Facades\Route;
+
 
 class Index extends Controller
 {
@@ -62,8 +67,31 @@ class Index extends Controller
     {
         $this->data['header']['title'] = 'Dorcas Business :: Welcome';
         $this->setViewUiResponse($request);
+
         $sdk = app(Sdk::class);
         $authIndexes = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthIndex($request, $sdk, "business");
+
+        // Get Store URL Settings
+        // $defaultUri = new Uri(config('app.url'));
+        // $currentHost = $defaultUri->getHost();
+        // $currentScheme = $defaultUri->getScheme();
+        
+        $currentHost = $request->header('host');
+        $currentScheme = $request->secure() ? "https" : "http";
+
+        $standardHost = env('STANDARD_HOST', 'dorcas.io'); //DORCAS_BASE_DOMAIN
+        
+        $storeSubDomain = $currentHost == $standardHost ? $currentScheme . '://' . 'store.' . $currentHost : '#';
+        $hubLogin = $currentScheme . '://' . $currentHost . '/login';
+
+        //optionally modify authIndexes item(s)
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "login", "title", "Login to Hub");
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "login", "image_link", $hubLogin);
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "store", "title", "View Your Store");
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "store", "image_link", $storeSubDomain);
+
+        
+        
         $this->data['authIndexes'] = $authIndexes;
         return view('modules-auth::index-business', $this->data);
 
@@ -75,6 +103,9 @@ class Index extends Controller
         $this->setViewUiResponse($request);
         $sdk = app(Sdk::class);
         $authIndexes = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthIndex($request, $sdk, "community");
+        //optionally modify authIndexes item(s)
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "marketplace", "title", "Marketplace");
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "marketplace", "image_link", "http://dorcas.io");
         $this->data['authIndexes'] = $authIndexes;
         return view('modules-auth::index-community', $this->data);
 
@@ -102,4 +133,15 @@ class Index extends Controller
 
     }
 
+    public function modifyAuthIndex(Collection $authIndexes, string $item, string $key, string $value): ?Collection
+    {
+        $authIndexesModified = $authIndexes->map(function ($authIndex, $authIndexKey) use($item, $key, $value) {
+            if ($authIndexKey == $item) {
+                $authIndex->{$key} = $value;
+            }
+        });
+        
+        return $authIndexes;
+
+    }
 }

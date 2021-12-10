@@ -91,22 +91,38 @@ class ResolveCustomSubdomain
             if ($serviceRedirectUrl !== null) {
                 return redirect($serviceRedirectUrl);
             }
+
             $sdk = app(Sdk::class);
             # get the Sdk
             Cache::forget('domain_' . $slug);
+
+            // $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
+            //     ->addQueryArgument('include', 'owner,owner.users')
+            //     ->send('get', ['resolver']);
+            // if (!$query->isSuccessful()) {
+            //     dd($query->getErrors()); //getErrors([0]['title'])
+            //     return null;
+            // }
+            // $domain = (object) $query->getData();
+            //dd($domain);
+
             $domain = Cache::remember('domain_' . $slug, 3600, function () use ($slug, $sdk) {
                 $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
-                                                         ->addQueryArgument('include', 'owner,owner.users')
-                                                         ->send('get', ['resolver']);
+                ->addQueryArgument('include', 'owner,owner.users')
+                ->send('get', ['resolver']);
                 # send the query
                 //dd($query);
                 if (!$query->isSuccessful()) {
+                    //dd($query->getErrors()); //getErrors([0]['title'])
                     return null;
+
+
                 }
                 return (object) $query->getData();
             });
             //dd(array($domainInfo,$request->path()));
             //dd($domain);
+            
             if (empty($domain)) {
                 throw new \RuntimeException('Could not resolve the custom subdomain');
             }

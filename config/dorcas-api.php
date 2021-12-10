@@ -3,7 +3,7 @@ return [
     // the client environment
     'env' => env('DORCAS_ENV', 'local'),
 
-    'url' => env('DORCAS_BASE_URL', 'https://api.dorcas.ng'),
+    'url' => env('SDK_HOST_PRODUCTION', 'https://api.dorcas.ng'),
 
     /*
     |--------------------------------------------------------------------------
