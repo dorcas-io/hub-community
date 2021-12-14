@@ -8,7 +8,7 @@ use Illuminate\Session\TokenMismatchException;
 class VerifyCsrfToken extends Middleware
 {
 
-    protected $addHttpCookie = false;
+    //protected $addHttpCookie = false;
     # added wil troubouleshootinng TokenMismatch
 
     /**

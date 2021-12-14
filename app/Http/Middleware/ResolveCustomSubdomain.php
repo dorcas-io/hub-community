@@ -64,8 +64,6 @@ class ResolveCustomSubdomain
         $host = $request->header('host');
         # get the host header value
 
-        //$docker = env('DEPLOY_ENV', 'local') === 'docker' ? true : false;
-        //dd($request->path());
         try {
 
             $domainInfo = $this->splitHost($host, $request->path());
@@ -74,6 +72,9 @@ class ResolveCustomSubdomain
             $slug =  $this->dorcasEdition === 'business' ? $domainInfo->getHost() : $domainInfo->getSubdomain();
             // we  need  to later  modify DorcasSubdomain to accept a  full "domain" field later
             # get the slug
+
+            //dd($slug);
+            
             if (empty($slug) && $this->dorcasEdition === 'business') {
                 # no matches
                 throw new \RuntimeException('Could not reliably determine the URL domain for this host.');
@@ -86,32 +87,32 @@ class ResolveCustomSubdomain
 
             $serviceRedirectUrl = $this->getServiceRedirectUrl($domainInfo, $request->path(), $request->getQueryString());
             //dd($serviceRedirectUrl);
-            //dd(array($domainInfo, $request->path(), $request->getQueryString()));
-            //dd(array($domainInfo, $slug, $this->dorcasEdition,$serviceRedirectUrl,$request));
+            
             if ($serviceRedirectUrl !== null) {
                 return redirect($serviceRedirectUrl);
             }
 
             $sdk = app(Sdk::class);
             # get the Sdk
-            Cache::forget('domain_' . $slug);
+            
 
-            // $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
-            //     ->addQueryArgument('include', 'owner,owner.users')
-            //     ->send('get', ['resolver']);
-            // if (!$query->isSuccessful()) {
-            //     dd($query->getErrors()); //getErrors([0]['title'])
-            //     return null;
-            // }
-            // $domain = (object) $query->getData();
+            $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
+                ->addQueryArgument('include', 'owner,owner.users')
+                ->send('get', ['resolver']);
+            if (!$query->isSuccessful()) {
+                dd($query->getErrors()); //getErrors([0]['title'])
+                return null;
+            }
+            $domain = (object) $query->getData();
             //dd($domain);
+            //Cache::forget('domain_' . $slug);
 
-            $domain = Cache::remember('domain_' . $slug, 3600, function () use ($slug, $sdk) {
+
+            $domain = Cache::remember('domain_' . $slug, 86400, function () use ($slug, $sdk) {
                 $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
                 ->addQueryArgument('include', 'owner,owner.users')
                 ->send('get', ['resolver']);
                 # send the query
-                //dd($query);
                 if (!$query->isSuccessful()) {
                     //dd($query->getErrors()); //getErrors([0]['title'])
                     return null;
