@@ -48,6 +48,7 @@ class RegisterController extends Controller
         parent::__construct();
         $this->middleware(['guest','edition_multitenant_only'])->except(['installerRegistration','installerCreate']);
         $this->data['page']['title'] = 'Create an Account';
+        $this->data['dorcasEdition'] = env("DORCAS_EDITION", "business");
     }
 
     /**
@@ -91,6 +92,42 @@ class RegisterController extends Controller
 
         $authMedia = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthMedia($request, $sdk, "register", $module, "image");
         $this->data['authMedia'] = $authMedia;
+
+
+
+
+        // determine if we are on Partner, User or Employee Login screen
+        $this->data['userHostMode'] = "business";
+        $this->data['userHostString'] = "";
+        
+        if ( env("DORCAS_EDITION", "business") == "community" || env("DORCAS_EDITION", "business") == "enterprise" ) {
+
+            $db = DB::connection('core_mysql');
+            $partner = $db->table("partners")->find(1); // first/default partner record
+
+            $this->data['userHostMode'] = "partner";
+            $this->data['userHostString'] = " by " . $partner->name;
+
+            $currentHost = $request->header('host');
+            try {
+                $domainInfo = (new \App\Http\Middleware\ResolveCustomSubdomain())->splitHost($currentHost);
+            } catch (\RuntimeException $e) {
+                $domainInfo = null;
+            }
+
+
+            if ( !empty($domainInfo) && !empty($domainInfo->getSubdomain())  && !in_array($domainInfo->getService(),['store', 'blog'])) {
+                $company_slug = $domainInfo->getSubdomain();
+                $subdomain = $db->table("domain_issuances")->where("prefix", $company_slug)->first();
+                if (!empty($subdomain)) {
+                    $company = $db->table("companies")->find($subdomain->domainable_id);
+                    $this->data['userHostString'] = " by " . $company->name;
+                } else {
+                    $this->data['userHostString'] = " by Unknown";
+                }
+                $this->data['userHostMode'] = "employee";
+            }
+        }
 
 
         return view('modules-auth::register', $this->data);

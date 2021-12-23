@@ -101,11 +101,25 @@ class Index extends Controller
     {
         $this->data['header']['title'] = 'Dorcas Community :: Welcome';
         $this->setViewUiResponse($request);
+
         $sdk = app(Sdk::class);
         $authIndexes = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthIndex($request, $sdk, "community");
+
+        $currentHost = $request->header('host');
+        $currentScheme = $request->secure() ? "https" : "http";
+
+        $standardHost = env('STANDARD_HOST', 'dorcas.io'); //DORCAS_BASE_DOMAIN
+
+        //check if partner account setup
+        
+        $marketSubDomain = $currentHost == $standardHost ? $currentScheme . '://' . 'market.' . $currentHost : '#';
+        $hubLogin = $currentScheme . '://' . $currentHost . '/login';
+        
         //optionally modify authIndexes item(s)
-        $authIndexes = $this->modifyAuthIndex($authIndexes, "marketplace", "title", "Marketplace");
-        $authIndexes = $this->modifyAuthIndex($authIndexes, "marketplace", "image_link", "http://dorcas.io");
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "login", "title", "Login to Hub");
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "login", "image_link", $hubLogin);
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "marketplace", "title", "View Marketplace");
+        $authIndexes = $this->modifyAuthIndex($authIndexes, "marketplace", "image_link", $marketSubDomain);
         $this->data['authIndexes'] = $authIndexes;
         return view('modules-auth::index-community', $this->data);
 

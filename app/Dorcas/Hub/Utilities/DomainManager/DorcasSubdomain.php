@@ -17,15 +17,19 @@ class DorcasSubdomain
     /** @var bool  */
     public $secure;
     
+    /** @var string */
+    protected $edition;
+    
     /**
      * DorcasSubdomain constructor.
      *
      * @param array $hostInfo
      * @param bool  $secure
      */
-    public function __construct(array $hostInfo = [], bool $secure = true)
+    public function __construct(array $hostInfo = [], bool $secure = true, string $edition = 'business')
     {
         $this->secure = app()->environment() === 'local' ? false : $secure;
+        $this->edition = $edition;
         $subdomain = $hostInfo[0] ?? '';
         $service = count($hostInfo) > 2 ? $hostInfo[1] : null;
         $host = count($hostInfo) > 2 ? $hostInfo[2] : ($hostInfo[1] ?? '');
@@ -98,4 +102,26 @@ class DorcasSubdomain
         $this->service = $service;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getEdition(): string
+    {
+        return $this->edition;
+    }
+
+
+    /**
+     * @param string $edition
+     *
+     * @return \App\Dorcas\Hub\Utilities\DomainManager\DorcasSubdomain
+     */
+    public function setEdition(string $edition): DorcasSubdomain
+    {
+        $this->edition = $edition;
+        return $this;
+    }
+
+
 }

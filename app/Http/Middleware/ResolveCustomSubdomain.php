@@ -21,7 +21,8 @@ class ResolveCustomSubdomain
      */
     protected $redirectPathsToSubdomain = [
         'store' => 'store',
-        'blog' => 'blog'
+        'blog' => 'blog',
+        'market' => 'market'
     ];
     
     /** @var array  */
@@ -34,7 +35,7 @@ class ResolveCustomSubdomain
      *
      * @var string
      */
-    protected $dorcasEdition = '';
+    protected $dorcasEdition = 'business';
 
     /**
      * ResolveCustomSubdomain constructor.
@@ -94,19 +95,6 @@ class ResolveCustomSubdomain
 
             $sdk = app(Sdk::class);
             # get the Sdk
-            
-
-            $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
-                ->addQueryArgument('include', 'owner,owner.users')
-                ->send('get', ['resolver']);
-            if (!$query->isSuccessful()) {
-                dd($query->getErrors()); //getErrors([0]['title'])
-                return null;
-            }
-            $domain = (object) $query->getData();
-            //dd($domain);
-            //Cache::forget('domain_' . $slug);
-
 
             $domain = Cache::remember('domain_' . $slug, 86400, function () use ($slug, $sdk) {
                 $query = $sdk->createDomainResource()->addQueryArgument('id', $slug)
@@ -114,15 +102,10 @@ class ResolveCustomSubdomain
                 ->send('get', ['resolver']);
                 # send the query
                 if (!$query->isSuccessful()) {
-                    //dd($query->getErrors()); //getErrors([0]['title'])
                     return null;
-
-
                 }
                 return (object) $query->getData();
             });
-            //dd(array($domainInfo,$request->path()));
-            //dd($domain);
             
             if (empty($domain)) {
                 throw new \RuntimeException('Could not resolve the custom subdomain');
@@ -218,6 +201,15 @@ class ResolveCustomSubdomain
     public function splitHost(string $host, string $path = null): DorcasSubdomain
     {
         //$this->standardHosts[] = env('STANDARD_HOST');
+
+        $finalParts = [];
+
+        $multiTenant = $this->dorcasEdition === 'business' ? false : true;
+
+        // Get Services
+        $services = array_keys($this->redirectPathsToSubdomain);
+        $serviceName = null;
+        $serviceExists = false;
        
         if (substr_count($host,"localhost") >= 1) {
             throw new \RuntimeException('Accessing via localhost.');
@@ -228,19 +220,64 @@ class ResolveCustomSubdomain
         }
         # ignore & exist  as  Resolver  is only concerened with subdomain/slug/service type scenarios
 
-        $parts = $this->dorcasEdition === 'business' ? explode('.', $host, 3) : explode('.', $host, 4);
+
+
+        $parts = $multiTenant ? explode('.', $host, 4)  : explode('.', $host, 3);
+        $partsCount = count($parts);
         # split it up to at most 3 parts -- we're trying to match things like: xyz.dorcas.io (business), xyz.store.dorcas.io (cloud, community and enterprise)
 
-        # there  is need to re-write the below for 4 parts (cloud, community & enterprise editions)
-        //dd($parts);
+        $partsExtension = $parts[($partsCount - 1)]; // last bit
+        $partsDomain = $parts[($partsCount - 2)]; //2nd to last bit
+        # the above 2 are usually always constant
+        $partsHost = $partsDomain . "." . $partsExtension;
+
+        $partsService = "";
+        $partsSubdomain = "";
 
         $slug = $parts[0];
-        # the actual sub-domain in cloud, community & enterprise scenarios OR simply service in business
+        /*
+            the first part next to base domain.
+            In Community & enterprise scenarios (it is the subdomain OR the service)
+            In Business, its the service
+        */
+        if ($partsCount == 4 && $multiTenant) {
+            //we have a tenant on a service e.g. xyz.store.dorcas.io
+            if ( in_array($parts[1], $redirectPathsToSubdomain)) {
+                //3rd to last is a service
+                $serviceExists = true;
+                $partsService = $serviceName = $parts[1];
+            }
+            $partsSubdomain = $parts[0];
 
-        $services = array_keys($this->redirectPathsToSubdomain);
+        } elseif ($partsCount == 3 && $multiTenant) {
+            //then probably a subdomain (e.g. xyz.dorcas.io)
+            // OR 
+            // we have a service like marketplace (e.g market.dorcas.io) 
+            if ( $parts[0] == "market") {
+                $serviceExists = true;
+                $partsService = $serviceName =  $parts[0];
+            } else {
+                $partsSubdomain = $parts[0];
+            }
+
+        } elseif ($partsCount == 3 && !$multiTenant) {
+            //then probably a service in business (e.g. store.dorcas.io)
+            if ( in_array($parts[0], $redirectPathsToSubdomain)) {
+                //3rd to last is a service
+                $serviceExists = true;
+                $partsService = $serviceName = $parts[0];
+            }
+        } else {
+            // a default scenario of dorcas.io
+        }
+
+        // Let's recompose for DorcasSubDomain
+        $finalParts[0] = !empty($partsSubdomain) ? $partsSubdomain : '';
+        $finalParts[1] = !empty($partsService) ? $partsService : null;
+        $finalParts[2] = !empty($partsHost) ? $partsHost : 'dorcas.default';
+
         # get the services - we want to identify the service to be loaded
-
-        $serviceName = null;
+        # the below even if it looks like duplicate, helps properly identify path service like /store
         foreach ($services as $service) {
             $pathRefersToService = $path !== null && starts_with($path, $service);
             $slugContainsService  = str_contains($slug, $service);
@@ -251,37 +288,38 @@ class ResolveCustomSubdomain
             break;
         }
 
-      if ($parts[count($parts) - 2] === 'dorcas') { // meaning the cloud version
-        //dd("BJ");
-            # since the 2nd to the last index is just dorcas - we merge it with the TLD
-            $parts[1] .= '.' . $parts[2];
-            if ($serviceName !== null) {
-                $parts[2] = $parts[1];
-                # switch the domain to the last index since we have discovered a service
-                $parts[1] = $serviceName;
-            } else {
-                unset($parts[2]);
-            }
-        }
+        // if ($parts[count($parts) - 2] === 'dorcas') { // meaning the cloud version
+        //     # since the 2nd to the last index is just dorcas - we merge it with the TLD
+        //     $parts[1] .= '.' . $parts[2];
+        //     if ($serviceName !== null) {
+        //         $parts[2] = $parts[1];
+        //         # switch the domain to the last index since we have discovered a service
+        //         $parts[1] = $serviceName;
+        //     } else {
+        //         unset($parts[2]);
+        //     }
+        // }
+        # NOT NEEDED AGAIN for Open Source
 
-      if (count($parts) === 3 && !starts_with($parts[2], 'dorcas')) { // 3 parts - business. Later needAdd a replica for comminity  & enterprise
-        //dd(array($path,$serviceName));
-            # we still have 3 indexes in the array, but the host domain is a not a Dorcas domain
-            $host = $parts[1] . '.' . $parts[2];
-            # recreate the parts
-            $parts[0] = $parts[1];
-            # set the slug to be the domain name
-            if ($serviceName !== null) {
-                $parts[1] = $serviceName;
-                $parts[2] = $host;
-            } else {
-                $parts[1] = $host;
-                unset($parts[2]);
-            }
-        }
-        $resp = new DorcasSubdomain($parts);
-        //dd("Hello");
-        //dd(array($resp,$parts,$path));
+        // if (count($parts) === 3 && !starts_with($parts[2], 'dorcas')) {
+        //   // 3 parts - business. Later needAdd a replica for comminity  & enterprise
+        //     # we still have 3 indexes in the array, but the host domain is a not a Dorcas domain
+        //     $host = $parts[1] . '.' . $parts[2];
+        //     # recreate the parts
+        //     $parts[0] = $parts[1];
+        //     # set the slug to be the domain name
+        //     if ($serviceName !== null) {
+        //         $parts[1] = $serviceName;
+        //         $parts[2] = $host;
+        //     } else {
+        //         $parts[1] = $host;
+        //         unset($parts[2]);
+        //     }
+        // }
+        # NOT NEEDED AGAIN for Open Source
+        
+        $resp = new DorcasSubdomain($finalParts, true, $this->dorcasEdition);
+        
         return $resp;
     }
 }
