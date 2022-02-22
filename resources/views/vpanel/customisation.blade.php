@@ -143,15 +143,30 @@
                                 </div>
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
-                                        <label>Manage eCommerce Categories</label>
+                                        <label>Manage Product Categories</label>
                                         <select class="form-control" name="marketplace_sales_categories[]" id="marketplace_sales_categories" multiple>
                                             <option disabled="">Leave Unselected. Select / ReSelect to UPDATE</option>
                                             <option v-for="category in marketplaceConfig.sales_categories" v-bind:value="category">@{{ category }}</option>
                                         </select>
-                                        <p><b><a href="#" v-on:click.prevent="addCategory">Click to ADD CATEGORIES</a></b> (remember to Save Customisations)</p>
+                                        <p><b><a href="#" v-on:click.prevent="addCategory">Click to ADD PRODUCT CATEGORIES</a></b> (remember to Save Customisations)</p>
                                         @if ($errors->has('marketplace_sales_categories'))
                                             <span class="text-danger">
                                                 <strong>{{ $errors->first('marketplace_sales_categories') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label>Manage Service Categories</label>
+                                        <select class="form-control" name="marketplace_service_categories[]" id="marketplace_service_categories" multiple>
+                                            <option disabled="">Leave Unselected. Select / ReSelect to UPDATE</option>
+                                            <option v-for="category in marketplaceConfig.service_categories" v-bind:value="category">@{{ category }}</option>
+                                        </select>
+                                        <p><b><a href="#" v-on:click.prevent="addServiceCategory">Click to ADD SERVICE CATEGORIES</a></b> (remember to Save Customisations)</p>
+                                        @if ($errors->has('marketplace_service_categories'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('marketplace_service_categories') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -428,13 +443,14 @@ function htmlspecialchars_decode(string, quote_style) {
                 loading: false,
                 marketplaceConfig: {
                     global_enable: 1,
-                    sales_categories: []
+                    sales_categories: [],
+                    service_categories: []
                 }
             },
             methods: {
                 addCategory: function () {
                     Swal.fire({
-                        title: 'New Category',
+                        title: 'New Product Category',
                         text: "Enter the name for the category:",
                         input: "text",
                         inputAttributes: {
@@ -452,6 +468,31 @@ function htmlspecialchars_decode(string, quote_style) {
                         },
                         preConfirm: (value) => {
                             this.marketplaceConfig.sales_categories.push(value);
+                            return true;
+                            //return swal("Success", "The item <b>" + value + "</b> was successfully added to Global eCommerce Product Categories<br><br><em>Remember to Save Customisations</em>", "success");
+                        }
+                    });
+                },
+                addServiceCategory: function () {
+                    Swal.fire({
+                        title: 'New Service Category',
+                        text: "Enter the name for the category:",
+                        input: "text",
+                        inputAttributes: {
+                            autocapitalize: 'off'
+                        },
+                        showCancelButton: true,
+                        confirmButtonText: 'Save',
+                        animation: "slide-from-top",
+                        showLoaderOnConfirm: true,
+                        inputPlaceholder: "e.g. HR",
+                        inputValidator: (value) => {
+                            if (!value) {
+                                return 'You need to write something!'
+                            }
+                        },
+                        preConfirm: (value) => {
+                            this.marketplaceConfig.service_categories.push(value);
                             return true;
                             //return swal("Success", "The item <b>" + value + "</b> was successfully added to Global eCommerce Product Categories<br><br><em>Remember to Save Customisations</em>", "success");
                         }

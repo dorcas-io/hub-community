@@ -111,6 +111,10 @@ class Customisation extends Controller
             if ($request->has('marketplace_sales_categories')) {
                 $extraConfig['marketplaceConfig']['sales_categories'] = $request->input('marketplace_sales_categories');
             }
+            
+            if ($request->has('marketplace_service_categories')) {
+                $extraConfig['marketplaceConfig']['service_categories'] = $request->input('marketplace_service_categories');
+            }
 
 
             $resource->addBodyParam('extra_data', $extraConfig);
