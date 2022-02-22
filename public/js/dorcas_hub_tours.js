@@ -62,7 +62,7 @@
 		        {
 		          target: "modules-assistant",
 		          title: "Assistant",
-		          content: "From any page of the Hub, click the Help button to bring up a helpful video(s), documentation and an option to contact the support team",
+		          content: "From any page of the Hub, click the Help button to bring up helpful video(s), documentation and an option to contact the support team",
 		          placement: "bottom"
 		        },
 		        {

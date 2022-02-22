@@ -30,7 +30,7 @@ Route::get('/index-cloud', 'Index@indexCloud')->name('index-cloud');
 
 //Login Routes
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
-Route::post('login', ['as' => '', 'uses' => 'Auth\LoginController@login']);
+Route::post('login-post', ['as' => 'login-post', 'uses' => 'Auth\LoginController@login']);
 Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
   
 // Password Reset Routes...

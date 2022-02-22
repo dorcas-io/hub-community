@@ -21,6 +21,9 @@ try {
 
 window.axios = require('axios');
 
+//require('axios-debug-log');
+//window.localStorage.debug = "axios";
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**

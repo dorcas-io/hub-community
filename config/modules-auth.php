@@ -22,7 +22,7 @@ return [
                 'description' => 'View Your Store',
                 'button' => '',
                 'button_link' => 'https://dorcas.io',
-                'editions' => ['business', 'community']
+                'editions' => ['business']
             ],
             'marketplace' => [
                 'media' => 'image',
@@ -32,7 +32,7 @@ return [
                 'description' => 'Explore Partner Marketplace',
                 'button' => '',
                 'button_link' => 'https://dorcas.io',
-                'editions' => ['business', 'community']
+                'editions' => ['community']
             ]
         ],
         'media' =>[

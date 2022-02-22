@@ -25,8 +25,8 @@
         <a class="dropdown-item" href="{{ route('settings-personal') }}">
             <i class="dropdown-icon fe fe-user"></i> Profile
         </a>
-        <a class="dropdown-item" href="{{ route('welcome-overview') }}">
-            <i class="dropdown-icon fe fe-power"></i> Overview &amp; Setup
+        <a class="dropdown-item" href="{{ route('welcome-setup') }}">
+            <i class="dropdown-icon fe fe-power"></i> Setup
         </a>
         <!--<a class="dropdown-item" href="#">
             <span class="float-right"><span class="badge badge-primary">6</span></span>

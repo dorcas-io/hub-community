@@ -7,6 +7,10 @@ use Illuminate\Session\TokenMismatchException;
 
 class VerifyCsrfToken extends Middleware
 {
+
+    //protected $addHttpCookie = false;
+    # added wil troubouleshootinng TokenMismatch
+
     /**
      * The URIs that should be excluded from CSRF verification.
      *

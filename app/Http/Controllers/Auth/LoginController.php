@@ -70,6 +70,40 @@ class LoginController extends Controller
             dd("no provider");
         }*/
 
+        // determine if we are on Partner, User or Employee Login screen
+        $this->data['userHostMode'] = "business";
+        $this->data['userHostString'] = "";
+
+        if ( env("DORCAS_EDITION", "business") == "community" || env("DORCAS_EDITION", "business") == "enterprise" ) {
+
+            $db = DB::connection('core_mysql');
+            $partner = $db->table("partners")->find(1); // first/default partner record
+
+            $this->data['userHostMode'] = "partner";
+            $this->data['userHostString'] = " by " . $partner->name;
+
+            $currentHost = $request->header('host');
+            try {
+                $domainInfo = (new \App\Http\Middleware\ResolveCustomSubdomain())->splitHost($currentHost);
+            } catch (\RuntimeException $e) {
+                $domainInfo = null;
+            }
+
+
+            // behave differently when its a subdomain (tenant)
+            if ( !empty($domainInfo) && !empty($domainInfo->getSubdomain())  && !in_array($domainInfo->getService(),['store', 'blog'])) {
+                $company_slug = $domainInfo->getSubdomain();
+                $subdomain = $db->table("domain_issuances")->where("prefix", $company_slug)->first();
+                if (!empty($subdomain)) {
+                    $company = $db->table("companies")->find($subdomain->domainable_id);
+                    $this->data['userHostString'] = " by " . $company->name;
+                } else {
+                    $this->data['userHostString'] = " by Unknown";
+                }
+                $this->data['userLoginMode'] = "employee";
+            }
+        }
+
         $authMedia = \Dorcas\ModulesAuth\Http\Controllers\ModulesAuthController::getAuthMedia($request, $sdk, "login", "all", "image");
         $this->data['authMedia'] = $authMedia;
 
@@ -79,7 +113,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        //dd("Hi");
         $this->validateLogin($request);
     
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -90,7 +123,7 @@ class LoginController extends Controller
     
             return $this->sendLockoutResponse($request);
         }
-        
+
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
@@ -99,7 +132,7 @@ class LoginController extends Controller
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
-    
+        
         return $this->sendFailedLoginResponse($request);
     }
 

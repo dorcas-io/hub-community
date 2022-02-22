@@ -248,7 +248,7 @@ function get_dorcas_domain(): string
  */
 function get_dorcas_parent_domain(): string
 {
-    return env("DORCAS_EDITION","business") === "business" ? env("DORCAS_BASE_DOMAIN","dorcashub.test") : "." . env("DORCAS_PARENT_DOMAIN","dorcas.io");
+    return env("DORCAS_EDITION","business") === "business" ? env("DORCAS_BASE_DOMAIN","dorcashub.test") : env("DORCAS_PARENT_DOMAIN","dorcas.io");
 }
 
 /**
